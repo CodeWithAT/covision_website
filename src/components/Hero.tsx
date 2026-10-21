@@ -22,49 +22,74 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
     a.muted = true
     a.defaultMuted = true
     a.playsInline = true
+    a.setAttribute('playsinline', '')
+    a.setAttribute('webkit-playsinline', '')
     b.muted = true
     b.defaultMuted = true
     b.playsInline = true
-
-    // Reduced motion check
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      a.removeAttribute('autoplay')
-      a.pause()
-      b.pause()
-      try { a.currentTime = 0 } catch { }
-      return
-    }
+    b.setAttribute('playsinline', '')
+    b.setAttribute('webkit-playsinline', '')
 
     const FADE = 0.9
     let cur = a
     let nxt = b
     let swapping = false
 
-    const playVideo = (v: HTMLVideoElement) => {
+    const playVideo = (v: HTMLVideoElement | null) => {
+      if (!v) return
       v.muted = true
+      v.defaultMuted = true
       const p = v.play()
       if (p && typeof p.catch === 'function') {
-        p.catch(() => { })
+        p.catch(() => {})
       }
     }
 
     // Start video A immediately
     playVideo(a)
 
-    // Fallback: If browser restricted autoplay before user gesture, unlock on first interaction
-    const unlockAutoplay = () => {
-      if (a.paused) {
-        a.muted = true
-        playVideo(a)
+    // Ensure playback resumes on any user interaction or visibility change
+    const ensurePlayback = () => {
+      const active = cur && !cur.paused ? cur : a
+      if (active && active.paused) {
+        playVideo(active)
       }
     }
-    window.addEventListener('pointerdown', unlockAutoplay, { once: true, passive: true })
-    window.addEventListener('touchstart', unlockAutoplay, { once: true, passive: true })
-    window.addEventListener('keydown', unlockAutoplay, { once: true, passive: true })
-    window.addEventListener('scroll', unlockAutoplay, { once: true, passive: true })
+
+    window.addEventListener('pointerdown', ensurePlayback, { passive: true })
+    window.addEventListener('touchstart', ensurePlayback, { passive: true })
+    window.addEventListener('mousemove', ensurePlayback, { passive: true })
+    window.addEventListener('scroll', ensurePlayback, { passive: true })
+    window.addEventListener('keydown', ensurePlayback, { passive: true })
+    window.addEventListener('focus', ensurePlayback)
+    const onVisibility = () => {
+      if (!document.hidden) ensurePlayback()
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+
+    // Data ready listeners to trigger play as soon as data arrives
+    const onReady = (v: HTMLVideoElement) => {
+      if (v === cur || v.classList.contains('is-active')) {
+        playVideo(v)
+      }
+    }
+    a.addEventListener('loadeddata', () => onReady(a))
+    b.addEventListener('loadeddata', () => onReady(b))
+    a.addEventListener('canplay', () => onReady(a))
+    b.addEventListener('canplay', () => onReady(b))
+
+    // Fallback: If ended fires before crossfade, loop back cleanly
+    a.addEventListener('ended', () => {
+      a.currentTime = 0
+      playVideo(a)
+    })
+    b.addEventListener('ended', () => {
+      b.currentTime = 0
+      playVideo(b)
+    })
 
     const tick = () => {
-      if (swapping || !cur.duration) return
+      if (swapping || !cur.duration || isNaN(cur.duration)) return
       if (cur.duration - cur.currentTime > FADE) return
 
       swapping = true
@@ -79,8 +104,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
       nxt = temp
 
       setTimeout(() => {
-        out.pause()
-        try { out.currentTime = 0 } catch { }
+        // Only pause out if new active video is actually playing
+        if (!cur.paused) {
+          out.pause()
+          try { out.currentTime = 0 } catch { }
+        }
         swapping = false
       }, FADE * 1000 + 100)
     }
@@ -91,10 +119,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
     return () => {
       a.removeEventListener('timeupdate', tick)
       b.removeEventListener('timeupdate', tick)
-      window.removeEventListener('pointerdown', unlockAutoplay)
-      window.removeEventListener('touchstart', unlockAutoplay)
-      window.removeEventListener('keydown', unlockAutoplay)
-      window.removeEventListener('scroll', unlockAutoplay)
+      window.removeEventListener('pointerdown', ensurePlayback)
+      window.removeEventListener('touchstart', ensurePlayback)
+      window.removeEventListener('mousemove', ensurePlayback)
+      window.removeEventListener('scroll', ensurePlayback)
+      window.removeEventListener('keydown', ensurePlayback)
+      window.removeEventListener('focus', ensurePlayback)
+      document.removeEventListener('visibilitychange', onVisibility)
     }
   }, [])
 
@@ -170,10 +201,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
             loop
             playsInline
             preload="auto"
+            disablePictureInPicture
             aria-hidden="true"
             poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp"
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4"
-          />
+          >
+            <source src="/globe.mp4" type="video/mp4" />
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4" />
+          </video>
 
           <video
             ref={videoBRef}
@@ -182,10 +216,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
             loop
             playsInline
             preload="auto"
+            disablePictureInPicture
             aria-hidden="true"
             poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp"
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4"
-          />
+          >
+            <source src="/globe.mp4" type="video/mp4" />
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4" />
+          </video>
         </div>
 
         {/* Ambient Warm Halo */}

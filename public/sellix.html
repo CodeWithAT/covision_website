@@ -621,9 +621,11 @@
   <!-- Video Stage with Dual Cross-Fader Loop -->
   <div class="bg" role="img" aria-label="Stylised globe of Earth rendered as a purple dot matrix against a starfield, slowly rotating">
     <video class="bg-video is-active" id="bgVideoA" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp">
+      <source src="/globe.mp4" type="video/mp4">
       <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4">
     </video>
     <video class="bg-video" id="bgVideoB" muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp">
+      <source src="/globe.mp4" type="video/mp4">
       <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4">
     </video>
   </div>
@@ -751,20 +753,14 @@
     var b = document.getElementById('bgVideoB');
     if (!a || !b) return;
 
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      a.removeAttribute('autoplay');
-      a.pause();
-      b.pause();
-      try { a.currentTime = 0; } catch (e) {}
-      return;
-    }
-
     var FADE = 0.9;
     var cur = a;
     var nxt = b;
     var swapping = false;
 
     function play(v) {
+      if (!v) return;
+      v.muted = true;
       var p = v.play();
       if (p && typeof p.catch === 'function') {
         p.catch(function () {});
@@ -773,8 +769,15 @@
 
     play(a);
 
+    function ensurePlay() {
+      if (cur && cur.paused) play(cur);
+    }
+    window.addEventListener('pointerdown', ensurePlay, { passive: true });
+    window.addEventListener('touchstart', ensurePlay, { passive: true });
+    window.addEventListener('scroll', ensurePlay, { passive: true });
+
     function tick() {
-      if (swapping || !cur.duration) return;
+      if (swapping || !cur.duration || isNaN(cur.duration)) return;
       if (cur.duration - cur.currentTime > FADE) return;
 
       swapping = true;
@@ -789,8 +792,10 @@
       nxt = temp;
 
       setTimeout(function () {
-        out.pause();
-        try { out.currentTime = 0; } catch (e) {}
+        if (!cur.paused) {
+          out.pause();
+          try { out.currentTime = 0; } catch (e) {}
+        }
         swapping = false;
       }, FADE * 1000 + 100);
     }
