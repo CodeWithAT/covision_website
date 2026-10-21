@@ -1,0 +1,441 @@
+import type { ServiceItem, EcommerceOffering, ClientPartner, CaseStudyItem, TestimonialItem, FaqItem } from '../types'
+
+
+export const COVISION_PHILOSOPHY = {
+  name: 'CoVision Technologies',
+  tagline: 'Living Technology: Where Technology, AI & Multimedia Converge',
+  subheadline: 'A global full-cycle software development, cloud infrastructure, and creative content production company building digital ecosystems that behave, adapt, and evolve like living organisms.',
+  paradigms: [
+    {
+      number: '01',
+      title: 'Creating Technology That Behaves Like a Living Being',
+      description: 'We integrate advanced principles of artificial intelligence to engineer intelligent systems that learn from their surroundings, make autonomous decisions, and evolve dynamically based on new data and environmental inputs.',
+    },
+    {
+      number: '02',
+      title: 'Designing Environments Where Technology Reacts & Responds',
+      description: 'Technology cannot thrive in isolation. CoVision designs responsive ecosystems that integrate data acquisition, real-time feedback loops, and interoperable architectures so your systems scale effortlessly to meet future demands.',
+    },
+  ],
+  trifecta: [
+    {
+      title: 'Technology',
+      role: 'Digitalizes Operations',
+      desc: 'High-performance web, mobile, SaaS, ERP, and distributed cloud computing infrastructure.',
+      icon: 'Cpu',
+    },
+    {
+      title: 'Artificial Intelligence',
+      role: 'Powers the Brains',
+      desc: 'Predictive intelligence, computer vision, conversational NLU, autonomous workflows, and LLMs.',
+      icon: 'Brain',
+    },
+    {
+      title: 'Multimedia',
+      role: 'Offers Face & Voice',
+      desc: '3D modeling, AR/VR experiences, AI-driven photography, video post-production, and immersive design.',
+      icon: 'Sparkles',
+    },
+  ],
+  synergySDLC: [
+    { layer: 'Planning', aiContribution: 'Intelligent estimations, risk scoring, effort projection, smart sprint backlog prioritization.' },
+    { layer: 'Development', aiContribution: 'Contextual code suggestions, automated unit testing, predictive bug prevention.' },
+    { layer: 'Testing', aiContribution: 'AI-generated regression suites, edge-case simulations, multi-platform device test matrices.' },
+    { layer: 'Deployment', aiContribution: 'Smart CI/CD triggers, automated rollbacks, zero-downtime canary releases.' },
+    { layer: 'Monitoring & Feedback', aiContribution: 'Real-time anomaly detection, user behavior analytics, proactive system self-healing.' },
+  ],
+}
+
+export const IT_SERVICES_DATA: ServiceItem[] = [
+  {
+    id: 'software-engineering',
+    title: 'Software Engineering',
+    tagline: 'Custom Software, Multi-Tenant SaaS & Enterprise ERP',
+    category: 'Software Engineering',
+    description: 'Mission-critical distributed architectures engineered for zero failure. We build custom SaaS platforms, ERP unifications, and high-throughput backends.',
+    detailedScope: [
+      'Custom Software Solutions tailored to specific operational frameworks and revenue goals',
+      'Multi-Tenant SaaS Development with secure data isolation, elastic scalability, and dynamic monetization',
+      'Enterprise Resource Planning (ERP) unifying planning, production, inventory, finance, and CRM',
+      'Available across any mode: Cloud-based Web App, High-Speed Desktop App, and Mobile App',
+      'Subscription and billing models: usage-based, tiered, per-seat licensing, and custom enterprise contracts',
+    ],
+    sla: '99.999% SLA • Enterprise Multi-Tenant Data Isolation Guaranteed',
+    metrics: [
+      { label: 'Client Satisfaction', value: '95%' },
+      { label: 'Revenue Lift', value: '25-40%' },
+      { label: 'Uptime SLA', value: '99.99%' },
+    ],
+    techStack: ['TypeScript', 'TanStack', 'React', 'Go', 'Python', 'PostgreSQL', 'Docker', 'Kubernetes'],
+    iconName: 'Cpu',
+    badgeText: 'Core Engineering',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'app-development',
+    title: 'Application Development & Management',
+    tagline: 'High-Performance Native, Cross-Platform & Enterprise PWAs',
+    category: 'App Development',
+    description: 'Buttery 60fps mobile applications built with Swift, Kotlin, and Flutter. Seamless offline sync, zero CVE vulnerabilities, and enterprise MDM compliance.',
+    detailedScope: [
+      'Native App Development: Platform-specific performance with Swift (iOS) and Kotlin (Android)',
+      'Cross-Platform App Development: One codebase across every screen using Flutter, React Native, and Xamarin',
+      'Hybrid App Development & PWAs: Fast-to-market web technologies inside native shells (Ionic, Capacitor)',
+      'Enterprise Mobile Applications: Mobile tools integrated with your ERP, CRM, and field operations',
+      'Full-Cycle Engineering: From ideation and UX prototyping to store submission and post-launch telemetry',
+    ],
+    sla: 'Sub-60fps Fluid Motion • Offline-First PWA Sync • Zero Security CVEs',
+    metrics: [
+      { label: 'Deploy Speed', value: '3x Faster' },
+      { label: 'Cross-Platform', value: '100% Reuse' },
+      { label: 'App Store Avg', value: '4.9/5' },
+    ],
+    techStack: ['Swift', 'Kotlin', 'Flutter', 'React Native', 'Ionic', 'Capacitor', 'Dart'],
+    iconName: 'Smartphone',
+    badgeText: 'Mobile Velocity',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'cloud-infrastructure',
+    title: 'Cloud & Infrastructure',
+    tagline: 'Multi-Cloud Resilience & Anycast Edge Acceleration',
+    category: 'Cloud & Edge',
+    description: 'Enterprise multi-cloud engineering backed by Bunny CDN Anycast routing. Sub-15ms edge latency, automated zero-downtime failovers, and cloud cost reductions.',
+    detailedScope: [
+      'Cloud Strategy & Architecture: Tailored roadmaps, IaC (Terraform, Pulumi), and microservices',
+      'Seamless Cloud Migration: Minimal downtime re-platforming, lift-and-shift, and legacy modernization',
+      'XaaS (Anything as a Service): SaaS, PaaS, IaaS, CaaS, FaaS, DaaS, BaaS, SECaaS, and AaaS',
+      'Media & Content-Centric Cloud: Cloud-Based Digital Asset Management (DAM) with role-based access',
+      'AI-Powered Metadata Tagging: Computer vision face/logo detection, speech-to-text, and NLP indexing',
+      'Global Edge Acceleration: Anycast CDN routing, NVMe edge storage, and origin shielding via Bunny CDN',
+    ],
+    sla: 'Sub-20ms Global PoP Ping • 99.999% SLA • < 60s Disaster Recovery',
+    metrics: [
+      { label: 'Cloud Cost Cut', value: 'Up to 52%' },
+      { label: 'Global PoPs', value: '120+' },
+      { label: 'DDoS Capacity', value: '80+ Gbps' },
+    ],
+    techStack: ['AWS', 'Google Cloud', 'Azure', 'Bunny CDN', 'Kubernetes', 'Terraform', 'Cilium'],
+    iconName: 'Cloud',
+    badgeText: 'Multi-Cloud',
+    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'ai-ml-integration',
+    title: 'AI/ML Integration & AIaaS',
+    tagline: 'Autonomous Agents, Computer Vision & Predictive Models',
+    category: 'Data & AI',
+    description: 'Plug-and-play AIaaS pipelines trained on your proprietary data. Automated computer vision inspection, conversational NLU agents, and sub-50ms inference.',
+    detailedScope: [
+      'Predictive Intelligence: Dynamic data models forecasting demand trends and business outcomes',
+      'Computer Vision & Image Intelligence: Automated defect detection, OCR, and facial recognition',
+      'Natural Language Understanding (NLU) & Conversational AI: Smart virtual agents and voice assistants',
+      'Autonomous Process Automation: Smart bots, intelligent triggers, and decision logic that runs itself',
+      'Personalization Engines: Real-time curated product and content recommendations',
+      'Custom Machine Learning Models: Designed, trained, and optimized for your specific proprietary data',
+    ],
+    sla: 'Sub-200ms TTFT • Zero Data Leakage • SOC 2 Certified AI Pipelines',
+    metrics: [
+      { label: 'Model Accuracy', value: '99.4%' },
+      { label: 'Process Speedup', value: '10x Faster' },
+      { label: 'Automation ROI', value: '+320%' },
+    ],
+    techStack: ['PyTorch', 'TensorFlow', 'vLLM', 'Qdrant', 'FastAPI', 'LangChain', 'Python'],
+    iconName: 'Brain',
+    badgeText: 'Cognitive Engine',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'data-analytics',
+    title: 'Data Analytics & Business Intelligence',
+    tagline: 'Real-Time Telemetry Streaming & Predictive Analytics',
+    category: 'Data & AI',
+    description: 'Transform raw enterprise event streams into actionable executive intelligence. High-throughput event ingestion, funnel optimization, and automated demand forecasts.',
+    detailedScope: [
+      'Web analytics and telemetry configuration (Google Analytics 4, Adobe Analytics, custom trackers)',
+      'Customer behavior analysis, funnel drop-off diagnostics, and Conversion Rate Optimization (CRO)',
+      'Predictive sales forecasting, demand planning, and churn mitigation models',
+      'A/B testing, multivariate experimentation, and statistical significance validation',
+      'Custom executive dashboards and real-time business intelligence reports',
+    ],
+    sla: 'Real-Time Telemetry Streaming • Deterministic Reporting Consistency',
+    metrics: [
+      { label: 'Data Ingestion', value: '120k evt/s' },
+      { label: 'Query Speed', value: 'Sub-Second' },
+      { label: 'Conversion Lift', value: '+28%' },
+    ],
+    techStack: ['PostgreSQL', 'Python', 'Kafka', 'ClickHouse', 'SQL', 'Apache Spark'],
+    iconName: 'BarChart3',
+    badgeText: 'Telemetry Engine',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'ux-ui-design',
+    title: 'UX/UI Design & StackUI',
+    tagline: 'Cognitive Science Design Thinking & The I3D Process',
+    category: 'UX/UI & StackUI',
+    description: 'Proprietary design token system built on cognitive load reduction, WCAG AAA accessibility, 60fps micro-animations, and seamless developer handoff.',
+    detailedScope: [
+      'Cognitive-Science-Backed Design Thinking: Interfaces that think, react, and resonate with users',
+      'Our Proprietary Design System — StackUI: An operational strategy for scalable, high-velocity UX',
+      'AI-Powered Innovation: Uizard wireframing, Attention Insight / EyeQuant heatmaps, Midjourney concept art',
+      'The I3D UX/UI Process: 1. Ideate (Strategy Boards), 2. Investigate (Journey Maps), 3. Iterate (Prototypes), 4. Deliver (High-Fidelity UI & Dev Handshake)',
+      'Multimedia Synergy: Blending visual storytelling, dynamic animations, and responsive micro-interactions',
+    ],
+    sla: '100% Design Fidelity • WCAG 2.1 AAA Accessibility • Seamless Developer Handshake',
+    metrics: [
+      { label: 'User Retention', value: '+45%' },
+      { label: 'Sprint Velocity', value: '2.5x Faster' },
+      { label: 'Engagement Score', value: '98/100' },
+    ],
+    techStack: ['StackUI', 'Figma', 'Blender', 'Design Tokens', 'Tailwind', 'Framer Motion'],
+    iconName: 'Palette',
+    badgeText: 'StackUI System',
+    image: 'https://images.unsplash.com/photo-1581291518655-9523c932deda?auto=format&fit=crop&w=800&q=80',
+  },
+]
+
+export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
+  {
+    id: 'custom-platform-dev',
+    title: 'Custom & Platform-Based eCommerce',
+    subtitle: 'High-Converting Digital Storefronts for Enterprise Scale',
+    description: 'Headless and platform-based stores engineered for high transaction velocity, sub-second checkout, and seamless global multi-currency operations.',
+    capabilities: [
+      'Shopify & Shopify Plus: Customizable themes, checkout extensions, and Shopify Payments setup',
+      'Adobe Commerce (Magento): Highly tailored open-source architecture for high-volume enterprise stores',
+      'WooCommerce: Flexible, cost-effective WordPress eCommerce with custom plugin architecture',
+      'BigCommerce: Cloud-based multi-channel selling across Amazon, Instagram, and web storefronts',
+      'Bespoke Custom eCommerce: High-speed headless stores built with TypeScript, TanStack, and Bunny CDN',
+    ],
+    platforms: ['Shopify Plus', 'Adobe Commerce (Magento)', 'WooCommerce', 'BigCommerce', 'Custom Headless'],
+    iconName: 'ShoppingBag',
+    badge: 'Flagship Commerce',
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'ecommerce-migration',
+    title: 'Zero-Downtime eCommerce Migration',
+    subtitle: 'Seamless Re-Platforming with 100% SEO & Data Preservation',
+    description: 'Re-platform from legacy monoliths without a second of downtime. Zero lost orders, complete preservation of 301 redirects, customer hashes, and order history.',
+    capabilities: [
+      'Strict Preservation of SEO & 301 URLs to protect organic search rankings',
+      'App & Plugin Mapping to ensure functional equivalence on the target platform',
+      'Payment & Shipping Gateway reconfiguration with multi-currency support',
+      'Security and Compliance Alignment (PCI-DSS Level 1, GDPR, SOC 2)',
+      'Real-time inventory synchronization and legacy customer account data migration',
+    ],
+    platforms: ['Magento to Shopify Plus', 'WooCommerce to BigCommerce', 'SAP Commerce to Composable', 'Salesforce Commerce Cloud'],
+    iconName: 'RefreshCw',
+    badge: 'Zero Downtime',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'ecommerce-integration',
+    title: 'eCommerce Integrations & Middleware',
+    subtitle: 'Real-Time ERP, CRM, Payment & Logistics Sync',
+    description: 'Bi-directional middleware connecting your digital storefront directly into SAP, NetSuite, Salesforce, Stripe, and global logistics fulfillment providers.',
+    capabilities: [
+      'ERP System Integration: SAP, NetSuite, Odoo, and Microsoft Dynamics real-time sync',
+      'Accounting Software: QuickBooks, Xero, Zoho Books, and Tally automated reconciliation',
+      'Payment Gateways: Stripe, PayPal, Razorpay, Square, Apple Pay, Google Pay',
+      'Logistics & Shipping: FedEx, DHL, Shiprocket, and ShipStation fulfillment pipelines',
+      'Product Information Management (PIM): Akeneo, Plytix, or custom PIM repositories',
+    ],
+    platforms: ['SAP S/4HANA', 'Oracle NetSuite', 'Salesforce CRM', 'Stripe Connect', 'FedEx / DHL APIs'],
+    iconName: 'Layers',
+    badge: 'Real-Time Sync',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'creative-content-production',
+    title: 'Creative & Content Production Wing',
+    subtitle: '3D Product Rendering, AR Try-Ons & Visual Storytelling',
+    description: 'Interactive 3D turntables, AR product visualizations, and AI-driven catalogue photography that elevate conversion rates by up to 40%.',
+    capabilities: [
+      'Photography & AI-Driven eCommerce Image Editing: High-resolution brand-consistent visuals',
+      'Video Post-Production Services: AI-enhanced video editing, VFX, sound, and social motion graphics',
+      '3D Product Design & Photorealistic Rendering: Interactive 360-degree product visualization',
+      'Augmented Reality (AR) & Virtual Reality (VR): Virtual try-ons, 3D room placements, and digital walkthroughs',
+    ],
+    platforms: ['Blender 4.0', 'Unreal Engine 5', 'Three.js / WebGL', 'Adobe Creative Suite', 'ARKit & WebXR'],
+    iconName: 'Camera',
+    badge: 'Visual Experience',
+    image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'business-process-services',
+    title: '360° eCommerce Business Process Services',
+    subtitle: 'PIM, Warehouse Barcodes, RFID & Visual Search',
+    description: 'Operational software infrastructure managing end-to-end catalogue PIM, automated warehouse barcode/RFID tracking, and AI-powered visual image search.',
+    capabilities: [
+      'Product Information Management (PIM) and multi-channel catalog curation',
+      'Order Management System (OMS): Real-time tracking, automated return & refund workflows',
+      'Inventory & Warehouse Operations: Barcode/RFID scanner integrations & automated stock alerts',
+      'Visual Search & Image Recognition: Allowing customers to search products via photo upload',
+      'Pricing & Promotions Engine: Rule-based dynamic discounting & competitor price tracking',
+    ],
+    platforms: ['Akeneo PIM', 'Zebra RFID Hardware', 'NetSuite OMS', 'Elasticsearch Vector', 'Kafka Streaming'],
+    iconName: 'CheckCircle2',
+    badge: 'Operations Hub',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+  },
+]
+
+export const TECHNOLOGY_SPECTRUM = {
+  languages: [
+    'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Python', 'Go', 'Rust', 'Swift', 'Kotlin', 'Dart', 'Java', 'PHP', 'C++', 'C', 'Ruby', 'SQL', 'Solidity', 'Bash', 'Scala', 'Julia', 'R'
+  ],
+  frameworks: [
+    'React.js', 'Next.js', 'TanStack Query', 'Vue.js', 'Angular.js', 'Flutter', 'React Native', 'SwiftUI', 'Android SDK', 'Ionic', 'Django', 'Express.js', 'Spring Boot', 'Laravel', 'PyTorch', 'TensorFlow', 'Scikit-Learn', 'Ethereum', 'Hyperledger Fabric', 'Unity', 'Kubernetes', 'Docker', 'Terraform', 'PostgreSQL', 'MongoDB', 'Cassandra', 'AWS IoT', 'Bunny CDN', 'Resend'
+  ],
+  tools: [
+    'Figma', 'Midjourney', 'GitHub Actions', 'Xcode', 'Android Studio', 'Jupyter Notebook', 'Google Colab', 'MetaMask', 'Remix IDE', 'Ganache', 'CI/CD Pipelines', 'Google Data Studio', 'Postman', 'Adobe XD', 'Blender', 'Adobe After Effects', 'Stripe', 'AWS CLI', 'Google Cloud Console', 'Azure CLI'
+  ],
+}
+
+export const PILLAR_CLIENTS: ClientPartner[] = [
+  { name: 'Puma', category: 'Retail & Sportswear', featuredProject: 'Omnichannel mobile app experience & high-load catalog acceleration.', logoText: 'PUMA' },
+  { name: 'Fila', category: 'Global Footwear', featuredProject: 'Custom eCommerce storefront & 3D product visualizer.', logoText: 'FILA' },
+  { name: 'Mango', category: 'Fashion & Apparel', featuredProject: 'Multi-region cloud infrastructure & headless checkout pipeline.', logoText: 'MANGO' },
+  { name: 'Bertelsmann Group', category: 'Media & Publishing', featuredProject: 'Enterprise DAM & AI-powered metadata tagging engine.', logoText: 'BERTELSMANN' },
+  { name: 'Estée Lauder Companies', category: 'Luxury Beauty', featuredProject: 'AR virtual try-on integration & personalized recommendation AI.', logoText: 'ESTÉE LAUDER' },
+  { name: 'Rugs USA', category: 'Home & Living', featuredProject: 'High-throughput inventory synchronization & ERP integration.', logoText: 'RUGS USA' },
+  { name: 'HMD Global', category: 'Consumer Devices', featuredProject: 'Global supply chain telemetry & warranty registration platform.', logoText: 'HMD' },
+  { name: 'NovaPay Global', category: 'FinTech', featuredProject: 'Go microservices & zero-downtime Kubernetes failover handling $1.2B daily.', logoText: 'NOVAPAY' },
+  { name: 'Aura Health AI', category: 'MedTech', featuredProject: 'HIPAA-compliant private RAG diagnostic intelligence.', logoText: 'AURA HEALTH' },
+  { name: 'Silver Maharaja', category: 'Jewelry & Luxury', featuredProject: 'Luxury e-commerce storefront with multi-currency checkout.', logoText: 'SILVER MAHARAJA' },
+  { name: 'Tony’s App', category: 'Consumer Lifestyle', featuredProject: 'Cross-platform mobile application with sub-60fps fluid UI.', logoText: "TONY'S" },
+  { name: 'Wave Book', category: 'EdTech & Digital Media', featuredProject: 'Interactive PWA learning ecosystem with offline support.', logoText: 'WAVE BOOK' },
+  { name: 'Ticketing App', category: 'Events & Entertainment', featuredProject: 'High-concurrency ticket reservation engine with fraud prevention.', logoText: 'TICKETING' },
+  { name: 'LogiCore Global', category: 'Supply Chain IoT', featuredProject: 'Fleet telemetry tracking across 65,000 intermodal vehicles.', logoText: 'LOGICORE' },
+]
+
+export const ABOUT_US_DETAILS = {
+  vision: 'To be the global leader in IT and multimedia, developing sustainable solutions that contribute to a better, safer, and healthier business ecosystem for stakeholders worldwide.',
+  mission: 'To deliver the best possible reliable solutions that empower our clients to achieve their goals through the convergence of AI, multimedia, and technology.',
+  values: [
+    { title: 'Customer Commitment', desc: 'Client satisfaction at the core of every engagement with personalized service and collaborative development.' },
+    { title: 'Quality Excellence', desc: 'Outstanding products and unsurpassed services delivering exclusive competitive advantage.' },
+    { title: 'Collaborative Teamwork', desc: 'Working as an organic whole across cross-functional departments and global geographies.' },
+    { title: 'Winning Spirit', desc: 'Relentless pursuit of innovation, rapid delivery, and market-leading craftsmanship.' },
+    { title: 'Pragmatism & Relevance', desc: 'Solutions that are not only technically sound, but practical, scalable, and tailored to real-world challenges.' },
+    { title: 'Responsiveness & Accountability', desc: 'Structured communication channels, agile workflows, and personal accountability for all outcomes.' },
+  ],
+}
+
+export const CASE_STUDIES: CaseStudyItem[] = [
+  {
+    id: 'novapay-global',
+    client: 'NovaPay Global',
+    industry: 'FinTech & Payments',
+    headline: 'Modernizing core transaction engine to handle $1.2B daily throughput',
+    summary: 'Re-architected monolithic banking rails into distributed Go microservices with TanStack dashboards, Kafka event bus, and zero-downtime Kubernetes failover.',
+    challenge: 'Legacy system suffered 1.4-second checkout latency during peak sales and lacked multi-region data compliance.',
+    solution: 'Designed an event-driven architecture with edge tokenization, TanStack Query state caching, and Bunny CDN origin shielding.',
+    results: [
+      { metric: '78ms', label: 'P99 Latency (down from 1.4s)' },
+      { metric: '99.999%', label: 'Yearly Platform Availability' },
+      { metric: '$4.2M', label: 'Cloud Infrastructure Savings' },
+    ],
+    technologies: ['TypeScript', 'TanStack', 'Kubernetes', 'Bunny CDN', 'Go', 'Kafka'],
+    accentColor: '#0052cb',
+    bunnyCdnUsed: true,
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'puma-omnichannel',
+    client: 'Puma Retail Suite',
+    industry: 'Sportswear & eCommerce',
+    headline: 'Sub-60fps mobile catalog and headless checkout transformation',
+    summary: 'Constructed an omnichannel mobile shopping experience with 3D product visualizations, instant inventory sync, and real-time POS connection.',
+    challenge: 'High cart abandonment rate on mobile devices and inventory desynchronization across 140 retail outlets.',
+    solution: 'Built a cross-platform Flutter and React Native application with Bunny CDN edge asset optimization and custom middleware sync.',
+    results: [
+      { metric: '38%', label: 'Mobile Conversion Increase' },
+      { metric: '0s', label: 'Inventory Lag Across Stores' },
+      { metric: '4.9/5', label: 'App Store Customer Rating' },
+    ],
+    technologies: ['Flutter', 'React Native', 'Bunny CDN', 'TypeScript', 'Node.js', 'Redis'],
+    accentColor: '#0052cb',
+    bunnyCdnUsed: true,
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'aura-health-ai',
+    client: 'Aura Health AI',
+    industry: 'HealthTech & Telemedicine',
+    headline: 'HIPAA-compliant autonomous clinical triage & document extraction',
+    summary: 'Engineered a private generative AI medical diagnostic assistant with hybrid vector search and sub-200ms clinician query response.',
+    challenge: 'Physicians spent 4.2 hours daily on chart notes and clinical coding with high manual error rates.',
+    solution: 'Fine-tuned medical LLMs with RAG on de-identified EHR records, running inside a private cloud enclave with Resend alerting.',
+    results: [
+      { metric: '68%', label: 'Physician Admin Time Cut' },
+      { metric: '99.4%', label: 'Diagnostic Extraction Accuracy' },
+      { metric: '100%', label: 'HIPAA & SOC 2 Compliance' },
+    ],
+    technologies: ['PyTorch', 'vLLM', 'Qdrant', 'TypeScript', 'Resend', 'Docker'],
+    accentColor: '#0284c7',
+    bunnyCdnUsed: false,
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+  },
+]
+
+export const TESTIMONIALS: TestimonialItem[] = [
+  {
+    quote: 'CoVision engineered our entire payments architecture and mobile retail suite from scratch. Their mastery of Living Technology, TypeScript, and TanStack allowed us to pass strict audits and scale revenue by 38% in record time.',
+    author: 'Marcus Vance',
+    role: 'Chief Technology Officer',
+    company: 'FinGlobal Technologies (London)',
+    rating: 5,
+    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    verifiedEnterprise: true,
+  },
+  {
+    quote: 'When we integrated the custom 360° eCommerce Suite and global edge acceleration built by CoVision, our global API latency dropped from 280ms to 18ms. Their engineers do not just write code—they think like business owners.',
+    author: 'Dr. Elena Rostova',
+    role: 'VP of Engineering',
+    company: 'Synapse AI Systems (San Francisco)',
+    rating: 5,
+    avatarUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80',
+    verifiedEnterprise: true,
+  },
+  {
+    quote: 'The level of craftsmanship, CoUI design fidelity, and performance obsession is unmatched. Every single interaction on our enterprise dashboard is silky smooth, and the automated CI/CD pipeline cut our release cycle to 10 minutes.',
+    author: 'Siddharth Mehta',
+    role: 'Head of Infrastructure',
+    company: 'LogiCore Global (Singapore)',
+    rating: 5,
+    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+    verifiedEnterprise: true,
+  },
+]
+
+export const FAQ_DATA: FaqItem[] = [
+  {
+    question: 'How does CoVision structure intellectual property (IP) and client confidentiality?',
+    category: 'Security & NDA',
+    answer: 'We provide 100% intellectual property transfer to your company upon milestone completion. Before any code is viewed or scoping begins, we execute a legally binding Mutual Non-Disclosure Agreement (MNDA). All repositories, AWS/GCP accounts, and secrets remain under your direct corporate ownership.',
+  },
+  {
+    question: 'What is the "Living Technology" philosophy at CoVision?',
+    category: 'Architecture',
+    answer: 'Living Technology is our core philosophy where software behaves, adapts, and evolves like a living organism. It combines our two paradigms: creating systems that make autonomous decisions via AI, and designing responsive ecosystems that interact in real time across the Trifecta of Technology, AI, and Multimedia.',
+  },
+  {
+    question: 'What is included in the 360° eCommerce Suite?',
+    category: 'Architecture',
+    answer: 'Our 360° eCommerce Suite covers the complete lifecycle: custom headless & platform builds (Shopify, Adobe Commerce/Magento, WooCommerce, BigCommerce), zero-downtime migrations, ERP/CRM middleware integrations, our creative content production wing (AI photography, 3D modeling, AR/VR), and business process operations (PIM, OMS, warehouse barcode/RFID).',
+  },
+  {
+    question: 'How do you ensure zero downtime during eCommerce and cloud migrations?',
+    category: 'Engagement',
+    answer: 'We use automated data replication, strict 301 SEO URL preservation, payment gateway sandbox pre-validation, and parallel traffic routing with automated health checks so your customers never experience a single minute of downtime.',
+  },
+  {
+    question: 'What is your post-launch SLA and incident response guarantee?',
+    category: 'Pricing',
+    answer: 'Every deployment includes 60 days of complimentary hypercare support. For ongoing operations, our Managed 24/7 SRE SLA guarantees a 15-minute response time for P1 critical incidents with automated escalation and continuous uptime monitoring.',
+  },
+]
+
