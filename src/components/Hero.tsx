@@ -159,15 +159,22 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: 51% 8%;
+          object-position: 50% 28%;
           display: block;
           background-color: #FAF9F5;
           pointer-events: none;
           opacity: 0;
-          transition: opacity 0.9s linear;
+          transition: opacity 0.9s ease-in-out;
+          -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 55%, #000 50%, rgba(0, 0, 0, 0.4) 75%, transparent 98%);
+          mask-image: radial-gradient(ellipse 85% 75% at 50% 55%, #000 50%, rgba(0, 0, 0, 0.4) 75%, transparent 98%);
         }
         .hero-seamless-vid.is-active {
           opacity: 1;
+        }
+        @media (max-width: 640px) {
+          .hero-seamless-vid {
+            object-position: 50% 36%;
+          }
         }
 
         /* Non-wrapping, strictly single-line button rules */
@@ -217,11 +224,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
           </video>
         </div>
 
+        {/* Soft Ambient Typography Protection: Guarantees 100% crisp typography while letting globe shine around */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_68%_52%_at_50%_38%,#FAF9F5_26%,rgba(250,249,245,0.72)_58%,transparent_88%)] z-1" />
+
         {/* Ambient Warm Halo */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_65%_at_50%_44%,rgba(0,82,203,0.06),rgba(56,189,248,0.02)_50%,transparent_80%)] z-1" />
 
         {/* Crisp Bottom Transition into Paper Theme */}
-        <div className="pointer-events-none absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#FAF9F5] via-[#FAF9F5]/80 to-transparent z-1" />
+        <div className="pointer-events-none absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-[#FAF9F5] via-[#FAF9F5]/90 to-transparent z-1" />
 
         {/* Transparent Floating Hero Header Nav (Clean CoVision without IT badge) */}
         <header className="relative z-30 h-16 sm:h-20 px-6 sm:px-10 lg:px-16 flex items-center justify-between border-b border-neutral-200/50 bg-[#FAF9F5]/75 backdrop-blur-md">
@@ -454,7 +464,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
             }
           }}
         >
-          <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-neutral-500 font-bold">
+          <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-neutral-600 font-bold px-3 py-1 rounded-full bg-[#FAF9F5]/90 backdrop-blur-md border border-neutral-200/60 shadow-xs">
             Scroll to Explore Ecosystem
           </span>
           <div className="w-5 h-8 rounded-full border border-neutral-400 flex items-start justify-center p-1 bg-white/70 backdrop-blur-xs">
