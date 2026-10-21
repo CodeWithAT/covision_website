@@ -161,16 +161,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
           object-fit: cover;
           object-position: 51% 8%;
           display: block;
-          background-color: transparent;
+          background-color: #FAF9F5;
           pointer-events: none;
           opacity: 0;
           transition: opacity 0.9s linear;
-          /* Refined White Theme Transformation: Turns black ocean into white paper, continents into sapphire blue */
-          filter: invert(1) hue-rotate(185deg) contrast(1.15) brightness(1.02);
-          mix-blend-mode: multiply;
-          /* Precision radial mask isolates the Earth sphere and eliminates all background space stars */
-          -webkit-mask-image: radial-gradient(ellipse 65% 53% at 50% 64%, #000 38%, rgba(0, 0, 0, 0.5) 54%, transparent 67%);
-          mask-image: radial-gradient(ellipse 65% 53% at 50% 64%, #000 38%, rgba(0, 0, 0, 0.5) 54%, transparent 67%);
         }
         .hero-seamless-vid.is-active {
           opacity: 1;
@@ -203,10 +197,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
             preload="auto"
             disablePictureInPicture
             aria-hidden="true"
-            poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp"
+            poster="/globe_poster.webp"
           >
             <source src="/globe.mp4" type="video/mp4" />
-            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4" />
           </video>
 
           <video
@@ -218,10 +211,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
             preload="auto"
             disablePictureInPicture
             aria-hidden="true"
-            poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp"
+            poster="/globe_poster.webp"
           >
             <source src="/globe.mp4" type="video/mp4" />
-            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4" />
           </video>
         </div>
 
