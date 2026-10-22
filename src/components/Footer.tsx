@@ -1,6 +1,6 @@
-import React, { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Mail, ExternalLink } from 'lucide-react'
+import React, { useRef, useState } from 'react'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { Mail, ExternalLink, ShieldCheck, FileText, X, CheckCircle2 } from 'lucide-react'
 
 interface FooterProps {
   onNavigatePage?: (page: string) => void
@@ -10,6 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear()
 
 export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
   const footerRef = useRef<HTMLDivElement>(null)
+  const [legalModalTab, setLegalModalTab] = useState<'privacy' | 'terms' | null>(null)
 
   const { scrollYProgress } = useScroll({
     target: footerRef,
@@ -201,23 +202,23 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
               © {CURRENT_YEAR} COVISION TECHNOLOGIES PRIVATE LIMITED. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm">
-              <a
-                href="#contact"
-                onClick={(e) => handleLinkClick(e, 'contact')}
-                className="text-neutral-500 transition-colors duration-300 hover:text-ink cursor-pointer"
+              <button
+                type="button"
+                onClick={() => setLegalModalTab('privacy')}
+                className="text-neutral-500 transition-colors duration-300 hover:text-ink cursor-pointer bg-transparent border-0 p-0 text-sm"
               >
-                Privacy & Data Security
-              </a>
-              <a
-                href="#contact"
-                onClick={(e) => handleLinkClick(e, 'contact')}
-                className="text-neutral-500 transition-colors duration-300 hover:text-ink cursor-pointer"
+                Privacy &amp; Data Security
+              </button>
+              <button
+                type="button"
+                onClick={() => setLegalModalTab('terms')}
+                className="text-neutral-500 transition-colors duration-300 hover:text-ink cursor-pointer bg-transparent border-0 p-0 text-sm"
               >
                 Enterprise Terms
-              </a>
+              </button>
               <button
                 onClick={scrollToTop}
-                className="text-[#0052cb] hover:underline font-bold cursor-pointer"
+                className="text-[#0052cb] hover:underline font-bold cursor-pointer bg-transparent border-0 p-0 text-sm"
               >
                 Back to Top ↑
               </button>
@@ -225,6 +226,162 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
           </div>
         </div>
       </div>
+
+      {/* Enterprise Legal & Compliance Modal */}
+      <AnimatePresence>
+        {legalModalTab && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setLegalModalTab(null)}
+              className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ duration: 0.25 }}
+              className="relative w-full max-w-2xl bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 z-10 max-h-[88vh] flex flex-col font-inter-tight text-ink"
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+                <div className="flex items-center gap-3">
+                  <div className="size-10 rounded-xl bg-blue-50 text-[#0052cb] flex items-center justify-center">
+                    {legalModalTab === 'privacy' ? <ShieldCheck className="size-5" /> : <FileText className="size-5" />}
+                  </div>
+                  <div>
+                    <h3 className="font-bricolage text-xl font-bold text-slate-900">
+                      {legalModalTab === 'privacy' ? 'Data Security & Privacy Governance' : 'Enterprise Terms of Service & SLA'}
+                    </h3>
+                    <p className="text-xs text-slate-500 font-mono">
+                      {legalModalTab === 'privacy' ? 'SOC 2 Type II • GDPR • Sovereign IP Standard' : 'Contractual SLA • 99.99% Availability Guarantee'}
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setLegalModalTab(null)}
+                  className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer bg-transparent border-0"
+                  aria-label="Close dialog"
+                >
+                  <X className="size-5" />
+                </button>
+              </div>
+
+              {/* Tab Selector */}
+              <div className="flex items-center gap-2 mt-4 p-1 rounded-xl bg-slate-100 w-max text-xs font-semibold">
+                <button
+                  type="button"
+                  onClick={() => setLegalModalTab('privacy')}
+                  className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer border-0 ${
+                    legalModalTab === 'privacy' ? 'bg-white text-[#0052cb] shadow-xs' : 'bg-transparent text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Privacy &amp; Security
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLegalModalTab('terms')}
+                  className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer border-0 ${
+                    legalModalTab === 'terms' ? 'bg-white text-[#0052cb] shadow-xs' : 'bg-transparent text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Enterprise Terms &amp; SLA
+                </button>
+              </div>
+
+              {/* Content Area */}
+              <div className="mt-5 space-y-4 overflow-y-auto pr-1 text-sm text-slate-600 leading-relaxed max-h-[55vh]">
+                {legalModalTab === 'privacy' ? (
+                  <>
+                    <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-start gap-3">
+                      <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-900 block font-semibold">100% Intellectual Property (IP) Transfer</strong>
+                        <span className="text-xs text-slate-600">All source code, bespoke algorithms, design tokens, and deployment scripts produced during client engagements are fully assigned to the client company upon milestone completion.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-start gap-3">
+                      <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-900 block font-semibold">Mutual Non-Disclosure Agreement (MNDA)</strong>
+                        <span className="text-xs text-slate-600">Every engineering sprint and client communication is guarded by a legally binding bilateral MNDA. Access to client repositories and cloud credentials is strictly air-gapped on a need-to-know basis.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-start gap-3">
+                      <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-900 block font-semibold">Zero-Data Retention on Private AI Pipelines</strong>
+                        <span className="text-xs text-slate-600">Proprietary business records and LLM prompts processed via our AIaaS integrations are processed in isolated enclaves and never cached or retained to train third-party foundation models.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-start gap-3">
+                      <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-900 block font-semibold">Encryption &amp; Global Compliance</strong>
+                        <span className="text-xs text-slate-600">All data in transit is encrypted using TLS 1.3, and data at rest is secured via AES-256 encryption. We comply with EU GDPR, California CCPA, and ISO 27001 data governance frameworks.</span>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-start gap-3">
+                      <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-900 block font-semibold">99.99% Cloud Infrastructure SLA</strong>
+                        <span className="text-xs text-slate-600">Production deployments architected across multi-region cloud clusters and Tier-1 Anycast CDNs guarantee continuous uptime, automated health check failovers, and low latency.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-start gap-3">
+                      <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-900 block font-semibold">15-Minute Critical Incident Escalation</strong>
+                        <span className="text-xs text-slate-600">For Priority 1 (P1) mission-critical outages, our Site Reliability Engineering (SRE) team guarantees response and active investigation within 15 minutes 24/7/365.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-start gap-3">
+                      <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-900 block font-semibold">60-Day Complimentary Hypercare Warranty</strong>
+                        <span className="text-xs text-slate-600">Following production launch, CoVision provides 60 continuous days of warranty support covering bug remediation, regression resolution, and performance telemetry tuning at zero added charge.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-start gap-3">
+                      <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-900 block font-semibold">Transparent Sprint Cadence</strong>
+                        <span className="text-xs text-slate-600">All deliverables operate under structured bi-weekly Agile sprint intervals with documented burn-down charts, code reviews, and staging demo approvals prior to main branch merge.</span>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* Modal Footer */}
+              <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs text-slate-400 font-mono">Last reviewed: October 2026</span>
+                <button
+                  type="button"
+                  onClick={() => setLegalModalTab(null)}
+                  className="px-5 py-2 rounded-xl bg-[#0052cb] text-white text-xs font-bold hover:bg-[#003da8] transition-colors cursor-pointer border-0"
+                >
+                  Acknowledge &amp; Close
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </footer>
   )
 }
