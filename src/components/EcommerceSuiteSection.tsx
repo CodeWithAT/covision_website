@@ -92,6 +92,7 @@ export const EcommerceSuiteSection: React.FC<EcommerceSuiteSectionProps> = ({ on
                       src={activeOffering.image}
                       alt={activeOffering.title}
                       loading="lazy"
+                      onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none' }}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />

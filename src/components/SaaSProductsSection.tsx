@@ -232,6 +232,7 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({ onOpen
                     src={product.image}
                     alt={product.name}
                     loading="lazy"
+                    onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none' }}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />

@@ -191,11 +191,11 @@ export const AppContent: React.FC = () => {
               {/* CogniMedia Signature Marquee Divider */}
               <MarqueeDivider />
 
-              {/* Flagship Practice Portfolios (Direct Gateway to Dedicated Sub-Pages) */}
-              <PracticePortfoliosSection onNavigatePage={handleNavigatePage} />
-
               {/* Living Technology Overview & Adaptation Framework */}
               <LivingTechnologySection />
+
+              {/* Flagship Practice Portfolios (Direct Gateway to Dedicated Sub-Pages) */}
+              <PracticePortfoliosSection onNavigatePage={handleNavigatePage} />
 
               {/* Dual Infinite Client Marquee & Strategic Case Spotlights */}
               <PillarClientsSection onOpenContact={() => handleOpenContact()} />

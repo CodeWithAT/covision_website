@@ -305,10 +305,18 @@ export const PILLAR_CLIENTS: ClientPartner[] = [
   { name: 'NovaPay Global', category: 'FinTech', featuredProject: 'Go microservices & zero-downtime Kubernetes failover handling $1.2B daily.', logoText: 'NOVAPAY' },
   { name: 'Aura Health AI', category: 'MedTech', featuredProject: 'HIPAA-compliant private RAG diagnostic intelligence.', logoText: 'AURA HEALTH' },
   { name: 'Silver Maharaja', category: 'Jewelry & Luxury', featuredProject: 'Luxury e-commerce storefront with multi-currency checkout.', logoText: 'SILVER MAHARAJA' },
-  { name: 'Tony’s App', category: 'Consumer Lifestyle', featuredProject: 'Cross-platform mobile application with sub-60fps fluid UI.', logoText: "TONY'S" },
+  { name: 'Tony’s App', category: 'Consumer Lifestyle', featuredProject: 'Cross-platform mobile application with sub-60fps fluid UI.', logoText: "TONY'S APP" },
   { name: 'Wave Book', category: 'EdTech & Digital Media', featuredProject: 'Interactive PWA learning ecosystem with offline support.', logoText: 'WAVE BOOK' },
-  { name: 'Ticketing App', category: 'Events & Entertainment', featuredProject: 'High-concurrency ticket reservation engine with fraud prevention.', logoText: 'TICKETING' },
+  { name: 'Ticketing App', category: 'Events & Entertainment', featuredProject: 'High-concurrency ticket reservation engine with fraud prevention.', logoText: 'TICKETING APP' },
   { name: 'LogiCore Global', category: 'Supply Chain IoT', featuredProject: 'Fleet telemetry tracking across 65,000 intermodal vehicles.', logoText: 'LOGICORE' },
+  { name: 'Nexa Retail Group', category: 'Enterprise eCommerce', featuredProject: 'Headless multi-store architecture with automated PIM catalog sync.', logoText: 'NEXA RETAIL' },
+  { name: 'Apex Pharma', category: 'Healthcare & Pharma', featuredProject: 'Compliant supply chain traceability & batch expiry monitoring.', logoText: 'APEX PHARMA' },
+  { name: 'Omnistore 360', category: 'Retail Operations', featuredProject: 'Unified POS, ERP integration & real-time inventory management.', logoText: 'OMNISTORE 360' },
+  { name: 'Horizon Media', category: 'Creative & Video', featuredProject: 'AI-assisted video post-production & cloud asset rendering pipeline.', logoText: 'HORIZON MEDIA' },
+  { name: 'Quantum Edge IoT', category: 'Smart Infrastructure', featuredProject: 'Sub-15ms edge telemetry streaming & sensor anomaly detection.', logoText: 'QUANTUM EDGE' },
+  { name: 'Verity Pay', category: 'Payment Infrastructure', featuredProject: 'Multi-currency payment gateway & PCI-DSS tokenized settlement.', logoText: 'VERITY PAY' },
+  { name: 'CloudScale Global', category: 'Cloud Engineering', featuredProject: 'Multi-cloud Kubernetes migration with zero downtime.', logoText: 'CLOUDSCALE' },
+  { name: 'Synthetix 3D Labs', category: 'Spatial Computing', featuredProject: 'Interactive WebGL 3D product visualizer & AR virtual walkthroughs.', logoText: 'SYNTHETIX 3D' },
 ]
 
 export const ABOUT_US_DETAILS = {

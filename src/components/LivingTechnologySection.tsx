@@ -11,6 +11,8 @@ import {
   Sparkles,
   ShieldCheck,
   Zap,
+  Server,
+  ShoppingBag,
 } from 'lucide-react'
 
 interface DefiningPillar {
@@ -19,7 +21,6 @@ interface DefiningPillar {
   subtitle: string
   category: string
   tagline: string
-  image: string
   summary: string
   bullets: string[]
   badgeColor: string
@@ -32,7 +33,6 @@ const DEFINING_PILLARS: DefiningPillar[] = [
     subtitle: 'The Two Fundamental Paradigms',
     category: 'Architecture Philosophy',
     tagline: 'Deterministic engineering meets autonomous self-evolving cognition.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
     summary: 'Living Technology fuses deterministic software discipline with stochastic machine learning models, creating resilient systems that never go anemic.',
     bullets: [
       'Paradigm of Logic: Clean architecture, ACID compliance, zero-regression test harnesses.',
@@ -47,12 +47,11 @@ const DEFINING_PILLARS: DefiningPillar[] = [
     subtitle: 'Technology • AI • Multimedia',
     category: 'Ecosystem Convergence',
     tagline: 'When code, cognition, and visual fidelity operate as a singular organism.',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
     summary: 'Technology digitalizes operations, AI provides the cognitive brains, and Multimedia delivers the sensory voice and interactive face to the market.',
     bullets: [
       'Zero siloing: engineers, AI researchers, and 3D visual artists build in tandem.',
       'Shared data models between operational ERPs and user-facing 3D storefronts.',
-      'Direct pipeline to our sister media wing, Cognitive Media, for generative visuals.',
+      'Direct pipeline to our creative content production wing for 3D and generative visuals.',
     ],
     badgeColor: 'bg-emerald-500',
   },
@@ -62,7 +61,6 @@ const DEFINING_PILLARS: DefiningPillar[] = [
     subtitle: 'High-Concurrency Commerce',
     category: 'Commerce Operations',
     tagline: 'Headless storefronts, zero-downtime migration, and automated warehouse sync.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
     summary: 'From custom platform development to ERP/CRM middleware, 3D product visualizers, and barcode/RFID warehouse operations.',
     bullets: [
       'Shopify Plus, Adobe Commerce (Magento), and bespoke headless architectures.',
@@ -77,7 +75,6 @@ const DEFINING_PILLARS: DefiningPillar[] = [
     subtitle: 'Sub-15ms Global Latency',
     category: 'Cloud Infrastructure',
     tagline: 'Multi-cloud resilience and tier-1 Anycast routing via Bunny CDN.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
     summary: 'Global high-throughput delivery across 120+ Points of Presence, origin shielding, and automated AVIF/WebP image optimization.',
     bullets: [
       'Sub-20ms median latency across Europe, North America, and Asia.',
@@ -92,16 +89,241 @@ const DEFINING_PILLARS: DefiningPillar[] = [
     subtitle: 'Cognitive Science UX',
     category: 'Design Systems',
     tagline: 'Where behavioral psychology converges with micro-animations & spatial UI.',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
     summary: 'CoUI is our battle-tested design token system built on cognitive load reduction, WCAG AAA accessibility, buttery 60fps micro-interactions, and 3D product fidelity.',
     bullets: [
-      'Proprietary I3D framework: Identify, Iterate, Implement 3D spatial fidelity.',
+      'Proprietary I3D framework: Ideate (Strategy), Investigate (Journey), Iterate (Prototypes), Deliver (Dev Handshake).',
       'Micro-animations calibrated to heighten user engagement without cognitive friction.',
       'Cross-platform responsive consistency across mobile screens, foldable displays, and 4K desktops.',
     ],
     badgeColor: 'bg-violet-500',
   },
 ]
+
+// Self-contained, highly interactive architectural canvas for each pillar (100% reliable, zero black boxes)
+const PillarInteractiveCanvas: React.FC<{ pillarNumber: string; subtitle: string }> = ({
+  pillarNumber,
+  subtitle,
+}) => {
+  if (pillarNumber === '01') {
+    return (
+      <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-[#060D1E] via-[#09152E] to-[#111E42] p-5 flex flex-col justify-between border border-blue-500/20 group">
+        <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
+        
+        {/* Top Header */}
+        <div className="relative z-10 flex items-center justify-between text-[11px] font-mono">
+          <span className="flex items-center gap-1.5 bg-blue-950/80 px-2.5 py-1 rounded-full border border-blue-500/30 text-cyan-300">
+            <span className="size-1.5 rounded-full bg-cyan-400 animate-pulse" />
+            <span>PARADIGM 01: LOGIC</span>
+          </span>
+          <span className="text-blue-300/90 bg-blue-950/70 px-2.5 py-0.5 rounded-md border border-blue-500/30 text-[10px]">
+            ACID Compliant
+          </span>
+        </div>
+
+        {/* Dynamic Interactive Core */}
+        <div className="relative z-10 my-auto flex items-center justify-around gap-2 py-1">
+          <div className="flex flex-col items-center">
+            <div className="size-10 rounded-xl bg-blue-600/25 border border-blue-400/50 flex items-center justify-center text-blue-300 shadow-md shadow-blue-500/20">
+              <Zap className="size-5 text-blue-400" />
+            </div>
+            <span className="text-[10px] font-mono font-bold text-slate-200 mt-1">Deterministic</span>
+            <span className="text-[8.5px] font-mono text-blue-300/70">0-Regression</span>
+          </div>
+
+          <div className="flex-1 flex flex-col items-center px-1">
+            <div className="w-full flex items-center justify-between text-[8px] font-mono text-cyan-300/80 mb-1">
+              <span>SYNAPSE</span>
+              <span>EQUILIBRIUM</span>
+            </div>
+            <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 rounded-full relative overflow-hidden">
+              <div className="absolute inset-0 bg-white/60 animate-pulse" />
+            </div>
+            <span className="text-[8px] font-mono text-slate-400 mt-1 uppercase tracking-widest">Self-Healing Loop</span>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <div className="size-10 rounded-xl bg-cyan-600/25 border border-cyan-400/50 flex items-center justify-center text-cyan-300 shadow-md shadow-cyan-500/20">
+              <Brain className="size-5 text-cyan-400 animate-pulse" />
+            </div>
+            <span className="text-[10px] font-mono font-bold text-slate-200 mt-1">Autonomous</span>
+            <span className="text-[8.5px] font-mono text-cyan-300/70">Cognitive Loop</span>
+          </div>
+        </div>
+
+        {/* Bottom Status */}
+        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono border-t border-white/10 pt-2 text-slate-300">
+          <span className="text-cyan-300 font-semibold">{subtitle}</span>
+          <span className="text-emerald-400 font-bold">● Active Balance</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (pillarNumber === '02') {
+    return (
+      <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-[#060D1A] via-[#0B1527] to-[#120F24] p-5 flex flex-col justify-between border border-indigo-500/20 group">
+        <div className="absolute inset-0 bg-[radial-gradient(#818cf8_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
+        
+        <div className="relative z-10 flex items-center justify-between text-[11px] font-mono">
+          <span className="flex items-center gap-1.5 bg-indigo-950/80 px-2.5 py-1 rounded-full border border-indigo-500/30 text-indigo-300">
+            <span className="size-1.5 rounded-full bg-indigo-400 animate-pulse" />
+            <span>TRIFECTA CONVERGENCE</span>
+          </span>
+          <span className="text-emerald-300/90 bg-emerald-950/70 px-2.5 py-0.5 rounded-md border border-emerald-500/30 text-[10px]">
+            Zero Silos
+          </span>
+        </div>
+
+        {/* 3 Paradigms in Harmony */}
+        <div className="relative z-10 my-auto grid grid-cols-3 gap-2 py-1 items-center text-center">
+          <div className="p-2 rounded-xl bg-blue-500/15 border border-blue-400/40 flex flex-col items-center">
+            <Server className="size-4 text-blue-400 mb-0.5" />
+            <span className="text-[10px] font-mono font-bold text-white">Technology</span>
+            <span className="text-[8px] text-blue-300/80 font-mono">Digitalize Ops</span>
+          </div>
+          <div className="p-2 rounded-xl bg-emerald-500/15 border border-emerald-400/40 flex flex-col items-center">
+            <Brain className="size-4 text-emerald-400 mb-0.5" />
+            <span className="text-[10px] font-mono font-bold text-white">AI Cognition</span>
+            <span className="text-[8px] text-emerald-300/80 font-mono">Power Brains</span>
+          </div>
+          <div className="p-2 rounded-xl bg-purple-500/15 border border-purple-400/40 flex flex-col items-center">
+            <Sparkles className="size-4 text-purple-400 mb-0.5" />
+            <span className="text-[10px] font-mono font-bold text-white">Multimedia</span>
+            <span className="text-[8px] text-purple-300/80 font-mono">Face &amp; Voice</span>
+          </div>
+        </div>
+
+        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono border-t border-white/10 pt-2 text-slate-300">
+          <span className="text-indigo-300 font-semibold">{subtitle}</span>
+          <span className="text-emerald-400 font-bold">● High Coherence</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (pillarNumber === '03') {
+    return (
+      <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-[#06101E] via-[#0A1A2F] to-[#12233F] p-5 flex flex-col justify-between border border-sky-500/20 group">
+        <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
+        
+        <div className="relative z-10 flex items-center justify-between text-[11px] font-mono">
+          <span className="flex items-center gap-1.5 bg-sky-950/80 px-2.5 py-1 rounded-full border border-sky-500/30 text-sky-300">
+            <span className="size-1.5 rounded-full bg-sky-400 animate-pulse" />
+            <span>360° COMMERCE PIPELINE</span>
+          </span>
+          <span className="text-emerald-300 bg-emerald-950/70 px-2.5 py-0.5 rounded-md border border-emerald-500/30 text-[10px]">
+            Zero Downtime
+          </span>
+        </div>
+
+        {/* Commerce Flow Architecture */}
+        <div className="relative z-10 my-auto flex items-center justify-between gap-1.5 py-1 text-center">
+          <div className="px-2 py-2 rounded-xl bg-blue-500/15 border border-blue-400/30 flex-1">
+            <ShoppingBag className="size-3.5 text-blue-400 mx-auto mb-0.5" />
+            <div className="text-[9.5px] font-mono font-bold text-white">Storefront</div>
+            <div className="text-[8px] text-blue-300 font-mono">Shopify Plus / 3D</div>
+          </div>
+          <span className="text-sky-400 font-mono text-xs">➔</span>
+          <div className="px-2 py-2 rounded-xl bg-indigo-500/15 border border-indigo-400/30 flex-1">
+            <Layers className="size-3.5 text-indigo-400 mx-auto mb-0.5" />
+            <div className="text-[9.5px] font-mono font-bold text-white">Middleware</div>
+            <div className="text-[8px] text-indigo-300 font-mono">Kafka / Sync</div>
+          </div>
+          <span className="text-sky-400 font-mono text-xs">➔</span>
+          <div className="px-2 py-2 rounded-xl bg-cyan-500/15 border border-cyan-400/30 flex-1">
+            <Server className="size-3.5 text-cyan-400 mx-auto mb-0.5" />
+            <div className="text-[9.5px] font-mono font-bold text-white">Enterprise</div>
+            <div className="text-[8px] text-cyan-300 font-mono">ERP &amp; RFID OMS</div>
+          </div>
+        </div>
+
+        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono border-t border-white/10 pt-2 text-slate-300">
+          <span className="text-sky-300 font-semibold">{subtitle}</span>
+          <span className="text-emerald-400 font-bold">● 40ms Edge Latency</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (pillarNumber === '04') {
+    return (
+      <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-[#060D1E] via-[#09152B] to-[#0E1E3D] p-5 flex flex-col justify-between border border-cyan-500/20 group">
+        <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
+        
+        <div className="relative z-10 flex items-center justify-between text-[11px] font-mono">
+          <span className="flex items-center gap-1.5 bg-cyan-950/80 px-2.5 py-1 rounded-full border border-cyan-500/30 text-cyan-300">
+            <span className="size-1.5 rounded-full bg-cyan-400 animate-pulse" />
+            <span>BUNNY CDN ANYCAST</span>
+          </span>
+          <span className="text-cyan-300/90 bg-cyan-950/70 px-2.5 py-0.5 rounded-md border border-cyan-500/30 text-[10px]">
+            120+ PoPs
+          </span>
+        </div>
+
+        {/* Global Edge Latency Topology */}
+        <div className="relative z-10 my-auto py-1">
+          <div className="flex items-center justify-between text-[9px] font-mono text-slate-300 mb-1">
+            <span className="text-cyan-300">● Frankfurt: 8ms</span>
+            <span className="text-emerald-300">● Ashburn: 11ms</span>
+            <span className="text-sky-300">● Singapore: 14ms</span>
+          </div>
+          <div className="relative h-6 bg-slate-950/70 rounded-lg border border-cyan-500/30 flex items-center px-3 justify-between overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/20 to-emerald-500/10 animate-pulse" />
+            <span className="text-[10px] font-mono font-bold text-white relative z-10">Origin Shield Activated</span>
+            <span className="text-[9px] font-mono text-emerald-400 font-bold relative z-10">100% NVMe Edge</span>
+          </div>
+        </div>
+
+        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono border-t border-white/10 pt-2 text-slate-300">
+          <span className="text-cyan-300 font-semibold">{subtitle}</span>
+          <span className="text-emerald-400 font-bold">● &lt;15ms Global Ping</span>
+        </div>
+      </div>
+    )
+  }
+
+  // Pillar 05: CoUI Studio & I3D Process
+  return (
+    <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-[#0F0B1E] via-[#16112C] to-[#1F143D] p-5 flex flex-col justify-between border border-purple-500/20 group">
+      <div className="absolute inset-0 bg-[radial-gradient(#c084fc_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
+      
+      <div className="relative z-10 flex items-center justify-between text-[11px] font-mono">
+        <span className="flex items-center gap-1.5 bg-purple-950/80 px-2.5 py-1 rounded-full border border-purple-500/30 text-purple-300">
+          <span className="size-1.5 rounded-full bg-purple-400 animate-pulse" />
+          <span>I3D UX/UI PROCESS</span>
+        </span>
+        <span className="text-pink-300/90 bg-pink-950/70 px-2.5 py-0.5 rounded-md border border-pink-500/30 text-[10px]">
+          WCAG 2.1 AAA
+        </span>
+      </div>
+
+      {/* 4-Step I3D Pipeline */}
+      <div className="relative z-10 my-auto grid grid-cols-4 gap-1.5 py-1 text-center font-mono">
+        <div className="p-1.5 rounded-lg bg-purple-500/15 border border-purple-400/30">
+          <div className="text-[9px] text-purple-300 font-bold">1. Ideate</div>
+          <div className="text-[7px] text-slate-400">Strategy</div>
+        </div>
+        <div className="p-1.5 rounded-lg bg-purple-500/15 border border-purple-400/30">
+          <div className="text-[9px] text-purple-300 font-bold">2. Investigate</div>
+          <div className="text-[7px] text-slate-400">Journey</div>
+        </div>
+        <div className="p-1.5 rounded-lg bg-purple-500/15 border border-purple-400/30">
+          <div className="text-[9px] text-purple-300 font-bold">3. Iterate</div>
+          <div className="text-[7px] text-slate-400">Prototype</div>
+        </div>
+        <div className="p-1.5 rounded-lg bg-pink-500/15 border border-pink-400/30">
+          <div className="text-[9px] text-pink-300 font-bold">4. Deliver</div>
+          <div className="text-[7px] text-slate-400">Handoff</div>
+        </div>
+      </div>
+
+      <div className="relative z-10 flex items-center justify-between text-[10px] font-mono border-t border-white/10 pt-2 text-slate-300">
+        <span className="text-purple-300 font-semibold">{subtitle}</span>
+        <span className="text-pink-400 font-bold">● 60fps Micro-Motion</span>
+      </div>
+    </div>
+  )
+}
 
 export const LivingTechnologySection: React.FC = () => {
   const [selectedPillar, setSelectedPillar] = useState<DefiningPillar | null>(null)
@@ -236,7 +458,7 @@ export const LivingTechnologySection: React.FC = () => {
               className="group relative flex w-[320px] sm:w-[380px] md:w-[440px] shrink-0 snap-start flex-col justify-between overflow-hidden rounded-3xl bg-white p-7 md:p-8 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-blue-400 transition-all duration-500 cursor-pointer"
             >
               <div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mb-4">
                   <span className="font-mono text-xs font-bold text-slate-400 tracking-wider">
                     PILLAR {pillar.number}
                   </span>
@@ -245,21 +467,11 @@ export const LivingTechnologySection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Imagery Banner */}
-                <div className="relative mt-5 aspect-[16/9] w-full overflow-hidden rounded-2xl bg-slate-900 border border-slate-200">
-                  <img
-                    src={pillar.image}
-                    alt={pillar.title}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 text-white">
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-blue-200">
-                      {pillar.subtitle}
-                    </span>
-                  </div>
-                </div>
+                {/* Self-Contained High-Definition Interactive Architecture Canvas */}
+                <PillarInteractiveCanvas
+                  pillarNumber={pillar.number}
+                  subtitle={pillar.subtitle}
+                />
 
                 <h4 className="mt-6 font-bricolage text-2xl font-bold text-slate-900 group-hover:text-[#0052cb] transition-colors">
                   {pillar.title}
@@ -370,11 +582,11 @@ export const LivingTechnologySection: React.FC = () => {
                 {selectedPillar.subtitle}
               </p>
 
-              <div className="relative mt-5 aspect-[16/9] w-full overflow-hidden rounded-2xl bg-slate-900">
-                <img
-                  src={selectedPillar.image}
-                  alt={selectedPillar.title}
-                  className="h-full w-full object-cover"
+              {/* High-Resolution Interactive Architecture Preview */}
+              <div className="mt-5">
+                <PillarInteractiveCanvas
+                  pillarNumber={selectedPillar.number}
+                  subtitle={selectedPillar.subtitle}
                 />
               </div>
 
