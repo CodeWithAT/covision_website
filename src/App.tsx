@@ -26,16 +26,22 @@ import { GetInTouchBanner } from './components/GetInTouchBanner'
 import { ContactSection } from './components/ContactSection'
 import { Footer } from './components/Footer'
 
-const normalizePage = (hash: string): string => {
-  const clean = hash.replace(/^#\/?/, '').toLowerCase()
-  if (['services', 'it-services'].includes(clean)) return 'services'
-  if (['saas', 'products'].includes(clean)) return 'saas'
-  if (['ecommerce', 'ecommerce-suite'].includes(clean)) return 'ecommerce'
-  if (['living-tech', 'living-technology'].includes(clean)) return 'living-tech'
-  if (['clients', 'case-studies', 'work'].includes(clean)) return 'clients'
-  if (['about', 'about-us'].includes(clean)) return 'about'
-  if (['contact', 'get-in-touch', 'inquiry'].includes(clean)) return 'contact'
-  return 'home'
+import { scrollToElement, scrollToTopSmooth } from './lib/scrollUtils'
+
+const parseRoute = (hash: string): { page: string; targetService?: string } => {
+  const clean = hash.replace(/^#\/?/, '').trim()
+  const [firstPart, ...rest] = clean.split('/')
+  const rawPage = firstPart?.toLowerCase() || ''
+  const target = rest.join('/') || undefined
+
+  if (['services', 'it-services'].includes(rawPage)) return { page: 'services', targetService: target }
+  if (['saas', 'products'].includes(rawPage)) return { page: 'saas' }
+  if (['ecommerce', 'ecommerce-suite'].includes(rawPage)) return { page: 'ecommerce' }
+  if (['living-tech', 'living-technology'].includes(rawPage)) return { page: 'living-tech' }
+  if (['clients', 'case-studies', 'work'].includes(rawPage)) return { page: 'clients' }
+  if (['about', 'about-us'].includes(rawPage)) return { page: 'about' }
+  if (['contact', 'get-in-touch', 'inquiry'].includes(rawPage)) return { page: 'contact' }
+  return { page: 'home' }
 }
 
 interface PageMetric {
@@ -116,25 +122,46 @@ export const AppContent: React.FC = () => {
   // Initialize buttery-smooth Lenis scrolling
   useLenis()
 
-  const [activePage, setActivePage] = useState<string>(() => normalizePage(window.location.hash))
+  const initialRoute = parseRoute(window.location.hash)
+  const [activePage, setActivePage] = useState<string>(initialRoute.page)
+  const [targetServiceId, setTargetServiceId] = useState<string | undefined>(initialRoute.targetService)
   const [prefillService, setPrefillService] = useState<string | undefined>()
   const [prefillBudget, setPrefillBudget] = useState<string | undefined>()
 
   useEffect(() => {
+    if (initialRoute.targetService) {
+      scrollToElement(`service-${initialRoute.targetService}`)
+    }
+  }, [initialRoute.targetService])
+
+  useEffect(() => {
     const handleHashChange = () => {
-      const page = normalizePage(window.location.hash)
-      setActivePage(page)
-      window.scrollTo({ top: 0, behavior: 'instant' })
+      const route = parseRoute(window.location.hash)
+      setActivePage(route.page)
+      if (route.targetService) {
+        setTargetServiceId(route.targetService)
+        scrollToElement(`service-${route.targetService}`)
+      } else {
+        setTargetServiceId(undefined)
+        scrollToTopSmooth(true)
+      }
     }
 
     window.addEventListener('hashchange', handleHashChange)
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
 
-  const handleNavigatePage = (page: string) => {
+  const handleNavigatePage = (page: string, targetService?: string) => {
     setActivePage(page)
-    window.location.hash = page === 'home' ? '' : page
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    if (targetService) {
+      setTargetServiceId(targetService)
+      window.location.hash = `${page}/${targetService}`
+      scrollToElement(`service-${targetService}`)
+    } else {
+      setTargetServiceId(undefined)
+      window.location.hash = page === 'home' ? '' : page
+      scrollToTopSmooth(false)
+    }
   }
 
   const handleOpenContact = (service?: string) => {
@@ -142,8 +169,7 @@ export const AppContent: React.FC = () => {
     if (activePage !== 'contact') {
       handleNavigatePage('contact')
     } else {
-      const el = document.getElementById('contact')
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
+      scrollToElement('contact')
     }
   }
 
@@ -192,13 +218,13 @@ export const AppContent: React.FC = () => {
               <MarqueeDivider />
 
               {/* Living Technology Overview & Adaptation Framework */}
-              <LivingTechnologySection />
+              <LivingTechnologySection sectionNumber="01" />
 
               {/* Flagship Practice Portfolios (Direct Gateway to Dedicated Sub-Pages) */}
               <PracticePortfoliosSection onNavigatePage={handleNavigatePage} />
 
               {/* Dual Infinite Client Marquee & Strategic Case Spotlights */}
-              <PillarClientsSection onOpenContact={() => handleOpenContact()} />
+              <PillarClientsSection onOpenContact={() => handleOpenContact()} sectionNumber="02" />
 
               {/* Executive Testimonials & Guarantees */}
               <TestimonialsAndProof />
@@ -234,9 +260,13 @@ export const AppContent: React.FC = () => {
                 ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
-              <ServicesSection onRequestScope={handleOpenContact} />
-              <TechStackMatrix />
-              <BunnyCdnShowcase />
+              <ServicesSection
+                onRequestScope={handleOpenContact}
+                sectionNumber="01"
+                targetServiceId={targetServiceId}
+              />
+              <TechStackMatrix sectionNumber="02" />
+              <BunnyCdnShowcase sectionNumber="03" />
               <ProjectEstimator onApplyEstimate={handleApplyEstimate} />
               <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
             </motion.div>
@@ -262,9 +292,9 @@ export const AppContent: React.FC = () => {
                 ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
-              <SaaSProductsSection onOpenContact={handleOpenContact} />
-              <IndustryFootprintSection onOpenContact={handleOpenContact} />
-              <WhyChooseUsSection onOpenContact={() => handleOpenContact()} />
+              <SaaSProductsSection onOpenContact={handleOpenContact} sectionNumber="01" />
+              <IndustryFootprintSection onOpenContact={handleOpenContact} sectionNumber="02" />
+              <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
               <ProjectEstimator onApplyEstimate={handleApplyEstimate} />
               <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
             </motion.div>
@@ -290,9 +320,9 @@ export const AppContent: React.FC = () => {
                 ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
-              <EcommerceSuiteSection onRequestScope={handleOpenContact} />
-              <BunnyCdnShowcase />
-              <CaseStudiesSection onOpenContact={() => handleOpenContact()} />
+              <EcommerceSuiteSection onRequestScope={handleOpenContact} sectionNumber="01" />
+              <BunnyCdnShowcase sectionNumber="02" />
+              <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
               <ProjectEstimator onApplyEstimate={handleApplyEstimate} />
               <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
             </motion.div>
@@ -318,9 +348,9 @@ export const AppContent: React.FC = () => {
                 ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
-              <LivingTechnologySection />
-              <IndustryFootprintSection onOpenContact={handleOpenContact} />
-              <WhyChooseUsSection onOpenContact={() => handleOpenContact()} />
+              <LivingTechnologySection sectionNumber="01" />
+              <IndustryFootprintSection onOpenContact={handleOpenContact} sectionNumber="02" />
+              <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
               <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
             </motion.div>
           )}
@@ -345,8 +375,8 @@ export const AppContent: React.FC = () => {
                 ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
-              <PillarClientsSection onOpenContact={() => handleOpenContact()} />
-              <CaseStudiesSection onOpenContact={() => handleOpenContact()} />
+              <PillarClientsSection onOpenContact={() => handleOpenContact()} sectionNumber="01" />
+              <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="02" />
               <TestimonialsAndProof />
               <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
             </motion.div>
@@ -372,10 +402,10 @@ export const AppContent: React.FC = () => {
                 ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
-              <AboutUsSection onOpenContact={() => handleOpenContact()} />
-              <LivingTechnologySection />
-              <WhyChooseUsSection onOpenContact={() => handleOpenContact()} />
-              <CaseStudiesSection onOpenContact={() => handleOpenContact()} />
+              <AboutUsSection onOpenContact={() => handleOpenContact()} sectionNumber="01" />
+              <LivingTechnologySection sectionNumber="02" />
+              <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
+              <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="04" />
               <FaqSection onOpenContact={() => handleOpenContact()} />
               <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
             </motion.div>

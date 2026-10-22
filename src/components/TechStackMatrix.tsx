@@ -141,7 +141,13 @@ const TECH_TIERS: TechTier[] = [
   },
 ]
 
-export const TechStackMatrix: React.FC = () => {
+import { SectionEyebrow } from './SectionEyebrow'
+
+interface TechStackMatrixProps {
+  sectionNumber?: string
+}
+
+export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber = '02' }) => {
   const [activeTierId, setActiveTierId] = useState<string>('all')
 
   const displayedTiers = activeTierId === 'all'
@@ -157,11 +163,7 @@ export const TechStackMatrix: React.FC = () => {
         
         {/* Section Top Header */}
         <div className="max-w-3xl mb-12">
-          <div className="flex items-center gap-4 text-xs md:text-[13px] uppercase tracking-[0.22em] text-slate-500 mb-6">
-            <span className="tabular-nums font-bold text-[#0052cb]">(07)</span>
-            <span className="h-px w-10 md:w-16 bg-slate-300" />
-            <span className="font-semibold text-slate-700">Enterprise Engineering Ecosystem</span>
-          </div>
+          <SectionEyebrow number={sectionNumber} label="Enterprise Engineering Ecosystem" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium text-slate-900 tracking-tight leading-[1.04]">
             Distributed Cloud &{' '}

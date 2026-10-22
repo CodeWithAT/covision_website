@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
   Cpu,
@@ -17,13 +17,39 @@ import { ServiceDetailModal } from './ServiceDetailModal'
 import { IT_SERVICES_DATA } from '../data/mockData'
 import type { ServiceItem } from '../types'
 
+import { scrollToElement } from '../lib/scrollUtils'
+
 interface ServicesSectionProps {
   onRequestScope: (serviceTitle: string) => void
+  sectionNumber?: string
+  targetServiceId?: string
 }
 
-export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope }) => {
+export const ServicesSection: React.FC<ServicesSectionProps> = ({
+  onRequestScope,
+  sectionNumber = '01',
+  targetServiceId,
+}) => {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null)
   const [activeCategory, setActiveCategory] = useState<string>('All')
+  const [highlightedId, setHighlightedId] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (targetServiceId) {
+      const timer = setTimeout(() => {
+        setActiveCategory('All')
+        setHighlightedId(targetServiceId)
+        scrollToElement(`service-${targetServiceId}`, -100)
+      }, 50)
+      const clearTimer = setTimeout(() => {
+        setHighlightedId(null)
+      }, 4000)
+      return () => {
+        clearTimeout(timer)
+        clearTimeout(clearTimer)
+      }
+    }
+  }, [targetServiceId])
 
   const categories = [
     'All',
@@ -64,7 +90,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
           <div>
-            <SectionEyebrow number="02" label="Core Engineering Disciplines" tone="dark" />
+            <SectionEyebrow number={sectionNumber} label="Core Engineering Disciplines" tone="dark" />
             <h2 className="mt-8 font-bricolage text-4xl sm:text-6xl font-medium tracking-tight text-ink leading-[1.02]">
               Next-Generation Digital Services.{' '}
               <span className="text-[#0052cb]">Engineered for Scale.</span>
@@ -100,17 +126,24 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope
           ))}
         </div>
 
-        {/* Clean, Modern Enterprise Bento Grid (No sticky stacking friction) */}
+        {/* Clean, Modern Enterprise Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredServices.map((service, idx) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.45, delay: (idx % 3) * 0.1 }}
-              className="group bg-white rounded-3xl overflow-hidden border border-ink-line shadow-sm hover:shadow-xl hover:border-[#0052cb]/40 transition-all duration-400 flex flex-col justify-between"
-            >
+          {filteredServices.map((service, idx) => {
+            const isHighlighted = highlightedId === service.id || targetServiceId === service.id
+            return (
+              <motion.div
+                key={service.id}
+                id={`service-${service.id}`}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.45, delay: (idx % 3) * 0.1 }}
+                className={`group bg-white rounded-3xl overflow-hidden border transition-all duration-400 flex flex-col justify-between scroll-mt-36 ${
+                  isHighlighted
+                    ? 'ring-4 ring-[#0052cb] border-[#0052cb] shadow-2xl scale-[1.02] bg-blue-50/15'
+                    : 'border-ink-line shadow-sm hover:shadow-xl hover:border-[#0052cb]/40'
+                }`}
+              >
               <div>
                 {/* Visual Image Preview with Rich Context */}
                 {service.image && (
@@ -129,9 +162,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope
                       <div className="size-10 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center">
                         {getServiceIcon(service.iconName)}
                       </div>
-                      <span className="text-[10px] font-bold font-mono px-3 py-1 rounded-full bg-black/75 text-white backdrop-blur-md border border-white/20">
-                        {service.badgeText}
-                      </span>
+                      <div className="flex items-center gap-1.5">
+                        {isHighlighted && (
+                          <span className="text-[10px] font-bold font-mono px-2.5 py-1 rounded-full bg-[#0052cb] text-white shadow-sm animate-pulse flex items-center gap-1">
+                            <span className="size-1.5 rounded-full bg-white" />
+                            Selected
+                          </span>
+                        )}
+                        <span className="text-[10px] font-bold font-mono px-3 py-1 rounded-full bg-black/75 text-white backdrop-blur-md border border-white/20">
+                          {service.badgeText}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Category Label */}
@@ -177,8 +218,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope
                 </button>
               </div>
             </motion.div>
-          ))}
-        </div>
+          )
+        })}
+      </div>
 
         {/* CoUI™ & I3D Process Feature Highlight Callout */}
         <motion.div

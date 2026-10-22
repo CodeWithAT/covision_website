@@ -101,10 +101,12 @@ const INDUSTRIES: IndustryItem[] = [
 
 interface IndustryFootprintSectionProps {
   onOpenContact: (prefillService?: string) => void
+  sectionNumber?: string
 }
 
 export const IndustryFootprintSection: React.FC<IndustryFootprintSectionProps> = ({
   onOpenContact,
+  sectionNumber = '02',
 }) => {
   const [activeTab, setActiveTab] = useState<number>(0)
   const [openMobileAccordion, setOpenMobileAccordion] = useState<number | null>(0)
@@ -116,7 +118,7 @@ export const IndustryFootprintSection: React.FC<IndustryFootprintSectionProps> =
       <div className="relative overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 md:px-6 py-24 md:py-36">
           {/* Eyebrow */}
-          <SectionEyebrow number="04" label="Next-Gen Architecture" tone="light" />
+          <SectionEyebrow number={sectionNumber} label="Next-Gen Architecture" tone="light" />
 
           {/* Section Headline */}
           <div className="relative mt-8 flex flex-col md:flex-row md:items-end md:justify-between gap-8">

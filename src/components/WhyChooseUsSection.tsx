@@ -12,6 +12,7 @@ import {
 
 interface WhyChooseUsSectionProps {
   onOpenContact: () => void
+  sectionNumber?: string
 }
 
 interface ValueProp {
@@ -59,7 +60,10 @@ const VALUE_PROPS: ValueProp[] = [
   },
 ]
 
-export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({ onOpenContact }) => {
+export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
+  onOpenContact,
+  sectionNumber = '03',
+}) => {
   const renderCardList = (keyPrefix: string) => (
     <div key={keyPrefix} className="flex flex-col gap-5 pb-5">
       {VALUE_PROPS.map((prop, idx) => (
@@ -93,7 +97,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({ onOpenCo
 
         {/* Left Headline Column */}
         <div className="relative z-20 md:col-span-6 lg:col-span-6">
-          <SectionEyebrow number="05" label="Enterprise IT Edge" tone="dark" />
+          <SectionEyebrow number={sectionNumber} label="Enterprise IT Edge" tone="dark" />
 
           <h2 className="mt-8 font-bricolage text-5xl md:text-7xl font-medium leading-[0.98] tracking-[-0.03em] text-ink">
             Why choose us?

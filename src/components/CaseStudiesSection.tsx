@@ -10,14 +10,19 @@ import {
   ShieldCheck,
   Server,
 } from 'lucide-react'
+import { SectionEyebrow } from './SectionEyebrow'
 import { CASE_STUDIES } from '../data/mockData'
 import type { CaseStudyItem } from '../types'
 
 interface CaseStudiesSectionProps {
   onOpenContact: () => void
+  sectionNumber?: string
 }
 
-export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onOpenContact }) => {
+export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
+  onOpenContact,
+  sectionNumber = '02',
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [architectureModalOpen, setArchitectureModalOpen] = useState(false)
 
@@ -38,11 +43,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onOpenCo
         {/* Section Header with Infosys-Style Counter & Pagination */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <div className="flex items-center gap-4 text-xs md:text-[13px] uppercase tracking-[0.22em] text-neutral-500 mb-4">
-              <span className="tabular-nums font-bold text-[#0052cb]">(09)</span>
-              <span className="h-px w-10 md:w-16 bg-neutral-300" />
-              <span className="font-semibold text-neutral-700">Verified Client Outcomes</span>
-            </div>
+            <SectionEyebrow number={sectionNumber} label="Verified Client Outcomes" tone="dark" className="mb-4" />
 
             <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium text-ink tracking-tight leading-[1.02]">
               Battle-Tested Case Studies &{' '}

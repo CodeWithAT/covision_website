@@ -2,13 +2,18 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Target, Compass, HeartHandshake, Award, Users, Trophy, Lightbulb, ShieldCheck, ArrowRight } from 'lucide-react'
 
+import { SectionEyebrow } from './SectionEyebrow'
 import { ABOUT_US_DETAILS } from '../data/mockData'
 
 interface AboutUsSectionProps {
   onOpenContact: () => void
+  sectionNumber?: string
 }
 
-export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ onOpenContact }) => {
+export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
+  onOpenContact,
+  sectionNumber = '01',
+}) => {
   const valueIcons: Record<string, any> = {
     'Customer Commitment': HeartHandshake,
     'Quality Excellence': Award,
@@ -29,11 +34,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ onOpenContact })
           transition={{ duration: 0.5 }}
           className="mb-14"
         >
-          <div className="flex items-center gap-4 font-inter-tight text-xs md:text-[13px] uppercase tracking-[0.22em] text-neutral-500 mb-6">
-            <span className="tabular-nums font-bold text-[#0052cb]">(11)</span>
-            <span className="h-px w-10 md:w-16 bg-neutral-300"></span>
-            <span className="font-semibold text-neutral-700">Corporate Identity & Mission</span>
-          </div>
+          <SectionEyebrow number={sectionNumber} label="Corporate Identity & Mission" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-4xl sm:text-6xl font-medium text-ink tracking-tight leading-[1.02]">
             About <span className="text-[#0052cb]">CoVision Technologies.</span>

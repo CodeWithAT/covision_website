@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Mail, ExternalLink, ShieldCheck, FileText, X, CheckCircle2 } from 'lucide-react'
 
 interface FooterProps {
-  onNavigatePage?: (page: string) => void
+  onNavigatePage?: (page: string, targetServiceId?: string) => void
 }
 
 const CURRENT_YEAR = new Date().getFullYear()
@@ -26,11 +26,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, target: string, targetId?: string) => {
     e.preventDefault()
     if (onNavigatePage) {
-      onNavigatePage(target)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      onNavigatePage(target, targetId)
     } else {
       window.location.assign('#' + target)
     }
@@ -98,19 +97,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
             </h3>
             <div className="grid grid-cols-1 gap-3.5">
               {[
-                { label: 'Software Engineering', page: 'services' },
-                { label: 'App Development', page: 'services' },
-                { label: 'Cloud & Infrastructure', page: 'services' },
-                { label: 'AI/ML Integration (AIaaS)', page: 'services' },
-                { label: 'Data Analytics & BI', page: 'services' },
-                { label: 'CoUI Design System', page: 'saas' },
+                { label: 'Software Engineering', page: 'services', targetId: 'software-engineering' },
+                { label: 'App Development', page: 'services', targetId: 'app-development' },
+                { label: 'Cloud & Infrastructure', page: 'services', targetId: 'cloud-infrastructure' },
+                { label: 'AI/ML Integration (AIaaS)', page: 'services', targetId: 'ai-ml-integration' },
+                { label: 'Data Analytics & BI', page: 'services', targetId: 'data-analytics' },
+                { label: 'UX/UI & CoUI Design', page: 'services', targetId: 'ux-ui-design' },
                 { label: '360° eCommerce Suite', page: 'ecommerce' },
-                { label: 'Global Edge Network', page: 'services' },
+                { label: 'Global Edge Network', page: 'services', targetId: 'cloud-infrastructure' },
               ].map((link) => (
                 <a
                   key={link.label}
                   href={`#${link.page}`}
-                  onClick={(e) => handleLinkClick(e, link.page)}
+                  onClick={(e) => handleLinkClick(e, link.page, link.targetId)}
                   className="group flex w-fit items-center gap-2 font-inter-tight text-[15px] text-neutral-700 transition-colors duration-300 hover:text-ink cursor-pointer"
                 >
                   <span className="h-px w-0 bg-[#0052cb] transition-all duration-500 group-hover:w-3" />

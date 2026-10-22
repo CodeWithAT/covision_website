@@ -155,9 +155,13 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
 
 interface SaaSProductsSectionProps {
   onOpenContact: (prefillService?: string) => void
+  sectionNumber?: string
 }
 
-export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({ onOpenContact }) => {
+export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
+  onOpenContact,
+  sectionNumber = '01',
+}) => {
   const [selectedProduct, setSelectedProduct] = useState<SaaSProduct | null>(null)
   const [copiedId, setCopiedId] = useState<string | null>(null)
 
@@ -175,7 +179,7 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({ onOpen
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
           <div>
-            <SectionEyebrow number="03" label="Proprietary SaaS & Platforms" tone="dark" />
+            <SectionEyebrow number={sectionNumber} label="Proprietary SaaS & Platforms" tone="dark" />
             <h2 className="mt-8 font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ink leading-[1.02]">
               Enterprise Products &{' '}
               <span className="text-[#0052cb]">SaaS Platforms.</span>

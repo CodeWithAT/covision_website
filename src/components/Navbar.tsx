@@ -9,9 +9,18 @@ import {
 
 interface NavbarProps {
   activePage: string
-  onNavigatePage: (page: string) => void
+  onNavigatePage: (page: string, targetServiceId?: string) => void
   onOpenContact: (prefillService?: string) => void
 }
+
+const serviceSubItems = [
+  { id: 'software-engineering', title: 'Software Engineering', desc: 'Custom SaaS & Distributed Backends' },
+  { id: 'app-development', title: 'Application Development', desc: 'Native iOS/Android & Flutter' },
+  { id: 'cloud-infrastructure', title: 'Cloud & Infrastructure', desc: 'Bunny CDN Edge & Kubernetes' },
+  { id: 'ai-ml-integration', title: 'AI/ML Integration', desc: 'Autonomous AIaaS & Vision Models' },
+  { id: 'data-analytics', title: 'Data Analytics & BI', desc: 'Real-Time Telemetry & CRO' },
+  { id: 'ux-ui-design', title: 'UX/UI & CoUI™', desc: 'Cognitive Science Design Tokens' },
+]
 
 export const Navbar: React.FC<NavbarProps> = ({
   activePage,
@@ -38,8 +47,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'about', label: 'About' },
   ]
 
-  const handleNavClick = (pageId: string) => {
-    onNavigatePage(pageId)
+  const handleNavClick = (pageId: string, targetServiceId?: string) => {
+    onNavigatePage(pageId, targetServiceId)
     setMobileMenuOpen(false)
     setServicesDropdownOpen(false)
   }
@@ -103,23 +112,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute top-full -left-4 w-76 bg-white rounded-2xl shadow-xl border border-ink-line p-2.5 z-50 mt-1"
+                          className="absolute top-full -left-4 w-80 bg-white rounded-2xl shadow-xl border border-ink-line p-2.5 z-50 mt-1"
                         >
-                          {[
-                            { title: 'Software Engineering', desc: 'Custom SaaS & Distributed Backends' },
-                            { title: 'Application Development', desc: 'Native iOS/Android & Flutter' },
-                            { title: 'Cloud & Infrastructure', desc: 'Bunny CDN Edge & Kubernetes' },
-                            { title: 'AI/ML Integration', desc: 'Autonomous AIaaS & Vision Models' },
-                            { title: 'Data Analytics & BI', desc: 'Real-Time Telemetry & CRO' },
-                            { title: 'UX/UI & CoUI™', desc: 'Cognitive Science Design Tokens' },
-                          ].map((s) => (
+                          {serviceSubItems.map((s) => (
                             <button
-                              key={s.title}
-                              onClick={() => handleNavClick('services')}
-                              className="w-full text-left block p-2.5 rounded-xl hover:bg-paper transition-colors cursor-pointer bg-transparent border-0"
+                              key={s.id}
+                              onClick={() => handleNavClick('services', s.id)}
+                              className="w-full text-left block p-2.5 rounded-xl hover:bg-blue-50/60 transition-colors cursor-pointer bg-transparent border-0 group/item"
                             >
-                              <div className="text-xs font-bold text-ink hover:text-[#0052cb]">
-                                {s.title}
+                              <div className="text-xs font-bold text-ink group-hover/item:text-[#0052cb] flex items-center justify-between">
+                                <span>{s.title}</span>
+                                <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#0052cb]" />
                               </div>
                               <div className="text-[11px] text-neutral-500 mt-0.5">{s.desc}</div>
                             </button>
@@ -202,17 +205,48 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Home
               </button>
 
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-semibold bg-transparent border-0 cursor-pointer ${
-                    activePage === item.id ? 'bg-blue-50 text-[#0052cb] font-bold' : 'text-neutral-700'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
+              {navItems.map((item) => {
+                if (item.id === 'services') {
+                  return (
+                    <div key={item.id} className="space-y-1">
+                      <button
+                        onClick={() => handleNavClick(item.id)}
+                        className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-semibold bg-transparent border-0 cursor-pointer flex items-center justify-between ${
+                          activePage === item.id ? 'bg-blue-50 text-[#0052cb] font-bold' : 'text-neutral-700'
+                        }`}
+                      >
+                        <span>{item.label}</span>
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0052cb] bg-blue-100/60 px-2 py-0.5 rounded-full">
+                          All 6 Practices
+                        </span>
+                      </button>
+                      <div className="pl-3 pr-1 py-1 space-y-1 border-l-2 border-blue-100 ml-3">
+                        {serviceSubItems.map((s) => (
+                          <button
+                            key={s.id}
+                            onClick={() => handleNavClick('services', s.id)}
+                            className="w-full text-left py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-600 hover:text-[#0052cb] hover:bg-neutral-50 cursor-pointer bg-transparent border-0 flex items-center justify-between"
+                          >
+                            <span>{s.title}</span>
+                            <ArrowRight className="size-3 text-neutral-400" />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                }
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-semibold bg-transparent border-0 cursor-pointer ${
+                      activePage === item.id ? 'bg-blue-50 text-[#0052cb] font-bold' : 'text-neutral-700'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                )
+              })}
 
               <div className="pt-3 border-t border-neutral-100 space-y-2">
                 <button

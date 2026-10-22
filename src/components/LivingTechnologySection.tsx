@@ -14,6 +14,7 @@ import {
   Server,
   ShoppingBag,
 } from 'lucide-react'
+import { SectionEyebrow } from './SectionEyebrow'
 
 interface DefiningPillar {
   number: string
@@ -325,7 +326,13 @@ const PillarInteractiveCanvas: React.FC<{ pillarNumber: string; subtitle: string
   )
 }
 
-export const LivingTechnologySection: React.FC = () => {
+interface LivingTechnologySectionProps {
+  sectionNumber?: string
+}
+
+export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = ({
+  sectionNumber = '01',
+}) => {
   const [selectedPillar, setSelectedPillar] = useState<DefiningPillar | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -356,12 +363,7 @@ export const LivingTechnologySection: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="relative mx-auto max-w-7xl px-4 md:px-6"
       >
-        {/* Section Index Counter */}
-        <div className="flex items-center gap-4 text-xs md:text-[13px] uppercase tracking-[0.22em] text-slate-500 mb-6">
-          <span className="tabular-nums font-bold text-[#0052cb]">(01)</span>
-          <span className="h-px w-10 md:w-16 bg-slate-300"></span>
-          <span className="font-semibold text-slate-700">Living Technology Philosophy</span>
-        </div>
+        <SectionEyebrow number={sectionNumber} label="Living Technology Philosophy" tone="dark" className="mb-6" />
 
         {/* Editorial Two-Column Headline Structure */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 items-start">

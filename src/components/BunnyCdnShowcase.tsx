@@ -5,7 +5,13 @@ import { buildBunnyCdnUrl, measureEdgeLatencies, BUNNY_EDGE_ZONES } from '../ser
 import type { BunnyRegionPing } from '../types'
 
 
-export const BunnyCdnShowcase: React.FC = () => {
+import { SectionEyebrow } from './SectionEyebrow'
+
+interface BunnyCdnShowcaseProps {
+  sectionNumber?: string
+}
+
+export const BunnyCdnShowcase: React.FC<BunnyCdnShowcaseProps> = ({ sectionNumber = '03' }) => {
   const [latencyData, setLatencyData] = useState<BunnyRegionPing[]>(
     BUNNY_EDGE_ZONES.map((z) => ({
       region: z.region,
@@ -65,11 +71,7 @@ export const BunnyCdnShowcase: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="mb-14"
         >
-          <div className="flex items-center gap-4 font-inter-tight text-xs md:text-[13px] uppercase tracking-[0.22em] text-neutral-500 mb-6">
-            <span className="tabular-nums font-bold text-[#0052cb]">(08)</span>
-            <span className="h-px w-10 md:w-16 bg-neutral-300"></span>
-            <span className="font-semibold text-neutral-700">Edge Infrastructure</span>
-          </div>
+          <SectionEyebrow number={sectionNumber} label="Edge Infrastructure" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-4xl sm:text-6xl font-medium text-ink tracking-tight leading-[1.02]">
             High-Velocity Edge Routing via{' '}

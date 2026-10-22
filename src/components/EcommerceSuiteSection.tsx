@@ -14,14 +14,19 @@ import {
   DollarSign,
   ShieldCheck,
 } from 'lucide-react'
+import { SectionEyebrow } from './SectionEyebrow'
 import { ECOMMERCE_SUITE_DATA } from '../data/mockData'
 import type { EcommerceOffering } from '../types'
 
 interface EcommerceSuiteSectionProps {
   onRequestScope: (serviceTitle: string) => void
+  sectionNumber?: string
 }
 
-export const EcommerceSuiteSection: React.FC<EcommerceSuiteSectionProps> = ({ onRequestScope }) => {
+export const EcommerceSuiteSection: React.FC<EcommerceSuiteSectionProps> = ({
+  onRequestScope,
+  sectionNumber = '01',
+}) => {
   const [activeOffering, setActiveOffering] = useState<EcommerceOffering>(ECOMMERCE_SUITE_DATA[0])
 
   return (
@@ -30,11 +35,7 @@ export const EcommerceSuiteSection: React.FC<EcommerceSuiteSectionProps> = ({ on
         
         {/* Section Top Header with Scroll Reveal */}
         <div className="mb-14">
-          <div className="flex items-center gap-4 text-xs md:text-[13px] uppercase tracking-[0.22em] text-neutral-500 mb-6">
-            <span className="tabular-nums font-bold text-[#0052cb]">(06)</span>
-            <span className="h-px w-10 md:w-16 bg-neutral-300" />
-            <span className="font-semibold text-neutral-700">360° eCommerce Practice</span>
-          </div>
+          <SectionEyebrow number={sectionNumber} label="360° eCommerce Practice" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium text-ink tracking-tight leading-[1.02]">
             High-Velocity Digital Commerce.{' '}
