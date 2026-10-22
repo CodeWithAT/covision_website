@@ -34,7 +34,7 @@ export const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Next-Gen MACH-X Enterprise Commerce & OMS Engine',
     description:
       'A modular, API-first composable commerce platform engineered for high-concurrency retail brands. Features sub-150ms checkout APIs, automated ERP inventory sync, multi-currency localization, and built-in 3D product visualizer support.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/saas/omniflow_commerce.jpg',
     metrics: [
       { label: 'p99 Checkout Latency', value: '<120ms' },
       { label: 'Uptime on Flash Sales', value: '99.995%' },
@@ -59,7 +59,7 @@ export const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Enterprise Multi-Agent LLM Orchestration & Decision Fabric',
     description:
       'An enterprise-grade cognitive AI fabric that unifies private vector knowledge bases, multi-agent automated reasoning, and Computer Vision pipelines to automate complex workflows with strict SOC-2 data isolation.',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/saas/synthetix_ai.jpg',
     metrics: [
       { label: 'Workflow Automation', value: '88%' },
       { label: 'Query Response', value: '<450ms' },
@@ -84,7 +84,7 @@ export const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Global Anycast Edge Network & Automated Asset Transcoder',
     description:
       'Built on tier-1 global edge routing with Bunny CDN integration to deliver sub-15ms international TTFB across 120+ Points of Presence. Automatically optimizes assets and transcodes media streams on the fly.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/saas/hyperscale_edge.jpg',
     metrics: [
       { label: 'Global Median TTFB', value: '<14ms' },
       { label: 'Bandwidth Saved', value: '78%' },
@@ -109,7 +109,7 @@ export const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Cognitive Science Design Tokens & 60fps Spatial Framework',
     description:
       'A production-ready design token architecture and component library built on cognitive psychology and WCAG AAA accessibility. Enforces brand consistency across mobile, web, and spatial 3D interfaces.',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/services/ux_ui_design.jpg',
     metrics: [
       { label: 'UI Frame Rate', value: '60 FPS' },
       { label: 'Dev Handshake Speed', value: '3x Faster' },
@@ -134,7 +134,7 @@ export const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'High-Throughput Event Ingestion & CRO Attribution Suite',
     description:
       'Enterprise data analytics pipeline capable of ingesting 50,000+ real-time customer events per second. Correlates user clickstream behaviors directly with warehouse inventory and revenue attribution.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/saas/pulse_metrics.jpg',
     metrics: [
       { label: 'Events / Second', value: '50,000+' },
       { label: 'Query Latency', value: '<80ms' },

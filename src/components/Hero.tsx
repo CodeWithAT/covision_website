@@ -8,124 +8,74 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => {
-  const videoARef = useRef<HTMLVideoElement>(null)
-  const videoBRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
 
-  // Dual Video Seamless Cross-Fader Loop matching MotionSites Sellix
+  // Bulletproof Native Video Playback with Resilient Watchdog
   useEffect(() => {
-    const a = videoARef.current
-    const b = videoBRef.current
-    if (!a || !b) return
+    const video = videoRef.current
+    if (!video) return
 
-    // Explicitly guarantee muted and playsinline to satisfy browser autoplay policies
-    a.muted = true
-    a.defaultMuted = true
-    a.playsInline = true
-    a.setAttribute('playsinline', '')
-    a.setAttribute('webkit-playsinline', '')
-    b.muted = true
-    b.defaultMuted = true
-    b.playsInline = true
-    b.setAttribute('playsinline', '')
-    b.setAttribute('webkit-playsinline', '')
+    // Explicitly guarantee muted and playsinline to satisfy strict browser autoplay policies
+    video.muted = true
+    video.defaultMuted = true
+    video.playsInline = true
+    video.setAttribute('playsinline', '')
+    video.setAttribute('webkit-playsinline', '')
 
-    const FADE = 0.9
-    let cur = a
-    let nxt = b
-    let swapping = false
-
-    const playVideo = (v: HTMLVideoElement | null) => {
-      if (!v) return
-      v.muted = true
-      v.defaultMuted = true
-      const p = v.play()
-      if (p && typeof p.catch === 'function') {
-        p.catch(() => {})
-      }
-    }
-
-    // Start video A immediately
-    playVideo(a)
-
-    // Ensure playback resumes on any user interaction or visibility change
-    const ensurePlayback = () => {
-      const active = cur && !cur.paused ? cur : a
-      if (active && active.paused) {
-        playVideo(active)
-      }
-    }
-
-    window.addEventListener('pointerdown', ensurePlayback, { passive: true })
-    window.addEventListener('touchstart', ensurePlayback, { passive: true })
-    window.addEventListener('mousemove', ensurePlayback, { passive: true })
-    window.addEventListener('scroll', ensurePlayback, { passive: true })
-    window.addEventListener('keydown', ensurePlayback, { passive: true })
-    window.addEventListener('focus', ensurePlayback)
-    const onVisibility = () => {
-      if (!document.hidden) ensurePlayback()
-    }
-    document.addEventListener('visibilitychange', onVisibility)
-
-    // Data ready listeners to trigger play as soon as data arrives
-    const onReady = (v: HTMLVideoElement) => {
-      if (v === cur || v.classList.contains('is-active')) {
-        playVideo(v)
-      }
-    }
-    a.addEventListener('loadeddata', () => onReady(a))
-    b.addEventListener('loadeddata', () => onReady(b))
-    a.addEventListener('canplay', () => onReady(a))
-    b.addEventListener('canplay', () => onReady(b))
-
-    // Fallback: If ended fires before crossfade, loop back cleanly
-    a.addEventListener('ended', () => {
-      a.currentTime = 0
-      playVideo(a)
-    })
-    b.addEventListener('ended', () => {
-      b.currentTime = 0
-      playVideo(b)
-    })
-
-    const tick = () => {
-      if (swapping || !cur.duration || isNaN(cur.duration)) return
-      if (cur.duration - cur.currentTime > FADE) return
-
-      swapping = true
-      const out = cur
-      nxt.currentTime = 0
-      playVideo(nxt)
-      nxt.classList.add('is-active')
-      out.classList.remove('is-active')
-
-      const temp = cur
-      cur = nxt
-      nxt = temp
-
-      setTimeout(() => {
-        // Only pause out if new active video is actually playing
-        if (!cur.paused) {
-          out.pause()
-          try { out.currentTime = 0 } catch { }
+    const playSafe = () => {
+      if (!video) return
+      video.muted = true
+      video.defaultMuted = true
+      if (video.paused) {
+        const p = video.play()
+        if (p && typeof p.catch === 'function') {
+          p.catch(() => {})
         }
-        swapping = false
-      }, FADE * 1000 + 100)
+      }
     }
 
-    a.addEventListener('timeupdate', tick)
-    b.addEventListener('timeupdate', tick)
+    // Start video playback immediately
+    playSafe()
+
+    // Safety watchdog: verify playback state every 1.5s so video NEVER stops
+    const watchdog = setInterval(playSafe, 1500)
+
+    // Ensure playback resumes immediately when tab gains focus, becomes visible, or on any interaction
+    const onVisibility = () => {
+      if (!document.hidden) playSafe()
+    }
+
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('focus', playSafe)
+    window.addEventListener('pointerdown', playSafe, { passive: true })
+    window.addEventListener('touchstart', playSafe, { passive: true })
+    window.addEventListener('mousemove', playSafe, { passive: true })
+    window.addEventListener('scroll', playSafe, { passive: true })
+    window.addEventListener('keydown', playSafe, { passive: true })
+
+    video.addEventListener('loadeddata', playSafe)
+    video.addEventListener('canplay', playSafe)
+    video.addEventListener('waiting', playSafe)
+    video.addEventListener('stalled', playSafe)
+    video.addEventListener('ended', () => {
+      video.currentTime = 0
+      playSafe()
+    })
 
     return () => {
-      a.removeEventListener('timeupdate', tick)
-      b.removeEventListener('timeupdate', tick)
-      window.removeEventListener('pointerdown', ensurePlayback)
-      window.removeEventListener('touchstart', ensurePlayback)
-      window.removeEventListener('mousemove', ensurePlayback)
-      window.removeEventListener('scroll', ensurePlayback)
-      window.removeEventListener('keydown', ensurePlayback)
-      window.removeEventListener('focus', ensurePlayback)
+      clearInterval(watchdog)
       document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('focus', playSafe)
+      window.removeEventListener('pointerdown', playSafe)
+      window.removeEventListener('touchstart', playSafe)
+      window.removeEventListener('mousemove', playSafe)
+      window.removeEventListener('scroll', playSafe)
+      window.removeEventListener('keydown', playSafe)
+      video.removeEventListener('loadeddata', playSafe)
+      video.removeEventListener('canplay', playSafe)
+      video.removeEventListener('waiting', playSafe)
+      video.removeEventListener('stalled', playSafe)
     }
   }, [])
 
@@ -163,10 +113,6 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
           display: block;
           background-color: #06080F;
           pointer-events: none;
-          opacity: 0;
-          transition: opacity 0.9s ease-in-out;
-        }
-        .hero-seamless-vid.is-active {
           opacity: 1;
         }
         @media (max-width: 640px) {
@@ -193,23 +139,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
         {/* Background Looping Video Layer */}
         <div className="hero-bleed-canvas z-0" role="img" aria-label="Rotating 3D dot matrix Earth in deep space">
           <video
-            ref={videoARef}
-            className="hero-seamless-vid is-active"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            disablePictureInPicture
-            aria-hidden="true"
-            poster="/globe_poster.webp"
-          >
-            <source src="/globe.mp4" type="video/mp4" />
-          </video>
-
-          <video
-            ref={videoBRef}
+            ref={videoRef}
             className="hero-seamless-vid"
+            autoPlay
             muted
             loop
             playsInline

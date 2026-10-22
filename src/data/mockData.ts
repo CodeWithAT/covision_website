@@ -69,7 +69,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['TypeScript', 'TanStack', 'React', 'Go', 'Python', 'PostgreSQL', 'Docker', 'Kubernetes'],
     iconName: 'Cpu',
     badgeText: 'Core Engineering',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+    image: '/images/services/software_engineering.jpg',
   },
   {
     id: 'app-development',
@@ -93,7 +93,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['Swift', 'Kotlin', 'Flutter', 'React Native', 'Ionic', 'Capacitor', 'Dart'],
     iconName: 'Smartphone',
     badgeText: 'Mobile Velocity',
-    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
+    image: '/images/services/mobile_app.jpg',
   },
   {
     id: 'cloud-infrastructure',
@@ -118,7 +118,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['AWS', 'Google Cloud', 'Azure', 'Bunny CDN', 'Kubernetes', 'Terraform', 'Cilium'],
     iconName: 'Cloud',
     badgeText: 'Multi-Cloud',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80',
+    image: '/images/services/cloud_infrastructure.jpg',
   },
   {
     id: 'ai-ml-integration',
@@ -143,7 +143,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['PyTorch', 'TensorFlow', 'vLLM', 'Qdrant', 'FastAPI', 'LangChain', 'Python'],
     iconName: 'Brain',
     badgeText: 'Cognitive Engine',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80',
+    image: '/images/services/ai_ml.jpg',
   },
   {
     id: 'data-analytics',
@@ -167,7 +167,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['PostgreSQL', 'Python', 'Kafka', 'ClickHouse', 'SQL', 'Apache Spark'],
     iconName: 'BarChart3',
     badgeText: 'Telemetry Engine',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    image: '/images/services/data_analytics.jpg',
   },
   {
     id: 'ux-ui-design',
@@ -191,7 +191,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['StackUI', 'Figma', 'Blender', 'Design Tokens', 'Tailwind', 'Framer Motion'],
     iconName: 'Palette',
     badgeText: 'StackUI System',
-    image: 'https://images.unsplash.com/photo-1581291518655-9523c932deda?auto=format&fit=crop&w=800&q=80',
+    image: '/images/services/ux_ui_design.jpg',
   },
 ]
 
@@ -211,7 +211,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['Shopify Plus', 'Adobe Commerce (Magento)', 'WooCommerce', 'BigCommerce', 'Custom Headless'],
     iconName: 'ShoppingBag',
     badge: 'Flagship Commerce',
-    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ecommerce/enterprise_ecommerce.jpg',
   },
   {
     id: 'ecommerce-migration',
@@ -228,7 +228,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['Magento to Shopify Plus', 'WooCommerce to BigCommerce', 'SAP Commerce to Composable', 'Salesforce Commerce Cloud'],
     iconName: 'RefreshCw',
     badge: 'Zero Downtime',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ecommerce/b2b_commerce_portals.jpg',
   },
   {
     id: 'ecommerce-integration',
@@ -245,7 +245,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['SAP S/4HANA', 'Oracle NetSuite', 'Salesforce CRM', 'Stripe Connect', 'FedEx / DHL APIs'],
     iconName: 'Layers',
     badge: 'Real-Time Sync',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ecommerce/pos_omnichannel.png',
   },
   {
     id: 'creative-content-production',
@@ -261,7 +261,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['Blender 4.0', 'Unreal Engine 5', 'Three.js / WebGL', 'Adobe Creative Suite', 'ARKit & WebXR'],
     iconName: 'Camera',
     badge: 'Visual Experience',
-    image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ecommerce/marketplace_architecture.jpg',
   },
   {
     id: 'business-process-services',
@@ -278,7 +278,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['Akeneo PIM', 'Zebra RFID Hardware', 'NetSuite OMS', 'Elasticsearch Vector', 'Kafka Streaming'],
     iconName: 'CheckCircle2',
     badge: 'Operations Hub',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ecommerce/growth_optimization.jpg',
   },
 ]
 
@@ -349,7 +349,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     technologies: ['TypeScript', 'TanStack', 'Kubernetes', 'Bunny CDN', 'Go', 'Kafka'],
     accentColor: '#0052cb',
     bunnyCdnUsed: true,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    image: '/images/cases/fintech_global_remittance.jpg',
   },
   {
     id: 'puma-omnichannel',
@@ -367,7 +367,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     technologies: ['Flutter', 'React Native', 'Bunny CDN', 'TypeScript', 'Node.js', 'Redis'],
     accentColor: '#0052cb',
     bunnyCdnUsed: true,
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80',
+    image: '/images/cases/retail_luxury_fashion.jpg',
   },
   {
     id: 'aura-health-ai',
@@ -385,7 +385,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     technologies: ['PyTorch', 'vLLM', 'Qdrant', 'TypeScript', 'Resend', 'Docker'],
     accentColor: '#0284c7',
     bunnyCdnUsed: false,
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+    image: '/images/cases/healthcare_telemedicine.png',
   },
 ]
 
@@ -396,7 +396,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: 'Chief Technology Officer',
     company: 'FinGlobal Technologies (London)',
     rating: 5,
-    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    avatarUrl: '/images/avatars/marcus_vance.jpg',
     verifiedEnterprise: true,
   },
   {
@@ -405,7 +405,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: 'VP of Engineering',
     company: 'Synapse AI Systems (San Francisco)',
     rating: 5,
-    avatarUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80',
+    avatarUrl: '/images/avatars/elena_rostova.jpg',
     verifiedEnterprise: true,
   },
   {
@@ -414,7 +414,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: 'Head of Infrastructure',
     company: 'LogiCore Global (Singapore)',
     rating: 5,
-    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+    avatarUrl: '/images/avatars/siddharth_mehta.jpg',
     verifiedEnterprise: true,
   },
 ]
