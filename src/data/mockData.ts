@@ -171,13 +171,13 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: 'ux-ui-design',
-    title: 'UX/UI Design & StackUI',
+    title: 'UX/UI Design & CoUI™',
     tagline: 'Cognitive Science Design Thinking & The I3D Process',
-    category: 'UX/UI & StackUI',
+    category: 'UX/UI & CoUI',
     description: 'Proprietary design token system built on cognitive load reduction, WCAG AAA accessibility, 60fps micro-animations, and seamless developer handoff.',
     detailedScope: [
       'Cognitive-Science-Backed Design Thinking: Interfaces that think, react, and resonate with users',
-      'Our Proprietary Design System — StackUI: An operational strategy for scalable, high-velocity UX',
+      'Our Proprietary Design System — CoUI™: An operational strategy for scalable, high-velocity UX',
       'AI-Powered Innovation: Uizard wireframing, Attention Insight / EyeQuant heatmaps, Midjourney concept art',
       'The I3D UX/UI Process: 1. Ideate (Strategy Boards), 2. Investigate (Journey Maps), 3. Iterate (Prototypes), 4. Deliver (High-Fidelity UI & Dev Handshake)',
       'Multimedia Synergy: Blending visual storytelling, dynamic animations, and responsive micro-interactions',
@@ -188,9 +188,9 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
       { label: 'Sprint Velocity', value: '2.5x Faster' },
       { label: 'Engagement Score', value: '98/100' },
     ],
-    techStack: ['StackUI', 'Figma', 'Blender', 'Design Tokens', 'Tailwind', 'Framer Motion'],
+    techStack: ['CoUI™', 'Figma', 'Blender', 'Design Tokens', 'Tailwind', 'Framer Motion'],
     iconName: 'Palette',
-    badgeText: 'StackUI System',
+    badgeText: 'CoUI™ System',
     image: '/images/services/ux_ui_design.jpg',
   },
 ]

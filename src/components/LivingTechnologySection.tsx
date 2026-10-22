@@ -85,11 +85,11 @@ const DEFINING_PILLARS: DefiningPillar[] = [
   },
   {
     number: '05',
-    title: 'CoUI Studio & I3D Process',
+    title: 'CoUI™ Design System & I3D Process',
     subtitle: 'Cognitive Science UX',
     category: 'Design Systems',
     tagline: 'Where behavioral psychology converges with micro-animations & spatial UI.',
-    summary: 'CoUI is our battle-tested design token system built on cognitive load reduction, WCAG AAA accessibility, buttery 60fps micro-interactions, and 3D product fidelity.',
+    summary: 'CoUI™ is our battle-tested design token system built on cognitive load reduction, WCAG AAA accessibility, buttery 60fps micro-interactions, and 3D product fidelity.',
     bullets: [
       'Proprietary I3D framework: Ideate (Strategy), Investigate (Journey), Iterate (Prototypes), Deliver (Dev Handshake).',
       'Micro-animations calibrated to heighten user engagement without cognitive friction.',
@@ -367,7 +367,7 @@ export const LivingTechnologySection: React.FC = () => {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 items-start">
           <div className="lg:col-span-7">
             <h2 className="font-bricolage text-[2.4rem] sm:text-5xl md:text-6xl font-medium leading-[1.02] tracking-[-0.03em] text-slate-900">
-              Technology that <span className="text-[#0052cb] underline decoration-blue-200 decoration-wavy underline-offset-8">behaves, adapts,</span> and evolves like a living organism.
+              Technology that <span className="text-[#0052cb] font-semibold">behaves, adapts,</span> and evolves like a living organism.
             </h2>
           </div>
 

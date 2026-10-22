@@ -31,7 +31,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope
     'App Development',
     'Cloud & Edge',
     'Data & AI',
-    'UX/UI & StackUI',
+    'UX/UI & CoUI',
   ]
 
   const filteredServices =
@@ -180,7 +180,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope
           ))}
         </div>
 
-        {/* StackUI & I3D Process Feature Highlight Callout */}
+        {/* CoUI™ & I3D Process Feature Highlight Callout */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -197,18 +197,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope
                 Proprietary I3D UX/UI Process
               </div>
               <h4 className="font-bricolage text-lg font-bold text-ink">
-                1. Ideate (Strategy Boards) ➔ 2. Investigate (Journey Maps) ➔ 3. Iterate (Prototypes) ➔ 4. Deliver (StackUI Dev Handshake)
+                1. Ideate (Strategy Boards) ➔ 2. Investigate (Journey Maps) ➔ 3. Iterate (Prototypes) ➔ 4. Deliver (CoUI™ Dev Handshake)
               </h4>
               <p className="font-inter-tight text-xs sm:text-sm text-neutral-600 mt-1 max-w-3xl leading-relaxed">
-                Design is an engineering discipline, not a cosmetic layer. We combine behavioral science with our battle-tested StackUI token system for pixel-perfect 60fps execution.
+                Design is an engineering discipline, not a cosmetic layer. We combine behavioral science with our battle-tested CoUI™ token system for pixel-perfect 60fps execution.
               </p>
             </div>
           </div>
           <button
-            onClick={() => onRequestScope('UX/UI Design & StackUI Consultation')}
+            onClick={() => onRequestScope('UX/UI Design & CoUI™ Consultation')}
             className="shrink-0 px-6 py-3 rounded-full bg-[#0052cb] text-white font-inter-tight font-semibold text-xs sm:text-sm hover:bg-[#003da8] transition-all shadow-md shadow-blue-600/20 active:scale-95 cursor-pointer"
           >
-            Explore StackUI System
+            Explore CoUI™ System
           </button>
         </motion.div>
       </div>

@@ -1,28 +1,41 @@
 import React from 'react'
 
+interface MarqueePillar {
+  title: string
+  tag: string
+  accent?: boolean
+}
+
 export const MarqueeDivider: React.FC = () => {
-  const items = [
-    { text: 'Living Technology.', active: true },
-    { text: 'Cognitive Architecture.', active: false },
-    { text: '360° eCommerce.', active: true },
-    { text: 'Resilient Scale.', active: false },
-    { text: 'Anycast Edge Velocity.', active: true },
-    { text: 'Zero-Trust Security.', active: false },
+  const pillars: MarqueePillar[] = [
+    { title: 'LIVING TECHNOLOGY', tag: 'Core Philosophy', accent: true },
+    { title: 'ENTERPRISE SOFTWARE', tag: 'Custom & Cloud', accent: false },
+    { title: '360° ECOMMERCE SUITE', tag: 'MACH-X Architecture', accent: true },
+    { title: 'AI & MULTIMEDIA CONVERGENCE', tag: 'Autonomous SDLC', accent: false },
+    { title: 'PROPRIETARY SAAS SUITE', tag: 'Multi-Tenant Cloud', accent: true },
+    { title: 'ANYCAST EDGE VELOCITY', tag: 'Bunny CDN Tier-1', accent: false },
+    { title: 'COUI™ DESIGN TOKENS', tag: 'Cognitive Science UX', accent: true },
+    { title: 'ZERO-DOWNTIME MIGRATION', tag: '100% SEO Preservation', accent: false },
   ]
 
   const renderGroup = (keyPrefix: string) => (
     <div key={keyPrefix} className="flex shrink-0 items-center">
-      {items.map((item, idx) => (
-        <span key={`${keyPrefix}-${idx}`} className="flex items-center">
-          <span
-            className={`px-6 sm:px-10 md:px-12 font-bricolage text-2xl sm:text-4xl md:text-5xl font-medium tracking-[-0.02em] ${
-              item.active ? 'text-ink' : 'text-neutral-400'
-            }`}
-          >
-            {item.text}
-          </span>
-          <span className="size-2 shrink-0 rounded-full bg-[#0052cb]" />
-        </span>
+      {pillars.map((item, idx) => (
+        <div key={`${keyPrefix}-${idx}`} className="flex items-center px-6 sm:px-10">
+          <div className="flex items-center gap-3">
+            <span
+              className={`font-bricolage text-xl sm:text-2xl md:text-3xl font-bold tracking-tight whitespace-nowrap transition-colors ${
+                item.accent ? 'text-slate-900' : 'text-slate-700'
+              }`}
+            >
+              {item.title}
+            </span>
+            <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold tracking-wider uppercase bg-blue-50 text-[#0052cb] border border-blue-200/60 whitespace-nowrap">
+              {item.tag}
+            </span>
+          </div>
+          <span className="ml-6 sm:ml-10 size-2 rotate-45 bg-[#0052cb] shrink-0 opacity-80" />
+        </div>
       ))}
     </div>
   )
@@ -30,12 +43,12 @@ export const MarqueeDivider: React.FC = () => {
   return (
     <div
       aria-hidden="true"
-      className="relative w-full overflow-hidden border-b border-ink-line bg-paper py-5 sm:py-7 md:py-8 text-ink select-none"
+      className="relative w-full overflow-hidden border-y border-ink-line bg-[#fcfcfd] py-4 sm:py-5 text-ink select-none group"
     >
       <div className="flex overflow-hidden mask-fade-x">
         <div
-          className="flex w-max shrink-0 animate-marquee"
-          style={{ '--marquee-duration': '45s' } as React.CSSProperties}
+          className="flex w-max shrink-0 animate-marquee group-hover:[animation-play-state:paused]"
+          style={{ '--marquee-duration': '55s' } as React.CSSProperties}
         >
           {renderGroup('group-1')}
           {renderGroup('group-2')}

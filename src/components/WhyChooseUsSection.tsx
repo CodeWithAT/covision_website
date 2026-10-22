@@ -37,7 +37,7 @@ const VALUE_PROPS: ValueProp[] = [
     icon: <Gauge className="size-5" />,
     title: 'Enterprise Velocity at Scale',
     description:
-      'Using deterministic TypeScript architectures, reusable StackUI design tokens, and CI/CD pipelines, we cut production release cycles from months to days.',
+      'Using deterministic TypeScript architectures, reusable CoUI™ design tokens, and CI/CD pipelines, we cut production release cycles from months to days.',
   },
   {
     icon: <ShieldCheck className="size-5" />,

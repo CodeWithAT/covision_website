@@ -111,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                             { title: 'Cloud & Infrastructure', desc: 'Bunny CDN Edge & Kubernetes' },
                             { title: 'AI/ML Integration', desc: 'Autonomous AIaaS & Vision Models' },
                             { title: 'Data Analytics & BI', desc: 'Real-Time Telemetry & CRO' },
-                            { title: 'UX/UI & CoUI Design', desc: 'Cognitive Science Design Tokens' },
+                            { title: 'UX/UI & CoUI™', desc: 'Cognitive Science Design Tokens' },
                           ].map((s) => (
                             <button
                               key={s.title}
