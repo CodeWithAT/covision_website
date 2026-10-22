@@ -61,12 +61,12 @@ export const BunnyCdnShowcase: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.5 }}
           className="mb-14"
         >
           <div className="flex items-center gap-4 font-inter-tight text-xs md:text-[13px] uppercase tracking-[0.22em] text-neutral-500 mb-6">
-            <span className="tabular-nums font-bold text-[#0052cb]">(07)</span>
+            <span className="tabular-nums font-bold text-[#0052cb]">(08)</span>
             <span className="h-px w-10 md:w-16 bg-neutral-300"></span>
             <span className="font-semibold text-neutral-700">Edge Infrastructure</span>
           </div>

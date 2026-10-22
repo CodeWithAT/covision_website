@@ -84,7 +84,7 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({ onOp
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
           <div className="flex items-center gap-4 text-xs md:text-[13px] uppercase tracking-[0.22em] text-neutral-500 mb-6">
-            <span className="tabular-nums font-bold text-[#0052cb]">(08)</span>
+            <span className="tabular-nums font-bold text-[#0052cb]">(10)</span>
             <span className="h-px w-10 md:w-16 bg-neutral-300" />
             <span className="font-semibold text-neutral-700">Enterprise Client Ecosystem</span>
           </div>

@@ -25,7 +25,7 @@ export interface SaaSProduct {
   tag: string
 }
 
-export const SAAS_PRODUCTS: SaaSProduct[] = [
+const SAAS_PRODUCTS: SaaSProduct[] = [
   {
     id: 'cocommerce',
     name: 'CoCommerce™',
@@ -200,7 +200,7 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({ onOpen
               key={product.id}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: true, amount: 0.05 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               onClick={() => setSelectedProduct(product)}
               className="group bg-white rounded-3xl border border-ink-line shadow-sm hover:shadow-xl hover:border-[#0052cb]/40 transition-all duration-300 p-6 flex flex-col justify-between cursor-pointer relative overflow-hidden"
@@ -289,7 +289,7 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({ onOpen
               key={product.id}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: true, amount: 0.05 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               onClick={() => setSelectedProduct(product)}
               className="group bg-white rounded-3xl border border-ink-line shadow-sm hover:shadow-xl hover:border-[#0052cb]/40 transition-all duration-300 p-6 md:p-8 flex flex-col justify-between cursor-pointer"

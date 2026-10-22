@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import {
@@ -38,18 +38,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     estimatedBudget: prefillBudget || '',
   })
 
-  useEffect(() => {
-    if (prefillService) {
-      setFormData((prev) => ({ ...prev, inquiryType: prefillService }))
-    }
-    if (prefillBudget) {
-      setFormData((prev) => ({
-        ...prev,
-        budgetRange: prefillBudget,
-        estimatedBudget: prefillBudget,
-      }))
-    }
-  }, [prefillService, prefillBudget])
+  const [prevPrefillService, setPrevPrefillService] = useState(prefillService)
+  const [prevPrefillBudget, setPrevPrefillBudget] = useState(prefillBudget)
+
+  if (prefillService !== prevPrefillService || prefillBudget !== prevPrefillBudget) {
+    setPrevPrefillService(prefillService)
+    setPrevPrefillBudget(prefillBudget)
+    setFormData((prev) => ({
+      ...prev,
+      inquiryType: prefillService || prev.inquiryType,
+      budgetRange: prefillBudget || prev.budgetRange,
+      estimatedBudget: prefillBudget || prev.estimatedBudget,
+    }))
+  }
 
   const [customApiKey, setCustomApiKey] = useState('')
   const [showApiKeyInput, setShowApiKeyInput] = useState(false)

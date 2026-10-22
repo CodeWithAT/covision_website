@@ -1,0 +1,6 @@
+# CoVision Technologies Robots Directive
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://covisionwebsite.vercel.app/sitemap.xml

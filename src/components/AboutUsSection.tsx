@@ -25,12 +25,12 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ onOpenContact })
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.5 }}
           className="mb-14"
         >
           <div className="flex items-center gap-4 font-inter-tight text-xs md:text-[13px] uppercase tracking-[0.22em] text-neutral-500 mb-6">
-            <span className="tabular-nums font-bold text-[#0052cb]">(08)</span>
+            <span className="tabular-nums font-bold text-[#0052cb]">(11)</span>
             <span className="h-px w-10 md:w-16 bg-neutral-300"></span>
             <span className="font-semibold text-neutral-700">Corporate Identity & Mission</span>
           </div>
@@ -49,7 +49,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ onOpenContact })
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.5 }}
             className="bg-white rounded-3xl p-8 sm:p-10 border border-blue-100 shadow-xl relative overflow-hidden"
           >
@@ -74,7 +74,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ onOpenContact })
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.5 }}
             className="bg-white rounded-3xl p-8 sm:p-10 border border-blue-100 shadow-xl relative overflow-hidden"
           >
@@ -115,7 +115,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ onOpenContact })
                   key={val.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-30px' }}
+                  viewport={{ once: true, amount: 0.05 }}
                   transition={{ duration: 0.4, delay: (idx % 3) * 0.08 }}
                   className="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all"
                 >

@@ -1,0 +1,16 @@
+{
+  "short_name": "CoVision",
+  "name": "CoVision Technologies — Living Technology",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#05070f",
+  "theme_color": "#0052cb",
+  "display": "standalone",
+  "orientation": "portrait"
+}

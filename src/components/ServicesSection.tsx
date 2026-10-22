@@ -107,7 +107,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope
               key={service.id}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: true, amount: 0.05 }}
               transition={{ duration: 0.45, delay: (idx % 3) * 0.1 }}
               className="group bg-white rounded-3xl overflow-hidden border border-ink-line shadow-sm hover:shadow-xl hover:border-[#0052cb]/40 transition-all duration-400 flex flex-col justify-between"
             >
@@ -184,7 +184,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onRequestScope
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.5 }}
           className="mt-16 bg-white rounded-3xl p-8 border border-ink-line shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6"
         >

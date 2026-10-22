@@ -6,6 +6,8 @@ interface FooterProps {
   onNavigatePage?: (page: string) => void
 }
 
+const CURRENT_YEAR = new Date().getFullYear()
+
 export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
   const footerRef = useRef<HTMLDivElement>(null)
 
@@ -29,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
       onNavigatePage(target)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
-      window.location.hash = target
+      window.location.assign('#' + target)
     }
   }
 
@@ -196,7 +198,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-6">
           <div className="flex flex-col items-center justify-between gap-4 font-inter-tight md:flex-row">
             <p className="text-sm text-neutral-500">
-              © {new Date().getFullYear()} COVISION TECHNOLOGIES PRIVATE LIMITED. All rights reserved.
+              © {CURRENT_YEAR} COVISION TECHNOLOGIES PRIVATE LIMITED. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm">
               <a

@@ -39,7 +39,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onOpenCo
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
             <div className="flex items-center gap-4 text-xs md:text-[13px] uppercase tracking-[0.22em] text-neutral-500 mb-4">
-              <span className="tabular-nums font-bold text-[#0052cb]">(07)</span>
+              <span className="tabular-nums font-bold text-[#0052cb]">(09)</span>
               <span className="h-px w-10 md:w-16 bg-neutral-300" />
               <span className="font-semibold text-neutral-700">Verified Client Outcomes</span>
             </div>
