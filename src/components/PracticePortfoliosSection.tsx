@@ -16,7 +16,7 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
       desc: 'End-to-end custom software engineering, high-concurrency distributed backends, autonomous AI workflows, and multi-cloud Kubernetes infrastructure.',
       highlights: [
         'Custom Enterprise SaaS & Distributed Microservices',
-        'Bunny CDN Edge Computing & Multi-Cloud DevOps',
+        'Global Anycast Edge & Multi-Cloud DevOps',
         'Autonomous AI Agents, LLM Integrations & Vision Pipelines',
         'CoUI Cognitive Design System & High-Performance Frontends',
       ],

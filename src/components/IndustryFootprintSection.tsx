@@ -20,7 +20,7 @@ const INDUSTRIES: IndustryItem[] = [
     headline: 'Sub-second transactions during peak traffic surges',
     description:
       'Online shoppers decide in milliseconds, and catalog latency kills conversions. We engineer headless commerce engines, real-time OMS/ERP inventory synchronization, and AI-powered visual search for global brands like Puma, Fila, and Mango.\n\nEvery checkout pipeline is hardened against flash-sale concurrency spikes with distributed edge queues, Redis caching layers, and Anycast CDN routing, guaranteeing 99.99% availability during Black Friday events.',
-    specs: ['Shopify Plus & Adobe Commerce (Magento)', 'Automated ERP & Warehouse Integration', 'Custom 3D Product Configurator Engine', 'Sub-15ms Anycast Asset Delivery via Bunny CDN'],
+    specs: ['Shopify Plus & Adobe Commerce (Magento)', 'Automated ERP & Warehouse Integration', 'Custom 3D Product Configurator Engine', 'Sub-15ms Anycast Asset Delivery via Enterprise CDN'],
     metrics: [
       { label: 'Uptime on Flash Sales', value: '99.995%' },
       { label: 'p99 Checkout Latency', value: '<180ms' },
@@ -76,7 +76,7 @@ const INDUSTRIES: IndustryItem[] = [
     headline: 'Ultra-low latency video transcoding and cognitive asset catalogs',
     description:
       'Digital media enterprises produce massive libraries of 4K video, 3D assets, and interactive media. Working in close synergy with our sister studio Cognitive Media, we engineer high-performance transcoding pipelines, Anycast edge distribution, and AI asset tagging.\n\nCreators and global distributors access instantaneous render previews and automated format conversions without network congestion.',
-    specs: ['Bunny CDN Global Anycast Edge Delivery', 'Distributed GPU Video Transcoding', 'Cognitive AI Auto-Tagging & Metadata', 'Multi-Bitrate HLS & DASH Adaptive Streams'],
+    specs: ['Global Anycast Edge Delivery & Origin Shielding', 'Distributed GPU Video Transcoding', 'Cognitive AI Auto-Tagging & Metadata', 'Multi-Bitrate HLS & DASH Adaptive Streams'],
     metrics: [
       { label: 'Monthly Petabytes Streamed', value: '4.8 PB' },
       { label: 'Global Video TTFB', value: '<22ms' },

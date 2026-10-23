@@ -129,7 +129,7 @@ const TECH_TIERS: TechTier[] = [
     technologies: [
       { name: 'Kubernetes & Docker', role: 'Container orchestration with automated horizontal pod autoscaling', badge: 'Orchestration' },
       { name: 'Terraform & OpenTofu', role: 'Declarative Infrastructure as Code (IaC) governance', badge: 'GitOps' },
-      { name: 'Bunny CDN & Anycast Routing', role: '120+ global PoPs, smart caching & automated AVIF delivery', badge: 'Edge PoPs' },
+      { name: 'Global Anycast Edge CDN', role: '120+ global PoPs, NVMe edge caching & automated AVIF delivery', badge: 'Edge PoPs' },
       { name: 'AWS & Google Cloud', role: 'Enterprise hybrid-cloud redundancy & data sovereignty', badge: 'Multi-Cloud' },
       { name: 'GitHub Actions & ArgoCD', role: 'Zero-downtime blue/green automated canary deployments', badge: 'Pipelines' },
       { name: 'Resend Enterprise Gateway', role: 'Mission-critical transactional dispatch with dedicated IPs', badge: 'Ingress/Egress' },

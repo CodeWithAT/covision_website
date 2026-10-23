@@ -46,7 +46,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
       'Unified Order Management across multiple fulfillment warehouses',
       'Modern Storefront SDK for Next.js, React, and mobile apps',
     ],
-    techStack: ['TypeScript', 'GraphQL', 'Redis', 'Bunny CDN', 'PostgreSQL'],
+    techStack: ['TypeScript', 'GraphQL', 'Redis', 'Cloudflare Edge', 'PostgreSQL'],
     liveDemoUrl: 'https://commerce.covision.tech',
     documentationUrl: 'https://docs.covision.tech/commerce',
     tag: 'Flagship Platform',
@@ -83,7 +83,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     category: 'Edge Infrastructure & Acceleration',
     headline: 'Global Anycast Edge Network & Instant Media Optimization',
     description:
-      'Built on tier-1 global Anycast routing with Bunny CDN integration to deliver sub-15ms worldwide loading times across 120+ Points of Presence. Automatically compresses images and protects against DDoS attacks.',
+      'Built on tier-1 global Anycast routing with enterprise edge integration to deliver sub-15ms worldwide loading times across 120+ Points of Presence. Automatically compresses images and protects against DDoS attacks.',
     image: '/images/saas/hyperscale_edge.jpg',
     metrics: [
       { label: 'Global Loading Time', value: '< 15ms' },
@@ -96,7 +96,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
       'Enterprise DDoS mitigation protecting origin web servers',
       'Instant global cache purge completed in under 250 milliseconds',
     ],
-    techStack: ['Bunny CDN Anycast', 'Rust', 'WebAssembly', 'HTTP/3'],
+    techStack: ['Global Anycast Edge', 'Rust', 'WebAssembly', 'HTTP/3'],
     liveDemoUrl: 'https://edge.covision.tech',
     documentationUrl: 'https://docs.covision.tech/coedge',
     tag: 'Edge Platform',

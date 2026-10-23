@@ -15,7 +15,6 @@ import { IndustryFootprintSection } from './components/IndustryFootprintSection'
 import { WhyChooseUsSection } from './components/WhyChooseUsSection'
 import { EcommerceSuiteSection } from './components/EcommerceSuiteSection'
 import { TechStackMatrix } from './components/TechStackMatrix'
-import { BunnyCdnShowcase } from './components/BunnyCdnShowcase'
 import { PillarClientsSection } from './components/PillarClientsSection'
 import { CaseStudiesSection } from './components/CaseStudiesSection'
 import { AboutUsSection } from './components/AboutUsSection'
@@ -255,7 +254,6 @@ export const AppContent: React.FC = () => {
                 targetServiceId={targetServiceId}
               />
               <TechStackMatrix sectionNumber="02" />
-              <BunnyCdnShowcase sectionNumber="03" />
               <ContactSection prefillService={prefillService} />
             </motion.div>
           )}
@@ -308,8 +306,7 @@ export const AppContent: React.FC = () => {
                 onBackToHome={() => handleNavigatePage('home')}
               />
               <EcommerceSuiteSection onRequestScope={handleOpenContact} sectionNumber="01" />
-              <BunnyCdnShowcase sectionNumber="02" />
-              <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
+              <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="02" />
               <ContactSection prefillService={prefillService} />
             </motion.div>
           )}

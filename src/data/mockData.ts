@@ -104,7 +104,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     detailedScope: [
       'Multi-Cloud Strategy & DevOps: Automated Infrastructure-as-Code (Terraform, Kubernetes) across AWS, GCP, and Azure',
       'Zero-Downtime Migration: Seamless re-platforming from legacy servers to elastic cloud containers with zero lost traffic',
-      'Global Edge Acceleration: Anycast CDN routing, NVMe edge caching, and origin shielding via Bunny CDN',
+      'Global Edge Acceleration: Anycast CDN routing, NVMe edge caching, and origin shielding across 120+ PoPs',
       'High-Availability Disaster Recovery: Automated failover protocols that restore operations in under 60 seconds',
       'Enterprise Cost Optimization: Smart edge tiering and caching policies that reduce cloud bandwidth costs by up to 50%',
     ],
@@ -114,7 +114,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
       { label: 'Global PoPs', value: '120+' },
       { label: 'Peak Capacity', value: '80+ Gbps' },
     ],
-    techStack: ['AWS', 'Google Cloud', 'Azure', 'Bunny CDN', 'Kubernetes', 'Terraform'],
+    techStack: ['AWS', 'Google Cloud', 'Azure', 'Cloudflare', 'Kubernetes', 'Terraform'],
     iconName: 'Cloud',
     badgeText: 'Cloud Practice',
     image: '/images/services/cloud_infrastructure.jpg',
@@ -284,7 +284,7 @@ export const TECHNOLOGY_SPECTRUM = {
     'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Python', 'Go', 'Rust', 'Swift', 'Kotlin', 'Dart', 'Java', 'PHP', 'C++', 'C', 'Ruby', 'SQL', 'Solidity', 'Bash', 'Scala', 'Julia', 'R'
   ],
   frameworks: [
-    'React.js', 'Next.js', 'TanStack Query', 'Vue.js', 'Angular.js', 'Flutter', 'React Native', 'SwiftUI', 'Android SDK', 'Ionic', 'Django', 'Express.js', 'Spring Boot', 'Laravel', 'PyTorch', 'TensorFlow', 'Scikit-Learn', 'Ethereum', 'Hyperledger Fabric', 'Unity', 'Kubernetes', 'Docker', 'Terraform', 'PostgreSQL', 'MongoDB', 'Cassandra', 'AWS IoT', 'Bunny CDN', 'Resend'
+    'React.js', 'Next.js', 'TanStack Query', 'Vue.js', 'Angular.js', 'Flutter', 'React Native', 'SwiftUI', 'Android SDK', 'Ionic', 'Django', 'Express.js', 'Spring Boot', 'Laravel', 'PyTorch', 'TensorFlow', 'Scikit-Learn', 'Ethereum', 'Hyperledger Fabric', 'Unity', 'Kubernetes', 'Docker', 'Terraform', 'PostgreSQL', 'MongoDB', 'Cassandra', 'AWS IoT', 'Cloudflare', 'Resend'
   ],
   tools: [
     'Figma', 'Midjourney', 'GitHub Actions', 'Xcode', 'Android Studio', 'Jupyter Notebook', 'Google Colab', 'MetaMask', 'Remix IDE', 'Ganache', 'CI/CD Pipelines', 'Google Data Studio', 'Postman', 'Adobe XD', 'Blender', 'Adobe After Effects', 'Stripe', 'AWS CLI', 'Google Cloud Console', 'Azure CLI'
@@ -337,13 +337,13 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     headline: 'Modernizing core transaction engine to handle $1.2B daily throughput',
     summary: 'Re-architected monolithic banking rails into distributed Go microservices with TanStack dashboards, Kafka event bus, and zero-downtime Kubernetes failover.',
     challenge: 'Legacy system suffered 1.4-second checkout latency during peak sales and lacked multi-region data compliance.',
-    solution: 'Designed an event-driven architecture with edge tokenization, TanStack Query state caching, and Bunny CDN origin shielding.',
+    solution: 'Designed an event-driven architecture with edge tokenization, TanStack Query state caching, and Anycast CDN origin shielding.',
     results: [
       { metric: '78ms', label: 'P99 Latency (down from 1.4s)' },
       { metric: '99.999%', label: 'Yearly Platform Availability' },
       { metric: '$4.2M', label: 'Cloud Infrastructure Savings' },
     ],
-    technologies: ['TypeScript', 'TanStack', 'Kubernetes', 'Bunny CDN', 'Go', 'Kafka'],
+    technologies: ['TypeScript', 'TanStack', 'Kubernetes', 'Anycast CDN', 'Go', 'Kafka'],
     accentColor: '#0052cb',
     bunnyCdnUsed: true,
     image: '/images/cases/fintech_global_remittance.jpg',
@@ -355,13 +355,13 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     headline: 'Sub-60fps mobile catalog and headless checkout transformation',
     summary: 'Constructed an omnichannel mobile shopping experience with 3D product visualizations, instant inventory sync, and real-time POS connection.',
     challenge: 'High cart abandonment rate on mobile devices and inventory desynchronization across 140 retail outlets.',
-    solution: 'Built a cross-platform Flutter and React Native application with Bunny CDN edge asset optimization and custom middleware sync.',
+    solution: 'Built a cross-platform Flutter and React Native application with global Anycast edge asset optimization and custom middleware sync.',
     results: [
       { metric: '38%', label: 'Mobile Conversion Increase' },
       { metric: '0s', label: 'Inventory Lag Across Stores' },
       { metric: '4.9/5', label: 'App Store Customer Rating' },
     ],
-    technologies: ['Flutter', 'React Native', 'Bunny CDN', 'TypeScript', 'Node.js', 'Redis'],
+    technologies: ['Flutter', 'React Native', 'Anycast CDN', 'TypeScript', 'Node.js', 'Redis'],
     accentColor: '#0052cb',
     bunnyCdnUsed: true,
     image: '/images/cases/retail_luxury_fashion.jpg',

@@ -36,7 +36,7 @@ const STRATEGIC_SPOTLIGHTS: StrategicPartnership[] = [
     metricValue: '4.2M+',
     metricLabel: 'Peak Concurrent Shoppers Handled',
     summary: 'Engineered a resilient headless commerce architecture with 3D product visualizers, sub-120ms checkout latency, and real-time inventory synchronization across 140+ retail flagship locations.',
-    architecture: ['Headless Shopify Plus', 'Flutter Mobile App', 'Bunny CDN Edge PoPs', 'Redis Cache Tier'],
+    architecture: ['Headless Shopify Plus', 'Flutter Mobile App', 'Anycast Edge PoPs', 'Redis Cache Tier'],
     verifiedTag: 'PCI-DSS Level 1 & SOC 2 Audited',
   },
   {

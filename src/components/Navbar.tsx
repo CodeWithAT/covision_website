@@ -16,7 +16,7 @@ interface NavbarProps {
 const serviceSubItems = [
   { id: 'software-engineering', title: 'Software Engineering', desc: 'Custom SaaS & Distributed Backends' },
   { id: 'app-development', title: 'Application Development', desc: 'Native iOS/Android & Flutter' },
-  { id: 'cloud-infrastructure', title: 'Cloud & Infrastructure', desc: 'Bunny CDN Edge & Kubernetes' },
+  { id: 'cloud-infrastructure', title: 'Cloud & Infrastructure', desc: 'Global Edge & Kubernetes' },
   { id: 'ai-ml-integration', title: 'AI/ML Integration', desc: 'Autonomous AIaaS & Vision Models' },
   { id: 'data-analytics', title: 'Data Analytics & BI', desc: 'Real-Time Telemetry & CRO' },
   { id: 'ux-ui-design', title: 'UX/UI & CoUI™', desc: 'Cognitive Science Design Tokens' },
