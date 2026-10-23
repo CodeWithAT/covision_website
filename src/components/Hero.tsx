@@ -1,15 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 
 interface HeroProps {
-  onNavigatePage: (page: string) => void
+  onNavigatePage: (page: string, targetServiceId?: string) => void
   onOpenContact: (prefillService?: string) => void
 }
+
+const serviceSubItems = [
+  { id: 'software-engineering', title: 'Software Engineering', desc: 'Custom SaaS & Distributed Backends' },
+  { id: 'app-development', title: 'Application Development', desc: 'Native iOS/Android & Flutter' },
+  { id: 'cloud-infrastructure', title: 'Cloud & Infrastructure', desc: 'Global Edge & Kubernetes' },
+  { id: 'ai-ml-integration', title: 'AI/ML Integration', desc: 'Autonomous AI & Vision Models' },
+  { id: 'data-analytics', title: 'Data Analytics & BI', desc: 'Real-Time Telemetry & Insights' },
+  { id: 'ux-ui-design', title: 'UX/UI & CoUI™', desc: 'Fluid Design Tokens & Interfaces' },
+]
 
 export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
 
   // Bulletproof Native Video Playback with Resilient Watchdog
   useEffect(() => {
@@ -79,9 +90,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
     }
   }, [])
 
-  const handleNavClick = (pageId: string) => {
-    onNavigatePage(pageId)
+  const handleNavClick = (pageId: string, targetServiceId?: string) => {
+    onNavigatePage(pageId, targetServiceId)
     setMenuOpen(false)
+    setServicesDropdownOpen(false)
   }
 
   return (
@@ -175,20 +187,73 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-8 text-[13.5px] font-medium text-neutral-300">
-            {[
-              { label: 'Services', id: 'services' },
-              { label: 'SaaS Platforms', id: 'saas' },
-              { label: 'eCommerce Suite', id: 'ecommerce' },
-              { label: 'About', id: 'about' },
-            ].map((link) => (
+            {/* Services with Dark-Glass Interactive Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setServicesDropdownOpen(true)}
+              onMouseLeave={() => setServicesDropdownOpen(false)}
+            >
               <button
-                key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className="hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 whitespace-nowrap font-medium"
+                onClick={() => handleNavClick('services')}
+                className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 whitespace-nowrap font-medium text-neutral-300 py-2"
               >
-                {link.label}
+                <span>Services</span>
+                <ChevronDown
+                  className={`size-3.5 transition-transform duration-200 ${
+                    servicesDropdownOpen ? 'rotate-180 text-white' : 'text-neutral-400'
+                  }`}
+                />
               </button>
-            ))}
+
+              <AnimatePresence>
+                {servicesDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full -left-6 w-84 bg-[#0a0e1a]/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/15 p-2.5 z-50 mt-1"
+                  >
+                    <div className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-neutral-400 font-semibold border-b border-white/10 mb-1 flex items-center justify-between">
+                      <span>Engineering Disciplines</span>
+                      <span className="text-[9px] text-[#38bdf8] font-bold">6 Practices</span>
+                    </div>
+                    {serviceSubItems.map((s) => (
+                      <button
+                        key={s.id}
+                        onClick={() => handleNavClick('services', s.id)}
+                        className="w-full text-left block p-2.5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer bg-transparent border-0 group/item"
+                      >
+                        <div className="text-xs font-bold text-white group-hover/item:text-[#38bdf8] flex items-center justify-between">
+                          <span>{s.title}</span>
+                          <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#38bdf8]" />
+                        </div>
+                        <div className="text-[11px] text-neutral-400 mt-0.5">{s.desc}</div>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <button
+              onClick={() => handleNavClick('saas')}
+              className="hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 whitespace-nowrap font-medium"
+            >
+              SaaS Platforms
+            </button>
+            <button
+              onClick={() => handleNavClick('ecommerce')}
+              className="hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 whitespace-nowrap font-medium"
+            >
+              eCommerce Suite
+            </button>
+            <button
+              onClick={() => handleNavClick('about')}
+              className="hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 whitespace-nowrap font-medium"
+            >
+              About
+            </button>
           </nav>
 
           {/* Desktop Nav Actions */}
@@ -250,8 +315,35 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
               transition={{ duration: 0.2 }}
               className="absolute top-20 right-4 left-4 sm:left-auto sm:w-80 bg-[#0c101d]/95 backdrop-blur-2xl border border-white/15 rounded-3xl p-5 shadow-2xl z-40 space-y-2 text-white"
             >
+              {/* Expandable Mobile Services */}
+              <div className="space-y-1">
+                <button
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="w-full text-left py-2.5 px-3.5 rounded-xl text-sm font-semibold hover:bg-white/10 transition-colors cursor-pointer bg-transparent border-0 text-neutral-200 flex items-center justify-between"
+                >
+                  <span>Services &amp; Architecture</span>
+                  <ChevronDown
+                    className={`size-3.5 transition-transform duration-200 ${
+                      mobileServicesOpen ? 'rotate-180 text-[#38bdf8]' : 'text-neutral-400'
+                    }`}
+                  />
+                </button>
+                {mobileServicesOpen && (
+                  <div className="pl-4 pr-1 py-1 space-y-1 border-l-2 border-[#0052cb]/40 ml-3">
+                    {serviceSubItems.map((s) => (
+                      <button
+                        key={s.id}
+                        onClick={() => handleNavClick('services', s.id)}
+                        className="w-full text-left py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-300 hover:text-white hover:bg-white/10 transition-colors block"
+                      >
+                        {s.title}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               {[
-                { label: 'Services & Cloud Architecture', id: 'services' },
                 { label: 'SaaS Platforms Suite', id: 'saas' },
                 { label: '360° eCommerce Suite', id: 'ecommerce' },
                 { label: 'About CoVision', id: 'about' },

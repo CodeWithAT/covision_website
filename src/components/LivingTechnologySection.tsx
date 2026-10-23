@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion'
 import {
   Brain,
   Layers,
@@ -9,10 +9,10 @@ import {
   ChevronRight,
   Workflow,
   Sparkles,
-  ShieldCheck,
   Zap,
   Server,
   ShoppingBag,
+  ShieldCheck,
 } from 'lucide-react'
 import { SectionEyebrow } from './SectionEyebrow'
 
@@ -335,14 +335,29 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
 }) => {
   const [selectedPillar, setSelectedPillar] = useState<DefiningPillar | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement | null>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const pinnedSectionRef = useRef<HTMLDivElement | null>(null)
+  const [mobileScrollProgress, setMobileScrollProgress] = useState(0)
 
-  const handleScroll = () => {
+  // Desktop Pinned Horizontal Scroll Trigger: normal vertical scrolling glides through all cards effortlessly!
+  const { scrollYProgress } = useScroll({
+    target: pinnedSectionRef,
+    offset: ['start start', 'end end'],
+  })
+
+  // Butter-smooth spring interpolation for the gliding track
+  const smoothX = useSpring(
+    useTransform(scrollYProgress, [0, 1], ['0%', '-60%']),
+    { stiffness: 90, damping: 26, mass: 0.25, restDelta: 0.001 }
+  )
+
+  const liveProgressBar = useTransform(scrollYProgress, [0, 1], ['14%', '100%'])
+
+  const handleMobileScroll = () => {
     if (!scrollContainerRef.current) return
     const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current
     const maxScroll = scrollWidth - clientWidth
     if (maxScroll > 0) {
-      setScrollProgress(scrollLeft / maxScroll)
+      setMobileScrollProgress(scrollLeft / maxScroll)
     }
   }
 
@@ -400,102 +415,183 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
         </div>
       </motion.div>
 
-      {/* Main Pillars: CogniMedia Signature Horizontal Swipe Card Carousel */}
-      <div className="relative w-full mt-16 md:mt-24">
+      {/* =========================================================================
+          DESKTOP: Pinned Sticky Scroll-Driven Horizontal Card Gallery
+          As user simply scrolls down the page, all 5 cards automatically glide horizontally!
+          Zero manual dragging or clicking required!
+         ========================================================================= */}
+      <div ref={pinnedSectionRef} className="relative hidden md:block h-[240vh] mt-16 md:mt-24">
+        <div className="sticky top-20 h-[calc(100vh-5rem)] flex flex-col justify-center overflow-hidden">
+          {/* Header & Auto-Glide Progress */}
+          <div className="mx-auto flex w-full max-w-7xl items-end justify-between gap-6 px-4 md:px-6 mb-8">
+            <div>
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#0052cb] font-bold mb-2">
+                <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
+                <span>Scroll-Driven Architecture</span>
+              </div>
+              <h3 className="font-bricolage text-3xl lg:text-4xl font-medium tracking-tight text-slate-900">
+                What defines our Living Technology?
+              </h3>
+              <p className="text-sm text-slate-500 mt-1">
+                Scroll naturally down to glide through all 5 structural pillars engineered for enterprise longevity.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-slate-400 font-semibold">
+                Scroll Progress
+              </span>
+              <div className="h-1.5 w-40 overflow-hidden rounded-full bg-slate-200">
+                <motion.div
+                  className="h-full bg-[#0052cb] rounded-full"
+                  style={{ width: liveProgressBar }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Gliding Cards Track */}
+          <div className="w-full overflow-hidden">
+            <motion.div
+              style={{ x: smoothX }}
+              className="flex gap-7 px-8 will-change-transform"
+            >
+              <div className="w-[max(0px,calc((100vw-80rem)/2-1.5rem))] shrink-0" />
+
+              {DEFINING_PILLARS.map((pillar) => (
+                <div
+                  key={pillar.number}
+                  onClick={() => setSelectedPillar(pillar)}
+                  className="group relative flex w-[380px] lg:w-[440px] shrink-0 flex-col justify-between overflow-hidden rounded-3xl bg-white p-7 md:p-8 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 border border-slate-200/80 hover:border-[#0052cb]/50 transition-all duration-300 cursor-pointer"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-xs font-bold text-slate-400 tracking-wider">
+                        PILLAR {pillar.number}
+                      </span>
+                      <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-semibold">
+                        {pillar.category}
+                      </span>
+                    </div>
+
+                    <PillarInteractiveCanvas
+                      pillarNumber={pillar.number}
+                      subtitle={pillar.subtitle}
+                    />
+
+                    <h4 className="mt-6 font-bricolage text-2xl font-bold text-slate-900 group-hover:text-[#0052cb] transition-colors">
+                      {pillar.title}
+                    </h4>
+
+                    <p className="mt-2 text-xs md:text-sm font-semibold text-slate-600">
+                      {pillar.tagline}
+                    </p>
+
+                    <p className="mt-3 text-xs md:text-sm leading-relaxed text-slate-500 line-clamp-3">
+                      {pillar.summary}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0052cb]">
+                    <span>Inspect Technical Breakdown</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              ))}
+
+              <div className="w-[max(0px,calc((100vw-80rem)/2-1.5rem))] shrink-0" />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* =========================================================================
+          MOBILE: Touch-Native Swipe Carousel (< md)
+         ========================================================================= */}
+      <div className="relative w-full mt-14 md:hidden">
         {/* Controls Bar */}
-        <div className="mx-auto flex w-full max-w-7xl items-end justify-between gap-6 px-4 md:px-6 mb-8">
+        <div className="mx-auto flex w-full max-w-7xl items-end justify-between gap-4 px-4 mb-6">
           <div>
-            <h3 className="font-bricolage text-2xl md:text-4xl font-medium tracking-tight text-slate-900">
-              What defines our Living Technology?
+            <h3 className="font-bricolage text-2xl font-medium tracking-tight text-slate-900">
+              Living Technology Pillars
             </h3>
-            <p className="text-xs md:text-sm text-slate-500 mt-1">
-              Explore the five structural pillars engineered for enterprise longevity.
+            <p className="text-xs text-slate-500 mt-0.5">
+              Swipe across the five pillars.
             </p>
           </div>
 
-          <div className="hidden sm:flex items-center gap-4">
-            <span className="text-xs uppercase tracking-[0.2em] text-slate-400">
-              Swipe / Scroll
-            </span>
-            <div className="h-1 w-28 overflow-hidden rounded-full bg-slate-200">
+          <div className="flex items-center gap-3">
+            <div className="h-1 w-20 overflow-hidden rounded-full bg-slate-200">
               <div
                 className="h-full bg-[#0052cb] transition-all duration-300 ease-out"
-                style={{ width: `${Math.max(12, scrollProgress * 100)}%` }}
+                style={{ width: `${Math.max(15, mobileScrollProgress * 100)}%` }}
               />
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-1.5">
               <button
-                onClick={() => scrollLeftBy(-420)}
-                className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm hover:border-[#0052cb] hover:text-[#0052cb] transition-all cursor-pointer"
+                onClick={() => scrollLeftBy(-300)}
+                className="grid size-8 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs active:bg-slate-100 cursor-pointer"
                 aria-label="Scroll left"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-3.5 h-3.5" />
               </button>
               <button
-                onClick={() => scrollLeftBy(420)}
-                className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm hover:border-[#0052cb] hover:text-[#0052cb] transition-all cursor-pointer"
+                onClick={() => scrollLeftBy(300)}
+                className="grid size-8 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs active:bg-slate-100 cursor-pointer"
                 aria-label="Scroll right"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Horizontal Carousel Track */}
+        {/* Swipe Track */}
         <div
           ref={scrollContainerRef}
-          onScroll={handleScroll}
-          className="flex w-full gap-6 overflow-x-auto px-4 md:px-6 pb-8 scrollbar-none snap-x snap-mandatory"
-          style={{ scrollPaddingLeft: '1rem', scrollPaddingRight: '1rem' }}
+          onScroll={handleMobileScroll}
+          className="flex w-full gap-4 overflow-x-auto px-4 pb-6 scrollbar-none snap-x snap-mandatory"
         >
-          <div className="hidden lg:block w-[max(0px,calc((100vw-80rem)/2-1.5rem))] shrink-0" />
-
           {DEFINING_PILLARS.map((pillar) => (
-            <motion.div
+            <div
               key={pillar.number}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
               onClick={() => setSelectedPillar(pillar)}
-              className="group relative flex w-[320px] sm:w-[380px] md:w-[440px] shrink-0 snap-start flex-col justify-between overflow-hidden rounded-3xl bg-white p-7 md:p-8 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-blue-400 transition-all duration-500 cursor-pointer"
+              className="group relative flex w-[300px] shrink-0 snap-start flex-col justify-between overflow-hidden rounded-3xl bg-white p-6 shadow-sm border border-slate-200/80 active:border-[#0052cb] transition-all cursor-pointer"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs font-bold text-slate-400 tracking-wider">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-mono text-xs font-bold text-slate-400">
                     PILLAR {pillar.number}
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-semibold">
+                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-semibold">
                     {pillar.category}
                   </span>
                 </div>
 
-                {/* Self-Contained High-Definition Interactive Architecture Canvas */}
                 <PillarInteractiveCanvas
                   pillarNumber={pillar.number}
                   subtitle={pillar.subtitle}
                 />
 
-                <h4 className="mt-6 font-bricolage text-2xl font-bold text-slate-900 group-hover:text-[#0052cb] transition-colors">
+                <h4 className="mt-5 font-bricolage text-xl font-bold text-slate-900">
                   {pillar.title}
                 </h4>
 
-                <p className="mt-2 text-xs md:text-sm font-semibold text-slate-600">
+                <p className="mt-1.5 text-xs font-semibold text-slate-600">
                   {pillar.tagline}
                 </p>
 
-                <p className="mt-3 text-xs md:text-sm leading-relaxed text-slate-500 line-clamp-3">
+                <p className="mt-2 text-xs leading-relaxed text-slate-500 line-clamp-3">
                   {pillar.summary}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0052cb]">
-                <span>Inspect Technical Breakdown</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0052cb]">
+                <span>Inspect Breakdown</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </div>
-            </motion.div>
+            </div>
           ))}
-
-          <div className="hidden lg:block w-[max(0px,calc((100vw-80rem)/2-1.5rem))] shrink-0" />
         </div>
       </div>
 
@@ -536,8 +632,16 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
                 icon: Brain,
                 desc: 'Automated test suite generation, static security scanning, synthetic data generation, and predictive deployment health monitoring.',
               },
-            ].map((item) => (
-              <div key={item.title} className="p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:border-blue-300 hover:bg-white transition-all shadow-2xs">
+            ].map((item, idx) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:border-blue-300 hover:bg-white transition-all shadow-2xs"
+              >
                 <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#0052cb] flex items-center justify-center mb-4">
                   <item.icon className="w-5 h-5" />
                 </div>
@@ -545,7 +649,7 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
                 <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

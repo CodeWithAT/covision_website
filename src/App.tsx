@@ -16,7 +16,6 @@ import { WhyChooseUsSection } from './components/WhyChooseUsSection'
 import { EcommerceSuiteSection } from './components/EcommerceSuiteSection'
 import { TechStackMatrix } from './components/TechStackMatrix'
 import { BunnyCdnShowcase } from './components/BunnyCdnShowcase'
-import { ProjectEstimator } from './components/ProjectEstimator'
 import { PillarClientsSection } from './components/PillarClientsSection'
 import { CaseStudiesSection } from './components/CaseStudiesSection'
 import { AboutUsSection } from './components/AboutUsSection'
@@ -126,7 +125,6 @@ export const AppContent: React.FC = () => {
   const [activePage, setActivePage] = useState<string>(initialRoute.page)
   const [targetServiceId, setTargetServiceId] = useState<string | undefined>(initialRoute.targetService)
   const [prefillService, setPrefillService] = useState<string | undefined>()
-  const [prefillBudget, setPrefillBudget] = useState<string | undefined>()
 
   useEffect(() => {
     if (initialRoute.targetService) {
@@ -171,12 +169,6 @@ export const AppContent: React.FC = () => {
     } else {
       scrollToElement('contact')
     }
-  }
-
-  const handleApplyEstimate = (scopeSummary: string, budgetEstimate: string) => {
-    setPrefillService(scopeSummary)
-    setPrefillBudget(budgetEstimate)
-    handleNavigatePage('contact')
   }
 
   const { scrollYProgress } = useScroll()
@@ -233,10 +225,7 @@ export const AppContent: React.FC = () => {
               <GetInTouchBanner onEmailSubmit={(email) => handleOpenContact(`Direct Inquiry from ${email}`)} />
 
               {/* Contact & Consultation Form */}
-              <ContactSection
-                prefillService={prefillService}
-                prefillBudget={prefillBudget}
-              />
+              <ContactSection prefillService={prefillService} />
             </motion.div>
           )}
 
@@ -267,8 +256,7 @@ export const AppContent: React.FC = () => {
               />
               <TechStackMatrix sectionNumber="02" />
               <BunnyCdnShowcase sectionNumber="03" />
-              <ProjectEstimator onApplyEstimate={handleApplyEstimate} />
-              <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
+              <ContactSection prefillService={prefillService} />
             </motion.div>
           )}
 
@@ -295,8 +283,7 @@ export const AppContent: React.FC = () => {
               <SaaSProductsSection onOpenContact={handleOpenContact} sectionNumber="01" />
               <IndustryFootprintSection onOpenContact={handleOpenContact} sectionNumber="02" />
               <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
-              <ProjectEstimator onApplyEstimate={handleApplyEstimate} />
-              <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
+              <ContactSection prefillService={prefillService} />
             </motion.div>
           )}
 
@@ -323,8 +310,7 @@ export const AppContent: React.FC = () => {
               <EcommerceSuiteSection onRequestScope={handleOpenContact} sectionNumber="01" />
               <BunnyCdnShowcase sectionNumber="02" />
               <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
-              <ProjectEstimator onApplyEstimate={handleApplyEstimate} />
-              <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
+              <ContactSection prefillService={prefillService} />
             </motion.div>
           )}
 
@@ -351,7 +337,7 @@ export const AppContent: React.FC = () => {
               <LivingTechnologySection sectionNumber="01" />
               <IndustryFootprintSection onOpenContact={handleOpenContact} sectionNumber="02" />
               <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
-              <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
+              <ContactSection prefillService={prefillService} />
             </motion.div>
           )}
 
@@ -378,7 +364,7 @@ export const AppContent: React.FC = () => {
               <PillarClientsSection onOpenContact={() => handleOpenContact()} sectionNumber="01" />
               <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="02" />
               <TestimonialsAndProof />
-              <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
+              <ContactSection prefillService={prefillService} />
             </motion.div>
           )}
 
@@ -407,7 +393,7 @@ export const AppContent: React.FC = () => {
               <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
               <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="04" />
               <FaqSection onOpenContact={() => handleOpenContact()} />
-              <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
+              <ContactSection prefillService={prefillService} />
             </motion.div>
           )}
 
@@ -431,9 +417,8 @@ export const AppContent: React.FC = () => {
                 ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
-              <ProjectEstimator onApplyEstimate={handleApplyEstimate} />
               <GetInTouchBanner onEmailSubmit={(email) => handleOpenContact(`Direct Inquiry from ${email}`)} />
-              <ContactSection prefillService={prefillService} prefillBudget={prefillBudget} />
+              <ContactSection prefillService={prefillService} />
             </motion.div>
           )}
         </AnimatePresence>
