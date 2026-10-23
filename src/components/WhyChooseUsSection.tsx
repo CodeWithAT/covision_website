@@ -24,39 +24,39 @@ interface ValueProp {
 const VALUE_PROPS: ValueProp[] = [
   {
     icon: <Sparkles className="size-5" />,
-    title: 'AI-Driven Operational Intelligence',
+    title: 'AI-Driven Automation & Intelligence',
     description:
-      'We integrate fine-tuned cognitive models into enterprise backends, automating telemetry anomaly detection, predictive inventory sync, and intelligent customer routing.',
+      'We integrate custom machine learning workflows into enterprise backends—automating customer routing, predictive inventory sync, and real-time operational anomaly detection.',
   },
   {
     icon: <Layers className="size-5" />,
-    title: 'One Unified Engineering Ecosystem',
+    title: 'End-to-End Engineering Under One Roof',
     description:
-      'Bespoke software, native mobile apps, 360° eCommerce, and multi-cloud DevOps under one roof, eliminating vendor fragmentation and architectural drift.',
+      'Custom cloud software, native iOS & Android apps, 360° eCommerce, and DevOps under one roof, completely eliminating vendor fragmentation and architectural drift.',
   },
   {
     icon: <Gauge className="size-5" />,
-    title: 'Enterprise Velocity at Scale',
+    title: 'Rapid Delivery Without Technical Debt',
     description:
-      'Using deterministic TypeScript architectures, reusable CoUI™ design tokens, and CI/CD pipelines, we cut production release cycles from months to days.',
+      'Modern TypeScript architecture, reusable CoUI™ design tokens, and automated CI/CD pipelines that transform multi-month release cycles into days.',
   },
   {
     icon: <ShieldCheck className="size-5" />,
     title: 'Zero-Trust Security & Compliance',
     description:
-      'SOC-2 Type II, ISO 27001, and HIPAA-compliant enclaves with end-to-end cryptographic key management and automated penetration test gates.',
+      'SOC-2 Type II, ISO 27001, and HIPAA-compliant architecture with end-to-end data encryption, automated vulnerability scans, and strict data sovereignty.',
   },
   {
     icon: <Globe2 className="size-5" />,
-    title: 'Bunny CDN Global Anycast Ingress',
+    title: 'Ultra-Fast Global Edge Delivery',
     description:
-      'Sub-15ms edge routing across 120+ global Points of Presence with real-time DDoS mitigation and automated Brotli/AVIF asset compression.',
+      'Sub-15ms edge routing across 120+ global Points of Presence with automated image compression, smart caching, and multi-terabit DDoS mitigation.',
   },
   {
     icon: <Handshake className="size-5" />,
-    title: 'Lead Architect Co-Pilot Model',
+    title: 'Direct Access to Principal Engineers',
     description:
-      'Dedicated principal engineers, direct Slack/Teams bridge to senior developers, transparent sprint metrics, and full IP handover guarantees.',
+      'No junior intermediaries. You work directly with senior architects via dedicated Slack channels, transparent weekly sprints, and 100% intellectual property ownership.',
   },
 ]
 
@@ -97,14 +97,14 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
 
         {/* Left Headline Column */}
         <div className="relative z-20 md:col-span-6 lg:col-span-6">
-          <SectionEyebrow number={sectionNumber} label="Enterprise IT Edge" tone="dark" />
+          <SectionEyebrow number={sectionNumber} label="Enterprise Engineering Edge" tone="dark" />
 
           <h2 className="mt-8 font-bricolage text-5xl md:text-7xl font-medium leading-[0.98] tracking-[-0.03em] text-ink">
             Why choose us?
           </h2>
 
           <p className="mt-8 max-w-md font-inter-tight text-lg md:text-xl leading-relaxed text-neutral-600">
-            Senior software architects, deterministic engineering discipline, and automated multi-cloud edge infrastructure in one accountable partner.
+            Senior software architects, high-velocity delivery discipline, and automated multi-cloud edge infrastructure in one accountable partner.
           </p>
 
           <div className="mt-10 md:mt-14">

@@ -40,7 +40,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
             About <span className="text-[#0052cb]">CoVision Technologies.</span>
           </h2>
           <p className="mt-4 font-inter-tight text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            Full-cycle software engineering, multi-cloud Anycast infrastructure, and enterprise SaaS platforms delivering Living Technology worldwide.
+            Full-cycle software engineering, high-scale global cloud infrastructure, and enterprise digital platforms delivering Living Technology worldwide.
           </p>
         </motion.div>
 

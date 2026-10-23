@@ -30,10 +30,10 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
       title: 'SaaS Platforms Suite',
       desc: 'Battle-tested standalone digital platforms and subdomains engineered for multi-tenant scalability, real-time telemetry, and rapid enterprise deployment.',
       highlights: [
-        'CoCommerce™: MACH-X Enterprise Commerce & OMS Engine',
-        'CogniFlow AI™: Enterprise Multi-Agent LLM & Decision Fabric',
+        'CoCommerce™: Omnichannel Digital Storefronts & Real-Time OMS',
+        'CogniFlow AI™: Enterprise Multi-Agent AI & Decision Automation',
         'CoEdge Fabric™: Global Anycast CDN & Asset Optimization',
-        'CoUI Studio™: Cognitive Science Design Tokens & 60fps UI',
+        'CoUI Studio™: Fluid Design Tokens & 60fps Interface System',
       ],
       metrics: 'SOC 2 Type II Ready • Multi-Tenant Sovereign Cloud',
       cta: 'Explore SaaS Platforms Suite',

@@ -10,11 +10,11 @@ export const MarqueeDivider: React.FC = () => {
   const pillars: MarqueePillar[] = [
     { title: 'LIVING TECHNOLOGY', tag: 'Core Philosophy', accent: true },
     { title: 'ENTERPRISE SOFTWARE', tag: 'Custom & Cloud', accent: false },
-    { title: '360° ECOMMERCE SUITE', tag: 'MACH-X Architecture', accent: true },
-    { title: 'AI & MULTIMEDIA CONVERGENCE', tag: 'Autonomous SDLC', accent: false },
-    { title: 'PROPRIETARY SAAS SUITE', tag: 'Multi-Tenant Cloud', accent: true },
-    { title: 'ANYCAST EDGE VELOCITY', tag: 'Bunny CDN Tier-1', accent: false },
-    { title: 'COUI™ DESIGN TOKENS', tag: 'Cognitive Science UX', accent: true },
+    { title: '360° ECOMMERCE SUITE', tag: 'Omnichannel & Headless', accent: true },
+    { title: 'AI & MULTIMEDIA CONVERGENCE', tag: 'Autonomous Intelligence', accent: false },
+    { title: 'PROPRIETARY SAAS SUITE', tag: 'Enterprise Cloud', accent: true },
+    { title: 'GLOBAL EDGE VELOCITY', tag: 'Sub-15ms Delivery', accent: false },
+    { title: 'COUI™ DESIGN TOKENS', tag: 'Fluid 60fps UX', accent: true },
     { title: 'ZERO-DOWNTIME MIGRATION', tag: '100% SEO Preservation', accent: false },
   ]
 

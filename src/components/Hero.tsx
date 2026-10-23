@@ -358,12 +358,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
               </svg>
             </button>
 
-            {/* Secondary Contact Sales Button */}
+            {/* Secondary Explore Services Button */}
             <button
               onClick={() => onNavigatePage('services')}
               className="hero-btn-pill h-11 sm:h-12 px-7 sm:px-8 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 hover:border-white/40 text-white font-medium text-[13.5px] sm:text-[14px] tracking-tight transition-all duration-200 shadow-sm hover:-translate-y-0.5 gap-2.5 cursor-pointer"
             >
-              <span>Contact Sales</span>
+              <span>Explore Services</span>
               <svg className="size-3.5 shrink-0" viewBox="0 0 12 10" fill="none" aria-hidden="true">
                 <path
                   d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6"

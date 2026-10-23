@@ -126,18 +126,18 @@ export const ProjectEstimator: React.FC<ProjectEstimatorProps> = ({ onApplyEstim
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
-                  { id: 'enterprise-web', label: 'Enterprise Web Apps', icon: Layers, desc: 'TypeScript, TanStack, React 19' },
-                  { id: 'ai-platform', label: 'AI & Inference Systems', icon: Cpu, desc: 'Private RAG, Vector Search, LLM Serving' },
-                  { id: 'cloud-k8s', label: 'Cloud & Kubernetes', icon: Zap, desc: 'GitOps, Zero Downtime, Auto-Scale' },
-                  { id: 'cybersecurity', label: 'Cyber Defense & Zero-Trust', icon: ShieldAlert, desc: 'SOC 2, ISO 27001, Pen-Testing' },
-                  { id: 'full-transformation', label: 'Complete Digital Transformation', icon: Sparkles, desc: 'Full-stack enterprise overhaul' },
+                  { id: 'enterprise-web', label: 'Web & Mobile Applications', icon: Layers, desc: 'High-performance scalable applications' },
+                  { id: 'ai-platform', label: 'Enterprise AI & Automation', icon: Cpu, desc: 'Automated intelligence & custom AI models' },
+                  { id: 'cloud-k8s', label: 'Cloud Infrastructure & DevOps', icon: Zap, desc: 'Elastic scaling & zero-downtime deployment' },
+                  { id: 'cybersecurity', label: 'Enterprise Security & Compliance', icon: ShieldAlert, desc: 'SOC 2, ISO standards & penetration testing' },
+                  { id: 'full-transformation', label: 'Full Digital Re-Architecture', icon: Sparkles, desc: 'End-to-end modernization & legacy migration' },
                 ].map((item) => {
                   const Icon = item.icon
                   return (
                     <button
                       key={item.id}
                       onClick={() => setProjectType(item.id)}
-                      className={`p-4 rounded-2xl text-left border transition-all ${
+                      className={`p-4 rounded-2xl text-left border transition-all cursor-pointer ${
                         projectType === item.id
                           ? 'border-[#0052cb] bg-blue-50/60 shadow-sm'
                           : 'border-slate-200 hover:border-slate-300 bg-white'
@@ -156,19 +156,19 @@ export const ProjectEstimator: React.FC<ProjectEstimatorProps> = ({ onApplyEstim
 
             {/* Step 2: System Scale & Traffic */}
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">
-                2. Target Scale & Concurrency
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3 font-mono">
+                2. Target Scale &amp; Traffic Volume
               </label>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { id: 'mvp', title: 'Startup Tier', note: 'Up to 50k MAU' },
-                  { id: 'growth', title: 'Growth Tier', note: '50k–500k MAU' },
-                  { id: 'enterprise', title: 'Global Enterprise', note: '1M+ Concurrent' },
+                  { id: 'mvp', title: 'Launch Stage', note: 'Up to 50k Users' },
+                  { id: 'growth', title: 'Growth Tier', note: '50k–500k Active Users' },
+                  { id: 'enterprise', title: 'Global Enterprise', note: 'High Concurrency' },
                 ].map((s) => (
                   <button
                     key={s.id}
                     onClick={() => setScale(s.id as any)}
-                    className={`py-3 px-3 rounded-xl text-center border transition-all ${
+                    className={`py-3 px-3 rounded-xl text-center border transition-all cursor-pointer ${
                       scale === s.id
                         ? 'border-[#0052cb] bg-[#0052cb] text-white shadow-md'
                         : 'border-slate-200 hover:bg-slate-50 text-slate-700'
@@ -185,34 +185,34 @@ export const ProjectEstimator: React.FC<ProjectEstimatorProps> = ({ onApplyEstim
 
             {/* Step 3: Architecture Add-Ons */}
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">
-                3. Architecture Add-Ons & Infrastructure Modules
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3 font-mono">
+                3. Architecture Add-Ons &amp; Capabilities
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
                   {
                     state: includeBunnyCdn,
                     setter: setIncludeBunnyCdn,
-                    title: 'Bunny CDN Edge Storage & Caching',
-                    desc: '120+ Anycast PoPs & WebP/AVIF Transcoding',
+                    title: 'Global Edge CDN & Speed Acceleration',
+                    desc: '120+ Anycast PoPs & sub-15ms worldwide loading',
                   },
                   {
                     state: includeAiAgent,
                     setter: setIncludeAiAgent,
-                    title: 'Private LLM RAG & Vector Engine',
-                    desc: 'Sub-200ms semantic search on company data',
+                    title: 'Custom Enterprise AI & Search Engine',
+                    desc: 'Fast semantic search on proprietary company data',
                   },
                   {
                     state: includeSoc2,
                     setter: setIncludeSoc2,
-                    title: 'SOC 2 Type II Compliance Prep',
-                    desc: 'Audit-ready security policies & monitoring',
+                    title: 'SOC 2 & Enterprise Security Audit',
+                    desc: 'Audit-ready security policies & proactive monitoring',
                   },
                   {
                     state: multiRegion,
                     setter: setMultiRegion,
-                    title: 'Multi-Region High Availability',
-                    desc: 'Active-Active DB replication & 60s failover',
+                    title: 'High-Availability Disaster Recovery',
+                    desc: 'Automated database replication & instant failover',
                   },
                 ].map((addon, idx) => (
                   <div
@@ -240,14 +240,14 @@ export const ProjectEstimator: React.FC<ProjectEstimatorProps> = ({ onApplyEstim
 
             {/* Step 4: Urgency */}
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">
-                4. Delivery Urgency & Pace
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3 font-mono">
+                4. Delivery Urgency &amp; Target Pace
               </label>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { id: 'standard', title: 'Standard Cadence', badge: 'Normal Team' },
-                  { id: 'accelerated', title: 'Accelerated Sprint', badge: '+ Dedicated Leads' },
-                  { id: 'critical', title: 'Critical Warp Speed', badge: '2x Senior Pod' },
+                  { id: 'standard', title: 'Standard Cadence', badge: 'Standard Agile Pod' },
+                  { id: 'accelerated', title: 'Accelerated Sprint', badge: 'Dedicated Tech Leads' },
+                  { id: 'critical', title: 'High-Priority Sprint', badge: 'Expanded Senior Pod' },
                 ].map((t) => (
                   <button
                     key={t.id}

@@ -177,29 +177,29 @@ export const BunnyCdnShowcase: React.FC<BunnyCdnShowcaseProps> = ({ sectionNumbe
             </div>
           </div>
 
-          {/* Right: Interactive Bunny CDN Optimizer Simulator */}
+          {/* Right: Interactive Performance & Cost Optimization Workbench */}
           <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-[#071330] rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5 font-mono">
                   <Sliders className="w-4 h-4" />
-                  Bunny Optimizer Control
+                  Performance Simulator
                 </span>
-                <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800">
-                  Live Preview
+                <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  Sub-15ms Active
                 </span>
               </div>
 
-              <h4 className="text-lg font-bold text-white">
-                Edge Image Transcoder & Bandwidth Engine
+              <h4 className="text-xl font-bold text-white font-bricolage">
+                Edge Asset Optimization &amp; Speed Engine
               </h4>
-              <p className="mt-1 text-xs text-slate-300 leading-relaxed">
-                Adjust compression algorithms to see how Bunny CDN cuts client load times on high-resolution assets.
+              <p className="mt-1 text-xs sm:text-sm text-slate-300 leading-relaxed font-inter-tight">
+                Simulate how intelligent edge compression eliminates image bloat, slashes bounce rates, and cuts cloud egress costs.
               </p>
 
               {/* Format Switcher */}
               <div className="mt-6">
-                <label className="text-xs font-semibold text-slate-300 block mb-2">
+                <label className="text-xs font-semibold text-slate-300 block mb-2 font-mono uppercase tracking-wider">
                   Target Next-Gen Format
                 </label>
                 <div className="grid grid-cols-3 gap-2">
@@ -207,13 +207,13 @@ export const BunnyCdnShowcase: React.FC<BunnyCdnShowcaseProps> = ({ sectionNumbe
                     <button
                       key={fmt}
                       onClick={() => setSelectedFormat(fmt)}
-                      className={`py-2 px-3 rounded-xl text-xs font-bold uppercase transition-all ${
+                      className={`py-2 px-3 rounded-xl text-xs font-bold uppercase transition-all cursor-pointer ${
                         selectedFormat === fmt
                           ? 'bg-[#0052cb] text-white shadow-md'
                           : 'bg-white/10 text-slate-300 hover:bg-white/15'
                       }`}
                     >
-                      {fmt}
+                      {fmt === 'origin' ? 'Original' : fmt.toUpperCase()}
                     </button>
                   ))}
                 </div>
@@ -221,9 +221,9 @@ export const BunnyCdnShowcase: React.FC<BunnyCdnShowcaseProps> = ({ sectionNumbe
 
               {/* Quality Slider */}
               <div className="mt-5">
-                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-2">
+                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-2 font-mono">
                   <span>Compression Quality</span>
-                  <span className="text-sky-400 font-mono font-bold">{quality}%</span>
+                  <span className="text-sky-400 font-bold">{quality}%</span>
                 </div>
                 <input
                   type="range"
@@ -237,11 +237,11 @@ export const BunnyCdnShowcase: React.FC<BunnyCdnShowcaseProps> = ({ sectionNumbe
 
               {/* Edge Sharpening Toggle */}
               <div className="mt-4 flex items-center justify-between text-xs text-slate-300">
-                <span>Edge Micro-Sharpening</span>
+                <span className="font-medium">Intelligent Edge Sharpening</span>
                 <button
                   type="button"
                   onClick={() => setSharpen(!sharpen)}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-colors ${
+                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-colors cursor-pointer ${
                     sharpen ? 'bg-sky-500 text-white' : 'bg-white/10 text-slate-400'
                   }`}
                 >
@@ -249,20 +249,19 @@ export const BunnyCdnShowcase: React.FC<BunnyCdnShowcaseProps> = ({ sectionNumbe
                 </button>
               </div>
 
-
               {/* Real-time Calculation Card */}
-              <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10">
-                <div className="flex items-center justify-between text-xs mb-2">
-                  <span className="text-slate-400">Original Payload:</span>
+              <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400 font-medium">Standard Cloud Payload:</span>
                   <span className="font-mono text-slate-300">{originalSizeKb} KB</span>
                 </div>
-                <div className="flex items-center justify-between text-xs mb-2">
-                  <span className="text-slate-400">Bunny Edge Output:</span>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400 font-medium">Edge Optimized Output:</span>
                   <span className="font-mono text-sky-300 font-bold">{compressedSizeKb} KB</span>
                 </div>
-                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-sm">
-                  <span className="font-bold text-white">Bandwidth Saved:</span>
-                  <span className="font-black text-emerald-400 text-base">
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-xs font-bold text-white">Bandwidth &amp; Cost Saved:</span>
+                  <span className="font-black text-emerald-400 text-base font-mono">
                     +{bandwidthSavingsPercent}%
                   </span>
                 </div>
@@ -270,16 +269,17 @@ export const BunnyCdnShowcase: React.FC<BunnyCdnShowcaseProps> = ({ sectionNumbe
             </div>
 
             {/* Generated URL & Copy */}
-            <div className="mt-6 pt-5 border-t border-white/10">
-              <div className="text-[11px] font-semibold text-slate-400 uppercase mb-2">
-                Production Edge Query URL
+            <div className="mt-6 pt-4 border-t border-white/10">
+              <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2 font-mono flex items-center justify-between">
+                <span>Production Edge Delivery Endpoint</span>
+                <span className="text-emerald-400 font-normal">Auto-Cached</span>
               </div>
               <div className="flex items-center gap-2 p-2 rounded-xl bg-black/40 border border-white/10 font-mono text-[11px] text-sky-200">
                 <span className="truncate flex-1">{sampleUrl}</span>
                 <button
                   onClick={copyToClipboard}
-                  className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white shrink-0 transition-colors"
-                  title="Copy URL"
+                  className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white shrink-0 transition-colors cursor-pointer"
+                  title="Copy Endpoint URL"
                 >
                   {copiedUrl ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>

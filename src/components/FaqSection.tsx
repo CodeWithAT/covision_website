@@ -46,7 +46,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenContact }) => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by topic (e.g. NDA, IP ownership, Bunny CDN, TanStack)..."
+              placeholder="Search by topic (e.g. NDA, IP ownership, Edge CDN, Pricing, SLA)..."
               className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0052cb] focus:bg-white transition-all"
             />
           </div>
