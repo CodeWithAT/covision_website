@@ -292,9 +292,9 @@ export const TECHNOLOGY_SPECTRUM = {
 }
 
 export const PILLAR_CLIENTS: ClientPartner[] = [
-  { name: 'Banking & Financial Services', category: 'FinTech & Core Banking', featuredProject: 'Go microservices & zero-downtime Kubernetes failover handling $1.2B daily.', logoText: 'BANKING & FINTECH' },
+  { name: 'Banking and Financial Services', category: 'FinTech & Core Banking', featuredProject: 'Go microservices & zero-downtime Kubernetes failover handling $1.2B daily.', logoText: 'BANKING & FINTECH' },
   { name: 'Puma', category: 'Retail & Sportswear', featuredProject: 'Omnichannel mobile app experience & high-load catalog acceleration.', logoText: 'PUMA' },
-  { name: 'Human Resource Systems', category: 'Enterprise HR & Workforce', featuredProject: 'Automated global workforce management, payroll & compliance suite.', logoText: 'HUMAN RESOURCE' },
+  { name: 'Human Resource', category: 'Enterprise HR & Workforce', featuredProject: 'Automated global workforce management, payroll & compliance suite.', logoText: 'HUMAN RESOURCE' },
   { name: 'E-Commerce Industry', category: 'Omnichannel Retail', featuredProject: 'Headless multi-store architecture with automated PIM catalog sync.', logoText: 'E-COMMERCE' },
   { name: 'Education & Training', category: 'EdTech & Digital Media', featuredProject: 'Interactive PWA learning ecosystem with offline sync and assessments.', logoText: 'EDUCATION & TRAINING' },
   { name: 'Silver Maharaja', category: 'Jewelry & Luxury', featuredProject: 'Luxury e-commerce storefront with multi-currency checkout.', logoText: 'SILVER MAHARAJA' },
@@ -417,7 +417,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     question: 'What is the "Living Technology" philosophy at CoVision?',
     category: 'Architecture',
-    answer: 'Living Technology is our core philosophy where software behaves, adapts, and evolves like a living organism. It combines our two paradigms: creating systems that make autonomous decisions via AI, and designing responsive ecosystems that interact in real time across the Trifecta of Technology, AI, and Multimedia.',
+    answer: 'Covision: Technology That Connects Business and Creativity. We engineer proprietary software products, SaaS platforms, enterprise applications, and cloud infrastructure built for evolving business demands through the synergy of agile execution, DevOps automation, and autonomous AI integrations.',
   },
   {
     question: 'What is included in the 360° eCommerce Suite?',

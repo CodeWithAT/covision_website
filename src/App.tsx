@@ -326,7 +326,7 @@ export const AppContent: React.FC = () => {
               <PageHeaderBanner
                 pageName="Living Technology Philosophy"
                 title="Living Technology: Architecture & Delivery Framework"
-                subtitle="Technology that behaves, adapts, and evolves like a living organism. Integrating Agile velocity, Scrum discipline, automated DevOps, and autonomous AI."
+                subtitle="Covision: Technology That Connects Business and Creativity. Engineering proprietary software products, SaaS platforms, and cloud infrastructure built for evolving business demands."
                 metrics={[
                   { label: 'Self-Healing Loops', value: 'Autonomous' },
                   { label: 'Architecture Model', value: 'Organismic' },
