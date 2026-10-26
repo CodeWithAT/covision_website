@@ -34,7 +34,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Software Engineering',
     desc: 'Custom software engineered for complex requirements, performance, security, and scalability.',
     badge: 'Core Architecture',
-    image: '/images/services/software_engineering.jpg',
+    image: '/images/disciplines/software_engineering.jpg',
     icon: Code2,
     highlights: [
       'High-concurrency distributed backends & microservices',
@@ -50,7 +50,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Custom SaaS Development',
     desc: 'Purpose-built SaaS platforms,designed for secure, scalable business operations.',
     badge: 'Proprietary IP',
-    image: '/images/saas/omniflow_commerce.jpg',
+    image: '/images/disciplines/saas_development.jpg',
     icon: Layers,
     highlights: [
       'Multi-tenant cloud architecture with sovereign data isolation',
@@ -65,7 +65,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Application Development & Management',
     desc: 'Application development, modernization, integration, maintenance, and lifecycle management.',
     badge: 'App Lifecycle',
-    image: '/images/services/mobile_app.jpg',
+    image: '/images/disciplines/app_management.jpg',
     icon: Smartphone,
     highlights: [
       'Cross-platform iOS, Android, and responsive web platforms',
@@ -81,7 +81,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Cloud & Infrastructure',
     desc: 'Cloud architecture, infrastructure engineering, DevOps, monitoring, and optimization for reliable operations.',
     badge: 'Multi-Cloud Fabric',
-    image: '/images/services/cloud_infrastructure.jpg',
+    image: '/images/disciplines/cloud_infrastructure.jpg',
     icon: Cloud,
     highlights: [
       'Kubernetes orchestration & GitOps automated CI/CD',
@@ -97,7 +97,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'AI as a Service',
     desc: 'AI agents, intelligent automation, and AI-powered integrations that streamline workflows and extend business capabilities.',
     badge: 'Autonomous AI',
-    image: '/images/services/ai_ml.jpg',
+    image: '/images/disciplines/ai_services.jpg',
     icon: Brain,
     highlights: [
       'Autonomous multi-agent workflows & decision automation',
