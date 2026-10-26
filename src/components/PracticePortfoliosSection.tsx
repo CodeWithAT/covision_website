@@ -20,6 +20,7 @@ interface CoreSolution {
   title: string
   desc: string
   badge: string
+  image: string
   icon: React.ComponentType<{ className?: string }>
   highlights: string[]
   pageRoute: string
@@ -33,6 +34,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Software Engineering',
     desc: 'Custom software engineered for complex requirements, performance, security, and scalability.',
     badge: 'Core Architecture',
+    image: '/images/services/software_engineering.jpg',
     icon: Code2,
     highlights: [
       'High-concurrency distributed backends & microservices',
@@ -48,6 +50,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Custom SaaS Development',
     desc: 'Purpose-built SaaS platforms,designed for secure, scalable business operations.',
     badge: 'Proprietary IP',
+    image: '/images/saas/omniflow_commerce.jpg',
     icon: Layers,
     highlights: [
       'Multi-tenant cloud architecture with sovereign data isolation',
@@ -62,6 +65,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Application Development & Management',
     desc: 'Application development, modernization, integration, maintenance, and lifecycle management.',
     badge: 'App Lifecycle',
+    image: '/images/services/mobile_app.jpg',
     icon: Smartphone,
     highlights: [
       'Cross-platform iOS, Android, and responsive web platforms',
@@ -77,6 +81,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Cloud & Infrastructure',
     desc: 'Cloud architecture, infrastructure engineering, DevOps, monitoring, and optimization for reliable operations.',
     badge: 'Multi-Cloud Fabric',
+    image: '/images/services/cloud_infrastructure.jpg',
     icon: Cloud,
     highlights: [
       'Kubernetes orchestration & GitOps automated CI/CD',
@@ -92,6 +97,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'AI as a Service',
     desc: 'AI agents, intelligent automation, and AI-powered integrations that streamline workflows and extend business capabilities.',
     badge: 'Autonomous AI',
+    image: '/images/services/ai_ml.jpg',
     icon: Brain,
     highlights: [
       'Autonomous multi-agent workflows & decision automation',
@@ -132,7 +138,7 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {CORE_SOLUTIONS.map((solution, index) => {
             const Icon = solution.icon
-            const isFullSpan = index === 4 // Make the 5th card span 2 cols on tablet / nicely balanced on large screens
+            const isFullSpan = index === 4
             return (
               <motion.div
                 key={solution.number}
@@ -140,61 +146,76 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className={`group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-ink-line hover:border-[#0052cb]/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5 ${
+                className={`group relative flex flex-col justify-between rounded-3xl bg-white border border-ink-line hover:border-[#0052cb]/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5 overflow-hidden ${
                   isFullSpan ? 'md:col-span-2 lg:col-span-2' : ''
                 }`}
               >
                 <div>
-                  {/* Top Bar: Number + Icon + Badge */}
-                  <div className="flex items-center justify-between gap-4 mb-6">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-full bg-blue-50 text-[#0052cb] border border-blue-200">
+                  {/* Image Banner Header with Scrim & Badges */}
+                  <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-neutral-900">
+                    <img
+                      src={solution.image}
+                      alt={solution.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
+
+                    {/* Floating Badges */}
+                    <div className="absolute top-4 inset-x-4 flex items-center justify-between">
+                      <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-white/95 text-slate-900 shadow-sm border border-white/60">
                         {solution.number}
                       </span>
-                      <div className="size-11 rounded-2xl bg-blue-50/80 border border-blue-100 flex items-center justify-center text-[#0052cb] group-hover:bg-[#0052cb] group-hover:text-white transition-colors">
-                        <Icon className="size-5" />
-                      </div>
+                      <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-white bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                        {solution.badge}
+                      </span>
                     </div>
 
-                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200">
-                      {solution.badge}
-                    </span>
+                    {/* Floating Icon in bottom corner */}
+                    <div className="absolute bottom-4 left-4 size-10 rounded-xl bg-white/95 backdrop-blur-md text-[#0052cb] flex items-center justify-center shadow-md border border-white/40 group-hover:bg-[#0052cb] group-hover:text-white transition-colors">
+                      <Icon className="size-5" />
+                    </div>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="font-bricolage text-2xl sm:text-[26px] font-semibold tracking-tight text-ink mb-3 group-hover:text-[#0052cb] transition-colors">
-                    {solution.title}
-                  </h3>
+                  {/* Body Content */}
+                  <div className="p-6 sm:p-8">
+                    {/* Title with exact number prefix */}
+                    <h3 className="font-bricolage text-xl sm:text-2xl font-semibold tracking-tight text-ink mb-2.5 group-hover:text-[#0052cb] transition-colors">
+                      {solution.number}. {solution.title}
+                    </h3>
 
-                  {/* Exact description from instruction.txt */}
-                  <p className="text-sm sm:text-[15px] text-neutral-600 leading-relaxed mb-6 font-normal">
-                    {solution.desc}
-                  </p>
+                    {/* Exact description from instruction.txt */}
+                    <p className="text-sm sm:text-[14.5px] text-neutral-600 leading-relaxed mb-6 font-normal">
+                      {solution.desc}
+                    </p>
 
-                  {/* Bullet Highlights */}
-                  <div className="space-y-2.5 mb-8">
-                    {solution.highlights.map((h) => (
-                      <div key={h} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-700">
-                        <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </div>
-                    ))}
+                    {/* Bullet Highlights */}
+                    <div className="space-y-2 mb-4">
+                      {solution.highlights.map((h) => (
+                        <div key={h} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-700">
+                          <CheckCircle2 className="size-3.5 text-[#0052cb] shrink-0 mt-0.5" />
+                          <span>{h}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 {/* Footer Action */}
-                <div className="pt-6 border-t border-ink-line flex items-center justify-between">
-                  <span className="text-[11px] font-mono text-neutral-400 font-semibold uppercase tracking-wider">
-                    Enterprise SLA Ready
-                  </span>
+                <div className="px-6 pb-6 sm:px-8 sm:pb-8 pt-0">
+                  <div className="pt-4 border-t border-ink-line flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-neutral-400 font-semibold uppercase tracking-wider">
+                      Enterprise SLA
+                    </span>
 
-                  <button
-                    onClick={() => onNavigatePage(solution.pageRoute, solution.targetServiceId)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 hover:bg-[#0052cb] text-white text-xs font-bold transition-all shadow-sm group-hover:scale-102 cursor-pointer"
-                  >
-                    <span>{solution.ctaText}</span>
-                    <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                    <button
+                      onClick={() => onNavigatePage(solution.pageRoute, solution.targetServiceId)}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 hover:bg-[#0052cb] text-white text-xs font-bold transition-all shadow-sm group-hover:scale-102 cursor-pointer"
+                    >
+                      <span>{solution.ctaText}</span>
+                      <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             )
