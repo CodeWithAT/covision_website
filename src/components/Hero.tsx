@@ -390,7 +390,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
             </div>
           </motion.div>
 
-          {/* Masked Headline Rise: Exact text from image ("Living Technology for the Modern Enterprise.") */}
+          {/* Masked Headline Rise: Exact text from instruction.txt ("Living Technology for Modern Enterprises") */}
           <h1 className="font-medium text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] tracking-[-0.035em] leading-[0.98] text-white max-w-5xl">
             <span className="block overflow-hidden pt-1 pb-1">
               <motion.span
@@ -399,7 +399,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
                 transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
                 className="block will-change-transform text-white"
               >
-                Living Technology for the
+                Living Technology for
               </motion.span>
             </span>
 
@@ -410,20 +410,19 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
                 transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1], delay: 0.28 }}
                 className="block will-change-transform bg-gradient-to-r from-[#60a5fa] via-[#93c5fd] to-[#38bdf8] bg-clip-text text-transparent drop-shadow-sm"
               >
-                Modern Enterprise.
+                Modern Enterprises
               </motion.span>
             </span>
           </h1>
 
-          {/* Subtitle Focus Pull: Exact text from image */}
+          {/* Subtitle Focus Pull: Exact text from instruction.txt */}
           <motion.p
             initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
             className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-[17px] text-neutral-300 font-normal leading-relaxed max-w-3xl mx-auto"
           >
-            We engineer resilient custom software, high-velocity 360° eCommerce systems, and
-            multi-cloud infrastructure that adapt, innovate, and self-heal like a living organism.
+            We engineer resilient software, intelligent digital ecosystems, and cloud-native infrastructure that unite technology, commerce, and creativity to drive business agility, innovation, and sustainable growth.
           </motion.p>
 
           {/* CTA Buttons: Single-line, Guaranteed NO-WRAP, Generous Padding */}

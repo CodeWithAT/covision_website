@@ -211,11 +211,14 @@ export const AppContent: React.FC = () => {
               {/* Living Technology Overview & Adaptation Framework */}
               <LivingTechnologySection sectionNumber="01" />
 
-              {/* Flagship Practice Portfolios (Direct Gateway to Dedicated Sub-Pages) */}
-              <PracticePortfoliosSection onNavigatePage={handleNavigatePage} />
+              {/* Core Engineering to Intelligent Solutions (01 to 05 Offerings) */}
+              <PracticePortfoliosSection onNavigatePage={handleNavigatePage} sectionNumber="02" />
 
-              {/* Dual Infinite Client Marquee & Strategic Case Spotlights */}
-              <PillarClientsSection onOpenContact={() => handleOpenContact()} sectionNumber="02" />
+              {/* Dual Infinite Client Marquee & Featured Projects */}
+              <PillarClientsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
+
+              {/* Why You Choose Us - Engineering Edge */}
+              <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="04" />
 
               {/* Executive Testimonials & Guarantees */}
               <TestimonialsAndProof />

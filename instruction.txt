@@ -1,0 +1,52 @@
+Dear Abhay,
+
+I hope you are doing well. I am sending the home page design of Covision and you have to follow it strictly. I will not give you any feedback further if design goes beyond below structure. It is my personal advice that you enjoy leave and once come to office complete it. Do not worry about your salary, I will not deduct it. But please focus on concept of design. You have to choose the appropriate images from various sources. I will share the service part too either today or tomorrow.
+
+ 
+
+https://covisionwebsite.vercel.app/#
+
+ 
+
+                                                                                                                                       
+
+ 
+
+Replace the very first sentence with below
+Living Technology for Modern Enterprises
+
+We engineer resilient software, intelligent digital ecosystems, and cloud-native infrastructure that unite technology, commerce, and creativity to drive business agility, innovation, and sustainable growth.
+
+Replace the Technology that behaves, adapts, and evolves like a living organism.
+Covision: Technology That Connects Business and Creativity
+
+COVISION engineers proprietary software products, SaaS platforms, enterprise applications, and cloud infrastructure built for evolving business demands. Our capabilities span AI agents, intelligent workflow automation, digital commerce, and multimedia solutions, integrating software engineering, system architecture, and emerging technologies to deliver secure, interoperable, and scalable digital solutions.
+
+Write down
+Built on Engineering Excellence:
+
+The Synergy: Agile × Scrum × DevOps × AI
+
+Combine architecture-led software engineering, agile execution, DevOps automation, and AI-assisted development to build secure, reliable, and scalable technology—with engineering quality at every stage.
+
+From Core Engineering to Intelligent Solutions.
+01. Software Engineering
+Custom software engineered for complex requirements, performance, security, and scalability.
+
+02. Custom SaaS Development
+Purpose-built SaaS platforms,designed for secure, scalable business operations.
+
+03. Application Development & Management
+Application development, modernization, integration, maintenance, and lifecycle management.
+
+04. Cloud & Infrastructure
+Cloud architecture, infrastructure engineering, DevOps, monitoring, and optimization for reliable operations.
+
+05. AI as a Service
+AI agents, intelligent automation, and AI-powered integrations that streamline workflows and extend business capabilities.
+
+Featured Projects and clients------- Banking and Financial services-----Puma------Human Resource-------E commerce industry--------Education & Training-------Silver Maharaja-------
+---------Fila-----------etc and it should rotate like in the website.
+
+Why You Choose Us
+Take The first step with covision

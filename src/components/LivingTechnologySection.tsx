@@ -368,17 +368,17 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
         {/* Editorial Two-Column Headline Structure */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 items-start">
           <div className="lg:col-span-7">
-            <h2 className="font-bricolage text-[2.4rem] sm:text-5xl md:text-6xl font-medium leading-[1.02] tracking-[-0.03em] text-slate-900">
-              Technology that <span className="text-[#0052cb] font-semibold">behaves, adapts,</span> and evolves like a living organism.
+            <h2 className="font-bricolage text-[2.4rem] sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-slate-900">
+              Covision: <span className="text-[#0052cb] font-semibold">Technology That Connects</span> Business and Creativity
             </h2>
           </div>
 
           <div className="lg:col-span-5 space-y-5 lg:pt-2">
-            <p className="text-lg md:text-xl leading-relaxed text-slate-800 font-normal">
-              At <strong className="font-semibold text-slate-950">CoVision Technologies</strong>, we reject static software. Modern markets shift overnight; systems that cannot continuously adapt become brittle liabilities.
+            <p className="text-base sm:text-lg leading-relaxed text-slate-700 font-normal">
+              COVISION engineers proprietary software products, SaaS platforms, enterprise applications, and cloud infrastructure built for evolving business demands.
             </p>
-            <p className="border-t border-slate-200/80 pt-5 text-sm md:text-base leading-relaxed text-slate-600">
-              By harmonizing deterministic software engineering with cognitive artificial intelligence and emotive multimedia, we build digital infrastructure that thrives under volatile traffic, self-heals in real time, and drives measurable enterprise growth.
+            <p className="border-t border-slate-200/80 pt-4 text-sm sm:text-[15px] leading-relaxed text-slate-600">
+              Our capabilities span AI agents, intelligent workflow automation, digital commerce, and multimedia solutions, integrating software engineering, system architecture, and emerging technologies to deliver secure, interoperable, and scalable digital solutions.
             </p>
 
             {/* Core Philosophy Value Ribbon */}
@@ -504,13 +504,13 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-sm">
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-[#0052cb]">
-              SDLC Execution Framework
+              Built on Engineering Excellence:
             </span>
             <h3 className="font-bricolage text-2xl sm:text-4xl font-medium text-slate-900 mt-2">
               The Synergy: Agile × Scrum × DevOps × AI
             </h3>
             <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-              We combine industry-standard delivery methodologies with modern AI co-pilots, ensuring 40% faster time-to-market without cutting architectural corners.
+              Combine architecture-led software engineering, agile execution, DevOps automation, and AI-assisted development to build secure, reliable, and scalable technology—with engineering quality at every stage.
             </p>
           </div>
 

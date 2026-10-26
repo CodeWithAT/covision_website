@@ -88,14 +88,13 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
         
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <SectionEyebrow number={sectionNumber} label="Enterprise Client Ecosystem" tone="dark" className="mb-6" />
+          <SectionEyebrow number={sectionNumber} label="Featured Projects & Clients" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium text-ink tracking-tight leading-[1.04]">
-            Trusted by Global Brands &{' '}
-            <span className="text-[#0052cb]">Industry Torchbearers</span>
+            Featured Projects and <span className="text-[#0052cb]">Clients</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed">
-            From Fortune 500 retail powerhouses to mission-critical FinTech rails, CoVision engineers custom digital solutions that establish clear market dominance.
+            From global giants like Puma and Fila to Banking & Financial Services, Human Resource platforms, E-Commerce, Education & Training, and Silver Maharaja.
           </p>
         </div>
 

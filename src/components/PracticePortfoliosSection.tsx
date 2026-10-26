@@ -1,132 +1,179 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Server, Layers, ShoppingBag, Compass, CheckCircle2 } from 'lucide-react'
+import {
+  ArrowRight,
+  Code2,
+  Layers,
+  Smartphone,
+  Cloud,
+  Brain,
+  CheckCircle2,
+} from 'lucide-react'
 
 interface PracticePortfoliosSectionProps {
-  onNavigatePage: (page: string) => void
+  onNavigatePage: (page: string, targetServiceId?: string) => void
+  sectionNumber?: string
 }
 
-export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps> = ({ onNavigatePage }) => {
-  const portfolios = [
-    {
-      id: 'services',
-      badge: 'Engineering & Cloud Fabric',
-      icon: Server,
-      title: 'Services & Cloud Architecture',
-      desc: 'End-to-end custom software engineering, high-concurrency distributed backends, autonomous AI workflows, and multi-cloud Kubernetes infrastructure.',
-      highlights: [
-        'Custom Enterprise SaaS & Distributed Microservices',
-        'Global Anycast Edge & Multi-Cloud DevOps',
-        'Autonomous AI Agents, LLM Integrations & Vision Pipelines',
-        'CoUI Cognitive Design System & High-Performance Frontends',
-      ],
-      metrics: '50+ Deployed Platforms • 99.99% Availability',
-      cta: 'Explore Services & Tech Matrix',
-    },
-    {
-      id: 'saas',
-      badge: 'Proprietary IP Platforms',
-      icon: Layers,
-      title: 'SaaS Platforms Suite',
-      desc: 'Battle-tested standalone digital platforms and subdomains engineered for multi-tenant scalability, real-time telemetry, and rapid enterprise deployment.',
-      highlights: [
-        'CoCommerce™: Omnichannel Digital Storefronts & Real-Time OMS',
-        'CogniFlow AI™: Enterprise Multi-Agent AI & Decision Automation',
-        'CoEdge Fabric™: Global Anycast CDN & Asset Optimization',
-        'CoUI Studio™: Fluid Design Tokens & 60fps Interface System',
-      ],
-      metrics: 'SOC 2 Type II Ready • Multi-Tenant Sovereign Cloud',
-      cta: 'Explore SaaS Platforms Suite',
-    },
-    {
-      id: 'ecommerce',
-      badge: 'High-Velocity Commerce',
-      icon: ShoppingBag,
-      title: '360° eCommerce Practice',
-      desc: 'Headless Shopify Plus and Adobe Commerce architectures, real-time ERP middleware synchronization, and immersive 3D/AR product visualizers.',
-      highlights: [
-        'Headless Commerce via Hydrogen, Next.js & Medusa',
-        'Real-Time SAP, NetSuite & Dynamics 365 Middleware',
-        'Interactive 3D WebGL Configurator & AR Product Visualizers',
-        'Zero-Downtime Data Migration & High-Traffic Surges',
-      ],
-      metrics: '$500M+ GMV Orchestrated • 40ms Edge Checkout',
-      cta: 'Explore 360° eCommerce Suite',
-    },
-    {
-      id: 'about',
-      badge: 'Vision & Engineering Culture',
-      icon: Compass,
-      title: 'About CoVision & Philosophy',
-      desc: 'We treat software as a living organism that evolves, adapts, and self-heals. Discover the founding vision, engineering leadership, and client-centric principles.',
-      highlights: [
-        'Living Technology Manifesto & Delivery Framework',
-        'Zero Technical Debt & Automated CI/CD Testing',
-        'Global Engineering Hubs & Strategic Enterprise Advisory',
-        'Transparent Agile Sprints & Guaranteed Production SLAs',
-      ],
-      metrics: 'Global Delivery Footprint • 100% On-Time Sprints',
-      cta: 'Discover Our Story & Values',
-    },
-  ]
+interface CoreSolution {
+  number: string
+  title: string
+  desc: string
+  badge: string
+  icon: React.ComponentType<{ className?: string }>
+  highlights: string[]
+  pageRoute: string
+  targetServiceId?: string
+  ctaText: string
+}
 
+const CORE_SOLUTIONS: CoreSolution[] = [
+  {
+    number: '01',
+    title: 'Software Engineering',
+    desc: 'Custom software engineered for complex requirements, performance, security, and scalability.',
+    badge: 'Core Architecture',
+    icon: Code2,
+    highlights: [
+      'High-concurrency distributed backends & microservices',
+      'Fault-tolerant transactional rails with zero data loss',
+      'Strict clean-architecture patterns and continuous peer review',
+    ],
+    pageRoute: 'services',
+    targetServiceId: 'software-engineering',
+    ctaText: 'Explore Software Engineering',
+  },
+  {
+    number: '02',
+    title: 'Custom SaaS Development',
+    desc: 'Purpose-built SaaS platforms,designed for secure, scalable business operations.',
+    badge: 'Proprietary IP',
+    icon: Layers,
+    highlights: [
+      'Multi-tenant cloud architecture with sovereign data isolation',
+      'Real-time analytics, automated billing & API gateways',
+      'Rapid enterprise rollouts with sub-50ms telemetry',
+    ],
+    pageRoute: 'saas',
+    ctaText: 'Explore SaaS Platforms',
+  },
+  {
+    number: '03',
+    title: 'Application Development & Management',
+    desc: 'Application development, modernization, integration, maintenance, and lifecycle management.',
+    badge: 'App Lifecycle',
+    icon: Smartphone,
+    highlights: [
+      'Cross-platform iOS, Android, and responsive web platforms',
+      'Legacy monolith modernization & seamless cloud refactoring',
+      '24/7 SLA monitoring, zero-regression patches & lifecycle support',
+    ],
+    pageRoute: 'services',
+    targetServiceId: 'app-development',
+    ctaText: 'Explore App Management',
+  },
+  {
+    number: '04',
+    title: 'Cloud & Infrastructure',
+    desc: 'Cloud architecture, infrastructure engineering, DevOps, monitoring, and optimization for reliable operations.',
+    badge: 'Multi-Cloud Fabric',
+    icon: Cloud,
+    highlights: [
+      'Kubernetes orchestration & GitOps automated CI/CD',
+      'Global Anycast edge delivery with sub-15ms worldwide latency',
+      'Zero-trust security, automated DDoS defense & SOC 2 compliance',
+    ],
+    pageRoute: 'services',
+    targetServiceId: 'cloud-infrastructure',
+    ctaText: 'Explore Cloud & DevOps',
+  },
+  {
+    number: '05',
+    title: 'AI as a Service',
+    desc: 'AI agents, intelligent automation, and AI-powered integrations that streamline workflows and extend business capabilities.',
+    badge: 'Autonomous AI',
+    icon: Brain,
+    highlights: [
+      'Autonomous multi-agent workflows & decision automation',
+      'Private enterprise RAG pipelines & customized LLM integrations',
+      'Predictive analytics, computer vision & automated operations',
+    ],
+    pageRoute: 'services',
+    targetServiceId: 'ai-ml-integration',
+    ctaText: 'Explore AI Services',
+  },
+]
+
+export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps> = ({
+  onNavigatePage,
+  sectionNumber = '02',
+}) => {
   return (
-    <section className="py-24 md:py-32 bg-paper relative border-t border-ink-line text-ink font-inter-tight">
+    <section id="core-engineering" className="py-24 md:py-32 bg-paper relative border-t border-ink-line text-ink font-inter-tight">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-[#0052cb] font-bold mb-3">
             <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
-            <span>Dedicated Practice Portfolios</span>
+            <span>Section {sectionNumber} • Enterprise Offerings</span>
           </div>
 
-          <h2 className="font-bricolage text-3xl sm:text-5xl font-medium tracking-tight text-ink leading-[1.08]">
-            Specialized Disciplines.{' '}
-            <span className="text-[#0052cb]">Tailored for Enterprise Scale.</span>
+          <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ink leading-[1.06]">
+            From Core Engineering to{' '}
+            <span className="text-[#0052cb]">Intelligent Solutions.</span>
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed font-normal">
-            CoVision is organized into four core practices. Each discipline operates with dedicated senior architects, battle-tested methodologies, and measurable outcomes.
+            We deliver end-to-end digital capabilities spanning resilient custom engineering, purpose-built SaaS platforms, robust cloud infrastructure, and autonomous AI integrations.
           </p>
         </div>
 
-        {/* 4 Practice Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {portfolios.map((portfolio, index) => {
-            const Icon = portfolio.icon
+        {/* 5 Core Solutions Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {CORE_SOLUTIONS.map((solution, index) => {
+            const Icon = solution.icon
+            const isFullSpan = index === 4 // Make the 5th card span 2 cols on tablet / nicely balanced on large screens
             return (
               <motion.div
-                key={portfolio.id}
+                key={solution.number}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-3xl bg-white border border-ink-line hover:border-[#0052cb]/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5"
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className={`group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-ink-line hover:border-[#0052cb]/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5 ${
+                  isFullSpan ? 'md:col-span-2 lg:col-span-2' : ''
+                }`}
               >
                 <div>
-                  {/* Top Header */}
+                  {/* Top Bar: Number + Icon + Badge */}
                   <div className="flex items-center justify-between gap-4 mb-6">
-                    <div className="size-12 rounded-2xl bg-blue-50/80 border border-blue-100 flex items-center justify-center text-[#0052cb] group-hover:bg-[#0052cb] group-hover:text-white transition-colors">
-                      <Icon className="size-6" />
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-full bg-blue-50 text-[#0052cb] border border-blue-200">
+                        {solution.number}
+                      </span>
+                      <div className="size-11 rounded-2xl bg-blue-50/80 border border-blue-100 flex items-center justify-center text-[#0052cb] group-hover:bg-[#0052cb] group-hover:text-white transition-colors">
+                        <Icon className="size-5" />
+                      </div>
                     </div>
 
                     <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200">
-                      {portfolio.badge}
+                      {solution.badge}
                     </span>
                   </div>
 
-                  {/* Title & Desc */}
-                  <h3 className="font-bricolage text-2xl sm:text-3xl font-semibold tracking-tight text-ink mb-3 group-hover:text-[#0052cb] transition-colors">
-                    {portfolio.title}
+                  {/* Title */}
+                  <h3 className="font-bricolage text-2xl sm:text-[26px] font-semibold tracking-tight text-ink mb-3 group-hover:text-[#0052cb] transition-colors">
+                    {solution.title}
                   </h3>
 
-                  <p className="text-sm sm:text-[15px] text-neutral-600 leading-relaxed mb-6">
-                    {portfolio.desc}
+                  {/* Exact description from instruction.txt */}
+                  <p className="text-sm sm:text-[15px] text-neutral-600 leading-relaxed mb-6 font-normal">
+                    {solution.desc}
                   </p>
 
-                  {/* Highlights Bullet List */}
+                  {/* Bullet Highlights */}
                   <div className="space-y-2.5 mb-8">
-                    {portfolio.highlights.map((h) => (
+                    {solution.highlights.map((h) => (
                       <div key={h} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-700">
                         <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
                         <span>{h}</span>
@@ -135,17 +182,17 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
                   </div>
                 </div>
 
-                {/* Footer Metric & Action Button */}
-                <div className="pt-6 border-t border-ink-line flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="text-[11px] font-mono text-neutral-500 font-medium">
-                    {portfolio.metrics}
-                  </div>
+                {/* Footer Action */}
+                <div className="pt-6 border-t border-ink-line flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-neutral-400 font-semibold uppercase tracking-wider">
+                    Enterprise SLA Ready
+                  </span>
 
                   <button
-                    onClick={() => onNavigatePage(portfolio.id)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 hover:bg-[#0052cb] text-white text-xs font-bold transition-all shadow-sm group-hover:scale-102 cursor-pointer w-max"
+                    onClick={() => onNavigatePage(solution.pageRoute, solution.targetServiceId)}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 hover:bg-[#0052cb] text-white text-xs font-bold transition-all shadow-sm group-hover:scale-102 cursor-pointer"
                   >
-                    <span>{portfolio.cta}</span>
+                    <span>{solution.ctaText}</span>
                     <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

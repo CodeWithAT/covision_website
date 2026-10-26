@@ -100,7 +100,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
           <SectionEyebrow number={sectionNumber} label="Enterprise Engineering Edge" tone="dark" />
 
           <h2 className="mt-8 font-bricolage text-5xl md:text-7xl font-medium leading-[0.98] tracking-[-0.03em] text-ink">
-            Why choose us?
+            Why You Choose Us
           </h2>
 
           <p className="mt-8 max-w-md font-inter-tight text-lg md:text-xl leading-relaxed text-neutral-600">
@@ -109,7 +109,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
 
           <div className="mt-10 md:mt-14">
             <CtaPill onClick={onOpenContact} variant="dark">
-              Get in touch
+              Take The first step with covision
             </CtaPill>
           </div>
         </div>

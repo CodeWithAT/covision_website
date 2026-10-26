@@ -292,28 +292,20 @@ export const TECHNOLOGY_SPECTRUM = {
 }
 
 export const PILLAR_CLIENTS: ClientPartner[] = [
+  { name: 'Banking & Financial Services', category: 'FinTech & Core Banking', featuredProject: 'Go microservices & zero-downtime Kubernetes failover handling $1.2B daily.', logoText: 'BANKING & FINTECH' },
   { name: 'Puma', category: 'Retail & Sportswear', featuredProject: 'Omnichannel mobile app experience & high-load catalog acceleration.', logoText: 'PUMA' },
+  { name: 'Human Resource Systems', category: 'Enterprise HR & Workforce', featuredProject: 'Automated global workforce management, payroll & compliance suite.', logoText: 'HUMAN RESOURCE' },
+  { name: 'E-Commerce Industry', category: 'Omnichannel Retail', featuredProject: 'Headless multi-store architecture with automated PIM catalog sync.', logoText: 'E-COMMERCE' },
+  { name: 'Education & Training', category: 'EdTech & Digital Media', featuredProject: 'Interactive PWA learning ecosystem with offline sync and assessments.', logoText: 'EDUCATION & TRAINING' },
+  { name: 'Silver Maharaja', category: 'Jewelry & Luxury', featuredProject: 'Luxury e-commerce storefront with multi-currency checkout.', logoText: 'SILVER MAHARAJA' },
   { name: 'Fila', category: 'Global Footwear', featuredProject: 'Custom eCommerce storefront & 3D product visualizer.', logoText: 'FILA' },
   { name: 'Mango', category: 'Fashion & Apparel', featuredProject: 'Multi-region cloud infrastructure & headless checkout pipeline.', logoText: 'MANGO' },
   { name: 'Bertelsmann Group', category: 'Media & Publishing', featuredProject: 'Enterprise DAM & AI-powered metadata tagging engine.', logoText: 'BERTELSMANN' },
   { name: 'Estée Lauder Companies', category: 'Luxury Beauty', featuredProject: 'AR virtual try-on integration & personalized recommendation AI.', logoText: 'ESTÉE LAUDER' },
   { name: 'Rugs USA', category: 'Home & Living', featuredProject: 'High-throughput inventory synchronization & ERP integration.', logoText: 'RUGS USA' },
   { name: 'HMD Global', category: 'Consumer Devices', featuredProject: 'Global supply chain telemetry & warranty registration platform.', logoText: 'HMD' },
-  { name: 'NovaPay Global', category: 'FinTech', featuredProject: 'Go microservices & zero-downtime Kubernetes failover handling $1.2B daily.', logoText: 'NOVAPAY' },
+  { name: 'NovaPay Global', category: 'FinTech Rails', featuredProject: 'Mission-critical transaction routing & edge tokenization.', logoText: 'NOVAPAY' },
   { name: 'Aura Health AI', category: 'MedTech', featuredProject: 'HIPAA-compliant private RAG diagnostic intelligence.', logoText: 'AURA HEALTH' },
-  { name: 'Silver Maharaja', category: 'Jewelry & Luxury', featuredProject: 'Luxury e-commerce storefront with multi-currency checkout.', logoText: 'SILVER MAHARAJA' },
-  { name: 'Tony’s App', category: 'Consumer Lifestyle', featuredProject: 'Cross-platform mobile application with sub-60fps fluid UI.', logoText: "TONY'S APP" },
-  { name: 'Wave Book', category: 'EdTech & Digital Media', featuredProject: 'Interactive PWA learning ecosystem with offline support.', logoText: 'WAVE BOOK' },
-  { name: 'Ticketing App', category: 'Events & Entertainment', featuredProject: 'High-concurrency ticket reservation engine with fraud prevention.', logoText: 'TICKETING APP' },
-  { name: 'LogiCore Global', category: 'Supply Chain IoT', featuredProject: 'Fleet telemetry tracking across 65,000 intermodal vehicles.', logoText: 'LOGICORE' },
-  { name: 'Nexa Retail Group', category: 'Enterprise eCommerce', featuredProject: 'Headless multi-store architecture with automated PIM catalog sync.', logoText: 'NEXA RETAIL' },
-  { name: 'Apex Pharma', category: 'Healthcare & Pharma', featuredProject: 'Compliant supply chain traceability & batch expiry monitoring.', logoText: 'APEX PHARMA' },
-  { name: 'Omnistore 360', category: 'Retail Operations', featuredProject: 'Unified POS, ERP integration & real-time inventory management.', logoText: 'OMNISTORE 360' },
-  { name: 'Horizon Media', category: 'Creative & Video', featuredProject: 'AI-assisted video post-production & cloud asset rendering pipeline.', logoText: 'HORIZON MEDIA' },
-  { name: 'Quantum Edge IoT', category: 'Smart Infrastructure', featuredProject: 'Sub-15ms edge telemetry streaming & sensor anomaly detection.', logoText: 'QUANTUM EDGE' },
-  { name: 'Verity Pay', category: 'Payment Infrastructure', featuredProject: 'Multi-currency payment gateway & PCI-DSS tokenized settlement.', logoText: 'VERITY PAY' },
-  { name: 'CloudScale Global', category: 'Cloud Engineering', featuredProject: 'Multi-cloud Kubernetes migration with zero downtime.', logoText: 'CLOUDSCALE' },
-  { name: 'Synthetix 3D Labs', category: 'Spatial Computing', featuredProject: 'Interactive WebGL 3D product visualizer & AR virtual walkthroughs.', logoText: 'SYNTHETIX 3D' },
 ]
 
 export const ABOUT_US_DETAILS = {
