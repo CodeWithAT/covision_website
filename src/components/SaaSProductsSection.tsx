@@ -109,7 +109,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Human-Centered Design Tokens & Fluid 60fps Components',
     description:
       'A production-grade design system and component foundry built on cognitive psychology and accessibility standards. Guarantees visual polish and lightning-fast developer handoff.',
-    image: '/images/services/ux_ui_design.jpg',
+    image: '/images/saas/coui_studio.jpg',
     metrics: [
       { label: 'UI Frame Rate', value: '60 FPS' },
       { label: 'Handoff Velocity', value: '3x Faster' },
