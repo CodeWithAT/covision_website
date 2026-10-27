@@ -18,7 +18,7 @@ export interface CatalogCategory {
 }
 
 const buildUrl = (photoId: string, width: number, quality: number = 80) =>
-  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=${width}&q=${quality}&fm=jpg`
+  `https://images.unsplash.com/${photoId}?w=${width}&q=${quality}&auto=format&fit=crop`
 
 export const CATALOG_CATEGORIES: CatalogCategory[] = [
   {

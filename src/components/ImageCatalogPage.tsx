@@ -30,8 +30,7 @@ import {
   CheckSquare,
   Network,
   Building2,
-  Search,
-  RotateCcw
+  Search
 } from 'lucide-react'
 import { CATALOG_CATEGORIES, type CatalogImageItem } from '../data/imageCatalogData'
 
@@ -65,7 +64,6 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
 export const ImageCatalogPage: React.FC<ImageCatalogPageProps> = ({ onBackToHome }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [failedImages, setFailedImages] = useState<Record<string, number>>({})
   const [selectedIds, setSelectedIds] = useState<Set<string>>(
     new Set(CATALOG_CATEGORIES.map((c) => c.items[0]?.id).filter(Boolean))
   )
@@ -121,21 +119,6 @@ export const ImageCatalogPage: React.FC<ImageCatalogPageProps> = ({ onBackToHome
   const clearSelection = () => {
     setSelectedIds(new Set())
     showToast('Selection cleared.')
-  }
-
-  const handleImageError = (itemId: string) => {
-    setFailedImages((prev) => ({
-      ...prev,
-      [itemId]: (prev[itemId] || 0) + 1,
-    }))
-  }
-
-  const retryImage = (itemId: string) => {
-    setFailedImages((prev) => {
-      const next = { ...prev }
-      delete next[itemId]
-      return next
-    })
   }
 
   const copySelectedSummary = () => {
@@ -394,7 +377,6 @@ export const ImageCatalogPage: React.FC<ImageCatalogPageProps> = ({ onBackToHome
                   {cat.items.map((item) => {
                     const isSelected = selectedIds.has(item.id)
                     const isTopPick = item.rank === 1
-                    const hasError = !!failedImages[item.id]
 
                     return (
                       <div
@@ -410,35 +392,21 @@ export const ImageCatalogPage: React.FC<ImageCatalogPageProps> = ({ onBackToHome
                           className="relative aspect-video w-full bg-slate-950 overflow-hidden cursor-pointer"
                           onClick={() => setActiveModalItem({ item, categoryName: cat.name })}
                         >
-                          {!hasError ? (
-                            <img
-                              src={item.previewUrl}
-                              alt={item.title}
-                              loading="lazy"
-                              referrerPolicy="no-referrer"
-                              crossOrigin="anonymous"
-                              onError={() => handleImageError(item.id)}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-slate-900 text-center">
-                              <Icon className="size-6 text-slate-600 mb-2" />
-                              <span className="text-xs text-slate-400 font-mono mb-2">Network preview issue</span>
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation()
-                                  retryImage(item.id)
-                                }}
-                                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[11px] text-blue-400 border border-slate-700 cursor-pointer"
-                              >
-                                <RotateCcw className="size-3" />
-                                <span>Retry Load</span>
-                              </button>
-                            </div>
-                          )}
+                          <img
+                            src={item.previewUrl}
+                            alt={item.title}
+                            referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              // If customized format fails, fallback to bare Unsplash photo url
+                              const target = e.currentTarget
+                              if (!target.src.includes('&fallback=1')) {
+                                target.src = `https://images.unsplash.com/${item.photoId}?w=800&q=80&fallback=1`
+                              }
+                            }}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
 
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 pointer-events-none" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
 
                           {/* Rank Badge */}
                           <div className="absolute top-3 left-3 flex items-center gap-1.5 pointer-events-none">
@@ -587,7 +555,6 @@ export const ImageCatalogPage: React.FC<ImageCatalogPageProps> = ({ onBackToHome
                   src={activeModalItem.item.fullUrl}
                   alt={activeModalItem.item.title}
                   referrerPolicy="no-referrer"
-                  crossOrigin="anonymous"
                   className="max-h-[65vh] w-auto max-w-full object-contain rounded-lg shadow-2xl"
                 />
               </div>
