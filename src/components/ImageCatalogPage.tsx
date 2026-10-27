@@ -133,7 +133,7 @@ export const ImageCatalogPage: React.FC<ImageCatalogPageProps> = ({ onBackToHome
       if (matches.length > 0) {
         lines.push(`## ${cat.name} (${matches.length} selected)`)
         matches.forEach((m) => {
-          lines.push(`- Rank #${m.rank} [${m.title}]: ${m.photoId} -> https://images.unsplash.com/${m.photoId}`)
+          lines.push(`- Option #${m.rank}: ${m.title} (${m.localPath})`)
         })
         lines.push('')
       }
@@ -395,14 +395,7 @@ export const ImageCatalogPage: React.FC<ImageCatalogPageProps> = ({ onBackToHome
                           <img
                             src={item.previewUrl}
                             alt={item.title}
-                            referrerPolicy="no-referrer"
-                            onError={(e) => {
-                              // If customized format fails, fallback to bare Unsplash photo url
-                              const target = e.currentTarget
-                              if (!target.src.includes('&fallback=1')) {
-                                target.src = `https://images.unsplash.com/${item.photoId}?w=800&q=80&fallback=1`
-                              }
-                            }}
+                            loading="lazy"
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
 
@@ -567,20 +560,20 @@ export const ImageCatalogPage: React.FC<ImageCatalogPageProps> = ({ onBackToHome
 
                 <div className="flex items-center gap-3">
                   <button
-                    onClick={() => copyToClipboard(activeModalItem.item.photoId, 'Unsplash ID')}
+                    onClick={() => copyToClipboard(activeModalItem.item.localPath, 'Asset Path')}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 cursor-pointer"
                   >
                     <Copy className="size-3.5" />
-                    <span>Copy ID</span>
+                    <span>Copy Path</span>
                   </button>
                   <a
-                    href={`https://unsplash.com/photos/${activeModalItem.item.photoId}`}
+                    href={activeModalItem.item.fullUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white cursor-pointer"
                   >
                     <ExternalLink className="size-3.5" />
-                    <span>View on Unsplash</span>
+                    <span>Open High-Res</span>
                   </a>
                 </div>
               </div>
