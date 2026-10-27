@@ -23,15 +23,24 @@ import { FaqSection } from './components/FaqSection'
 import { GetInTouchBanner } from './components/GetInTouchBanner'
 import { ContactSection } from './components/ContactSection'
 import { Footer } from './components/Footer'
+import { ImageCatalogPage } from './components/ImageCatalogPage'
 
 import { scrollToElement, scrollToTopSmooth } from './lib/scrollUtils'
 
 const parseRoute = (hash: string): { page: string; targetService?: string } => {
+  if (typeof window !== 'undefined') {
+    const path = window.location.pathname.replace(/^\//, '').toLowerCase().replace(/\/$/, '')
+    if (['catalog', 'images', 'image-catalog', 'selection', 'photos'].includes(path)) {
+      return { page: 'catalog' }
+    }
+  }
+
   const clean = hash.replace(/^#\/?/, '').trim()
   const [firstPart, ...rest] = clean.split('/')
   const rawPage = firstPart?.toLowerCase() || ''
   const target = rest.join('/') || undefined
 
+  if (['catalog', 'images', 'image-catalog', 'selection', 'photos'].includes(rawPage)) return { page: 'catalog' }
   if (['services', 'it-services'].includes(rawPage)) return { page: 'services', targetService: target }
   if (['saas', 'products'].includes(rawPage)) return { page: 'saas' }
   if (['ecommerce', 'ecommerce-suite'].includes(rawPage)) return { page: 'ecommerce' }
@@ -419,6 +428,19 @@ export const AppContent: React.FC = () => {
               />
               <GetInTouchBanner onEmailSubmit={(email) => handleOpenContact(`Direct Inquiry from ${email}`)} />
               <ContactSection prefillService={prefillService} />
+            </motion.div>
+          )}
+
+          {activePage === 'catalog' && (
+            <motion.div
+              key="catalog"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="flex flex-col"
+            >
+              <ImageCatalogPage onBackToHome={() => handleNavigatePage('home')} />
             </motion.div>
           )}
         </AnimatePresence>
