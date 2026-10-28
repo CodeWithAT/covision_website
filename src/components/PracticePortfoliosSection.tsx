@@ -104,9 +104,8 @@ const CORE_SOLUTIONS: CoreSolution[] = [
       'Private enterprise RAG pipelines & customized LLM integrations',
       'Predictive analytics, computer vision & automated operations',
     ],
-    pageRoute: 'services',
-    targetServiceId: 'ai-ml-integration',
-    ctaText: 'Explore AI Services',
+    pageRoute: 'ai',
+    ctaText: 'Explore AI & Automation',
   },
 ]
 

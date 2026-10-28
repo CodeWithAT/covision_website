@@ -39,11 +39,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Focused enterprise navigation without living-tech, clients, or media wing
+  // Focused enterprise navigation featuring AI & Automation replacing eCommerce Suite as instructed
   const navItems = [
     { id: 'services', label: 'Services', hasDropdown: true },
     { id: 'saas', label: 'SaaS Platforms' },
-    { id: 'ecommerce', label: 'eCommerce Suite' },
+    { id: 'ai', label: 'AI & Automation' },
     { id: 'about', label: 'About' },
   ]
 

@@ -100,10 +100,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
                 { label: 'Software Engineering', page: 'services', targetId: 'software-engineering' },
                 { label: 'App Development', page: 'services', targetId: 'app-development' },
                 { label: 'Cloud & Infrastructure', page: 'services', targetId: 'cloud-infrastructure' },
-                { label: 'AI/ML Integration (AIaaS)', page: 'services', targetId: 'ai-ml-integration' },
+                { label: 'AI & Automation Practice', page: 'ai' },
                 { label: 'Data Analytics & BI', page: 'services', targetId: 'data-analytics' },
                 { label: 'UX/UI & CoUI Design', page: 'services', targetId: 'ux-ui-design' },
-                { label: '360° eCommerce Suite', page: 'ecommerce' },
                 { label: 'Global Edge Network', page: 'services', targetId: 'cloud-infrastructure' },
               ].map((link) => (
                 <a
@@ -126,8 +125,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
             </h3>
             <div className="grid grid-cols-1 gap-3.5">
               {[
+                { label: 'AI & Automation', page: 'ai' },
                 { label: 'SaaS Platforms', page: 'saas' },
-                { label: 'eCommerce Suite', page: 'ecommerce' },
                 { label: 'Living Technology', page: 'living-tech' },
                 { label: 'Client Work & Case Studies', page: 'clients' },
                 { label: 'Why Choose Us', page: 'about' },

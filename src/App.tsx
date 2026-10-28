@@ -13,7 +13,6 @@ import { ServicesSection } from './components/ServicesSection'
 import { SaaSProductsSection } from './components/SaaSProductsSection'
 import { IndustryFootprintSection } from './components/IndustryFootprintSection'
 import { WhyChooseUsSection } from './components/WhyChooseUsSection'
-import { EcommerceSuiteSection } from './components/EcommerceSuiteSection'
 import { TechStackMatrix } from './components/TechStackMatrix'
 import { PillarClientsSection } from './components/PillarClientsSection'
 import { CaseStudiesSection } from './components/CaseStudiesSection'
@@ -23,27 +22,20 @@ import { FaqSection } from './components/FaqSection'
 import { GetInTouchBanner } from './components/GetInTouchBanner'
 import { ContactSection } from './components/ContactSection'
 import { Footer } from './components/Footer'
-import { ImageCatalogPage } from './components/ImageCatalogPage'
+import { AIAutomationSection } from './components/AIAutomationSection'
 
 import { scrollToElement, scrollToTopSmooth } from './lib/scrollUtils'
 
 const parseRoute = (hash: string): { page: string; targetService?: string } => {
-  if (typeof window !== 'undefined') {
-    const path = window.location.pathname.replace(/^\//, '').toLowerCase().replace(/\/$/, '')
-    if (['catalog', 'images', 'image-catalog', 'selection', 'photos'].includes(path)) {
-      return { page: 'catalog' }
-    }
-  }
-
   const clean = hash.replace(/^#\/?/, '').trim()
   const [firstPart, ...rest] = clean.split('/')
   const rawPage = firstPart?.toLowerCase() || ''
   const target = rest.join('/') || undefined
 
-  if (['catalog', 'images', 'image-catalog', 'selection', 'photos'].includes(rawPage)) return { page: 'catalog' }
+  if (['ai', 'ai-automation', 'automation', 'agentic-ai'].includes(rawPage)) return { page: 'ai' }
   if (['services', 'it-services'].includes(rawPage)) return { page: 'services', targetService: target }
   if (['saas', 'products'].includes(rawPage)) return { page: 'saas' }
-  if (['ecommerce', 'ecommerce-suite'].includes(rawPage)) return { page: 'ecommerce' }
+  if (['ecommerce', 'ecommerce-suite'].includes(rawPage)) return { page: 'ai' } // replaces ecommerce suit as instructed
   if (['living-tech', 'living-technology'].includes(rawPage)) return { page: 'living-tech' }
   if (['clients', 'case-studies', 'work'].includes(rawPage)) return { page: 'clients' }
   if (['about', 'about-us'].includes(rawPage)) return { page: 'about' }
@@ -297,9 +289,9 @@ export const AppContent: React.FC = () => {
             </motion.div>
           )}
 
-          {activePage === 'ecommerce' && (
+          {activePage === 'ai' && (
             <motion.div
-              key="ecommerce"
+              key="ai"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
@@ -307,17 +299,17 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                pageName="360° eCommerce Practice"
-                title="High-Velocity Digital Commerce & Zero-Downtime Migration"
-                subtitle="Headless Shopify Plus, Adobe Commerce, real-time ERP middleware synchronization, global payment orchestration, and 3D WebGL product visualizers."
+                pageName="AI & Automation"
+                title="Generative and Agentic AI Architecture"
+                subtitle="Transform Intelligence into Business Impact. Accelerate enterprise value with generative creative production, autonomous AI agents, intelligent document processing, and AI-powered software engineering."
                 metrics={[
-                  { label: 'Annual GMV Handled', value: '$500M+' },
-                  { label: 'Edge Checkout Speed', value: '40ms' },
-                  { label: 'Peak Surge Uptime', value: '99.999%' },
+                  { label: 'Agent Autonomy', value: 'Audited' },
+                  { label: 'Integration Scope', value: 'CRM / ERP / SQL' },
+                  { label: 'Engineering Quality', value: 'Human-in-the-Loop' },
                 ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
-              <EcommerceSuiteSection onRequestScope={handleOpenContact} sectionNumber="01" />
+              <AIAutomationSection onRequestScope={handleOpenContact} sectionNumber="01" />
               <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="02" />
               <ContactSection prefillService={prefillService} />
             </motion.div>
@@ -428,19 +420,6 @@ export const AppContent: React.FC = () => {
               />
               <GetInTouchBanner onEmailSubmit={(email) => handleOpenContact(`Direct Inquiry from ${email}`)} />
               <ContactSection prefillService={prefillService} />
-            </motion.div>
-          )}
-
-          {activePage === 'catalog' && (
-            <motion.div
-              key="catalog"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="flex flex-col"
-            >
-              <ImageCatalogPage onBackToHome={() => handleNavigatePage('home')} />
             </motion.div>
           )}
         </AnimatePresence>
