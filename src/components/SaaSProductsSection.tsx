@@ -231,7 +231,7 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
                 </div>
 
                 {/* Visual Banner */}
-                <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-neutral-900 border border-ink-line mb-5">
+                <div className="relative w-full h-52 sm:h-56 rounded-2xl overflow-hidden bg-neutral-900 border border-ink-line mb-5">
                   <img
                     src={product.image}
                     alt={product.name}

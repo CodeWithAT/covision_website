@@ -192,19 +192,19 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Image 1: The very first image of cognitive media services */}
-            <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
-              <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
-                <img
-                  src="/images/ai_automation/01_cognitive_media_creative_production.jpg"
-                  alt="Cognitive Media Services Creative Production"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
-                  Cognitive Media • Image #1
-                </span>
-              </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
+            <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-neutral-900">
+                  <img
+                    src="/images/ai_automation/01_cognitive_media_creative_production.jpg"
+                    alt="Cognitive Media Services Creative Production"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
+                    Cognitive Media • Image #1
+                  </span>
+                </div>
+                <div className="p-5">
                   <h3 className="font-bricolage text-lg font-bold text-ink mb-1">
                     Creative Production & Generative Imagery
                   </h3>
@@ -212,26 +212,28 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                     High-impact commercial visuals, photo-real text-to-image synthesis, and branded multimedia content produced at infinite scale.
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-ink-line text-[11px] font-mono text-[#0052cb] font-semibold">
+              </div>
+              <div className="p-5 pt-0">
+                <div className="pt-3 border-t border-ink-line text-[11px] font-mono text-[#0052cb] font-semibold">
                   Cognitive Media Studio Asset
                 </div>
               </div>
             </div>
 
             {/* Image 2: 3D Visuals & Photorealistic Simulation */}
-            <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
-              <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
-                <img
-                  src="/images/ai_automation/02_generative_3d_visuals_simulation.jpg"
-                  alt="3D Visuals and Procedural Animations"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
-                  Visuals & Animation • Image #2
-                </span>
-              </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
+            <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-neutral-900">
+                  <img
+                    src="/images/ai_automation/02_generative_3d_visuals_simulation.jpg"
+                    alt="3D Visuals and Procedural Animations"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
+                    Visuals & Animation • Image #2
+                  </span>
+                </div>
+                <div className="p-5">
                   <h3 className="font-bricolage text-lg font-bold text-ink mb-1">
                     3D Visuals, Simulation & Motion
                   </h3>
@@ -239,26 +241,28 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                     Interactive 3D asset generation, procedural particle motion, spatial environments, and dynamic video animations for brand storytelling.
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-ink-line text-[11px] font-mono text-[#0052cb] font-semibold">
+              </div>
+              <div className="p-5 pt-0">
+                <div className="pt-3 border-t border-ink-line text-[11px] font-mono text-[#0052cb] font-semibold">
                   3D & Digital Simulation Core
                 </div>
               </div>
             </div>
 
             {/* Image 3: Interactive Experiences & Code Generation */}
-            <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
-              <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
-                <img
-                  src="/images/ai_automation/03_digital_experiences_interfaces.jpg"
-                  alt="Digital Experiences and Automated Interfaces"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
-                  Digital Experiences • Image #3
-                </span>
-              </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
+            <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-neutral-900">
+                  <img
+                    src="/images/ai_automation/03_digital_experiences_interfaces.jpg"
+                    alt="Digital Experiences and Automated Interfaces"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
+                    Digital Experiences • Image #3
+                  </span>
+                </div>
+                <div className="p-5">
                   <h3 className="font-bricolage text-lg font-bold text-ink mb-1">
                     Code, Interfaces & Multimedia
                   </h3>
@@ -266,7 +270,9 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                     AI-powered frontend components, conversational digital interfaces, real-time localized copy, and rich multi-device user experiences.
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-ink-line text-[11px] font-mono text-[#0052cb] font-semibold">
+              </div>
+              <div className="p-5 pt-0">
+                <div className="pt-3 border-t border-ink-line text-[11px] font-mono text-[#0052cb] font-semibold">
                   CoUI™ Digital Experience Mesh
                 </div>
               </div>
@@ -305,7 +311,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
           {/* Agentic Images Showcase as instructed */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group">
-              <div className="relative aspect-[16/9] overflow-hidden bg-slate-950">
+              <div className="relative w-full h-64 sm:h-72 lg:h-80 overflow-hidden bg-slate-950">
                 <img
                   src="/images/ai_automation/04_autonomous_agentic_workflow_mesh.jpg"
                   alt="Autonomous Multi-Agent Orchestration"
@@ -327,7 +333,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             </div>
 
             <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group">
-              <div className="relative aspect-[16/9] overflow-hidden bg-slate-950">
+              <div className="relative w-full h-64 sm:h-72 lg:h-80 overflow-hidden bg-slate-950">
                 <img
                   src="/images/ai_automation/05_neural_knowledge_graph_context.jpg"
                   alt="Enterprise RAG and Knowledge Graph Routing"
@@ -482,7 +488,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             {(selectedCategory === 'all' || selectedCategory === 'operations') && (
               <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
                     <img
                       src="/images/ai_automation/06_ai_integration_business_software.jpg"
                       alt="AI Integration with Business Software"
@@ -514,7 +520,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             {(selectedCategory === 'all' || selectedCategory === 'operations') && (
               <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
                     <img
                       src="/images/ai_automation/07_intelligent_document_processing_ocr.jpg"
                       alt="Intelligent Document Processing"
@@ -546,7 +552,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             {(selectedCategory === 'all' || selectedCategory === 'operations') && (
               <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
                     <img
                       src="/images/ai_automation/08_agentic_workflow_automation_routing.jpg"
                       alt="Agentic Workflow Automation"
@@ -578,7 +584,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             {(selectedCategory === 'all' || selectedCategory === 'operations' || selectedCategory === 'solutions') && (
               <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
                     <img
                       src="/images/ai_automation/09_custom_ai_agents_digital_assistants.jpg"
                       alt="Custom AI Agents"
@@ -610,7 +616,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             {(selectedCategory === 'all' || selectedCategory === 'solutions') && (
               <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
                     <img
                       src="/images/ai_automation/10_predictive_intelligence_forecasting.jpg"
                       alt="Predictive Intelligence"
@@ -645,7 +651,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             {(selectedCategory === 'all' || selectedCategory === 'solutions') && (
               <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
                     <img
                       src="/images/ai_automation/11_personalisation_recommendation_engines.jpg"
                       alt="Personalisation & Recommendation Engines"
@@ -680,7 +686,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             {(selectedCategory === 'all' || selectedCategory === 'marketing') && (
               <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
                     <img
                       src="/images/ai_automation/12_ai_powered_marketing_lead_generation.jpg"
                       alt="AI-Powered Marketing"
@@ -714,8 +720,8 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             {/* (g) AI-Powered Software Engineering */}
             {(selectedCategory === 'all' || selectedCategory === 'engineering') && (
               <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between md:col-span-2 lg:col-span-2 border-l-4 border-l-[#0052cb]">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                  <div className="md:col-span-5 relative aspect-[16/10] md:aspect-auto overflow-hidden bg-neutral-900 rounded-xl m-4 md:m-0">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+                  <div className="md:col-span-5 relative h-64 sm:h-72 md:h-full min-h-[240px] overflow-hidden bg-neutral-900 rounded-xl m-4 md:m-0">
                     <img
                       src="/images/ai_automation/13_ai_powered_software_engineering.jpg"
                       alt="AI-Powered Software Engineering"

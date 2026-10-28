@@ -147,7 +147,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               <div>
                 {/* Visual Image Preview with Rich Context */}
                 {service.image && (
-                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-56 sm:h-64 overflow-hidden bg-neutral-900">
                     <img
                       src={service.image}
                       alt={service.title}

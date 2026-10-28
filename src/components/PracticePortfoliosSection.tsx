@@ -149,16 +149,16 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
                   isFullSpan ? 'md:col-span-2 lg:col-span-2' : ''
                 }`}
               >
-                <div>
+                <div className="flex-1 flex flex-col">
                   {/* Image Banner Header with Scrim & Badges */}
-                  <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-64 sm:h-72 lg:h-80 overflow-hidden bg-neutral-900 shrink-0">
                     <img
                       src={solution.image}
                       alt={solution.title}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-90 group-hover:opacity-100"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/20" />
 
                     {/* Floating Badges */}
                     <div className="absolute top-4 inset-x-4 flex items-center justify-between">
@@ -177,19 +177,21 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-6 sm:p-8">
-                    {/* Title with exact number prefix */}
-                    <h3 className="font-bricolage text-xl sm:text-2xl font-semibold tracking-tight text-ink mb-2.5 group-hover:text-[#0052cb] transition-colors">
-                      {solution.number}. {solution.title}
-                    </h3>
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                    <div>
+                      {/* Title with exact number prefix */}
+                      <h3 className="font-bricolage text-xl sm:text-2xl font-semibold tracking-tight text-ink mb-2.5 group-hover:text-[#0052cb] transition-colors">
+                        {solution.number}. {solution.title}
+                      </h3>
 
-                    {/* Exact description from instruction.txt */}
-                    <p className="text-sm sm:text-[14.5px] text-neutral-600 leading-relaxed mb-6 font-normal">
-                      {solution.desc}
-                    </p>
+                      {/* Exact description from instruction.txt */}
+                      <p className="text-sm sm:text-[14.5px] text-neutral-600 leading-relaxed mb-5 font-normal">
+                        {solution.desc}
+                      </p>
+                    </div>
 
                     {/* Bullet Highlights */}
-                    <div className="space-y-2 mb-4">
+                    <div className="space-y-2.5 pt-2">
                       {solution.highlights.map((h) => (
                         <div key={h} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-700">
                           <CheckCircle2 className="size-3.5 text-[#0052cb] shrink-0 mt-0.5" />
@@ -201,7 +203,7 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
                 </div>
 
                 {/* Footer Action */}
-                <div className="px-6 pb-6 sm:px-8 sm:pb-8 pt-0">
+                <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-0 mt-auto">
                   <div className="pt-4 border-t border-ink-line flex items-center justify-between">
                     <span className="text-[11px] font-mono text-neutral-400 font-semibold uppercase tracking-wider">
                       Enterprise SLA
