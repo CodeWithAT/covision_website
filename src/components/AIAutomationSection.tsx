@@ -195,12 +195,9 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
               <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                 <img
-                  src="/images/disciplines/ai_services.jpg"
+                  src="/images/ai_automation/01_cognitive_media_creative_production.jpg"
                   alt="Cognitive Media Services Creative Production"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.src = '/senior_image_catalog/02_Enterprise_AI_and_Deep_Learning/02_generative_ai_neural_token_inference.jpg'
-                  }}
                 />
                 <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
                   Cognitive Media • Image #1
@@ -225,7 +222,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
               <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                 <img
-                  src="/senior_image_catalog/17_3D_WebGL_and_Virtual/03_photorealistic_real-time_webgl_v.jpg"
+                  src="/images/ai_automation/02_generative_3d_visuals_simulation.jpg"
                   alt="3D Visuals and Procedural Animations"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -252,7 +249,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
               <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                 <img
-                  src="/senior_image_catalog/11_Modern_Frontend_and_UIUX/01_responsive_enterprise_ui_dashboard.jpg"
+                  src="/images/ai_automation/03_digital_experiences_interfaces.jpg"
                   alt="Digital Experiences and Automated Interfaces"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -310,7 +307,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group">
               <div className="relative aspect-[16/9] overflow-hidden bg-slate-950">
                 <img
-                  src="/senior_image_catalog/02_Enterprise_AI_and_Deep_Learning/03_autonomous_multi-agent_orchestration.jpg"
+                  src="/images/ai_automation/04_autonomous_agentic_workflow_mesh.jpg"
                   alt="Autonomous Multi-Agent Orchestration"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -332,7 +329,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group">
               <div className="relative aspect-[16/9] overflow-hidden bg-slate-950">
                 <img
-                  src="/senior_image_catalog/02_Enterprise_AI_and_Deep_Learning/05_enterprise_rag_knowledge_graph_flow.jpg"
+                  src="/images/ai_automation/05_neural_knowledge_graph_context.jpg"
                   alt="Enterprise RAG and Knowledge Graph Routing"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -487,7 +484,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                 <div>
                   <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                     <img
-                      src="/senior_image_catalog/19_API_Gateways_and_Integration/04_bi-directional_sap_and_salesforc.jpg"
+                      src="/images/ai_automation/06_ai_integration_business_software.jpg"
                       alt="AI Integration with Business Software"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
@@ -519,7 +516,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                 <div>
                   <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                     <img
-                      src="/senior_image_catalog/02_Enterprise_AI_and_Deep_Learning/07_computer_vision_defect_detection_lab.jpg"
+                      src="/images/ai_automation/07_intelligent_document_processing_ocr.jpg"
                       alt="Intelligent Document Processing"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
@@ -551,7 +548,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                 <div>
                   <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                     <img
-                      src="/senior_image_catalog/02_Enterprise_AI_and_Deep_Learning/03_autonomous_multi-agent_orchestration.jpg"
+                      src="/images/ai_automation/08_agentic_workflow_automation_routing.jpg"
                       alt="Agentic Workflow Automation"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
@@ -583,7 +580,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                 <div>
                   <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                     <img
-                      src="/senior_image_catalog/02_Enterprise_AI_and_Deep_Learning/08_human-in-the-loop_ai_validation_desk.jpg"
+                      src="/images/ai_automation/09_custom_ai_agents_digital_assistants.jpg"
                       alt="Custom AI Agents"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
@@ -615,7 +612,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                 <div>
                   <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                     <img
-                      src="/senior_image_catalog/05_Big_Data_and_Real-Time_Analytics/03_real-time_trading_floor_telemetry.jpg"
+                      src="/images/ai_automation/10_predictive_intelligence_forecasting.jpg"
                       alt="Predictive Intelligence"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
@@ -650,7 +647,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                 <div>
                   <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                     <img
-                      src="/senior_image_catalog/05_Big_Data_and_Real-Time_Analytics/07_customer_cohort_churn_prediction_v.jpg"
+                      src="/images/ai_automation/11_personalisation_recommendation_engines.jpg"
                       alt="Personalisation & Recommendation Engines"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
@@ -685,7 +682,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                 <div>
                   <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                     <img
-                      src="/senior_image_catalog/06_Enterprise_SaaS_and_Multi-Tenant/02_customer_churn_and_retention_funn.jpg"
+                      src="/images/ai_automation/12_ai_powered_marketing_lead_generation.jpg"
                       alt="AI-Powered Marketing"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
@@ -720,7 +717,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
                   <div className="md:col-span-5 relative aspect-[16/10] md:aspect-auto overflow-hidden bg-neutral-900 rounded-xl m-4 md:m-0">
                     <img
-                      src="/senior_image_catalog/18_QA_Testing_and_Automation/01_cross-device_parallel_test_suite.jpg"
+                      src="/images/ai_automation/13_ai_powered_software_engineering.jpg"
                       alt="AI-Powered Software Engineering"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />

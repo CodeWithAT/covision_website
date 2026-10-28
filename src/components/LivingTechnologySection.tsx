@@ -40,7 +40,7 @@ const DEFINING_PILLARS: DefiningPillar[] = [
       'Proactive Self-Healing: Microservices that resolve bottlenecks before your users ever notice.',
     ],
     badgeColor: 'bg-blue-500',
-    image: '/images/living/pillar_01_autonomous_architecture.jpg',
+    image: '/senior_image_catalog/01_Cloud_and_Datacenter/03_multi-cloud_rack_clusters.jpg',
   },
   {
     number: '02',
@@ -55,7 +55,7 @@ const DEFINING_PILLARS: DefiningPillar[] = [
       'Commercial Impact: Every system is architected for speed, clarity, and measurable business growth.',
     ],
     badgeColor: 'bg-emerald-500',
-    image: '/images/living/pillar_02_trifecta_convergence.jpg',
+    image: '/senior_image_catalog/09_Agile_Synergy_and_Pods/01_cross-functional_pod_synergy_des.jpg',
   },
   {
     number: '03',
@@ -70,7 +70,7 @@ const DEFINING_PILLARS: DefiningPillar[] = [
       'Real-Time Integration: Direct synchronization with SAP, NetSuite, and warehouse logistics.',
     ],
     badgeColor: 'bg-indigo-500',
-    image: '/images/living/pillar_03_enterprise_ecommerce.jpg',
+    image: '/senior_image_catalog/06_eCommerce_and_Retail/01_flagship_digital_retail_experien.jpg',
   },
   {
     number: '04',
@@ -85,7 +85,7 @@ const DEFINING_PILLARS: DefiningPillar[] = [
       'Significant Cost Savings: Up to 50%+ reduction in cloud bandwidth and origin server costs.',
     ],
     badgeColor: 'bg-amber-500',
-    image: '/images/living/pillar_04_global_edge_network.jpg',
+    image: '/senior_image_catalog/01_Cloud_and_Datacenter/02_optical_fiber_corridors.jpg',
   },
   {
     number: '05',
@@ -100,7 +100,7 @@ const DEFINING_PILLARS: DefiningPillar[] = [
       'Cross-Platform Harmony: Flawless consistency across desktop portals, tablets, and native mobile apps.',
     ],
     badgeColor: 'bg-violet-500',
-    image: '/images/living/pillar_05_coui_design_standard.jpg',
+    image: '/senior_image_catalog/08_UX_UI_Design_Systems/02_coui_token_foundry_and_style_gu.jpg',
   },
 ]
 

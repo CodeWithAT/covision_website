@@ -34,7 +34,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'High-Performance Composable Commerce & Order Management',
     description:
       'A modular, API-first commerce platform engineered for high-volume retail brands. Delivers lightning-fast checkout speeds, automated multi-warehouse inventory routing, and native multi-currency support.',
-    image: '/images/saas/omniflow_commerce.jpg',
+    image: '/senior_image_catalog/06_eCommerce_and_Retail/09_peak_flash-sale_concurrency_hand.jpg',
     metrics: [
       { label: 'Checkout Speed', value: '< 150ms' },
       { label: 'Uptime on Sales Surges', value: '99.99%' },
@@ -59,7 +59,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Autonomous Enterprise AI & Multi-Agent Workflow Engine',
     description:
       'A secure enterprise AI platform that automates routine workflows, extracts intelligence from unstructured business documents, and provides 24/7 customer assistance with strict data privacy.',
-    image: '/images/saas/synthetix_ai.jpg',
+    image: '/senior_image_catalog/05_Enterprise_AI_and_Robotics/04_synthetic_intelligence_core_proc.jpg',
     metrics: [
       { label: 'Workflow Automation', value: '88%' },
       { label: 'Query Response', value: '< 400ms' },
@@ -84,7 +84,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Global Anycast Edge Network & Instant Media Optimization',
     description:
       'Built on tier-1 global Anycast routing with enterprise edge integration to deliver sub-15ms worldwide loading times across 120+ Points of Presence. Automatically compresses images and protects against DDoS attacks.',
-    image: '/images/saas/hyperscale_edge.jpg',
+    image: '/senior_image_catalog/01_Cloud_and_Datacenter/05_global_anycast_edge_facility.jpg',
     metrics: [
       { label: 'Global Loading Time', value: '< 15ms' },
       { label: 'Bandwidth Saved', value: '78%' },
@@ -109,7 +109,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Human-Centered Design Tokens & Fluid 60fps Components',
     description:
       'A production-grade design system and component foundry built on cognitive psychology and accessibility standards. Guarantees visual polish and lightning-fast developer handoff.',
-    image: '/images/saas/coui_studio.jpg',
+    image: '/senior_image_catalog/08_UX_UI_Design_Systems/02_coui_token_foundry_and_style_gu.jpg',
     metrics: [
       { label: 'UI Frame Rate', value: '60 FPS' },
       { label: 'Handoff Velocity', value: '3x Faster' },
@@ -134,7 +134,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Real-Time Executive Dashboards & Conversion Attribution',
     description:
       'Enterprise data analytics platform capable of processing 50,000+ real-time customer events per second. Correlates customer behavior directly with warehouse inventory and revenue performance.',
-    image: '/images/saas/pulse_metrics.jpg',
+    image: '/senior_image_catalog/07_Data_Analytics_and_BI/01_financial_bi_telemetry_hub.jpg',
     metrics: [
       { label: 'Events Ingested / Sec', value: '50,000+' },
       { label: 'Query Latency', value: '< 80ms' },

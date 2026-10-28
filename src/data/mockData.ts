@@ -69,7 +69,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['TypeScript', 'React', 'Go', 'Python', 'PostgreSQL', 'Docker', 'Kubernetes'],
     iconName: 'Cpu',
     badgeText: 'Core Practice',
-    image: '/images/services/software_engineering.jpg',
+    image: '/senior_image_catalog/02_Software_Engineering_and_Code/04_full-stack_development_desk.jpg',
   },
   {
     id: 'app-development',
@@ -93,7 +93,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['Swift', 'Kotlin', 'Flutter', 'React Native', 'Dart', 'Tailwind'],
     iconName: 'Smartphone',
     badgeText: 'Mobile Practice',
-    image: '/images/services/mobile_app.jpg',
+    image: '/senior_image_catalog/04_Mobile_App_Engineering/08_modern_consumer_banking_app.jpg',
   },
   {
     id: 'cloud-infrastructure',
@@ -117,7 +117,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['AWS', 'Google Cloud', 'Azure', 'Cloudflare', 'Kubernetes', 'Terraform'],
     iconName: 'Cloud',
     badgeText: 'Cloud Practice',
-    image: '/images/services/cloud_infrastructure.jpg',
+    image: '/senior_image_catalog/01_Cloud_and_Datacenter/01_enterprise_datacenter_array.jpg',
   },
   {
     id: 'ai-ml-integration',
@@ -141,7 +141,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['PyTorch', 'TensorFlow', 'FastAPI', 'LangChain', 'Python', 'Qdrant'],
     iconName: 'Brain',
     badgeText: 'AI Practice',
-    image: '/images/services/ai_ml.jpg',
+    image: '/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg',
   },
   {
     id: 'data-analytics',
@@ -165,7 +165,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['PostgreSQL', 'Python', 'Kafka', 'ClickHouse', 'SQL', 'Apache Spark'],
     iconName: 'BarChart3',
     badgeText: 'Analytics Practice',
-    image: '/images/services/data_analytics.jpg',
+    image: '/senior_image_catalog/07_Data_Analytics_and_BI/01_financial_bi_telemetry_hub.jpg',
   },
   {
     id: 'ux-ui-design',
@@ -189,7 +189,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['CoUI™', 'Figma', 'Design Tokens', 'Tailwind CSS', 'Framer Motion'],
     iconName: 'Palette',
     badgeText: 'Design Practice',
-    image: '/images/services/ux_ui_design.jpg',
+    image: '/senior_image_catalog/08_UX_UI_Design_Systems/01_design_studio_ui_wireframing.jpg',
   },
 ]
 
@@ -209,7 +209,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['Shopify Plus', 'Adobe Commerce (Magento)', 'BigCommerce', 'WooCommerce', 'Custom Headless'],
     iconName: 'ShoppingBag',
     badge: 'Flagship Commerce',
-    image: '/images/ecommerce/enterprise_ecommerce.jpg',
+    image: '/senior_image_catalog/06_eCommerce_and_Retail/01_flagship_digital_retail_experien.jpg',
   },
   {
     id: 'ecommerce-migration',
@@ -226,7 +226,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['Magento to Shopify Plus', 'WooCommerce to BigCommerce', 'SAP Commerce to Composable', 'Salesforce Commerce Cloud'],
     iconName: 'RefreshCw',
     badge: 'Zero Downtime',
-    image: '/images/ecommerce/b2b_commerce_portals.jpg',
+    image: '/senior_image_catalog/06_eCommerce_and_Retail/06_zero-downtime_e-commerce_cutover.jpg',
   },
   {
     id: 'ecommerce-integration',
@@ -243,7 +243,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['SAP S/4HANA', 'Oracle NetSuite', 'Salesforce CRM', 'Stripe Connect', 'FedEx / DHL APIs'],
     iconName: 'Layers',
     badge: 'Real-Time Sync',
-    image: '/images/ecommerce/pos_omnichannel.png',
+    image: '/senior_image_catalog/19_API_Gateways_and_Integration/04_bi-directional_sap_and_salesforc.jpg',
   },
   {
     id: 'creative-content-production',
@@ -259,7 +259,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['Blender 4.0', 'Unreal Engine 5', 'Three.js / WebGL', 'Adobe Creative Suite', 'WebXR'],
     iconName: 'Camera',
     badge: 'Visual Experience',
-    image: '/images/ecommerce/marketplace_architecture.jpg',
+    image: '/senior_image_catalog/17_3D_WebGL_and_Virtual/03_photorealistic_real-time_webgl_v.jpg',
   },
   {
     id: 'business-process-services',
@@ -275,7 +275,7 @@ export const ECOMMERCE_SUITE_DATA: EcommerceOffering[] = [
     platforms: ['Akeneo PIM', 'Zebra RFID Hardware', 'NetSuite OMS', 'Elasticsearch Vector', 'Kafka Streaming'],
     iconName: 'CheckCircle2',
     badge: 'Operations Hub',
-    image: '/images/ecommerce/growth_optimization.jpg',
+    image: '/senior_image_catalog/16_Supply_Chain_and_Logistics/01_automated_high-bay_distribution_.jpg',
   },
 ]
 
@@ -338,7 +338,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     technologies: ['TypeScript', 'TanStack', 'Kubernetes', 'Anycast CDN', 'Go', 'Kafka'],
     accentColor: '#0052cb',
     bunnyCdnUsed: true,
-    image: '/images/cases/fintech_global_remittance.jpg',
+    image: '/senior_image_catalog/10_FinTech_and_Banking/01_wall_street_algorithmic_trading_.jpg',
   },
   {
     id: 'puma-omnichannel',
@@ -356,7 +356,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     technologies: ['Flutter', 'React Native', 'Anycast CDN', 'TypeScript', 'Node.js', 'Redis'],
     accentColor: '#0052cb',
     bunnyCdnUsed: true,
-    image: '/images/cases/retail_luxury_fashion.jpg',
+    image: '/senior_image_catalog/06_eCommerce_and_Retail/02_sub-second_contactless_payment_p.jpg',
   },
   {
     id: 'aura-health-ai',
@@ -374,7 +374,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     technologies: ['PyTorch', 'vLLM', 'Qdrant', 'TypeScript', 'Resend', 'Docker'],
     accentColor: '#0284c7',
     bunnyCdnUsed: false,
-    image: '/images/cases/healthcare_telemedicine.png',
+    image: '/senior_image_catalog/15_Healthcare_IT_and_Medical/01_physician_clinical_diagnostic_ta.jpg',
   },
 ]
 
