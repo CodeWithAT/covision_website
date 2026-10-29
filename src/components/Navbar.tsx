@@ -14,12 +14,12 @@ interface NavbarProps {
 }
 
 const serviceSubItems = [
-  { id: 'software-engineering', title: 'Software Engineering', desc: 'Custom SaaS & Distributed Backends' },
-  { id: 'app-development', title: 'Application Development', desc: 'Native iOS/Android & Flutter' },
-  { id: 'cloud-infrastructure', title: 'Cloud & Infrastructure', desc: 'Global Edge & Kubernetes' },
-  { id: 'ai-ml-integration', title: 'AI/ML Integration', desc: 'Autonomous AIaaS & Vision Models' },
-  { id: 'data-analytics', title: 'Data Analytics & BI', desc: 'Real-Time Telemetry & CRO' },
-  { id: 'ux-ui-design', title: 'UX/UI & CoUI™', desc: 'Cognitive Science Design Tokens' },
+  { id: 'software-engineering', title: '01. Software Engineering', desc: 'Custom Software, HRMS & ERP Solutions' },
+  { id: 'app-development', title: '02. Application Development', desc: 'Native, Cross-Platform, Hybrid & PWAs' },
+  { id: 'data-analytics', title: '03. Data Analytics', desc: 'Predictive Intelligence & 9 Performance Dimensions' },
+  { id: 'cloud-infrastructure', title: '04. Cloud and Infrastructure', desc: 'Hyperscalers, Migration & Media DAM Cloud' },
+  { id: 'ai-ml-integration', title: '05. AI/ML Integration', desc: 'Autonomous Agents, Computer Vision & RAG' },
+  { id: 'ux-ui-design', title: '06. UX/UI Design', desc: 'Cognitive Science & Covision Lattice / monolith' },
 ]
 
 export const Navbar: React.FC<NavbarProps> = ({

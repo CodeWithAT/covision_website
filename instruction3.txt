@@ -1,0 +1,96 @@
+Banner attached
+
+then
+
+An evolving suite of solutions tailored to our clients’ changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead.
+
+Then In blocks we can put the different services like in Capgemini.
+
+Services are 1. Software engineering, 2. Application development and management, 3. Data Analytics, 4. Cloud and infrastructure, 5. AI/ML Integration 6. UX/UI
+
+When client click any of these services a specific service will open and the content will be as follows.
+
+Software engineering.
+
+Elevate your business with custom software solutions. Every business operates within its own operating system, shaped by its unique audience, processes, and objectives. We engineer tailored software solutions that align seamlessly with your business needs and goals.
+
+Mention atleast 2 names HRMS of Apto and 2 payroll system.
+
+ERP.
+
+Bring all your business operations under one umbrella with ERP solutions.
+
+UX/UI
+
+ux/ui Design Is a Dialogue, Not Decoration—Creating Seamless Connections Between Brands and Users.
+
+Cognitive Science–Backed Design Thinking
+
+At Covison, design is a dialogue, not decoration. Grounded in cognitive psychology and behavioural science, we design interfaces that think, react, and resonate with users.
+
+Our Own Design System- Covision Lattice/ monolith
+
+Covision Lattice/ monolith isn’t just a library; it’s an operational strategy—one that empowers to deliver exceptional, scalable, and user-centric products with unmatched efficiency and quality.
+
+Application development and management
+
+Turbo-charge your mobile app development with Covision
+
+Wide array of mobile app development solutions
+
+Native App Development
+Cross-Platform App Development
+Hybrid App Development
+Progressive Web Apps
+https://appinventiv.com/software-engineering-services/(see this for startup level IT company)
+
+cloud and infrastructure
+
+cloud services are considered a powerful weapon in the arsenal of the digital business ecosystem. Fusion of AI with cloud engineering created intelligent, self-optimizing, and predictive digital ecosystems. Our strategic partnerships with leading hyperscalers—such as AWS, Microsoft Azure, and Google Cloud—enable us to leverage cutting-edge innovations to accelerate your digital transformation.
+
+Cloud Strategy, Architecture, Consulting, and Design
+
+Strategize smart. Transform fast.
+
+IT landscape assessment- Evaluate infrastructure and align with business goals.
+Tailored Cloud Roadmaps for cloud adoption and optimization: It includes designing scalable, secure, and cost-optimized cloud architectures—ranging from cloud-native and microservices-based systems to hybrid and multi-cloud environments
+Cloud Migration Services
+
+application and data migration,
+lift-and-shift operations,
+cloud-to-cloud transitions, and
+legacy system modernization,
+Media & Content Cloud Solutions
+
+Foundational Architecture: Media & Content-Centric Cloud Engineering
+The core infrastructure that centralizes your media operations and enables real-time global collaboration.
+
+The Core Platform: Cloud-Based Digital Asset Management (DAM) Systems
+The scalable, secure repository to store, manage, and distribute all your multimedia assets via CDNs.
+
+Built-in Intelligence: AI-Powered Metadata Tagging
+Cloud-integrated Computer Vision and NLP that automatically tags, transcribes, and organizes your assets the moment they are uploaded.
+
+Distribution & Engagement: AI-Based Recommendation Engines
+Smart data models hosted in the cloud that track viewer behaviour to deliver hyper-personalized content suggestions.
+
+Data Analytics
+
+Business Analytics & Predictive Intelligence
+
+The Divine Weapon of E-Business. Powered by an Arsenal of Technological Expertise.
+
+Analytics is not merely a tool for data analysis but it is a transformative force in e-business. It serves as a strategic weapon that decodes real-time events, uncovers actionable insights, and equips businesses to anticipate and shape future outcomes.
+
+At Covision, we harness an extensive arsenal of analytical tools and intelligent platforms, including Google Analytics, Microsoft Clarity, Crazy Egg, Mixpanel, HubSpot Analytics, Adobe Analytics, Shopify Analytics, Albert AI, Pricefx, Dynamic Yield, Persado, BuzzSumo, Stitch Fix algorithms, Google Trends, Qlik Sense, and Tableau. These technologies help businesses analyse critical performance indicators across key dimensions:
+
+User Behaviour & Engagement: Customer journeys, interactions, and behavioural patterns.
+Traffic Sources & Audience Insights: Acquisition channels, demographics, and audience characteristics.
+E-Commerce & Conversion Performance: Sales funnels, conversion rates, and purchase behaviour.
+Pricing, Discounts & Revenue Optimisation: Pricing strategies, promotional effectiveness, and revenue opportunities.
+Fashion, Trends & Market Intelligence: Emerging trends, consumer preferences, and competitor activity.
+Content & Campaign Performance: Content engagement, marketing effectiveness, and campaign outcomes.
+Heatmaps & Session Recordings: On-page interactions, navigation patterns, and user experience.
+Predictive & AI-Driven Analytics: Forecasting, intelligent recommendations, and opportunity identification.
+Technical & Digital Performance: Website performance, technical issues, and digital experience metrics.
+ 

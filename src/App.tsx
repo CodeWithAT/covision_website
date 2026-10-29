@@ -241,21 +241,11 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
-              <PageHeaderBanner
-                pageName="Services & Cloud Architecture"
-                title="Next-Generation Digital Services & Cloud Fabric"
-                subtitle="From distributed microservices and native mobile applications to autonomous AI workflows, edge computing, and cognitive design tokens."
-                metrics={[
-                  { label: 'SLA Availability', value: '99.99%' },
-                  { label: 'Sprint Delivery Velocity', value: '2-4 Wks' },
-                  { label: 'Enterprise Platforms', value: '50+' },
-                ]}
-                onBackToHome={() => handleNavigatePage('home')}
-              />
               <ServicesSection
                 onRequestScope={handleOpenContact}
                 sectionNumber="01"
                 targetServiceId={targetServiceId}
+                onBackToHome={() => handleNavigatePage('home')}
               />
               <TechStackMatrix sectionNumber="02" />
               <ContactSection prefillService={prefillService} />

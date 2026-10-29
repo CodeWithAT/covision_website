@@ -1,5 +1,6 @@
 export interface ServiceItem {
   id: string
+  number?: string
   title: string
   tagline: string
   category: 'Software Engineering' | 'App Development' | 'Data & AI' | 'Cloud & Edge' | 'UX/UI & CoUI' | 'E-Commerce Suite'
@@ -12,6 +13,28 @@ export interface ServiceItem {
   badgeText: string
   image?: string
   subItems?: { title: string; desc: string }[]
+  hrmsSystems?: { name: string; desc: string }[]
+  payrollSystems?: { name: string; desc: string }[]
+  erpPoints?: string[]
+  mobileSolutions?: { title: string; desc: string; icon?: string }[]
+  cloudRoadmap?: {
+    strategyLead?: string
+    strategyPoints?: { title: string; desc: string }[]
+    migrationPoints?: string[]
+    mediaCloudPoints?: { title: string; headline: string; desc: string }[]
+  }
+  analyticsArsenal?: {
+    leadText?: string
+    tools?: string[]
+    dimensions?: { title: string; desc: string }[]
+  }
+  designSystem?: {
+    leadQuote?: string
+    cognitiveTitle?: string
+    cognitiveText?: string
+    systemName?: string
+    systemText?: string
+  }
 }
 
 export interface EcommerceOffering {
