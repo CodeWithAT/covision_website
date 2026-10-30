@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import {
   Cpu,
   Smartphone,
@@ -51,19 +52,25 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     <section id="services" className="relative w-full bg-paper text-ink font-inter-tight">
       {/* =========================================================================
           1. TOP ATTACHED HERO BANNER (Cinematic Dark Theme matching #ai)
+             - Expanded 7-column visual container so the banner is big & clear
              - Features technology_banner.png with cobalt blue metallic sphere
              - Displays exact instruction3 intro paragraph word-for-word
-             - Unified crisp white headline
+             - Smooth scroll-ready entrance animations
           ========================================================================= */}
       <section className="relative overflow-hidden bg-[#07090E] text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-800">
         <div className="absolute inset-0 bg-radial-gradient from-blue-900/25 via-slate-950/80 to-[#07090E] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(0,102,255,0.25),transparent_70%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Column: Core Headline, Vision & Exact Instruction3 Paragraph */}
-            <div className="max-w-3xl space-y-6">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5 space-y-6"
+            >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-bold tracking-wider uppercase">
                 <Sparkles className="size-3.5 text-blue-400 animate-pulse" />
                 <span>Services & Cloud Fabric</span>
@@ -73,7 +80,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 Empowering a Better Tomorrow.
               </h1>
 
-              <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed">
                 An evolving suite of solutions tailored to our clients’ changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead.
               </p>
 
@@ -92,20 +99,25 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   <span>Request Scope</span>
                 </button>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Right Column: User's Banner Image with Cobalt Blue Metallic Sphere */}
-            <div className="lg:max-w-lg w-full">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-black/80 group">
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+            {/* Right Column: Expanded Hero Banner Image (Bigger & Easily Visible) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 w-full"
+            >
+              <div className="relative rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-blue-950/40 group">
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-950">
                   <img
                     src="/images/services/technology_banner.png"
                     alt="Technology: Empowering a Better Tomorrow"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
@@ -113,7 +125,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
       {/* =========================================================================
           2. QUICK JUMP PILL NAVIGATION BAR
-             - Clean, borderless horizontal tabs for immediate navigation
           ========================================================================= */}
       <div className="sticky top-20 z-30 bg-paper/95 backdrop-blur-md border-b border-ink-line py-3.5 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -149,7 +160,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       {/* =========================================================================
           3. SECTION HEADER
           ========================================================================= */}
-      <div className="pt-16 pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+        className="pt-16 pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="max-w-3xl">
           <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-3">
             <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
@@ -162,39 +179,53 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             A comprehensive, high-velocity delivery framework modeled for modern enterprise scale.
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* =========================================================================
-          4. THE 6 PRACTICES: SYMMETRICAL 50/50 BALANCED EDITORIAL SHOWCASE
-             - Equal 50/50 columns on desktop
-             - Balanced heights (no giant text wall vs squat image)
-             - Crisp, punchy, executive bullet points
-             - Solid black typography
-             - 100% faithful to instruction3.txt
+          4. THE 6 PRACTICES: EXPANSIVE BALANCED EDITORIAL SHOWCASE WITH SCROLL ANIMATIONS
+             - Big, expansive high-res images (h-[400px] sm:h-[460px] lg:h-[500px])
+             - Silky scroll reveals on entrance
+             - Crisp, punchy executive bullets
           ========================================================================= */}
-      <div className="py-10 space-y-20 sm:space-y-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-10 space-y-24 sm:space-y-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* -----------------------------------------------------------------------
             PRACTICE 01: SOFTWARE ENGINEERING
             Layout: Image Left (50%), Text & Bullets Right (50%)
             ----------------------------------------------------------------------- */}
-        <section
+        <motion.section
           id="practice-showcase-software-engineering"
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
         >
-          {/* Visual Showcase (50% Width, Balanced Height) */}
-          <div className="w-full">
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-lg group h-[380px] sm:h-[440px] lg:h-[480px]">
+          {/* Big Visual Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full"
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
               <img
                 src="/senior_image_catalog/02_Software_Engineering_and_Code/01_clean_dark_mode_workstation.jpg"
                 alt="Software Engineering Architecture & Systems"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Structured Text & Bullets (50% Width, Perfectly Balanced) */}
-          <div className="w-full space-y-5">
+          {/* Structured Text & Bullets */}
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full space-y-5"
+          >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
               <Cpu className="size-3.5 text-[#0052cb]" />
               <span>01. Software Engineering</span>
@@ -210,29 +241,26 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
             {/* Clear, Punchy Executive Bullets */}
             <div className="space-y-3.5 pt-1">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">HRMS of Apto: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Tailored human resource management system automating talent lifecycle, role hierarchies, and employee governance.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">2 Sovereign Payroll Systems: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Apto Payroll & CoVision SecurePay handling multi-country statutory tax, banking APIs, and zero-defect wage disbursements.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Centralized ERP Solutions: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Bring all your business operations under one umbrella unifying CRM, procurement, inventory, and automated accounting.</span>
-                </div>
-              </div>
+              {[
+                { title: 'HRMS of Apto:', desc: 'Tailored human resource management system automating talent lifecycle, role hierarchies, and employee governance.' },
+                { title: '2 Sovereign Payroll Systems:', desc: 'Apto Payroll & CoVision SecurePay handling multi-country statutory tax, banking APIs, and zero-defect wage disbursements.' },
+                { title: 'Centralized ERP Solutions:', desc: 'Bring all your business operations under one umbrella unifying CRM, procurement, inventory, and automated accounting.' },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
+                  <div>
+                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
+                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             {/* Action Buttons */}
@@ -252,19 +280,29 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <span>Full Technical Specs</span>
               </button>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* -----------------------------------------------------------------------
             PRACTICE 02: APPLICATION DEVELOPMENT AND MANAGEMENT
             Layout: Text Left (50%), Image Right (50%)
             ----------------------------------------------------------------------- */}
-        <section
+        <motion.section
           id="practice-showcase-application-development"
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
         >
-          {/* Structured Text & Bullets (Left 50%) */}
-          <div className="w-full space-y-5 order-2 lg:order-1">
+          {/* Structured Text & Bullets */}
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full space-y-5 order-2 lg:order-1"
+          >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
               <Smartphone className="size-3.5 text-[#0052cb]" />
               <span>02. Application Development & Management</span>
@@ -280,37 +318,27 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
             {/* Clear, Punchy Executive Bullets */}
             <div className="space-y-3.5 pt-1">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Native App Development: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Dedicated Swift (iOS) and Kotlin (Android) engineering maximizing hardware acceleration and 60fps fluidity.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Cross-Platform & Hybrid: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Flutter and React Native architectures sharing 95%+ unified codebase efficiency with native-grade UI.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Progressive Web Apps (PWA): </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Zero-install web apps with offline-first service worker caching and instant cross-device reach.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Startup to Enterprise Scale: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Proven engineering benchmarks for high-velocity MVP validation and resilient 24/7 lifecycle support.</span>
-                </div>
-              </div>
+              {[
+                { title: 'Native App Development:', desc: 'Dedicated Swift (iOS) and Kotlin (Android) engineering maximizing hardware acceleration and 60fps fluidity.' },
+                { title: 'Cross-Platform & Hybrid:', desc: 'Flutter and React Native architectures sharing 95%+ unified codebase efficiency with native-grade UI.' },
+                { title: 'Progressive Web Apps (PWA):', desc: 'Zero-install web apps with offline-first service worker caching and instant cross-device reach.' },
+                { title: 'Startup to Enterprise Scale:', desc: 'Proven engineering benchmarks for high-velocity MVP validation and resilient 24/7 lifecycle support.' },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
+                  <div>
+                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
+                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             {/* Action Buttons */}
@@ -330,41 +358,63 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <span>Full Technical Specs</span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Visual Showcase (Right 50%) */}
-          <div className="w-full order-1 lg:order-2">
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-lg group h-[380px] sm:h-[440px] lg:h-[480px]">
+          {/* Big Visual Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full order-1 lg:order-2"
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
               <img
                 src="/images/services/mobile_app_3d_podium.png"
                 alt="Futuristic Mobile App Development Ecosystem"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* -----------------------------------------------------------------------
             PRACTICE 03: DATA ANALYTICS & PREDICTIVE INTELLIGENCE
             Layout: Image Left (50%), Text & Bullets Right (50%)
             ----------------------------------------------------------------------- */}
-        <section
+        <motion.section
           id="practice-showcase-data-analytics"
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
         >
-          {/* Visual Showcase (Left 50%) */}
-          <div className="w-full">
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-lg group h-[380px] sm:h-[440px] lg:h-[480px]">
+          {/* Big Visual Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full"
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
               <img
                 src="/senior_image_catalog/03_Custom_SaaS_and_Platforms/01_executive_saas_performance_dashb.jpg"
                 alt="Business Analytics & Predictive Intelligence Console"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Structured Text & Bullets (Right 50%) */}
-          <div className="w-full space-y-5">
+          {/* Structured Text & Bullets */}
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full space-y-5"
+          >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
               <BarChart3 className="size-3.5 text-[#0052cb]" />
               <span>03. Data Analytics</span>
@@ -380,29 +430,26 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
             {/* Clear, Punchy Executive Bullets */}
             <div className="space-y-3.5 pt-1">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">9 Critical Performance Dimensions: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">User behaviour, traffic channels, funnel conversions, dynamic pricing, heatmaps, and predictive AI analytics.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Enterprise Analytics Arsenal: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Google Analytics, Microsoft Clarity, Mixpanel, Tableau, Adobe Analytics, Shopify, Albert AI, and Qlik Sense.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Predictive Machine Learning Models: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Forecasting customer lifetime value, automated trend discovery, churn prevention, and revenue yield optimization.</span>
-                </div>
-              </div>
+              {[
+                { title: '9 Critical Performance Dimensions:', desc: 'User behaviour, traffic channels, funnel conversions, dynamic pricing, heatmaps, and predictive AI analytics.' },
+                { title: 'Enterprise Analytics Arsenal:', desc: 'Google Analytics, Microsoft Clarity, Mixpanel, Tableau, Adobe Analytics, Shopify, Albert AI, and Qlik Sense.' },
+                { title: 'Predictive Machine Learning Models:', desc: 'Forecasting customer lifetime value, automated trend discovery, churn prevention, and revenue yield optimization.' },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
+                  <div>
+                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
+                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             {/* Action Buttons */}
@@ -422,19 +469,29 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <span>Full Technical Specs</span>
               </button>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* -----------------------------------------------------------------------
             PRACTICE 04: CLOUD AND INFRASTRUCTURE
             Layout: Text Left (50%), Image Right (50%)
             ----------------------------------------------------------------------- */}
-        <section
+        <motion.section
           id="practice-showcase-cloud-infrastructure"
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
         >
-          {/* Structured Text & Bullets (Left 50%) */}
-          <div className="w-full space-y-5 order-2 lg:order-1">
+          {/* Structured Text & Bullets */}
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full space-y-5 order-2 lg:order-1"
+          >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
               <Cloud className="size-3.5 text-[#0052cb]" />
               <span>04. Cloud & Infrastructure</span>
@@ -450,29 +507,26 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
             {/* Clear, Punchy Executive Bullets */}
             <div className="space-y-3.5 pt-1">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Hyperscaler Partnerships: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Strategic alliances with AWS, Microsoft Azure, and Google Cloud for scalable, secure multi-cloud architectures.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Zero-Downtime Migration Services: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Production data migration, lift-and-shift operations, cloud-to-cloud transitions, and legacy modernization.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Media & Content Cloud Solutions: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Cloud-Based Digital Asset Management (DAM), AI Computer Vision metadata tagging, and recommendation engines.</span>
-                </div>
-              </div>
+              {[
+                { title: 'Hyperscaler Partnerships:', desc: 'Strategic alliances with AWS, Microsoft Azure, and Google Cloud for scalable, secure multi-cloud architectures.' },
+                { title: 'Zero-Downtime Migration Services:', desc: 'Production data migration, lift-and-shift operations, cloud-to-cloud transitions, and legacy modernization.' },
+                { title: 'Media & Content Cloud Solutions:', desc: 'Cloud-Based Digital Asset Management (DAM), AI Computer Vision metadata tagging, and recommendation engines.' },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
+                  <div>
+                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
+                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             {/* Action Buttons */}
@@ -492,41 +546,63 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <span>Full Technical Specs</span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Visual Showcase (Right 50%) */}
-          <div className="w-full order-1 lg:order-2">
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-lg group h-[380px] sm:h-[440px] lg:h-[480px]">
+          {/* Big Visual Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full order-1 lg:order-2"
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
               <img
                 src="/senior_image_catalog/01_Cloud_and_Datacenter/01_enterprise_datacenter_array.jpg"
                 alt="Enterprise Cloud Datacenter & Infrastructure"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* -----------------------------------------------------------------------
             PRACTICE 05: AI / ML INTEGRATION
             Layout: Image Left (50%), Text & Bullets Right (50%)
             ----------------------------------------------------------------------- */}
-        <section
+        <motion.section
           id="practice-showcase-ai-ml-integration"
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
         >
-          {/* Visual Showcase (Left 50%) */}
-          <div className="w-full">
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-lg group h-[380px] sm:h-[440px] lg:h-[480px]">
+          {/* Big Visual Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full"
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
               <img
                 src="/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg"
                 alt="Enterprise AI Silicon & Autonomous Agent Mesh"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Structured Text & Bullets (Right 50%) */}
-          <div className="w-full space-y-5">
+          {/* Structured Text & Bullets */}
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full space-y-5"
+          >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
               <Brain className="size-3.5 text-[#0052cb]" />
               <span>05. AI / ML Integration</span>
@@ -542,29 +618,26 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
             {/* Clear, Punchy Executive Bullets */}
             <div className="space-y-3.5 pt-1">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Fine-Tuned Enterprise Models: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Sovereign model tuning on private datasets with strict data boundaries, safety rails, and vector embeddings.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Autonomous Agentic Workflows: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Multi-agent task orchestration, dynamic API calling, self-healing retries, and asynchronous decision matrices.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Enterprise Software Connectors: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Seamless integration weaving cognitive agents into existing SAP, Salesforce, ERP, and database pipelines.</span>
-                </div>
-              </div>
+              {[
+                { title: 'Fine-Tuned Enterprise Models:', desc: 'Sovereign model tuning on private datasets with strict data boundaries, safety rails, and vector embeddings.' },
+                { title: 'Autonomous Agentic Workflows:', desc: 'Multi-agent task orchestration, dynamic API calling, self-healing retries, and asynchronous decision matrices.' },
+                { title: 'Enterprise Software Connectors:', desc: 'Seamless integration weaving cognitive agents into existing SAP, Salesforce, ERP, and database pipelines.' },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
+                  <div>
+                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
+                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             {/* Action Buttons */}
@@ -584,19 +657,29 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <span>Full Technical Specs</span>
               </button>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* -----------------------------------------------------------------------
             PRACTICE 06: UX / UI DESIGN
             Layout: Text Left (50%), Image Right (50%)
             ----------------------------------------------------------------------- */}
-        <section
+        <motion.section
           id="practice-showcase-ux-ui-design"
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
         >
-          {/* Structured Text & Bullets (Left 50%) */}
-          <div className="w-full space-y-5 order-2 lg:order-1">
+          {/* Structured Text & Bullets */}
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full space-y-5 order-2 lg:order-1"
+          >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
               <Palette className="size-3.5 text-[#0052cb]" />
               <span>06. UX / UI Design</span>
@@ -612,29 +695,26 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
             {/* Clear, Punchy Executive Bullets */}
             <div className="space-y-3.5 pt-1">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Cognitive Science–Backed Design: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Grounded in cognitive psychology and behavioral science to minimize friction and sculpt frictionless user flows.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">CoVision Lattice / Monolith System: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">An operational design system strategy delivering scalable, user-centric interfaces with tokenized design hygiene.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                <div>
-                  <span className="font-bold text-sm sm:text-base text-ink">Accessibility & Performance: </span>
-                  <span className="text-xs sm:text-sm text-neutral-600">Full WCAG 2.1 AAA accessibility compliance, fluid micro-interactions, and high-conversion transaction flows.</span>
-                </div>
-              </div>
+              {[
+                { title: 'Cognitive Science–Backed Design:', desc: 'Grounded in cognitive psychology and behavioral science to minimize friction and sculpt frictionless user flows.' },
+                { title: 'CoVision Lattice / Monolith System:', desc: 'An operational design system strategy delivering scalable, user-centric interfaces with tokenized design hygiene.' },
+                { title: 'Accessibility & Performance:', desc: 'Full WCAG 2.1 AAA accessibility compliance, fluid micro-interactions, and high-conversion transaction flows.' },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
+                  <div>
+                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
+                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             {/* Action Buttons */}
@@ -654,24 +734,30 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <span>Full Technical Specs</span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Visual Showcase (Right 50%) */}
-          <div className="w-full order-1 lg:order-2">
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-lg group h-[380px] sm:h-[440px] lg:h-[480px]">
+          {/* Big Visual Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full order-1 lg:order-2"
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
               <img
                 src="/images/services/ux_ui_design.jpg"
                 alt="Cognitive Science UX/UI Design & CoVision Lattice"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
       </div>
 
       {/* =========================================================================
-          5. TECHNICAL SPECIFICATIONS MODAL (When clicking Full Technical Specs)
+          5. TECHNICAL SPECIFICATIONS MODAL
           ========================================================================= */}
       {modalService && (
         <ServiceDetailModal

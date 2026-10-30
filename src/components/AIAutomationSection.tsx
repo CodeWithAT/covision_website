@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 import {
   Bot,
   Sparkles,
@@ -38,10 +39,15 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(0,102,255,0.25),transparent_70%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Column: Core Headline & Vision */}
-            <div className="max-w-3xl space-y-6">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5 space-y-6"
+            >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-bold tracking-wider uppercase">
                 <Sparkles className="size-3.5 text-blue-400 animate-pulse" />
                 <span>AI & Automation Practice</span>
@@ -51,7 +57,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                 Transform Intelligence into Business Impact.
               </h1>
 
-              <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed">
                 Unite Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value.
               </p>
 
@@ -70,12 +76,17 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                   <span>Explore Capabilities</span>
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Right Column: High-Tech Attached Media / Video Frame */}
-            <div className="lg:max-w-lg w-full">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-black/80 group">
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+            {/* Right Column: Expanded High-Tech Video Frame (Big & Clear) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 w-full"
+            >
+              <div className="relative rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-blue-950/40 group">
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-950">
                   <video
                     src="/globe.mp4"
                     autoPlay
@@ -86,7 +97,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
@@ -169,7 +180,13 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Image 1: The very first image of cognitive media services */}
-            <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            >
               <div>
                 <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-neutral-900">
                   <img
@@ -193,10 +210,16 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                   Cognitive Media Studio Asset
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Image 2: 3D Visuals & Photorealistic Simulation */}
-            <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            >
               <div>
                 <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-neutral-900">
                   <img
@@ -220,10 +243,16 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                   3D & Digital Simulation Core
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Image 3: Interactive Experiences & Code Generation */}
-            <div className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="group rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            >
               <div>
                 <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-neutral-900">
                   <img
@@ -247,7 +276,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                   CoUI™ Digital Experience Mesh
                 </div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
@@ -281,7 +310,13 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
 
           {/* Agentic Images Showcase as instructed */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group flex flex-col justify-between">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group flex flex-col justify-between"
+            >
               <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-slate-950">
                 <img
                   src="/images/ai_automation/04_autonomous_agentic_workflow_mesh.jpg"
@@ -300,9 +335,15 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                   Specialized agents collaborate across discovery, verification, calculation, and database writes.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group flex flex-col justify-between">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group flex flex-col justify-between"
+            >
               <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-slate-950">
                 <img
                   src="/images/ai_automation/05_neural_knowledge_graph_context.jpg"
@@ -321,12 +362,18 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                   Agents query real-time enterprise ERP, CRM, and SOPs with zero hallucination and mathematical precision.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Agentic Flow Capabilities */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-white border border-ink-line shadow-xs">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="p-6 rounded-2xl bg-white border border-ink-line shadow-xs"
+            >
               <div className="size-10 rounded-xl bg-blue-50 border border-blue-200/60 flex items-center justify-center text-[#0052cb] mb-4">
                 <Cpu className="size-5" />
               </div>
@@ -336,9 +383,15 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
               <p className="text-xs text-neutral-600 leading-relaxed">
                 Agents analyze unstructured customer inputs, system alerts, and enterprise state to determine the optimal workflow path.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="p-6 rounded-2xl bg-white border border-ink-line shadow-xs">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="p-6 rounded-2xl bg-white border border-ink-line shadow-xs"
+            >
               <div className="size-10 rounded-xl bg-blue-50 border border-blue-200/60 flex items-center justify-center text-[#0052cb] mb-4">
                 <Workflow className="size-5" />
               </div>
@@ -348,9 +401,15 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
               <p className="text-xs text-neutral-600 leading-relaxed">
                 Seamlessly interact with REST APIs, SQL databases, SAP, Salesforce, and microservices under strict permission controls.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="p-6 rounded-2xl bg-white border border-ink-line shadow-xs">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="p-6 rounded-2xl bg-white border border-ink-line shadow-xs"
+            >
               <div className="size-10 rounded-xl bg-blue-50 border border-blue-200/60 flex items-center justify-center text-[#0052cb] mb-4">
                 <ShieldCheck className="size-5" />
               </div>
@@ -360,7 +419,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
               <p className="text-xs text-neutral-600 leading-relaxed">
                 Every high-stakes financial or operational action triggers automated validation checkpoints with human sign-off escalation.
               </p>
-            </div>
+            </motion.div>
           </div>
 
         </div>
