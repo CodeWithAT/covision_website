@@ -9,7 +9,7 @@ interface HeroProps {
 
 const serviceSubItems = [
   { id: 'software-engineering', title: '01. Software Engineering', desc: 'Custom Software, HRMS & ERP Solutions' },
-  { id: 'app-development', title: '02. Application Development', desc: 'Native, Cross-Platform, Hybrid & PWAs' },
+  { id: 'application-development', title: '02. Application Development', desc: 'Native, Cross-Platform, Hybrid & PWAs' },
   { id: 'data-analytics', title: '03. Data Analytics', desc: 'Predictive Intelligence & 9 Performance Dimensions' },
   { id: 'cloud-infrastructure', title: '04. Cloud and Infrastructure', desc: 'Hyperscalers, Migration & Media DAM Cloud' },
   { id: 'ai-ml-integration', title: '05. AI/ML Integration', desc: 'Autonomous Agents, Computer Vision & RAG' },
@@ -408,7 +408,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1], delay: 0.28 }}
-                className="block will-change-transform bg-gradient-to-r from-[#60a5fa] via-[#93c5fd] to-[#38bdf8] bg-clip-text text-transparent drop-shadow-sm"
+                className="block will-change-transform text-white"
               >
                 Modern Enterprises
               </motion.span>

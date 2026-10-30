@@ -196,10 +196,7 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
               </div>
 
               <h1 className="font-bricolage text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
-                Proprietary Platforms.{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
-                  Built for Scale.
-                </span>
+                Proprietary Platforms. Built for Scale.
               </h1>
 
               <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
@@ -265,8 +262,7 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
           <div>
             <SectionEyebrow number={sectionNumber} label="Proprietary SaaS & Platforms" tone="dark" />
             <h2 className="mt-8 font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ink leading-[1.02]">
-              Enterprise Products &{' '}
-              <span className="text-[#0052cb]">SaaS Platforms.</span>
+              Enterprise Products & SaaS Platforms.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-neutral-600 max-w-2xl leading-relaxed">
               We engineer specialized, modular enterprise platforms with dedicated subdomains and independent architectures. Share any specific product dossier directly with your clients.

@@ -15,7 +15,7 @@ interface NavbarProps {
 
 const serviceSubItems = [
   { id: 'software-engineering', title: '01. Software Engineering', desc: 'Custom Software, HRMS & ERP Solutions' },
-  { id: 'app-development', title: '02. Application Development', desc: 'Native, Cross-Platform, Hybrid & PWAs' },
+  { id: 'application-development', title: '02. Application Development', desc: 'Native, Cross-Platform, Hybrid & PWAs' },
   { id: 'data-analytics', title: '03. Data Analytics', desc: 'Predictive Intelligence & 9 Performance Dimensions' },
   { id: 'cloud-infrastructure', title: '04. Cloud and Infrastructure', desc: 'Hyperscalers, Migration & Media DAM Cloud' },
   { id: 'ai-ml-integration', title: '05. AI/ML Integration', desc: 'Autonomous Agents, Computer Vision & RAG' },

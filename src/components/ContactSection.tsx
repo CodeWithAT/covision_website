@@ -174,8 +174,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             transition={{ duration: 0.8, delay: 0.1, ease: smoothEase }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight font-bricolage leading-[1.12]"
           >
-            Take the First Step with{' '}
-            <span className="text-[#0052cb]">CoVision</span>
+            Take the First Step with CoVision
           </motion.h2>
 
           <motion.p

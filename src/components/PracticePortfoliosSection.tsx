@@ -65,7 +65,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Application Development & Management',
     desc: 'Application development, modernization, integration, maintenance, and lifecycle management.',
     badge: 'App Lifecycle',
-    image: '/senior_image_catalog/04_Mobile_App_Engineering/01_dark_mode_mobile_app_ux.jpg',
+    image: '/images/services/mobile_app_3d_podium.png',
     icon: Smartphone,
     highlights: [
       'Cross-platform iOS, Android, and responsive web platforms',
@@ -73,7 +73,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
       '24/7 SLA monitoring, zero-regression patches & lifecycle support',
     ],
     pageRoute: 'services',
-    targetServiceId: 'app-development',
+    targetServiceId: 'application-development',
     ctaText: 'Explore App Management',
   },
   {
@@ -124,8 +124,7 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
           </div>
 
           <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ink leading-[1.06]">
-            From Core Engineering to{' '}
-            <span className="text-[#0052cb]">Intelligent Solutions.</span>
+            From Core Engineering to Intelligent Solutions.
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed font-normal">

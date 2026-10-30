@@ -38,8 +38,7 @@ export const EcommerceSuiteSection: React.FC<EcommerceSuiteSectionProps> = ({
           <SectionEyebrow number={sectionNumber} label="360° eCommerce Practice" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium text-ink tracking-tight leading-[1.02]">
-            High-Velocity Digital Commerce.{' '}
-            <span className="text-[#0052cb]">Zero-Downtime Migration.</span>
+            High-Velocity Digital Commerce. Zero-Downtime Migration.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
             From headless Shopify Plus and Adobe Commerce to real-time ERP synchronization, 3D product visualizers, and automated warehouse fulfillment.
@@ -149,7 +148,7 @@ export const EcommerceSuiteSection: React.FC<EcommerceSuiteSectionProps> = ({
                     {activeOffering.title}
                   </h3>
 
-                  <p className="mt-1 font-semibold text-sm sm:text-base text-[#0052cb]">
+                  <p className="mt-1 font-semibold text-sm sm:text-base text-neutral-700">
                     {activeOffering.subtitle}
                   </p>
 

@@ -45,10 +45,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
               </div>
 
               <h1 className="font-bricolage text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
-                Engineering Living Technology.{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
-                  Where AI Converges.
-                </span>
+                Engineering Living Technology. Where AI Converges.
               </h1>
 
               <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
@@ -124,7 +121,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
           <SectionEyebrow number={sectionNumber} label="Corporate Identity & Mission" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-4xl sm:text-6xl font-medium text-ink tracking-tight leading-[1.02]">
-            About <span className="text-[#0052cb]">CoVision Technologies.</span>
+            About CoVision Technologies.
           </h2>
           <p className="mt-4 font-inter-tight text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
             Full-cycle software engineering, high-scale global cloud infrastructure, and enterprise digital platforms delivering Living Technology worldwide.

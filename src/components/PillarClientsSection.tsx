@@ -91,7 +91,7 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
           <SectionEyebrow number={sectionNumber} label="Featured Projects & Clients" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium text-ink tracking-tight leading-[1.04]">
-            Featured Projects and <span className="text-[#0052cb]">Clients</span>
+            Featured Projects and Clients
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed">
             From global giants like Puma and Fila to Banking & Financial Services, Human Resource platforms, E-Commerce, Education & Training, and Silver Maharaja.

@@ -46,8 +46,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
             <SectionEyebrow number={sectionNumber} label="Verified Client Outcomes" tone="dark" className="mb-4" />
 
             <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium text-ink tracking-tight leading-[1.02]">
-              Battle-Tested Case Studies &{' '}
-              <span className="text-[#0052cb]">Production Deployments.</span>
+              Battle-Tested Case Studies & Production Deployments.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-neutral-600 max-w-2xl leading-relaxed">
               Measurable business ROI, eliminated downtime, and validated enterprise architecture for global retail, luxury, and fintech leaders.

@@ -15,8 +15,7 @@ export const TestimonialsAndProof: React.FC = () => {
             Executive Endorsements
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Why CTOs & Engineering Leaders{' '}
-            <span className="text-[#0052cb]">Rely on CoVision</span>
+            Why CTOs & Engineering Leaders Rely on CoVision
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
             Hear directly from technology executives whose high-scale architectures, developer velocity, and cloud security we actively power.

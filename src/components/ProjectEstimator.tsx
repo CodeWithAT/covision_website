@@ -107,8 +107,7 @@ export const ProjectEstimator: React.FC<ProjectEstimatorProps> = ({ onApplyEstim
             Transparent Enterprise Scoping
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Interactive Project Cost &{' '}
-            <span className="text-[#0052cb]">Timeline Estimator</span>
+            Interactive Project Cost & Timeline Estimator
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
             Configure your technical requirements to generate a real-world scope estimate, team composition, and delivery roadmap in seconds.

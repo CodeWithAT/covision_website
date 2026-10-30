@@ -74,8 +74,7 @@ export const BunnyCdnShowcase: React.FC<BunnyCdnShowcaseProps> = ({ sectionNumbe
           <SectionEyebrow number={sectionNumber} label="Edge Infrastructure" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-4xl sm:text-6xl font-medium text-ink tracking-tight leading-[1.02]">
-            High-Velocity Edge Routing via{' '}
-            <span className="text-[#0052cb]">Bunny CDN.</span>
+            High-Velocity Edge Routing via Bunny CDN.
           </h2>
           <p className="mt-4 font-inter-tight text-base sm:text-lg text-neutral-600 max-w-2xl leading-relaxed">
             Tier-1 Anycast routing and NVMe edge storage eliminating international latency with sub-15ms median TTFB across 120+ global Points of Presence.

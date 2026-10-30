@@ -48,10 +48,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
               </div>
 
               <h1 className="font-bricolage text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
-                Transform Intelligence into{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
-                  Business Impact.
-                </span>
+                Transform Intelligence into Business Impact.
               </h1>
 
               <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
@@ -126,8 +123,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-6">
               <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-[42px] font-bold text-ink tracking-tight leading-[1.08]">
-                The Next Frontier of Artificial Intelligence:{' '}
-                <span className="text-[#0052cb]">Generative and Agentic AI</span>
+                The Next Frontier of Artificial Intelligence: Generative and Agentic AI
               </h2>
             </div>
 
@@ -300,7 +296,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             <h2 className="font-bricolage text-3xl sm:text-4xl lg:text-5xl font-bold text-ink tracking-tight leading-[1.05]">
               2. AI Agents & Agentic AI
             </h2>
-            <p className="mt-3 text-xl sm:text-2xl font-bricolage font-semibold text-[#0052cb]">
+            <p className="mt-3 text-xl sm:text-2xl font-bricolage font-semibold text-ink">
               From Intelligent Assistance to Autonomous Action.
             </p>
             <p className="mt-2 text-sm sm:text-base text-neutral-600 leading-relaxed">

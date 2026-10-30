@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import {
   Cpu,
   Smartphone,
@@ -8,23 +7,9 @@ import {
   BarChart3,
   Palette,
   ArrowRight,
-  Layers,
   Sparkles,
   CheckCircle2,
-  TrendingUp,
-  Target,
-  LineChart,
-  Eye,
-  Compass,
-  Search,
-  Share2,
-  Zap,
-  Database,
-  Workflow,
-  Server,
-  Activity,
   Maximize2,
-  Award,
 } from 'lucide-react'
 import { ServiceDetailModal } from './ServiceDetailModal'
 import { IT_SERVICES_DATA } from '../data/mockData'
@@ -42,97 +27,35 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   sectionNumber = '01',
   targetServiceId,
 }) => {
-  // Normalize target service id to match 01 to 06
-  const getInitialService = (): ServiceItem => {
-    if (targetServiceId) {
-      const match = IT_SERVICES_DATA.find(
-        (s) => s.id === targetServiceId || (targetServiceId === 'ux-ui' && s.id === 'ux-ui-design')
-      )
-      if (match) return match
-    }
-    return IT_SERVICES_DATA[0]
-  }
-
-  const [activeService, setActiveService] = useState<ServiceItem>(getInitialService)
   const [modalService, setModalService] = useState<ServiceItem | null>(null)
-  const [highlightedCardId, setHighlightedCardId] = useState<string | null>(null)
+  const [activeNavId, setActiveNavId] = useState<string>('software-engineering')
 
   useEffect(() => {
     if (targetServiceId) {
-      const match = IT_SERVICES_DATA.find(
-        (s) => s.id === targetServiceId || (targetServiceId === 'ux-ui' && s.id === 'ux-ui-design')
-      )
-      if (match) {
-        setActiveService(match)
-        setHighlightedCardId(match.id)
-        const timer = setTimeout(() => {
-          scrollToElement(`service-block-${match.id}`, -120)
-        }, 100)
-        const clearTimer = setTimeout(() => {
-          setHighlightedCardId(null)
-        }, 3500)
-        return () => {
-          clearTimeout(timer)
-          clearTimeout(clearTimer)
-        }
-      }
+      let normalized = targetServiceId === 'ux-ui' ? 'ux-ui-design' : targetServiceId
+      if (normalized === 'app-development') normalized = 'application-development'
+      setActiveNavId(normalized)
+      const timer = setTimeout(() => {
+        scrollToElement(`practice-showcase-${normalized}`, -100)
+      }, 150)
+      return () => clearTimeout(timer)
     }
   }, [targetServiceId])
 
-  const handleSelectService = (service: ServiceItem, shouldScrollToDetail = true) => {
-    setActiveService(service)
-    setHighlightedCardId(service.id)
-    if (shouldScrollToDetail) {
-      setTimeout(() => {
-        scrollToElement('specific-service-detail-view', -90)
-      }, 50)
-    }
-  }
-
-  const getServiceIcon = (iconName: string, className = 'w-5 h-5 text-[#0052cb]') => {
-    switch (iconName) {
-      case 'Cpu':
-        return <Cpu className={className} />
-      case 'Smartphone':
-        return <Smartphone className={className} />
-      case 'Cloud':
-        return <Cloud className={className} />
-      case 'Brain':
-        return <Brain className={className} />
-      case 'BarChart3':
-        return <BarChart3 className={className} />
-      case 'Palette':
-        return <Palette className={className} />
-      default:
-        return <Sparkles className={className} />
-    }
-  }
-
-  const getDimensionIcon = (index: number) => {
-    const icons = [
-      <Activity key="0" className="w-4 h-4 text-[#0052cb]" />,
-      <Compass key="1" className="w-4 h-4 text-[#0052cb]" />,
-      <Target key="2" className="w-4 h-4 text-[#0052cb]" />,
-      <TrendingUp key="3" className="w-4 h-4 text-[#0052cb]" />,
-      <Search key="4" className="w-4 h-4 text-[#0052cb]" />,
-      <Share2 key="5" className="w-4 h-4 text-[#0052cb]" />,
-      <Eye key="6" className="w-4 h-4 text-[#0052cb]" />,
-      <Brain key="7" className="w-4 h-4 text-[#0052cb]" />,
-      <LineChart key="8" className="w-4 h-4 text-[#0052cb]" />,
-    ]
-    return icons[index % icons.length]
+  const scrollToPractice = (id: string) => {
+    setActiveNavId(id)
+    scrollToElement(`practice-showcase-${id}`, -100)
   }
 
   return (
     <section id="services" className="relative w-full bg-paper text-ink font-inter-tight">
       {/* =========================================================================
           1. TOP ATTACHED HERO BANNER (Cinematic Dark Theme matching #ai)
-             - Features instruction3 Technology Banner in sleek dark glass frame
+             - Features technology_banner.png with cobalt blue metallic sphere
              - Displays exact instruction3 intro paragraph word-for-word
-             - Features direct actions to explore 6 practices or request architecture scope
+             - Unified white headline (no color split)
           ========================================================================= */}
       <section className="relative overflow-hidden bg-[#07090E] text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-800">
-        {/* Background Ambient Glow & Video/Visual Container */}
         <div className="absolute inset-0 bg-radial-gradient from-blue-900/25 via-slate-950/80 to-[#07090E] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(0,102,255,0.25),transparent_70%)] pointer-events-none" />
 
@@ -147,10 +70,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               </div>
 
               <h1 className="font-bricolage text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
-                Empowering a{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
-                  Better Tomorrow.
-                </span>
+                Empowering a Better Tomorrow.
               </h1>
 
               <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
@@ -159,7 +79,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <button
-                  onClick={() => scrollToElement('capgemini-service-blocks', -90)}
+                  onClick={() => scrollToPractice('software-engineering')}
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all cursor-pointer group"
                 >
                   <span>Explore 6 Delivery Practices</span>
@@ -174,7 +94,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               </div>
             </div>
 
-            {/* Right Column: User's Banner Image in Sleek Glass Card */}
+            {/* Right Column: User's Banner Image with Cobalt Blue Metallic Sphere */}
             <div className="lg:max-w-lg w-full">
               <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-black/80 group">
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
@@ -210,1020 +130,798 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       </section>
 
       {/* =========================================================================
-          2. CAPGEMINI-STYLE SERVICE BLOCKS (6 Blocks as specified in instruction3)
-             1. Software engineering
-             2. Application development and management
-             3. Data Analytics
-             4. Cloud and infrastructure
-             5. AI/ML Integration
-             6. UX/UI
+          2. QUICK JUMP PILL NAVIGATION BAR
+             - Clean, borderless horizontal tabs for immediate navigation
           ========================================================================= */}
-      <div id="capgemini-service-blocks" className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-3">
-              <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
-              <span>Section {sectionNumber} • Delivery Practices (Capgemini Style)</span>
-            </div>
-            <h2 className="font-bricolage text-3xl sm:text-5xl font-medium tracking-tight text-ink leading-tight">
-              Enterprise Engineering Services.{' '}
-              <span className="text-[#0052cb]">Engineered for Impact.</span>
-            </h2>
-            <p className="mt-3 text-neutral-600 max-w-2xl text-sm sm:text-base leading-relaxed">
-              Click any service block below to inspect detailed specifications, architecture frameworks, and enterprise delivery modules.
-            </p>
-          </div>
-
-          <div className="shrink-0 flex items-center gap-2">
-            <span className="text-xs font-mono text-neutral-500 bg-white border border-ink-line px-3.5 py-1.5 rounded-full shadow-xs">
-              6 Core Practices Available
-            </span>
-          </div>
-        </div>
-
-        {/* The 6 Capgemini-Style Blocks Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {IT_SERVICES_DATA.map((service, index) => {
-            const isSelected = activeService.id === service.id
-            const isCardHighlighted = highlightedCardId === service.id
-
-            return (
-              <motion.div
-                key={service.id}
-                id={`service-block-${service.id}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.05 }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                onClick={() => handleSelectService(service, true)}
-                className={`group relative bg-white rounded-3xl overflow-hidden border transition-all duration-300 flex flex-col justify-between cursor-pointer ${
-                  isSelected || isCardHighlighted
-                    ? 'ring-2 ring-[#0052cb] border-[#0052cb] shadow-xl shadow-blue-900/10 -translate-y-1'
-                    : 'border-ink-line shadow-xs hover:shadow-lg hover:border-[#0052cb]/40 hover:-translate-y-1'
-                }`}
-              >
-                <div>
-                  {/* Visual Image Header */}
-                  <div className="relative w-full h-56 sm:h-64 overflow-hidden bg-neutral-900">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
-
-                    {/* Top Floating Badge Bar */}
-                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                      <div className="size-10 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center">
-                        {getServiceIcon(service.iconName)}
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[11px] font-bold font-mono px-3 py-1 rounded-full bg-black/75 text-white backdrop-blur-md border border-white/20">
-                          {service.number || `0${index + 1}`}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Bottom Image Overlay Tag */}
-                    <div className="absolute bottom-3 left-4 right-4 z-10">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-sky-300 font-mono">
-                        {service.category}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Block Content */}
-                  <div className="p-6 sm:p-7">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-mono font-bold text-[#0052cb]">
-                        Service {service.number || `0${index + 1}`}
-                      </span>
-                      {isSelected && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#0052cb] bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">
-                          <span className="size-1.5 rounded-full bg-[#0052cb] animate-ping" />
-                          Viewing Active Scope
-                        </span>
-                      )}
-                    </div>
-
-                    <h3 className="font-bricolage text-2xl font-bold text-ink group-hover:text-[#0052cb] transition-colors leading-snug">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-xs font-semibold text-[#0052cb] mt-1.5">
-                      {service.tagline}
-                    </p>
-
-                    <p className="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed line-clamp-3">
-                      {service.description}
-                    </p>
-
-                    {/* Micro Highlight Bullets */}
-                    <div className="mt-4 pt-4 border-t border-neutral-100 space-y-1.5">
-                      {service.detailedScope.slice(0, 2).map((bullet, bIdx) => (
-                        <div key={bIdx} className="flex items-start gap-2 text-xs text-neutral-600">
-                          <CheckCircle2 className="size-3.5 text-[#0052cb] mt-0.5 shrink-0" />
-                          <span className="line-clamp-1">{bullet.split(':')[0]}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Action Footer */}
-                <div className="px-6 py-4 bg-neutral-50/80 border-t border-neutral-100 flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0052cb] group-hover:text-[#003da8] transition-colors">
-                    <span>Inspect Full Scope</span>
-                    <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
-                  </span>
-
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      setModalService(service)
-                    }}
-                    title="Open in Popup Modal"
-                    className="p-1.5 rounded-lg bg-white border border-neutral-200 text-neutral-500 hover:text-[#0052cb] hover:border-[#0052cb] transition-colors"
-                  >
-                    <Maximize2 className="size-3.5" />
-                  </button>
-                </div>
-              </motion.div>
-            )
-          })}
-        </div>
-      </div>
-
-      {/* =========================================================================
-          3. DEDICATED SPECIFIC SERVICE VIEW (Opens when client clicks any service)
-             Content as specified in instruction3.txt word-for-word
-          ========================================================================= */}
-      <div
-        id="specific-service-detail-view"
-        className="py-16 md:py-24 bg-white border-t border-b border-ink-line scroll-mt-24"
-      >
+      <div className="sticky top-20 z-30 bg-paper/95 backdrop-blur-md border-b border-ink-line py-3.5 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="mb-10 text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider mb-3">
-              <Layers className="size-3.5" />
-              <span>Interactive Service Detail Explorer</span>
-            </div>
-            <h2 className="font-bricolage text-3xl sm:text-4xl font-bold text-ink">
-              Specific Service Architecture & Delivery View
-            </h2>
-            <p className="mt-2 text-sm sm:text-base text-neutral-600">
-              When client selects any service above or uses the tabs below, that service’s full executive scope opens.
-            </p>
-          </div>
-
-          {/* Interactive Switcher Tabs (01 to 06) */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-12 border-b border-ink-line pb-6">
-            {IT_SERVICES_DATA.map((srv, idx) => {
-              const isActive = activeService.id === srv.id
+          <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
+            {[
+              { id: 'software-engineering', num: '01', label: 'Software Engineering' },
+              { id: 'application-development', num: '02', label: 'Application Dev & Management' },
+              { id: 'data-analytics', num: '03', label: 'Data Analytics' },
+              { id: 'cloud-infrastructure', num: '04', label: 'Cloud & Infrastructure' },
+              { id: 'ai-ml-integration', num: '05', label: 'AI/ML Integration' },
+              { id: 'ux-ui-design', num: '06', label: 'UX/UI Design' },
+            ].map((tab) => {
+              const isActive = activeNavId === tab.id
               return (
                 <button
-                  key={srv.id}
-                  onClick={() => handleSelectService(srv, false)}
-                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                  key={tab.id}
+                  onClick={() => scrollToPractice(tab.id)}
+                  className={`shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                     isActive
-                      ? 'bg-[#0052cb] text-white shadow-md shadow-blue-600/20'
-                      : 'bg-white border border-ink-line text-neutral-700 hover:text-[#0052cb] hover:border-[#0052cb]'
+                      ? 'bg-[#0052cb] text-white shadow-sm'
+                      : 'bg-white text-neutral-700 hover:text-black border border-ink-line hover:border-neutral-400'
                   }`}
                 >
-                  <span className="font-mono text-[11px] opacity-80">{srv.number || `0${idx + 1}`}.</span>
-                  <span>{srv.title}</span>
+                  <span className="font-mono text-[10px] opacity-75">{tab.num}.</span>
+                  <span>{tab.label}</span>
                 </button>
               )
             })}
           </div>
-
-          {/* Service Detail Dynamic Container */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeService.id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35 }}
-              className="bg-paper-deep rounded-3xl p-6 sm:p-10 md:p-12 border border-ink-line shadow-sm"
-            >
-              {/* Header of Active Service */}
-              <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-8 border-b border-ink-line">
-                <div className="max-w-3xl">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-ink-line text-xs font-mono font-bold text-[#0052cb] mb-3">
-                    <span>Practice {activeService.number}</span>
-                    <span>•</span>
-                    <span>{activeService.category}</span>
-                  </div>
-
-                  <h3 className="font-bricolage text-3xl sm:text-5xl font-bold text-ink leading-tight">
-                    {activeService.title}
-                  </h3>
-
-                  <p className="text-base sm:text-xl font-semibold text-[#0052cb] mt-2">
-                    {activeService.tagline}
-                  </p>
-
-                  <p className="mt-4 text-sm sm:text-base text-neutral-700 leading-relaxed">
-                    {activeService.description}
-                  </p>
-                </div>
-
-                <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
-                  <button
-                    onClick={() => onRequestScope(activeService.title)}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0052cb] text-white text-xs sm:text-sm font-semibold hover:bg-[#003da8] transition-all shadow-md shadow-blue-600/20 active:scale-95 cursor-pointer"
-                  >
-                    <span>Request Scope for this Service</span>
-                    <ArrowRight className="size-4" />
-                  </button>
-
-                  <button
-                    onClick={() => setModalService(activeService)}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white border border-ink-line text-neutral-700 text-xs sm:text-sm font-semibold hover:text-[#0052cb] hover:border-[#0052cb] transition-colors cursor-pointer"
-                  >
-                    <Maximize2 className="size-3.5" />
-                    <span>Expand Modal View</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* =========================================================================
-                  SERVICE 1: SOFTWARE ENGINEERING
-                  Exact instruction3 content:
-                  - Elevate your business with custom software solutions. Every business operates within its own operating system...
-                  - Mention atleast 2 names HRMS of Apto and 2 payroll system.
-                  - ERP: Bring all your business operations under one umbrella with ERP solutions.
-                  ========================================================================= */}
-              {activeService.id === 'software-engineering' && (
-                <div className="pt-8 space-y-10">
-                  {/* Lead Statement */}
-                  <div className="bg-white rounded-2xl p-6 sm:p-8 border border-ink-line shadow-xs">
-                    <h4 className="font-bricolage text-xl sm:text-2xl font-bold text-ink mb-3">
-                      Elevate your business with custom software solutions.
-                    </h4>
-                    <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-                      Every business operates within its own operating system, shaped by its unique audience, processes, and objectives. We engineer tailored software solutions that align seamlessly with your business needs and goals.
-                    </p>
-                  </div>
-
-                  {/* HRMS Systems (Apto) & Payroll Systems */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* Apto HRMS Systems */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-blue-200/80 shadow-xs flex flex-col justify-between">
-                      <div>
-                        <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-blue-50 text-[#0052cb] text-[11px] font-mono font-bold uppercase tracking-wider mb-4">
-                          <Cpu className="size-3.5" />
-                          <span>Apto HRMS Platforms</span>
-                        </div>
-                        <h4 className="font-bricolage text-lg sm:text-xl font-bold text-ink mb-2">
-                          Human Resource Management Systems (HRMS)
-                        </h4>
-                        <p className="text-xs sm:text-sm text-neutral-600 mb-6">
-                          Pre-architected, enterprise-grade HRMS engines configured for automated talent operations:
-                        </p>
-
-                        <div className="space-y-4">
-                          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                            <div className="flex items-center justify-between mb-1.5">
-                              <h5 className="font-bold text-sm sm:text-base text-ink">
-                                1. Apto PeopleCore HRMS
-                              </h5>
-                              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-100 text-[#0052cb]">
-                                Core Enterprise
-                              </span>
-                            </div>
-                            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                              Unified talent lifecycle management featuring biometric attendance synchronization, smart leave allocation, KPI appraisal matrices, and self-service employee portals.
-                            </p>
-                          </div>
-
-                          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                            <div className="flex items-center justify-between mb-1.5">
-                              <h5 className="font-bold text-sm sm:text-base text-ink">
-                                2. Apto Workforce OS
-                              </h5>
-                              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-100 text-[#0052cb]">
-                                Workforce Operations
-                              </span>
-                            </div>
-                            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                              Enterprise-grade workforce planning, multi-shift roster scheduling, automated overtime tracking, organizational hierarchy modeling, and statutory labor law compliance.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-                        <span>Includes mobile self-service app</span>
-                        <span className="font-semibold text-[#0052cb]">SOC 2 & GDPR Ready</span>
-                      </div>
-                    </div>
-
-                    {/* Payroll Systems */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-blue-200/80 shadow-xs flex flex-col justify-between">
-                      <div>
-                        <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-blue-50 text-[#0052cb] text-[11px] font-mono font-bold uppercase tracking-wider mb-4">
-                          <Database className="size-3.5" />
-                          <span>Apto Payroll Automation</span>
-                        </div>
-                        <h4 className="font-bricolage text-lg sm:text-xl font-bold text-ink mb-2">
-                          Automated Payroll Systems
-                        </h4>
-                        <p className="text-xs sm:text-sm text-neutral-600 mb-6">
-                          High-precision, error-free financial processing engines with integrated bank-rail disbursements:
-                        </p>
-
-                        <div className="space-y-4">
-                          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                            <div className="flex items-center justify-between mb-1.5">
-                              <h5 className="font-bold text-sm sm:text-base text-ink">
-                                1. Apto GlobalPay Engine
-                              </h5>
-                              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-100 text-[#0052cb]">
-                                Multi-Currency
-                              </span>
-                            </div>
-                            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                              Multi-currency automated payroll calculation with dynamic tax withholdings, social security deductions, audit-ready compliance reporting, and direct bank integration.
-                            </p>
-                          </div>
-
-                          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                            <div className="flex items-center justify-between mb-1.5">
-                              <h5 className="font-bold text-sm sm:text-base text-ink">
-                                2. Apto FlexPayroll Automation
-                              </h5>
-                              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-100 text-[#0052cb]">
-                                Dynamic Salaries
-                              </span>
-                            </div>
-                            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                              Flexible compensation and variable incentive engines handling commissions, custom allowances, benefits disbursements, and digital pay-slip distributions.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-                        <span>Direct ACH & SEPA payment pipelines</span>
-                        <span className="font-semibold text-[#0052cb]">Zero-Calculation Errors</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* ERP Section */}
-                  <div className="bg-white rounded-2xl p-6 sm:p-8 border border-ink-line shadow-xs">
-                    <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-2">
-                      <Workflow className="size-4" />
-                      <span>Enterprise Resource Planning</span>
-                    </div>
-                    <h4 className="font-bricolage text-2xl font-bold text-ink mb-2">
-                      ERP.
-                    </h4>
-                    <p className="text-base sm:text-lg font-medium text-neutral-800 mb-4">
-                      Bring all your business operations under one umbrella with ERP solutions.
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                        <div className="font-bold text-ink text-sm mb-1">Financial Consolidation</div>
-                        <p className="text-xs text-neutral-600">Multi-entity ledgers, real-time balance sheets, automated reconciliations.</p>
-                      </div>
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                        <div className="font-bold text-ink text-sm mb-1">Supply Chain & Inventory</div>
-                        <p className="text-xs text-neutral-600">Automated purchase orders, vendor evaluation, stock prediction.</p>
-                      </div>
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                        <div className="font-bold text-ink text-sm mb-1">Operations & CRM</div>
-                        <p className="text-xs text-neutral-600">Customer pipeline visibility, lead telemetry, order processing.</p>
-                      </div>
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                        <div className="font-bold text-ink text-sm mb-1">Real-Time Telemetry</div>
-                        <p className="text-xs text-neutral-600">Executive KPI dashboards, cross-department analytics, automated reporting.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* =========================================================================
-                  SERVICE 2: APPLICATION DEVELOPMENT AND MANAGEMENT
-                  Exact instruction3 content:
-                  - Turbo-charge your mobile app development with Covision
-                  - Wide array of mobile app development solutions
-                  - Native App Development
-                  - Cross-Platform App Development
-                  - Hybrid App Development
-                  - Progressive Web Apps
-                  - Startup to enterprise level IT architecture (Appinventiv style)
-                  - Uses uploaded 3D neon mobile podium image
-                  ========================================================================= */}
-              {activeService.id === 'app-development' && (
-                <div className="pt-8 space-y-10">
-                  {/* Lead Headline Card with Uploaded 3D Neon Mobile Image */}
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-3xl p-6 sm:p-8 border border-ink-line shadow-xs">
-                    <div className="lg:col-span-7">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider mb-4">
-                        <Smartphone className="size-3.5" />
-                        <span>Mobile Engineering Leadership</span>
-                      </div>
-                      <h4 className="font-bricolage text-2xl sm:text-4xl font-bold text-ink leading-tight">
-                        Turbo-charge your mobile app development with Covision
-                      </h4>
-                      <p className="text-base sm:text-lg font-semibold text-[#0052cb] mt-2">
-                        Wide array of mobile app development solutions
-                      </p>
-                      <p className="mt-4 text-sm sm:text-base text-neutral-700 leading-relaxed">
-                        From agile startup MVPs to high-scale enterprise ecosystems, we deliver resilient, high-retention mobile experiences backed by fluid 60fps micro-animations, offline synchronization, and enterprise security architectures.
-                      </p>
-
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {['iOS Native', 'Android Native', 'Flutter', 'React Native', 'Capacitor', 'PWA'].map((pill) => (
-                          <span
-                            key={pill}
-                            className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-mono text-xs font-semibold border border-slate-200"
-                          >
-                            {pill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* The User-Provided 3D Mobile Phone Image */}
-                    <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-800 shadow-xl bg-slate-950">
-                      <img
-                        src="/images/services/mobile_app_3d_podium.png"
-                        alt="3D Mobile App Development on Neon Podium"
-                        className="w-full h-72 sm:h-80 object-cover object-center"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                        <span className="text-white text-xs font-mono font-semibold">
-                          Proprietary Mobile Engineering Architecture
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 4 Solutions Grid */}
-                  <div>
-                    <h5 className="font-bricolage text-xl font-bold text-ink mb-6">
-                      Wide Array of Mobile Solutions
-                    </h5>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                      <div className="bg-white rounded-2xl p-6 border border-ink-line shadow-xs hover:border-[#0052cb] transition-colors">
-                        <div className="size-10 rounded-xl bg-blue-50 text-[#0052cb] flex items-center justify-center font-bold text-sm mb-4">
-                          01
-                        </div>
-                        <h6 className="font-bold text-base text-ink mb-2">Native App Development</h6>
-                        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                          Platform-native iOS (Swift) and Android (Kotlin) applications taking full advantage of on-device GPUs, biometric authentication, and deep OS integrations for uncompromising 60fps performance.
-                        </p>
-                      </div>
-
-                      <div className="bg-white rounded-2xl p-6 border border-ink-line shadow-xs hover:border-[#0052cb] transition-colors">
-                        <div className="size-10 rounded-xl bg-blue-50 text-[#0052cb] flex items-center justify-center font-bold text-sm mb-4">
-                          02
-                        </div>
-                        <h6 className="font-bold text-base text-ink mb-2">Cross-Platform App Development</h6>
-                        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                          Unified single-codebase velocity utilizing Flutter and React Native. Delivers native-fidelity experiences with up to 90% code reuse and simultaneous store rollouts across iOS and Android.
-                        </p>
-                      </div>
-
-                      <div className="bg-white rounded-2xl p-6 border border-ink-line shadow-xs hover:border-[#0052cb] transition-colors">
-                        <div className="size-10 rounded-xl bg-blue-50 text-[#0052cb] flex items-center justify-center font-bold text-sm mb-4">
-                          03
-                        </div>
-                        <h6 className="font-bold text-base text-ink mb-2">Hybrid App Development</h6>
-                        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                          Versatile web-containerized mobile architectures using modern Capacitor and Ionic frameworks, ideal for rapid business validation, unified web/app maintenance, and cost optimization.
-                        </p>
-                      </div>
-
-                      <div className="bg-white rounded-2xl p-6 border border-ink-line shadow-xs hover:border-[#0052cb] transition-colors">
-                        <div className="size-10 rounded-xl bg-blue-50 text-[#0052cb] flex items-center justify-center font-bold text-sm mb-4">
-                          04
-                        </div>
-                        <h6 className="font-bold text-base text-ink mb-2">Progressive Web Apps</h6>
-                        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                          Zero-install responsive web applications featuring service-worker offline caching, background push notifications, and fast loading times, eliminating App Store friction.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Startup to Enterprise Lifecycle Architecture (Inspired by Appinventiv) */}
-                  <div className="bg-white rounded-2xl p-6 sm:p-8 border border-ink-line shadow-xs">
-                    <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-2">
-                      <Workflow className="size-4" />
-                      <span>Full Lifecycle Engineering (Startup to Enterprise)</span>
-                    </div>
-                    <h5 className="font-bricolage text-xl font-bold text-ink mb-4">
-                      Application Architecture Spectrum
-                    </h5>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                        <span className="text-xs font-mono font-bold text-[#0052cb]">Stage 1 • Startup MVPs</span>
-                        <h6 className="font-bold text-ink text-sm mt-1 mb-1.5">Rapid Market Validation</h6>
-                        <p className="text-xs text-neutral-600">Lean prototyping, analytics instrumentation, core loop testing, and quick investor-ready releases.</p>
-                      </div>
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                        <span className="text-xs font-mono font-bold text-[#0052cb]">Stage 2 • Growth & Scale</span>
-                        <h6 className="font-bold text-ink text-sm mt-1 mb-1.5">Fault-Tolerant Microservices</h6>
-                        <p className="text-xs text-neutral-600">Elastic cloud backends, offline-first sync protocols, automated CI/CD app-store pipelines, and security hardening.</p>
-                      </div>
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                        <span className="text-xs font-mono font-bold text-[#0052cb]">Stage 3 • Enterprise IT</span>
-                        <h6 className="font-bold text-ink text-sm mt-1 mb-1.5">24/7 SLA & Modernization</h6>
-                        <p className="text-xs text-neutral-600">Legacy modernization, zero-regression patches, enterprise single sign-on (SSO), and SOC 2 Type II compliance.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* =========================================================================
-                  SERVICE 3: DATA ANALYTICS
-                  Exact instruction3 content:
-                  - Business Analytics & Predictive Intelligence
-                  - The Divine Weapon of E-Business. Powered by an Arsenal of Technological Expertise.
-                  - Analytics is not merely a tool for data analysis but it is a transformative force in e-business...
-                  - Arsenal of 16 tools
-                  - All 9 critical dimensions
-                  ========================================================================= */}
-              {activeService.id === 'data-analytics' && (
-                <div className="pt-8 space-y-10">
-                  {/* Lead Vision Card */}
-                  <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink-line shadow-xs">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider mb-4">
-                      <BarChart3 className="size-3.5" />
-                      <span>The Divine Weapon of E-Business</span>
-                    </div>
-                    <h4 className="font-bricolage text-2xl sm:text-4xl font-bold text-ink leading-tight">
-                      Business Analytics & Predictive Intelligence
-                    </h4>
-                    <p className="text-base sm:text-lg font-semibold text-[#0052cb] mt-2">
-                      The Divine Weapon of E-Business. Powered by an Arsenal of Technological Expertise.
-                    </p>
-                    <p className="mt-4 text-sm sm:text-base text-neutral-700 leading-relaxed">
-                      Analytics is not merely a tool for data analysis but it is a transformative force in e-business. It serves as a strategic weapon that decodes real-time events, uncovers actionable insights, and equips businesses to anticipate and shape future outcomes.
-                    </p>
-
-                    {/* The Arsenal of Analytical Tools (16 Tools) */}
-                    <div className="mt-8 pt-8 border-t border-ink-line">
-                      <p className="text-xs sm:text-sm font-semibold text-neutral-800 leading-relaxed mb-4">
-                        At Covision, we harness an extensive arsenal of analytical tools and intelligent platforms, including Google Analytics, Microsoft Clarity, Crazy Egg, Mixpanel, HubSpot Analytics, Adobe Analytics, Shopify Analytics, Albert AI, Pricefx, Dynamic Yield, Persado, BuzzSumo, Stitch Fix algorithms, Google Trends, Qlik Sense, and Tableau. These technologies help businesses analyse critical performance indicators across key dimensions:
-                      </p>
-
-                      <div className="flex flex-wrap gap-2">
-                        {[
-                          'Google Analytics',
-                          'Microsoft Clarity',
-                          'Crazy Egg',
-                          'Mixpanel',
-                          'HubSpot Analytics',
-                          'Adobe Analytics',
-                          'Shopify Analytics',
-                          'Albert AI',
-                          'Pricefx',
-                          'Dynamic Yield',
-                          'Persado',
-                          'BuzzSumo',
-                          'Stitch Fix algorithms',
-                          'Google Trends',
-                          'Qlik Sense',
-                          'Tableau',
-                        ].map((tool) => (
-                          <span
-                            key={tool}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/70 text-xs font-semibold text-[#0052cb] shadow-2xs"
-                          >
-                            <span className="size-1.5 rounded-full bg-[#0052cb]" />
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* All 9 Critical Performance Dimensions (Word for word from instruction3) */}
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <h5 className="font-bricolage text-xl sm:text-2xl font-bold text-ink">
-                        9 Key Performance Dimensions
-                      </h5>
-                      <span className="text-xs font-mono text-neutral-500">
-                        Exhaustive Telemetry Ingestion
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {[
-                        {
-                          title: 'User Behaviour & Engagement',
-                          desc: 'Customer journeys, interactions, and behavioural patterns.',
-                        },
-                        {
-                          title: 'Traffic Sources & Audience Insights',
-                          desc: 'Acquisition channels, demographics, and audience characteristics.',
-                        },
-                        {
-                          title: 'E-Commerce & Conversion Performance',
-                          desc: 'Sales funnels, conversion rates, and purchase behaviour.',
-                        },
-                        {
-                          title: 'Pricing, Discounts & Revenue Optimisation',
-                          desc: 'Pricing strategies, promotional effectiveness, and revenue opportunities.',
-                        },
-                        {
-                          title: 'Fashion, Trends & Market Intelligence',
-                          desc: 'Emerging trends, consumer preferences, and competitor activity.',
-                        },
-                        {
-                          title: 'Content & Campaign Performance',
-                          desc: 'Content engagement, marketing effectiveness, and campaign outcomes.',
-                        },
-                        {
-                          title: 'Heatmaps & Session Recordings',
-                          desc: 'On-page interactions, navigation patterns, and user experience.',
-                        },
-                        {
-                          title: 'Predictive & AI-Driven Analytics',
-                          desc: 'Forecasting, intelligent recommendations, and opportunity identification.',
-                        },
-                        {
-                          title: 'Technical & Digital Performance',
-                          desc: 'Website performance, technical issues, and digital experience metrics.',
-                        },
-                      ].map((dim, dIdx) => (
-                        <div
-                          key={dim.title}
-                          className="bg-white rounded-2xl p-6 border border-ink-line shadow-xs hover:border-[#0052cb] transition-colors flex flex-col justify-between"
-                        >
-                          <div>
-                            <div className="flex items-center justify-between mb-3">
-                              <div className="size-8 rounded-lg bg-blue-50 flex items-center justify-center">
-                                {getDimensionIcon(dIdx)}
-                              </div>
-                              <span className="text-xs font-mono font-bold text-neutral-400">
-                                0{dIdx + 1}
-                              </span>
-                            </div>
-                            <h6 className="font-bold text-base text-ink mb-1.5 leading-snug">
-                              {dim.title}
-                            </h6>
-                            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                              {dim.desc}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* =========================================================================
-                  SERVICE 4: CLOUD AND INFRASTRUCTURE
-                  Exact instruction3 content:
-                  - Lead paragraph with hyperscalers (AWS, Azure, Google Cloud)
-                  - Cloud Strategy, Architecture, Consulting, and Design: Strategize smart. Transform fast.
-                    - IT landscape assessment
-                    - Tailored Cloud Roadmaps
-                  - Cloud Migration Services (4 points)
-                  - Media & Content Cloud Solutions (4 foundational parts)
-                  ========================================================================= */}
-              {activeService.id === 'cloud-infrastructure' && (
-                <div className="pt-8 space-y-10">
-                  {/* Lead Paragraph Card */}
-                  <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink-line shadow-xs">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider mb-4">
-                      <Cloud className="size-3.5" />
-                      <span>Cloud Architecture & Hyperscaler Partnerships</span>
-                    </div>
-                    <p className="text-base sm:text-lg text-neutral-800 leading-relaxed font-normal">
-                      cloud services are considered a powerful weapon in the arsenal of the digital business ecosystem. Fusion of AI with cloud engineering created intelligent, self-optimizing, and predictive digital ecosystems. Our strategic partnerships with leading hyperscalers—such as AWS, Microsoft Azure, and Google Cloud—enable us to leverage cutting-edge innovations to accelerate your digital transformation.
-                    </p>
-
-                    {/* Hyperscaler Badges */}
-                    <div className="mt-6 pt-6 border-t border-ink-line flex flex-wrap items-center gap-4">
-                      <span className="text-xs font-mono font-bold uppercase text-neutral-500">
-                        Strategic Hyperscalers:
-                      </span>
-                      {['Amazon Web Services (AWS)', 'Microsoft Azure', 'Google Cloud Platform (GCP)'].map((partner) => (
-                        <span
-                          key={partner}
-                          className="px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-800 font-semibold text-xs inline-flex items-center gap-1.5"
-                        >
-                          <Server className="size-3 text-[#0052cb]" />
-                          {partner}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Section 1 & Section 2: Strategy + Migration */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Cloud Strategy, Architecture, Consulting, and Design */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-ink-line shadow-xs">
-                      <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-2">
-                        <Workflow className="size-4" />
-                        <span>Advisory & Roadmaps</span>
-                      </div>
-                      <h4 className="font-bricolage text-xl sm:text-2xl font-bold text-ink mb-1">
-                        Cloud Strategy, Architecture, Consulting, and Design
-                      </h4>
-                      <p className="text-sm font-semibold text-[#0052cb] mb-6">
-                        Strategize smart. Transform fast.
-                      </p>
-
-                      <div className="space-y-4">
-                        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                          <h5 className="font-bold text-sm text-ink mb-1">IT landscape assessment</h5>
-                          <p className="text-xs sm:text-sm text-neutral-600">
-                            Evaluate infrastructure and align with business goals.
-                          </p>
-                        </div>
-
-                        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                          <h5 className="font-bold text-sm text-ink mb-1">
-                            Tailored Cloud Roadmaps for cloud adoption and optimization
-                          </h5>
-                          <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                            It includes designing scalable, secure, and cost-optimized cloud architectures—ranging from cloud-native and microservices-based systems to hybrid and multi-cloud environments.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Cloud Migration Services */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-ink-line shadow-xs flex flex-col justify-between">
-                      <div>
-                        <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-2">
-                          <Zap className="size-4" />
-                          <span>Seamless Re-Platforming</span>
-                        </div>
-                        <h4 className="font-bricolage text-xl sm:text-2xl font-bold text-ink mb-1">
-                          Cloud Migration Services
-                        </h4>
-                        <p className="text-xs sm:text-sm text-neutral-600 mb-6">
-                          Zero-downtime execution rails ensuring continuous business availability:
-                        </p>
-
-                        <div className="space-y-3">
-                          {[
-                            'Application and data migration',
-                            'Lift-and-shift operations',
-                            'Cloud-to-cloud transitions',
-                            'Legacy system modernization',
-                          ].map((item, idx) => (
-                            <div
-                              key={idx}
-                              className="flex items-center gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200/70 text-xs sm:text-sm font-medium text-slate-800"
-                            >
-                              <CheckCircle2 className="size-4 text-[#0052cb] shrink-0" />
-                              <span>{item}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-                        <span>Zero data loss guarantee</span>
-                        <span className="font-semibold text-[#0052cb]">Sub-minute failover</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Section 3: Media & Content Cloud Solutions */}
-                  <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink-line shadow-xs">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider mb-3">
-                      <Sparkles className="size-3.5" />
-                      <span>Specialized Practice</span>
-                    </div>
-                    <h4 className="font-bricolage text-2xl sm:text-3xl font-bold text-ink mb-6">
-                      Media & Content Cloud Solutions
-                    </h4>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                        <span className="text-xs font-mono font-bold text-[#0052cb]">Foundational Architecture</span>
-                        <h5 className="font-bold text-base text-ink mt-1 mb-2">
-                          Media & Content-Centric Cloud Engineering
-                        </h5>
-                        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                          The core infrastructure that centralizes your media operations and enables real-time global collaboration.
-                        </p>
-                      </div>
-
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                        <span className="text-xs font-mono font-bold text-[#0052cb]">The Core Platform</span>
-                        <h5 className="font-bold text-base text-ink mt-1 mb-2">
-                          Cloud-Based Digital Asset Management (DAM) Systems
-                        </h5>
-                        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                          The scalable, secure repository to store, manage, and distribute all your multimedia assets via CDNs.
-                        </p>
-                      </div>
-
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                        <span className="text-xs font-mono font-bold text-[#0052cb]">Built-in Intelligence</span>
-                        <h5 className="font-bold text-base text-ink mt-1 mb-2">
-                          AI-Powered Metadata Tagging
-                        </h5>
-                        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                          Cloud-integrated Computer Vision and NLP that automatically tags, transcribes, and organizes your assets the moment they are uploaded.
-                        </p>
-                      </div>
-
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                        <span className="text-xs font-mono font-bold text-[#0052cb]">Distribution & Engagement</span>
-                        <h5 className="font-bold text-base text-ink mt-1 mb-2">
-                          AI-Based Recommendation Engines
-                        </h5>
-                        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                          Smart data models hosted in the cloud that track viewer behaviour to deliver hyper-personalized content suggestions.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* =========================================================================
-                  SERVICE 5: AI/ML INTEGRATION
-                  ========================================================================= */}
-              {activeService.id === 'ai-ml-integration' && (
-                <div className="pt-8 space-y-10">
-                  <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink-line shadow-xs">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider mb-4">
-                      <Brain className="size-3.5" />
-                      <span>Cognitive Automation & Generative Systems</span>
-                    </div>
-                    <h4 className="font-bricolage text-2xl sm:text-4xl font-bold text-ink leading-tight">
-                      Enterprise AI/ML Integration & Autonomous Systems
-                    </h4>
-                    <p className="mt-3 text-sm sm:text-base text-neutral-700 leading-relaxed max-w-3xl">
-                      Custom machine learning pipelines, autonomous multi-agent cognitive systems, computer vision, and private air-gapped LLMs engineered for enterprise operations with zero data leakage.
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                        <h5 className="font-bold text-sm text-ink mb-1.5">Autonomous Multi-Agent AI</h5>
-                        <p className="text-xs text-neutral-600">Multi-agent orchestrations executing business workflows, approvals, and dynamic decision-making autonomously.</p>
-                      </div>
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                        <h5 className="font-bold text-sm text-ink mb-1.5">Computer Vision & OCR</h5>
-                        <p className="text-xs text-neutral-600">Real-time defect detection, biometric validation, visual inspection, and automated document extraction.</p>
-                      </div>
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                        <h5 className="font-bold text-sm text-ink mb-1.5">Sovereign Enterprise RAG</h5>
-                        <p className="text-xs text-neutral-600">Air-gapped retrieval-augmented generation grounded strictly in proprietary enterprise data with SOC 2 compliance.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* =========================================================================
-                  SERVICE 6: UX/UI
-                  Exact instruction3 content:
-                  - ux/ui Design Is a Dialogue, Not Decoration—Creating Seamless Connections Between Brands and Users.
-                  - Cognitive Science–Backed Design Thinking
-                  - At Covison, design is a dialogue, not decoration. Grounded in cognitive psychology and behavioural science, we design interfaces that think, react, and resonate with users.
-                  - Our Own Design System- Covision Lattice/ monolith
-                  - Covision Lattice/ monolith isn’t just a library; it’s an operational strategy—one that empowers to deliver exceptional, scalable, and user-centric products with unmatched efficiency and quality.
-                  ========================================================================= */}
-              {(activeService.id === 'ux-ui-design' || activeService.id === 'ux-ui') && (
-                <div className="pt-8 space-y-10">
-                  {/* Lead Quote Card */}
-                  <div className="bg-white rounded-3xl p-6 sm:p-10 border border-ink-line shadow-xs">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider mb-4">
-                      <Palette className="size-3.5" />
-                      <span>Design Philosophy</span>
-                    </div>
-                    <h4 className="font-bricolage text-2xl sm:text-4xl font-bold text-ink leading-tight">
-                      ux/ui Design Is a Dialogue, Not Decoration—Creating Seamless Connections Between Brands and Users.
-                    </h4>
-                  </div>
-
-                  {/* Cognitive Science & Design System Split */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Cognitive Science–Backed Design Thinking */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-ink-line shadow-xs flex flex-col justify-between">
-                      <div>
-                        <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-3">
-                          <Brain className="size-4" />
-                          <span>Behavioral Science Foundation</span>
-                        </div>
-                        <h5 className="font-bricolage text-xl sm:text-2xl font-bold text-ink mb-3">
-                          Cognitive Science–Backed Design Thinking
-                        </h5>
-                        <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-                          At Covison, design is a dialogue, not decoration. Grounded in cognitive psychology and behavioural science, we design interfaces that think, react, and resonate with users.
-                        </p>
-
-                        <div className="mt-6 space-y-2.5">
-                          <div className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-600">
-                            <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
-                            <span>Reduced cognitive friction and rapid visual information processing</span>
-                          </div>
-                          <div className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-600">
-                            <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
-                            <span>Intent-driven visual hierarchies and subconscious user task flow</span>
-                          </div>
-                          <div className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-600">
-                            <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
-                            <span>WCAG 2.1 AAA accessibility for universally inclusive interaction</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="mt-6 pt-4 border-t border-neutral-100 text-xs font-semibold text-[#0052cb]">
-                        Fluid 60fps Micro-Interactions • Zero Mental Overload
-                      </div>
-                    </div>
-
-                    {/* Our Own Design System- Covision Lattice/ monolith */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-blue-200/80 shadow-xs flex flex-col justify-between">
-                      <div>
-                        <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-3">
-                          <Layers className="size-4" />
-                          <span>Proprietary Design Strategy</span>
-                        </div>
-                        <h5 className="font-bricolage text-xl sm:text-2xl font-bold text-ink mb-3">
-                          Our Own Design System- Covision Lattice/ monolith
-                        </h5>
-                        <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-                          Covision Lattice/ monolith isn’t just a library; it’s an operational strategy—one that empowers to deliver exceptional, scalable, and user-centric products with unmatched efficiency and quality.
-                        </p>
-
-                        <div className="mt-6 grid grid-cols-2 gap-3">
-                          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                            <div className="font-bold text-xs text-ink mb-1">Tokenized Foundation</div>
-                            <p className="text-[11px] text-neutral-500">Universal design tokens for color, typography, radii, and spatial grids.</p>
-                          </div>
-                          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                            <div className="font-bold text-xs text-ink mb-1">Monolith Primitives</div>
-                            <p className="text-[11px] text-neutral-500">Battle-tested enterprise components with zero dev-handoff ambiguity.</p>
-                          </div>
-                          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                            <div className="font-bold text-xs text-ink mb-1">Speed Multiplier</div>
-                            <p className="text-[11px] text-neutral-500">2.5x faster feature velocity from Figma design to production code.</p>
-                          </div>
-                          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                            <div className="font-bold text-xs text-ink mb-1">Adaptive Theming</div>
-                            <p className="text-[11px] text-neutral-500">Dynamic high-contrast dark/light mode and white-label support.</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-                        <span>Covision Lattice / monolith v2.4</span>
-                        <span className="font-semibold text-[#0052cb]">Production-Ready SDK</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Shared Service Action Footer */}
-              <div className="mt-12 pt-8 border-t border-ink-line flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-xl bg-white border border-ink-line shadow-xs flex items-center justify-center">
-                    <Award className="size-5 text-[#0052cb]" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-ink">Guaranteed Production SLA</div>
-                    <div className="text-xs text-neutral-500">{activeService.sla}</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 w-full sm:w-auto">
-                  <button
-                    onClick={() => onRequestScope(activeService.title)}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#0052cb] text-white text-xs sm:text-sm font-semibold hover:bg-[#003da8] transition-all shadow-md shadow-blue-600/20 active:scale-95 cursor-pointer"
-                  >
-                    <span>Request Scope for {activeService.title}</span>
-                    <ArrowRight className="size-4" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
         </div>
       </div>
 
-      {/* Service Detail Modal (Optional Fullscreen/Popup View) */}
+      {/* =========================================================================
+          3. SECTION HEADER
+          ========================================================================= */}
+      <div className="pt-16 pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-3">
+            <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
+            <span>Section {sectionNumber} • 6 Delivery Practices</span>
+          </div>
+          <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ink leading-tight">
+            Enterprise Engineering Services. Engineered for Impact.
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed font-normal">
+            A comprehensive, high-velocity delivery framework modeled for modern enterprise scale. Explore detailed capabilities, sovereign IP architectures, and technical specifications below.
+          </p>
+        </div>
+      </div>
+
+      {/* =========================================================================
+          4. THE 6 PRACTICES: ALTERNATING LEFT/RIGHT EXECUTIVE EDITORIAL SHOWCASE
+             - 65-70% visual prominence
+             - High-impact imagery with subtle telemetry pills
+             - Crisp black typography
+             - Clearly formatted bullet points with bold headlines
+             - 100% faithful to instruction3.txt (Apto HRMS, Payroll, ERP, DAM, etc.)
+          ========================================================================= */}
+      <div className="py-12 space-y-24 sm:space-y-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* -----------------------------------------------------------------------
+            PRACTICE 01: SOFTWARE ENGINEERING
+            Layout: Image Left (60-70% visual), Text & Bullets Right
+            ----------------------------------------------------------------------- */}
+        <section
+          id="practice-showcase-software-engineering"
+          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+        >
+          {/* Visual Showcase (60-70% Visual Prominence) */}
+          <div className="lg:col-span-7">
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
+                <img
+                  src="/senior_image_catalog/02_Software_Engineering_and_Code/01_clean_dark_mode_workstation.jpg"
+                  alt="Software Engineering Architecture & Systems"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+
+                {/* Top Floating Badge */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+                  <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
+                    Practice 01 • Core Systems
+                  </span>
+                </div>
+
+                {/* Bottom Floating Telemetry Card */}
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex flex-wrap items-center justify-between gap-3 z-10">
+                  <div>
+                    <div className="text-sm font-bold text-white">Custom Operating Systems & ERP</div>
+                    <div className="text-xs text-slate-300 font-mono">HRMS of Apto • Sovereign Payroll • Unified ERP</div>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-mono text-xs font-semibold">
+                    100% SLA Guarantee
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Structured Editorial Content & Bullet Points (Right) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
+              <Cpu className="size-3.5 text-[#0052cb]" />
+              <span>01. Software Engineering</span>
+            </div>
+
+            <h3 className="font-bricolage text-3xl sm:text-4xl lg:text-[40px] font-bold text-ink leading-tight">
+              Elevate your business with custom software solutions.
+            </h3>
+
+            <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-normal">
+              Every business operates within its own operating system, shaped by its unique audience, processes, and objectives. We engineer tailored software solutions that align seamlessly with your business needs and goals.
+            </p>
+
+            {/* Clear Structured Bullet Points */}
+            <div className="space-y-4 pt-2">
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    HRMS of Apto & Enterprise Workforce Platforms
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Custom HRMS deployment engineered for automated talent lifecycle management, role-based hierarchy governance, attendance orchestration, and sovereign personnel records.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Dual Sovereign Payroll Systems (Apto Payroll & CoVision SecurePay)
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Audit-ready payroll engines supporting multi-country statutory tax deductions, direct-deposit banking protocols, salary slip generations, and zero-error wage processing.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Unified Enterprise ERP
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Bring all your business operations under one umbrella with modular ERP solutions unifying inventory, CRM, procurement, supply-chain logistics, and automated accounting.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="pt-4 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => onRequestScope('Software Engineering (HRMS, Payroll & ERP)')}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
+              >
+                <span>Request Scope for Software Engineering</span>
+                <ArrowRight className="size-4" />
+              </button>
+              <button
+                onClick={() => setModalService(IT_SERVICES_DATA[0])}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+              >
+                <Maximize2 className="size-3.5" />
+                <span>View Full Specs</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* -----------------------------------------------------------------------
+            PRACTICE 02: APPLICATION DEVELOPMENT AND MANAGEMENT
+            Layout: Text & Bullets Left, Image Right (Alternating!)
+            Visual: Futuristic 3D Mobile App on Glowing Podium
+            ----------------------------------------------------------------------- */}
+        <section
+          id="practice-showcase-application-development"
+          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+        >
+          {/* Structured Editorial Content & Bullet Points (Left) */}
+          <div className="lg:col-span-5 order-2 lg:order-1 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
+              <Smartphone className="size-3.5 text-[#0052cb]" />
+              <span>02. Application Development & Management</span>
+            </div>
+
+            <h3 className="font-bricolage text-3xl sm:text-4xl lg:text-[40px] font-bold text-ink leading-tight">
+              Turbo-charge your mobile app development with CoVision.
+            </h3>
+
+            <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-normal">
+              Wide array of mobile app development solutions engineered for fluid touch gestures, consumer delight, and high-concurrency enterprise mobile operations.
+            </p>
+
+            {/* Clear Structured Bullet Points */}
+            <div className="space-y-4 pt-2">
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Native App Development
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Tailored Swift (iOS) and Kotlin (Android) architectures engineered for maximum hardware utilization, biometric security, offline caching, and 60fps render loops.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Cross-Platform App Development
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Single-codebase Flutter and React Native deployments sharing 95%+ core business logic while rendering genuine native platform UI components across iOS and Android.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Hybrid App Development
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Agile web-to-mobile wrapper architectures (Ionic / Capacitor) enabling rapid prototyping, webview sync, and accelerated time-to-market.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Progressive Web Apps (PWA)
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Zero-install web applications featuring offline-first service worker caching, background push notifications, and instant home screen installation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="pt-4 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => onRequestScope('Mobile App Development (Native, Cross-Platform & PWA)')}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
+              >
+                <span>Request Scope for Mobile Apps</span>
+                <ArrowRight className="size-4" />
+              </button>
+              <button
+                onClick={() => setModalService(IT_SERVICES_DATA[1])}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+              >
+                <Maximize2 className="size-3.5" />
+                <span>View Full Specs</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Visual Showcase (Right) */}
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
+                <img
+                  src="/images/services/mobile_app_3d_podium.png"
+                  alt="Futuristic Mobile App Development Ecosystem"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+
+                {/* Top Floating Badge */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+                  <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
+                    Practice 02 • Mobile Ecosystem
+                  </span>
+                </div>
+
+                {/* Bottom Floating Telemetry Card */}
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex flex-wrap items-center justify-between gap-3 z-10">
+                  <div>
+                    <div className="text-sm font-bold text-white">Full-Spectrum Mobile App Lifecycle</div>
+                    <div className="text-xs text-slate-300 font-mono">iOS Swift • Android Kotlin • Flutter • React Native • PWA</div>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-sky-500/20 border border-sky-500/40 text-sky-300 font-mono text-xs font-semibold">
+                    60 FPS Guaranteed
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* -----------------------------------------------------------------------
+            PRACTICE 03: DATA ANALYTICS & PREDICTIVE INTELLIGENCE
+            Layout: Image Left, Text & Bullets Right
+            ----------------------------------------------------------------------- */}
+        <section
+          id="practice-showcase-data-analytics"
+          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+        >
+          {/* Visual Showcase (Left) */}
+          <div className="lg:col-span-7">
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
+                <img
+                  src="/senior_image_catalog/03_Custom_SaaS_and_Platforms/01_executive_saas_performance_dashb.jpg"
+                  alt="Business Analytics & Predictive Intelligence Console"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+
+                {/* Top Floating Badge */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+                  <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
+                    Practice 03 • Intelligence Arsenal
+                  </span>
+                </div>
+
+                {/* Bottom Floating Telemetry Card */}
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex flex-wrap items-center justify-between gap-3 z-10">
+                  <div>
+                    <div className="text-sm font-bold text-white">The Divine Weapon of E-Business</div>
+                    <div className="text-xs text-slate-300 font-mono">16+ Enterprise Tools • 9 Critical Analytics Dimensions</div>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 font-mono text-xs font-semibold">
+                    Real-Time Streams
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Structured Editorial Content & Bullet Points (Right) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
+              <BarChart3 className="size-3.5 text-[#0052cb]" />
+              <span>03. Data Analytics</span>
+            </div>
+
+            <h3 className="font-bricolage text-3xl sm:text-4xl lg:text-[40px] font-bold text-ink leading-tight">
+              Business Analytics & Predictive Intelligence.
+            </h3>
+
+            <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-normal">
+              The Divine Weapon of E-Business. Powered by an Arsenal of Technological Expertise. Analytics is not merely a tool for data analysis but a transformative force in e-business, decoding real-time events and uncovering actionable insights.
+            </p>
+
+            {/* Technological Arsenal Strip */}
+            <div className="p-3.5 rounded-xl bg-white border border-ink-line text-xs font-mono text-neutral-600 leading-relaxed">
+              <span className="font-bold text-ink">Arsenal of Tools: </span>
+              Google Analytics, Microsoft Clarity, Crazy Egg, Mixpanel, HubSpot Analytics, Adobe Analytics, Shopify Analytics, Albert AI, Pricefx, Dynamic Yield, Persado, BuzzSumo, Stitch Fix algorithms, Google Trends, Qlik Sense, and Tableau.
+            </div>
+
+            {/* Clear 9 Dimensions Bullet Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              {[
+                { title: 'User Behaviour & Engagement', desc: 'Customer journeys, interactions & behavioral patterns.' },
+                { title: 'Traffic Sources & Audiences', desc: 'Acquisition channels, demographics & audience profiling.' },
+                { title: 'E-Commerce & Conversions', desc: 'Sales funnels, checkout rates & purchase behaviors.' },
+                { title: 'Pricing & Revenue Optimisation', desc: 'Dynamic pricing strategies & promotion effectiveness.' },
+                { title: 'Fashion, Trends & Market Intel', desc: 'Emerging trends, preferences & competitor intelligence.' },
+                { title: 'Content & Campaign Metrics', desc: 'Content engagement, multi-touch ROI & campaign outcomes.' },
+                { title: 'Heatmaps & Session Recordings', desc: 'Live on-page interactions, rage-clicks & drop-offs.' },
+                { title: 'Predictive & AI Analytics', desc: 'Forecasting algorithms, LTV scoring & opportunity detection.' },
+              ].map((dim, dIdx) => (
+                <div key={dIdx} className="flex items-start gap-2">
+                  <CheckCircle2 className="size-3.5 text-[#0052cb] shrink-0 mt-0.5" />
+                  <div>
+                    <h5 className="font-bold text-xs text-ink">{dim.title}</h5>
+                    <p className="text-[11px] text-neutral-600 leading-snug">{dim.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <div className="pt-4 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => onRequestScope('Data Analytics & Predictive Intelligence')}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
+              >
+                <span>Request Scope for Analytics</span>
+                <ArrowRight className="size-4" />
+              </button>
+              <button
+                onClick={() => setModalService(IT_SERVICES_DATA[2])}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+              >
+                <Maximize2 className="size-3.5" />
+                <span>View Full Specs</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* -----------------------------------------------------------------------
+            PRACTICE 04: CLOUD AND INFRASTRUCTURE
+            Layout: Text & Bullets Left, Image Right (Alternating!)
+            ----------------------------------------------------------------------- */}
+        <section
+          id="practice-showcase-cloud-infrastructure"
+          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+        >
+          {/* Structured Editorial Content & Bullet Points (Left) */}
+          <div className="lg:col-span-5 order-2 lg:order-1 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
+              <Cloud className="size-3.5 text-[#0052cb]" />
+              <span>04. Cloud & Infrastructure</span>
+            </div>
+
+            <h3 className="font-bricolage text-3xl sm:text-4xl lg:text-[40px] font-bold text-ink leading-tight">
+              Strategize smart. Transform fast.
+            </h3>
+
+            <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-normal">
+              Cloud services are considered a powerful weapon in the arsenal of the digital business ecosystem. Fusion of AI with cloud engineering created intelligent, self-optimizing, and predictive digital ecosystems. Our strategic partnerships with leading hyperscalers—such as AWS, Microsoft Azure, and Google Cloud—accelerate your enterprise digital transformation.
+            </p>
+
+            {/* Clear Structured Bullet Points */}
+            <div className="space-y-4 pt-2">
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Cloud Strategy, Architecture & Consulting
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    IT landscape assessment evaluating infrastructure to align with business goals. Tailored cloud roadmaps spanning cloud-native, microservices, hybrid, and multi-cloud architectures.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Zero-Downtime Cloud Migration Services
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Production application and data migration, lift-and-shift operations, cloud-to-cloud transitions, and legacy system modernization with zero data loss.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Media & Content Cloud Solutions
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Cloud-Based Digital Asset Management (DAM) via CDNs, AI-Powered Computer Vision & NLP metadata tagging, and smart AI Recommendation Engines.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="pt-4 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => onRequestScope('Cloud & Infrastructure (AWS, Azure & GCP)')}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
+              >
+                <span>Request Scope for Cloud & Infra</span>
+                <ArrowRight className="size-4" />
+              </button>
+              <button
+                onClick={() => setModalService(IT_SERVICES_DATA[3])}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+              >
+                <Maximize2 className="size-3.5" />
+                <span>View Full Specs</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Visual Showcase (Right) */}
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
+                <img
+                  src="/senior_image_catalog/01_Cloud_and_Datacenter/01_enterprise_datacenter_array.jpg"
+                  alt="Enterprise Cloud Datacenter & Infrastructure"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+
+                {/* Top Floating Badge */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+                  <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
+                    Practice 04 • Cloud & Hyperscalers
+                  </span>
+                </div>
+
+                {/* Bottom Floating Telemetry Card */}
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex flex-wrap items-center justify-between gap-3 z-10">
+                  <div>
+                    <div className="text-sm font-bold text-white">Sovereign Multi-Cloud Architecture</div>
+                    <div className="text-xs text-slate-300 font-mono">AWS • Microsoft Azure • Google Cloud • Cloud DAM</div>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-mono text-xs font-semibold">
+                    99.999% SLA Uptime
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* -----------------------------------------------------------------------
+            PRACTICE 05: AI / ML INTEGRATION
+            Layout: Image Left, Text & Bullets Right
+            ----------------------------------------------------------------------- */}
+        <section
+          id="practice-showcase-ai-ml-integration"
+          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+        >
+          {/* Visual Showcase (Left) */}
+          <div className="lg:col-span-7">
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
+                <img
+                  src="/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg"
+                  alt="Enterprise AI Silicon & Autonomous Agent Mesh"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+
+                {/* Top Floating Badge */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+                  <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
+                    Practice 05 • Cognitive AI
+                  </span>
+                </div>
+
+                {/* Bottom Floating Telemetry Card */}
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex flex-wrap items-center justify-between gap-3 z-10">
+                  <div>
+                    <div className="text-sm font-bold text-white">Autonomous Agentic Execution Mesh</div>
+                    <div className="text-xs text-slate-300 font-mono">Fine-Tuned LLMs • RAG Knowledge Graphs • Sub-100ms Inference</div>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-purple-500/20 border border-purple-500/40 text-purple-300 font-mono text-xs font-semibold">
+                    Zero Data Leakage
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Structured Editorial Content & Bullet Points (Right) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
+              <Brain className="size-3.5 text-[#0052cb]" />
+              <span>05. AI / ML Integration</span>
+            </div>
+
+            <h3 className="font-bricolage text-3xl sm:text-4xl lg:text-[40px] font-bold text-ink leading-tight">
+              Cognitive AI Orchestration & Autonomous Agent Mesh.
+            </h3>
+
+            <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-normal">
+              Unite Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value.
+            </p>
+
+            {/* Clear Structured Bullet Points */}
+            <div className="space-y-4 pt-2">
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Foundation Model Fine-Tuning & RAG
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Sovereign model tuning on enterprise knowledge bases with strict zero-leakage boundaries, deterministic safety guardrails, and sub-100ms vector search.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Autonomous Agentic Workflow Mesh
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Multi-agent orchestrations that self-heal, dynamically execute APIs, resolve complex business tasks, and communicate asynchronously.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Seamless Enterprise Software Integration
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Bi-directional connectors seamlessly weaving AI agents into existing ERP, CRM, HRMS, and legacy database workflows without platform downtime.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="pt-4 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => onRequestScope('AI/ML Integration & Autonomous Agent Mesh')}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
+              >
+                <span>Request Scope for AI/ML</span>
+                <ArrowRight className="size-4" />
+              </button>
+              <button
+                onClick={() => setModalService(IT_SERVICES_DATA[4])}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+              >
+                <Maximize2 className="size-3.5" />
+                <span>View Full Specs</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* -----------------------------------------------------------------------
+            PRACTICE 06: UX / UI DESIGN
+            Layout: Text & Bullets Left, Image Right (Alternating!)
+            ----------------------------------------------------------------------- */}
+        <section
+          id="practice-showcase-ux-ui-design"
+          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+        >
+          {/* Structured Editorial Content & Bullet Points (Left) */}
+          <div className="lg:col-span-5 order-2 lg:order-1 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
+              <Palette className="size-3.5 text-[#0052cb]" />
+              <span>06. UX / UI Design</span>
+            </div>
+
+            <h3 className="font-bricolage text-3xl sm:text-4xl lg:text-[40px] font-bold text-ink leading-tight">
+              UX/UI Design Is a Dialogue, Not Decoration.
+            </h3>
+
+            <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-normal">
+              Creating seamless connections between brands and users. At CoVision, design is a dialogue, not decoration. Grounded in cognitive psychology and behavioural science, we design interfaces that think, react, and resonate with users.
+            </p>
+
+            {/* Clear Structured Bullet Points */}
+            <div className="space-y-4 pt-2">
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Cognitive Science–Backed Design Thinking
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Grounded in cognitive psychology and behavioural science, we minimize cognitive friction, optimize information architecture, and sculpt high-conversion user pathways.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Our Own Design System — CoVision Lattice/monolith
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    CoVision Lattice/monolith isn’t just a library; it’s an operational strategy—one that empowers to deliver exceptional, scalable, and user-centric products with unmatched efficiency and quality.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="size-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="size-4 text-[#0052cb]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-ink">
+                    Accessibility & Design System Governance
+                  </h4>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-1 leading-relaxed">
+                    Full WCAG 2.1 AAA compliance, high-contrast micro-interactions, tokenized CSS/Figma synchronizations, and zero-defect enterprise design hygiene.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="pt-4 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => onRequestScope('UX/UI Design & CoVision Lattice/monolith')}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
+              >
+                <span>Request Scope for UX/UI</span>
+                <ArrowRight className="size-4" />
+              </button>
+              <button
+                onClick={() => setModalService(IT_SERVICES_DATA[5])}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+              >
+                <Maximize2 className="size-3.5" />
+                <span>View Full Specs</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Visual Showcase (Right) */}
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
+                <img
+                  src="/images/services/ux_ui_design.jpg"
+                  alt="Cognitive Science UX/UI Design & CoVision Lattice"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+
+                {/* Top Floating Badge */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+                  <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
+                    Practice 06 • Behavioral Science
+                  </span>
+                </div>
+
+                {/* Bottom Floating Telemetry Card */}
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex flex-wrap items-center justify-between gap-3 z-10">
+                  <div>
+                    <div className="text-sm font-bold text-white">CoVision Lattice/monolith Design System</div>
+                    <div className="text-xs text-slate-300 font-mono">Cognitive Psychology • Tokenized UI Components • WCAG AAA</div>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono text-xs font-semibold">
+                    Dialogue Not Decoration
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      {/* =========================================================================
+          5. TECHNICAL SPECIFICATIONS MODAL (When clicking View Full Specs)
+          ========================================================================= */}
       {modalService && (
         <ServiceDetailModal
           service={modalService}
           onClose={() => setModalService(null)}
-          onRequestScope={(title) => {
+          onRequestScope={(serviceTitle) => {
             setModalService(null)
-            onRequestScope(title)
+            onRequestScope(serviceTitle)
           }}
         />
       )}

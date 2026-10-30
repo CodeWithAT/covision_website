@@ -147,7 +147,7 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 items-start">
           <div className="lg:col-span-7">
             <h2 className="font-bricolage text-[2.4rem] sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-slate-900">
-              Covision: <span className="text-[#0052cb] font-semibold">Technology That Connects</span> Business and Creativity
+              Covision: Technology That Connects Business and Creativity
             </h2>
           </div>
 

@@ -32,8 +32,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenContact }) => {
             Clear Answers for Engineering Leaders
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Frequently Asked{' '}
-            <span className="text-[#0052cb]">Questions</span>
+            Frequently Asked Questions
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
             Have questions about our security, intellectual property, or technical execution? Find transparent answers below.

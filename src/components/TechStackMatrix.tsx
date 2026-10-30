@@ -166,8 +166,7 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
           <SectionEyebrow number={sectionNumber} label="Enterprise Engineering Ecosystem" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium text-slate-900 tracking-tight leading-[1.04]">
-            Distributed Cloud &{' '}
-            <span className="text-[#0052cb]">Living Technology Fabric</span>
+            Distributed Cloud & Living Technology Fabric
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
             Rather than isolated technologies, CoVision architects a four-tier continuous delivery fabric. Every layer is benchmarked for sub-second execution, microservice resilience, and fault-tolerant failover.
