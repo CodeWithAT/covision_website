@@ -77,32 +77,13 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
               <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-black/80 group">
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
                   <video
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
                     src="/globe.mp4"
-                    poster="/globe_poster.webp"
-                    className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-700"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none" />
-
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-md bg-blue-600/90 text-white font-mono text-[10px] font-bold tracking-wider uppercase border border-blue-400/30 backdrop-blur-md">
-                      Autonomous Neural Core
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-bold text-white">Live AI Execution Mesh</div>
-                      <div className="text-[11px] text-slate-400 font-mono">Agentic Task Orchestration</div>
-                    </div>
-                    <span className="flex items-center gap-1 text-[11px] font-mono text-emerald-400 font-semibold">
-                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Active
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -196,9 +177,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                     alt="Cognitive Media Services Creative Production"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
-                    Cognitive Media • Image #1
-                  </span>
+                  
                 </div>
                 <div className="p-5">
                   <h3 className="font-bricolage text-lg font-bold text-ink mb-1">
@@ -225,9 +204,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                     alt="3D Visuals and Procedural Animations"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
-                    Visuals & Animation • Image #2
-                  </span>
+                  
                 </div>
                 <div className="p-5">
                   <h3 className="font-bricolage text-lg font-bold text-ink mb-1">
@@ -254,9 +231,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                     alt="Digital Experiences and Automated Interfaces"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider border border-white/20">
-                    Digital Experiences • Image #3
-                  </span>
+                  
                 </div>
                 <div className="p-5">
                   <h3 className="font-bricolage text-lg font-bold text-ink mb-1">
@@ -306,47 +281,45 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
 
           {/* Agentic Images Showcase as instructed */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group">
-              <div className="relative w-full h-64 sm:h-72 lg:h-80 overflow-hidden bg-slate-950">
+            <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group flex flex-col justify-between">
+              <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-slate-950">
                 <img
                   src="/images/ai_automation/04_autonomous_agentic_workflow_mesh.jpg"
                   alt="Autonomous Multi-Agent Orchestration"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-[11px] font-mono font-bold uppercase text-blue-400 bg-blue-950/80 px-2.5 py-1 rounded border border-blue-800 mb-1 inline-block">
-                    Multi-Agent Orchestration
-                  </span>
-                  <div className="text-white font-bricolage text-lg font-bold">
-                    Autonomous Multi-Role Agent Swarms
-                  </div>
-                  <p className="text-xs text-slate-300 mt-1">
-                    Specialized agents collaborate across discovery, verification, calculation, and database writes.
-                  </p>
+              </div>
+              <div className="p-5">
+                <span className="text-[11px] font-mono font-bold uppercase text-[#0052cb] bg-blue-50 px-2.5 py-1 rounded border border-blue-200 mb-2 inline-block">
+                  Multi-Agent Orchestration
+                </span>
+                <div className="text-ink font-bricolage text-lg font-bold">
+                  Autonomous Multi-Role Agent Swarms
                 </div>
+                <p className="text-xs text-neutral-600 mt-1 leading-relaxed">
+                  Specialized agents collaborate across discovery, verification, calculation, and database writes.
+                </p>
               </div>
             </div>
 
-            <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group">
-              <div className="relative w-full h-64 sm:h-72 lg:h-80 overflow-hidden bg-slate-950">
+            <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-sm group flex flex-col justify-between">
+              <div className="relative w-full h-60 sm:h-64 overflow-hidden bg-slate-950">
                 <img
                   src="/images/ai_automation/05_neural_knowledge_graph_context.jpg"
                   alt="Enterprise RAG and Knowledge Graph Routing"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-[11px] font-mono font-bold uppercase text-blue-400 bg-blue-950/80 px-2.5 py-1 rounded border border-blue-800 mb-1 inline-block">
-                    Knowledge Graph & Context
-                  </span>
-                  <div className="text-white font-bricolage text-lg font-bold">
-                    Private Grounded Domain Context
-                  </div>
-                  <p className="text-xs text-slate-300 mt-1">
-                    Agents query real-time enterprise ERP, CRM, and SOPs with zero hallucination and mathematical precision.
-                  </p>
+              </div>
+              <div className="p-5">
+                <span className="text-[11px] font-mono font-bold uppercase text-[#0052cb] bg-blue-50 px-2.5 py-1 rounded border border-blue-200 mb-2 inline-block">
+                  Knowledge Graph & Context
+                </span>
+                <div className="text-ink font-bricolage text-lg font-bold">
+                  Private Grounded Domain Context
                 </div>
+                <p className="text-xs text-neutral-600 mt-1 leading-relaxed">
+                  Agents query real-time enterprise ERP, CRM, and SOPs with zero hallucination and mathematical precision.
+                </p>
               </div>
             </div>
           </div>
@@ -490,9 +463,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                       alt="AI Integration with Business Software"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-blue-600 text-white font-mono text-[10px] font-bold">
-                      (a) Core Integration
-                    </span>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="font-bricolage text-xl font-bold text-ink mb-2">
@@ -522,9 +493,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                       alt="Intelligent Document Processing"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-blue-600 text-white font-mono text-[10px] font-bold">
-                      (b) OCR & Extraction
-                    </span>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="font-bricolage text-xl font-bold text-ink mb-2">
@@ -554,9 +523,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                       alt="Agentic Workflow Automation"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-blue-600 text-white font-mono text-[10px] font-bold">
-                      (c) Multi-Step Process
-                    </span>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="font-bricolage text-xl font-bold text-ink mb-2">
@@ -586,9 +553,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                       alt="Custom AI Agents"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-blue-600 text-white font-mono text-[10px] font-bold">
-                      Digital Assistants
-                    </span>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="font-bricolage text-xl font-bold text-ink mb-2">
@@ -618,9 +583,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                       alt="Predictive Intelligence"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-blue-600 text-white font-mono text-[10px] font-bold">
-                      (e) Forecasting
-                    </span>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="font-bricolage text-xl font-bold text-ink mb-1">
@@ -653,9 +616,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                       alt="Personalisation & Recommendation Engines"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-blue-600 text-white font-mono text-[10px] font-bold">
-                      (f) Personalisation
-                    </span>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="font-bricolage text-xl font-bold text-ink mb-1">
@@ -688,9 +649,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                       alt="AI-Powered Marketing"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-blue-600 text-white font-mono text-[10px] font-bold">
-                      Marketing Engine
-                    </span>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="font-bricolage text-xl font-bold text-ink mb-1">
@@ -723,9 +682,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                       alt="AI-Powered Software Engineering"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-[#0052cb] text-white font-mono text-[10px] font-bold">
-                      (g) Engineering Excellence
-                    </span>
+                    
                   </div>
                   <div className="md:col-span-7 p-6 md:pl-2 flex flex-col justify-between">
                     <div>

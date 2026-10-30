@@ -226,27 +226,9 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
                   <img
                     src="/senior_image_catalog/03_Custom_SaaS_and_Platforms/01_executive_saas_performance_dashb.jpg"
-                    alt="SaaS Platform Performance Hub"
-                    className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-700"
+                    alt="CoVision Sovereign SaaS Performance Platform"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none" />
-
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-md bg-blue-600/90 text-white font-mono text-[10px] font-bold tracking-wider uppercase border border-blue-400/30 backdrop-blur-md">
-                      Sovereign Cloud IP
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-bold text-white">Multi-Tenant Cloud Fabric</div>
-                      <div className="text-[11px] text-slate-400 font-mono">SOC 2 Type II • Sub-50ms Telemetry</div>
-                    </div>
-                    <span className="flex items-center gap-1 text-[11px] font-mono text-emerald-400 font-semibold">
-                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      5 Live Platforms
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -319,11 +301,6 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
                     onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none' }}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono">
-                    <span className="bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px]">Production Live</span>
-                    <span className="text-emerald-400 font-bold">● High Availability</span>
-                  </div>
                 </div>
 
                 {/* Title & Description */}
@@ -405,10 +382,6 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute bottom-2 left-2.5 right-2.5 text-white text-[10px] font-mono">
-                      <span className="bg-black/60 backdrop-blur-md px-2 py-0.5 rounded">Enterprise Grade</span>
-                    </div>
                   </div>
 
                   <div className="sm:col-span-7 space-y-2">

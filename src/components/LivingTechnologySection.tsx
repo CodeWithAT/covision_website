@@ -246,30 +246,17 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
-
-                  {/* Floating Badges */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-white/95 text-slate-900 shadow-sm border border-white/60">
-                      PILLAR {pillar.number}
-                    </span>
-                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-white bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                      {pillar.category}
-                    </span>
-                  </div>
-
-                  {/* Floating Subtitle at bottom of image */}
-                  <div className="absolute bottom-3.5 left-4 right-4 text-white">
-                    <div className="text-[10px] font-mono font-semibold tracking-wider text-blue-200 uppercase">
-                      Living Architecture
-                    </div>
-                    <div className="text-sm font-bold font-bricolage truncate">
-                      {pillar.subtitle}
-                    </div>
-                  </div>
                 </div>
 
                 <div className="p-6 sm:p-7 md:p-8">
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="font-mono text-xs font-bold text-[#0052cb] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+                      PILLAR {pillar.number}
+                    </span>
+                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-500">
+                      {pillar.category}
+                    </span>
+                  </div>
                   <h4 className="font-bricolage text-2xl font-bold text-slate-900 group-hover:text-[#0052cb] transition-colors">
                     {pillar.title}
                   </h4>
@@ -389,20 +376,6 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
                   alt={selectedPillar.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                  <div>
-                    <div className="text-[11px] font-mono text-blue-300 uppercase tracking-wider font-semibold">
-                      Enterprise Living Architecture
-                    </div>
-                    <div className="text-base font-bold font-bricolage">
-                      {selectedPillar.title}
-                    </div>
-                  </div>
-                  <span className="px-3 py-1 rounded-full bg-blue-600/30 backdrop-blur-md border border-blue-400/40 text-xs font-mono font-bold text-cyan-200">
-                    Pillar {selectedPillar.number}
-                  </span>
-                </div>
               </div>
 
               <p className="mt-5 text-sm sm:text-base leading-relaxed text-slate-700">

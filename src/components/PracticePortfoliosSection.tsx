@@ -149,35 +149,28 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
                 }`}
               >
                 <div className="flex-1 flex flex-col">
-                  {/* Image Banner Header with Scrim & Badges */}
+                  {/* Clean High-Resolution Image Header */}
                   <div className="relative w-full h-64 sm:h-72 lg:h-80 overflow-hidden bg-neutral-900 shrink-0">
                     <img
                       src={solution.image}
                       alt={solution.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/20" />
-
-                    {/* Floating Badges */}
-                    <div className="absolute top-4 inset-x-4 flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-white/95 text-slate-900 shadow-sm border border-white/60">
-                        {solution.number}
-                      </span>
-                      <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-white bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                        {solution.badge}
-                      </span>
-                    </div>
-
-                    {/* Floating Icon in bottom corner */}
-                    <div className="absolute bottom-4 left-4 size-10 rounded-xl bg-white/95 backdrop-blur-md text-[#0052cb] flex items-center justify-center shadow-md border border-white/40 group-hover:bg-[#0052cb] group-hover:text-white transition-colors">
-                      <Icon className="size-5" />
-                    </div>
                   </div>
 
                   {/* Body Content */}
                   <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                     <div>
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <span className="text-xs font-mono font-bold text-[#0052cb] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+                          {solution.badge}
+                        </span>
+                        <div className="size-8 rounded-lg bg-blue-50 text-[#0052cb] flex items-center justify-center shrink-0">
+                          <Icon className="size-4" />
+                        </div>
+                      </div>
+
                       {/* Title with exact number prefix */}
                       <h3 className="font-bricolage text-xl sm:text-2xl font-semibold tracking-tight text-ink mb-2.5 group-hover:text-[#0052cb] transition-colors">
                         {solution.number}. {solution.title}

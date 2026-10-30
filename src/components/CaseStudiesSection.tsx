@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowRight,
-  CheckCircle2,
   Layers,
   ChevronLeft,
   ChevronRight,
@@ -118,25 +117,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                       alt={activeStudy.client}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-mono font-bold text-ink uppercase tracking-wider">
-                        {activeStudy.industry}
-                      </span>
                     </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                      <div>
-                        <div className="text-xs font-mono font-medium opacity-75">Enterprise Partner</div>
-                        <div className="text-base font-bold font-bricolage">{activeStudy.client}</div>
-                      </div>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-400/30 text-[11px] font-semibold text-emerald-300">
-                        <CheckCircle2 className="size-3 text-emerald-400" />
-                        <span>Production Verified</span>
-                      </span>
-                    </div>
-                  </div>
                 )}
 
                 {/* Symmetrical Production Metrics */}

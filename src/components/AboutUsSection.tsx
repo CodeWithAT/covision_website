@@ -74,32 +74,13 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
               <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-black/80 group">
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
                   <video
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
                     src="/globe.mp4"
-                    poster="/globe_poster.webp"
-                    className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-700"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none" />
-
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-md bg-blue-600/90 text-white font-mono text-[10px] font-bold tracking-wider uppercase border border-blue-400/30 backdrop-blur-md">
-                      Global Engineering
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-bold text-white">CoVision Technologies Group</div>
-                      <div className="text-[11px] text-slate-400 font-mono">100% Sprint On-Time • Zero Tech Debt</div>
-                    </div>
-                    <span className="flex items-center gap-1 text-[11px] font-mono text-emerald-400 font-semibold">
-                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Verified
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>

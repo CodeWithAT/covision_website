@@ -12,7 +12,6 @@ import {
   Truck,
   Image as ImageIcon,
   DollarSign,
-  ShieldCheck,
 } from 'lucide-react'
 import { SectionEyebrow } from './SectionEyebrow'
 import { ECOMMERCE_SUITE_DATA } from '../data/mockData'
@@ -95,25 +94,7 @@ export const EcommerceSuiteSection: React.FC<EcommerceSuiteSectionProps> = ({
                       onError={(e) => { (e.currentTarget as HTMLElement).style.display = 'none' }}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                    
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[10px] font-mono font-bold text-ink uppercase tracking-wider shadow-sm">
-                        {activeOffering.badge}
-                      </span>
                     </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3 text-white">
-                      <div>
-                        <div className="text-[11px] font-mono font-semibold tracking-wider text-blue-200">360° Commerce Practice</div>
-                        <div className="text-base sm:text-lg font-bold font-bricolage">{activeOffering.title}</div>
-                      </div>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-400/30 text-[11px] font-semibold text-emerald-300 w-max shrink-0">
-                        <ShieldCheck className="size-3 text-emerald-400" />
-                        <span>PCI-DSS Level 1</span>
-                      </span>
-                    </div>
-                  </div>
                 )}
 
                 {/* Supported Enterprise Platforms */}

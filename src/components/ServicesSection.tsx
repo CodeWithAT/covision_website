@@ -103,24 +103,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     alt="Technology: Empowering a Better Tomorrow"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-md bg-blue-600/90 text-white font-mono text-[10px] font-bold tracking-wider uppercase border border-blue-400/30 backdrop-blur-md">
-                      Enterprise Architecture
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-bold text-white">6 Core Delivery Practices</div>
-                      <div className="text-[11px] text-slate-400 font-mono">SLA Guaranteed • Capgemini Structure</div>
-                    </div>
-                    <span className="flex items-center gap-1 text-[11px] font-mono text-emerald-400 font-semibold">
-                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Active
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -208,25 +190,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 alt="Software Engineering Architecture & Systems"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
-
-              {/* Top Floating Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
-                  Practice 01 • Core Systems
-                </span>
-              </div>
-
-              {/* Bottom Telemetry Card */}
-              <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex items-center justify-between z-10">
-                <div>
-                  <div className="text-sm font-bold text-white">Custom Operating Systems & ERP</div>
-                  <div className="text-xs text-slate-300 font-mono">HRMS of Apto • 2 Payroll Engines • Unified ERP</div>
-                </div>
-                <span className="px-2.5 py-1 rounded-md bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-mono text-xs font-semibold shrink-0">
-                  SLA Guaranteed
-                </span>
-              </div>
             </div>
           </div>
 
@@ -377,25 +340,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 alt="Futuristic Mobile App Development Ecosystem"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
-
-              {/* Top Floating Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
-                  Practice 02 • Mobile Ecosystem
-                </span>
-              </div>
-
-              {/* Bottom Telemetry Card */}
-              <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex items-center justify-between z-10">
-                <div>
-                  <div className="text-sm font-bold text-white">Full-Spectrum Mobile App Lifecycle</div>
-                  <div className="text-xs text-slate-300 font-mono">iOS Swift • Android Kotlin • Flutter • React Native • PWA</div>
-                </div>
-                <span className="px-2.5 py-1 rounded-md bg-sky-500/20 border border-sky-500/40 text-sky-300 font-mono text-xs font-semibold shrink-0">
-                  60 FPS Fluidity
-                </span>
-              </div>
             </div>
           </div>
         </section>
@@ -416,25 +360,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 alt="Business Analytics & Predictive Intelligence Console"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
-
-              {/* Top Floating Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
-                  Practice 03 • Intelligence Arsenal
-                </span>
-              </div>
-
-              {/* Bottom Telemetry Card */}
-              <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex items-center justify-between z-10">
-                <div>
-                  <div className="text-sm font-bold text-white">The Divine Weapon of E-Business</div>
-                  <div className="text-xs text-slate-300 font-mono">16+ Enterprise Tools • 9 Critical Analytics Dimensions</div>
-                </div>
-                <span className="px-2.5 py-1 rounded-md bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 font-mono text-xs font-semibold shrink-0">
-                  Real-Time Streams
-                </span>
-              </div>
             </div>
           </div>
 
@@ -577,25 +502,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 alt="Enterprise Cloud Datacenter & Infrastructure"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
-
-              {/* Top Floating Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
-                  Practice 04 • Cloud & Hyperscalers
-                </span>
-              </div>
-
-              {/* Bottom Telemetry Card */}
-              <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex items-center justify-between z-10">
-                <div>
-                  <div className="text-sm font-bold text-white">Sovereign Multi-Cloud Architecture</div>
-                  <div className="text-xs text-slate-300 font-mono">AWS • Microsoft Azure • Google Cloud • Cloud DAM</div>
-                </div>
-                <span className="px-2.5 py-1 rounded-md bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-mono text-xs font-semibold shrink-0">
-                  99.999% SLA Uptime
-                </span>
-              </div>
             </div>
           </div>
         </section>
@@ -616,25 +522,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 alt="Enterprise AI Silicon & Autonomous Agent Mesh"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
-
-              {/* Top Floating Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
-                  Practice 05 • Cognitive AI
-                </span>
-              </div>
-
-              {/* Bottom Telemetry Card */}
-              <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex items-center justify-between z-10">
-                <div>
-                  <div className="text-sm font-bold text-white">Autonomous Agentic Execution Mesh</div>
-                  <div className="text-xs text-slate-300 font-mono">Fine-Tuned LLMs • RAG Knowledge Graphs • Sub-100ms Inference</div>
-                </div>
-                <span className="px-2.5 py-1 rounded-md bg-purple-500/20 border border-purple-500/40 text-purple-300 font-mono text-xs font-semibold shrink-0">
-                  Zero Data Leakage
-                </span>
-              </div>
             </div>
           </div>
 
@@ -777,25 +664,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 alt="Cognitive Science UX/UI Design & CoVision Lattice"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
-
-              {/* Top Floating Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="px-3 py-1 rounded-full bg-black/75 text-white font-mono text-xs font-bold border border-white/20 backdrop-blur-md">
-                  Practice 06 • Behavioral Science
-                </span>
-              </div>
-
-              {/* Bottom Telemetry Card */}
-              <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-700/60 flex items-center justify-between z-10">
-                <div>
-                  <div className="text-sm font-bold text-white">CoVision Lattice / Monolith System</div>
-                  <div className="text-xs text-slate-300 font-mono">Cognitive Psychology • Tokenized UI Components • WCAG AAA</div>
-                </div>
-                <span className="px-2.5 py-1 rounded-md bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono text-xs font-semibold shrink-0">
-                  Dialogue Not Decoration
-                </span>
-              </div>
             </div>
           </div>
         </section>
