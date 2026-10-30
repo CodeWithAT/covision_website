@@ -280,10 +280,10 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="bg-white rounded-3xl border border-ink-line shadow-xs overflow-hidden transition-all duration-300 hover:shadow-lg"
                 >
-                  <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 p-6 sm:p-9 lg:p-10 items-center`}>
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-6 sm:p-9 lg:p-10 items-center`}>
 
                     {/* Content Column */}
-                    <div className={`lg:col-span-7 flex flex-col justify-between ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div className={`flex flex-col justify-between ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                       <div>
                         {/* Header Badges */}
                         <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -350,7 +350,7 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
                     </div>
 
                     {/* Visual Showcase Column */}
-                    <div className={`lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div className={`${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                       <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-ink-line shadow-md aspect-[4/3] group">
                         <img
                           src={pillar.image}
@@ -437,24 +437,27 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
         </div>
 
         {/* Global Compliance & SLA Guarantee Ribbon */}
-        <div className="mt-14 bg-white rounded-3xl p-7 sm:p-9 border border-ink-line shadow-xs">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="size-12 rounded-2xl bg-blue-50 text-[#0052cb] flex items-center justify-center shrink-0 border border-blue-200/80">
+        <div className="mt-14 bg-white rounded-3xl border border-ink-line shadow-xs overflow-hidden">
+          {/* Top row: icon + title + description */}
+          <div className="p-7 sm:p-9 border-b border-ink-line">
+            <div className="flex items-start gap-4">
+              <div className="size-12 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 border border-blue-200/80">
                 <ShieldCheck className="size-6 text-[#0052cb]" />
               </div>
               <div>
-                <h4 className="font-bricolage text-base sm:text-lg font-bold text-ink">
+                <h4 className="font-bricolage text-base sm:text-xl font-bold text-ink">
                   Contractual Enterprise Governance, Security &amp; IP Protection
                 </h4>
-                <p className="text-xs sm:text-sm text-neutral-600 mt-0.5 font-normal">
-                  All enterprise solutions follow zero-trust topology, automated security audits, SOC 2 compliance, and 100% intellectual property transfer.
+                <p className="text-xs sm:text-sm text-neutral-600 mt-1.5 font-normal leading-relaxed max-w-3xl">
+                  All enterprise solutions follow zero-trust network topology, automated security audits, SOC 2 Type II compliance, and 100% intellectual property sovereignty transfer to the client.
                 </p>
               </div>
             </div>
+          </div>
 
-            {/* Certifications Badges */}
-            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+          {/* Bottom row: certification badges */}
+          <div className="p-5 sm:p-7 bg-paper">
+            <div className="flex flex-wrap items-center gap-3">
               {[
                 'ISO/IEC 27001 Certified',
                 'SOC 2 Type II Aligned',
@@ -464,9 +467,9 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
               ].map((badge) => (
                 <span
                   key={badge}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-paper text-neutral-700 text-xs font-semibold border border-ink-line shadow-2xs"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-neutral-700 text-xs font-semibold border border-ink-line shadow-2xs"
                 >
-                  <CheckCircle2 className="size-3.5 text-emerald-600" />
+                  <CheckCircle2 className="size-3.5 text-emerald-600 shrink-0" />
                   <span>{badge}</span>
                 </span>
               ))}
