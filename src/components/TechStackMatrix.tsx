@@ -1,19 +1,16 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  Layers,
-  Brain,
-  Cloud,
   ShieldCheck,
-  Server,
-  Sparkles,
   CheckCircle2,
-  ArrowRight,
-  Activity,
+  Sparkles,
+  Building2,
+  Check,
+  ChevronRight,
 } from 'lucide-react'
 import { SectionEyebrow } from './SectionEyebrow'
 
-interface TechTier {
+interface DeliveryPillar {
   id: string
   number: string
   title: string
@@ -23,13 +20,12 @@ interface TechTier {
   slaLabel: string
   description: string
   image: string
-  icon: React.ElementType
-  color: string
+  accentColor: string
   accentBorder: string
   accentBg: string
-  technologies: {
-    name: string
-    role: string
+  highlights: {
+    title: string
+    detail: string
     badge: string
   }[]
   metrics: {
@@ -38,113 +34,167 @@ interface TechTier {
   }[]
 }
 
-const TECH_TIERS: TechTier[] = [
+const DELIVERY_PILLARS: DeliveryPillar[] = [
   {
-    id: 'frontend',
+    id: 'hyperscalers',
     number: '01',
-    title: 'Experience & Client Runtimes',
-    subtitle: 'Ultra-responsive client-side execution, headless storefronts & spatial interfaces',
-    category: 'Client Layer',
-    sla: '< 0.8s',
-    slaLabel: 'Global First Contentful Paint',
-    description: 'We construct high-velocity web and mobile applications engineered for 60fps interaction smoothness, zero hydration lag, and WCAG AAA compliance.',
-    image: '/senior_image_catalog/02_Software_Engineering_and_Code/01_clean_dark_mode_workstation.jpg',
-    icon: Sparkles,
-    color: '#0052cb',
+    title: 'Strategic Hyperscaler Alliances',
+    subtitle: 'Tier-1 Certified Cloud Architecture Across AWS, Microsoft Azure, Google Cloud & NVIDIA',
+    category: 'Cloud Alliances',
+    sla: 'Multi-Cloud',
+    slaLabel: 'Active-Active Redundancy',
+    description:
+      'As detailed in our core strategy, our direct partnerships with leading hyperscalers enable CoVision to leverage cutting-edge cloud innovations, pre-release AI accelerators, and sovereign enterprise infrastructure to accelerate your digital transformation.',
+    image: '/senior_image_catalog/01_Cloud_and_Datacenter/01_enterprise_datacenter_array.jpg',
+    accentColor: '#0052cb',
     accentBorder: 'hover:border-blue-500/50',
     accentBg: 'bg-blue-50 text-[#0052cb] border border-blue-200/80',
-    technologies: [
-      { name: 'React 19 & Next.js 14', role: 'Server Components & Edge Streaming SSR', badge: 'Core Web' },
-      { name: 'TypeScript Strict', role: 'Type-safe enterprise contract enforcement', badge: 'Standard' },
-      { name: 'TanStack Suite v5', role: 'Asynchronous state & multi-layer cache sync', badge: 'State' },
-      { name: 'Flutter & Swift Native', role: 'Hardware-accelerated iOS & Android runtimes', badge: 'Mobile' },
-      { name: 'Tailwind CSS & CoUI™', role: 'Zero-runtime cognitive token styling engine', badge: 'Design Tokens' },
-      { name: 'Three.js & WebGL', role: 'Interactive 3D configurators & spatial rendering', badge: 'Spatial 3D' },
+    highlights: [
+      {
+        title: 'AWS Advanced Tier Partner',
+        detail: 'Well-Architected reviews, Serverless Aurora, EKS microservice orchestration, and Graviton-optimized cost topologies.',
+        badge: 'AWS Certified',
+      },
+      {
+        title: 'Microsoft Azure Solutions Partner',
+        detail: 'Enterprise cloud migration, hybrid cloud fabric, Azure OpenAI integration, and Azure Synapse analytics pipelines.',
+        badge: 'Azure Partner',
+      },
+      {
+        title: 'Google Cloud Premier Partner',
+        detail: 'Multi-region BigQuery data lakes, Vertex AI machine learning pipelines, and highly resilient Cloud Spanner clusters.',
+        badge: 'GCP Premier',
+      },
+      {
+        title: 'NVIDIA AI Acceleration Ecosystem',
+        detail: 'GPU inference clustering, TensorRT model optimization, and private high-throughput edge intelligence deployments.',
+        badge: 'NVIDIA Inception',
+      },
     ],
     metrics: [
-      { label: 'Core Web Vitals', value: '100% Green' },
-      { label: 'Frame Budget', value: '16.6ms (60 FPS)' },
+      { label: 'Cloud Architecture', value: 'Multi-Cloud Active-Active' },
+      { label: 'Certified Architects', value: '100% Tier-1 Certified' },
     ],
   },
   {
-    id: 'backend',
+    id: 'engineering-pods',
     number: '02',
-    title: 'Distributed Microservices & Event Fabric',
-    subtitle: 'High-throughput transactional APIs, message queues & resilient databases',
-    category: 'Application Layer',
-    sla: '99.995%',
-    slaLabel: 'Guaranteed Production Uptime',
-    description: 'Resilient distributed systems that withstand unpredictable flash traffic surges, enforce ACID consistency, and process millions of enterprise transactions.',
-    image: '/senior_image_catalog/19_API_Gateways_and_Integration/01_kafka_high-throughput_event_brok.jpg',
-    icon: Server,
-    color: '#059669',
+    title: 'Autonomous Engineering Pods',
+    subtitle: 'The Synergy of Agile × Scrum × DevOps × AI: Dedicated High-Velocity Squads',
+    category: 'Delivery Methodology',
+    sla: 'Bi-Weekly',
+    slaLabel: 'Sprint Production Releases',
+    description:
+      'We combine architecture-led software engineering, agile sprint execution, automated CI/CD pipelines, and AI-assisted development into dedicated cross-functional pods that deliver continuous value with uncompromising engineering quality.',
+    image: '/senior_image_catalog/09_Agile_Synergy_and_Pods/01_cross-functional_pod_synergy_des.jpg',
+    accentColor: '#059669',
     accentBorder: 'hover:border-emerald-500/50',
     accentBg: 'bg-emerald-50 text-emerald-700 border border-emerald-200/80',
-    technologies: [
-      { name: 'Go (Golang)', role: 'Low-latency concurrency & lightweight microservices', badge: 'High Concurrency' },
-      { name: 'Node.js & NestJS', role: 'Modular enterprise API gateways & event emitters', badge: 'Runtime' },
-      { name: 'Python & FastAPI', role: 'Async microservices & mathematical data services', badge: 'Micro-Engine' },
-      { name: 'Apache Kafka & RabbitMQ', role: 'Distributed event bus & pub/sub messaging', badge: 'Event Bus' },
-      { name: 'PostgreSQL & Redis', role: 'Relational data integrity with sub-ms memory cache', badge: 'Data Tier' },
-      { name: 'gRPC & Federated GraphQL', role: 'Low-overhead protocol buffers & unified schemas', badge: 'Contracts' },
+    highlights: [
+      {
+        title: 'Dedicated Cross-Functional Squads',
+        detail: 'Each pod is staffed by a Principal Solutions Architect, Senior Full-Stack Engineers, dedicated QA Automation Lead, and DevOps SRE.',
+        badge: 'Turnkey Pods',
+      },
+      {
+        title: 'Bi-Weekly Sprints & Full Transparency',
+        detail: 'Real-time Jira/Linear visibility, shared Slack Connect channels, weekly sprint demos, and transparent burndown metrics.',
+        badge: 'Agile & Scrum',
+      },
+      {
+        title: '100% Client IP Sovereignty',
+        detail: 'All source code, infrastructure-as-code (Terraform), and proprietary data models are transferred with zero vendor lock-in.',
+        badge: 'IP Sovereignty',
+      },
+      {
+        title: 'AI-Assisted Engineering Acceleration',
+        detail: 'Leveraging AI-assisted unit test generation, automated code audits, and static security scanning for 2.4x sprint velocity.',
+        badge: 'AI-Powered',
+      },
     ],
     metrics: [
-      { label: 'Ingestion Throughput', value: '50K+ req/sec' },
-      { label: 'P99 DB Latency', value: '< 4.2ms' },
+      { label: 'Delivery Cadence', value: '14-Day Sprint Cycles' },
+      { label: 'Client IP Ownership', value: '100% Transfer Guaranteed' },
     ],
   },
   {
-    id: 'ai-agents',
+    id: 'governance-sla',
     number: '03',
-    title: 'Cognitive AI & Autonomous Agents',
-    subtitle: 'Domain-adapted LLMs, vector search, predictive models & synthetic generation',
-    category: 'Intelligence Fabric',
-    sla: '< 25ms',
-    slaLabel: 'Vector Retrieval Latency',
-    description: 'We embed enterprise-grade machine learning pipelines, agentic orchestration, and high-precision RAG architectures directly into operational workflows.',
-    image: '/senior_image_catalog/07_Data_Analytics_and_BI/03_real-time_telemetry_event_stream.jpg',
-    icon: Brain,
-    color: '#7c3aed',
+    title: 'Contractual SLAs & Zero-Trust Governance',
+    subtitle: 'Mission-Critical Availability Guarantees Backed by Rigorous Enterprise Compliance',
+    category: 'Security & SLAs',
+    sla: '99.995%',
+    slaLabel: 'Contractual Uptime SLA',
+    description:
+      'Enterprise software must withstand mission-critical workloads without fail. We back our delivery with strict Master Service Agreement (MSA) uptime commitments, zero-trust cybersecurity, and independent security compliance certifications.',
+    image: '/senior_image_catalog/11_Cybersecurity_and_SOC/01_enterprise_soc_operations_center.jpg',
+    accentColor: '#7c3aed',
     accentBorder: 'hover:border-purple-500/50',
     accentBg: 'bg-purple-50 text-purple-700 border border-purple-200/80',
-    technologies: [
-      { name: 'PyTorch & TensorFlow', role: 'Custom deep neural networks & fine-tuned checkpoints', badge: 'Deep Learning' },
-      { name: 'LangChain & LlamaIndex', role: 'Multi-agent orchestration & structured semantic tool use', badge: 'Agentic' },
-      { name: 'Milvus & pgvector', role: 'High-scale dense vector embeddings & similarity search', badge: 'Vector Store' },
-      { name: 'vLLM & TensorRT-LLM', role: 'Optimized low-latency GPU inference serving', badge: 'Inference' },
-      { name: 'Enterprise LLM Gateway', role: 'Enterprise reasoning with strict guardrails & PII redaction', badge: 'Foundation LLM' },
-      { name: 'Hugging Face Transformers', role: 'Open-weights domain-adapted language models', badge: 'Open Weights' },
+    highlights: [
+      {
+        title: 'Contractual 99.995% Uptime SLA',
+        detail: 'Guaranteed production availability with financial service credit penalties defined in contractual enterprise agreements.',
+        badge: 'MSA Backed',
+      },
+      {
+        title: 'Zero-Trust Architecture & Encryption',
+        detail: 'Principle of least privilege (PoLP), end-to-end TLS 1.3 encryption, role-based access control (RBAC), and mTLS service meshes.',
+        badge: 'Zero-Trust',
+      },
+      {
+        title: 'SOC 2 Type II & ISO 27001 Aligned',
+        detail: 'Independent third-party verification of security, confidentiality, availability, and processing integrity controls.',
+        badge: 'Audited Standards',
+      },
+      {
+        title: 'Automated Continuous SAST/DAST Audits',
+        detail: 'Every pull request is automatically analyzed for CVE vulnerabilities, dependency drift, and code regressions before deployment.',
+        badge: 'Canary Rollouts',
+      },
     ],
     metrics: [
-      { label: 'Context Relevance', value: '98.4% Precision' },
-      { label: 'Hallucination Guard', value: 'Automated Evals' },
+      { label: 'Disaster Recovery RTO/RPO', value: '< 15 Minutes' },
+      { label: 'Security Compliance', value: 'SOC 2 & ISO 27001' },
+    ],
+  },
+]
+
+const ENGAGEMENT_MODELS = [
+  {
+    title: 'Turnkey Platform Engineering',
+    tag: 'Outcome-Based',
+    description:
+      'End-to-end digital transformation delivered with defined milestones, performance SLAs, and fixed outcome accountability from architecture scoping to cutover.',
+    features: [
+      'Comprehensive architecture roadmap',
+      'Fixed-price or milestone-based delivery',
+      'Post-launch 90-day warranty & hypercare',
+      'Dedicated Principal Architect oversight',
     ],
   },
   {
-    id: 'cloud-edge',
-    number: '04',
-    title: 'Cloud Infrastructure & Anycast Edge',
-    subtitle: 'Containerized orchestration, automated GitOps CI/CD & global routing',
-    category: 'Infrastructure & Edge',
-    sla: '< 15ms',
-    slaLabel: 'Median Global Edge Latency',
-    description: 'Globally distributed edge networks with multi-region redundancy, origin shielding, automated zero-downtime rollouts, and enterprise DDoS mitigation.',
-    image: '/senior_image_catalog/01_Cloud_and_Datacenter/01_enterprise_datacenter_array.jpg',
-    icon: Cloud,
-    color: '#d97706',
-    accentBorder: 'hover:border-amber-500/50',
-    accentBg: 'bg-amber-50 text-amber-700 border border-amber-200/80',
-    technologies: [
-      { name: 'Kubernetes & Docker', role: 'Container orchestration with automated horizontal pod autoscaling', badge: 'Orchestration' },
-      { name: 'Terraform & OpenTofu', role: 'Declarative Infrastructure as Code (IaC) governance', badge: 'GitOps' },
-      { name: 'Global Anycast Edge CDN', role: '120+ global PoPs, NVMe edge caching & automated AVIF delivery', badge: 'Edge PoPs' },
-      { name: 'AWS & Google Cloud', role: 'Enterprise hybrid-cloud redundancy & data sovereignty', badge: 'Multi-Cloud' },
-      { name: 'GitHub Actions & ArgoCD', role: 'Zero-downtime blue/green automated canary deployments', badge: 'Pipelines' },
-      { name: 'Enterprise Edge Shield', role: 'Multi-terabit DDoS mitigation & automated Web Application Firewall', badge: 'Security' },
+    title: 'Dedicated Engineering Pod Augmentation',
+    tag: 'Velocity-Driven',
+    description:
+      'High-velocity autonomous engineering squads (Architect, Backend, Frontend, QA, DevOps) that seamlessly embed into your existing engineering leadership.',
+    features: [
+      'Scalable cross-functional technical squads',
+      'Direct integration with your Jira & Slack',
+      'Bi-weekly production sprint cadence',
+      '100% full IP transfer with zero lock-in',
     ],
-    metrics: [
-      { label: 'DDoS Capacity Shield', value: '80+ Tbps' },
-      { label: 'Global Edge Network', value: '120+ PoPs' },
+  },
+  {
+    title: 'Enterprise Architecture & Modernization Advisory',
+    tag: 'Strategic Scoping',
+    description:
+      'Deep-dive technical assessment of existing IT landscapes, cloud migration roadmaps, legacy refactoring strategies, and cybersecurity gap remediation.',
+    features: [
+      'Cloud & microservices readiness audit',
+      'Database modernization & data fabric scoping',
+      'Security posture & compliance roadmap',
+      'Executive board presentation & TCO analysis',
     ],
   },
 ]
@@ -154,238 +204,171 @@ interface TechStackMatrixProps {
 }
 
 export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber = '02' }) => {
-  const [activeTierId, setActiveTierId] = useState<string>('all')
+  const [activeFilter, setActiveFilter] = useState<string>('all')
 
-  const displayedTiers = activeTierId === 'all'
-    ? TECH_TIERS
-    : TECH_TIERS.filter((t) => t.id === activeTierId)
+  const displayedPillars =
+    activeFilter === 'all'
+      ? DELIVERY_PILLARS
+      : DELIVERY_PILLARS.filter((pillar) => pillar.id === activeFilter)
 
   return (
-    <section id="tech-spectrum" className="py-24 md:py-36 bg-paper relative overflow-hidden border-t border-ink-line font-inter-tight">
-      
-      {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[40vh] bg-[radial-gradient(50%_50%_at_50%_0%,rgba(0,82,203,0.05),transparent_80%)]" />
+    <section id="enterprise-delivery" className="py-20 md:py-28 bg-paper border-b border-ink-line">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Top Header with High-Tech Eyebrow & SLA Badges */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
-          <div className="max-w-3xl">
-            <SectionEyebrow number={sectionNumber} label="Enterprise Systems Architecture" tone="dark" className="mb-4" />
+        {/* Section Header */}
+        <div className="text-center max-w-4xl mx-auto mb-14">
+          <SectionEyebrow
+            number={sectionNumber}
+            label="Enterprise Delivery Governance"
+            className="justify-center mb-4"
+          />
 
-            <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium text-ink tracking-tight leading-[1.04]">
-              Distributed Cloud &amp; Living Technology Fabric
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed font-normal">
-              Rather than isolated tools, CoVision constructs a unified four-tier continuous delivery fabric. Every layer is benchmarked for sub-second execution, microservice resilience, and fault-tolerant automated failover.
-            </p>
-          </div>
+          <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ink leading-[1.08]">
+            Enterprise Delivery Framework &amp; Strategic Alliances
+          </h2>
 
-          {/* Architectural Live Status Strip */}
-          <div className="shrink-0 flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-ink-line text-xs font-mono font-semibold text-neutral-700 shadow-2xs">
-              <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Fabric Telemetry: Active</span>
-            </div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0052cb] border border-blue-200/80 text-xs font-mono font-bold uppercase tracking-wider">
-              <Activity className="size-3.5" />
-              <span>99.995% SLA Benchmark</span>
-            </div>
-          </div>
+          <p className="mt-5 text-base sm:text-lg text-neutral-600 leading-relaxed font-normal">
+            How CoVision delivers at enterprise scale: Multi-cloud hyperscaler partnerships, autonomous cross-functional engineering pods, and guaranteed mission-critical SLAs.
+          </p>
         </div>
 
-        {/* =========================================================================
-            VISUAL ARCHITECTURE PIPELINE CONSOLE
-            Shows the real-time interconnected flow between the 4 tiers
-           ========================================================================= */}
-        <div className="mb-12 p-6 sm:p-7 rounded-3xl bg-white border border-ink-line shadow-sm">
-          <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-4 flex items-center justify-between">
-            <span>Continuous Systems Pipeline</span>
-            <span className="text-[#0052cb]">Zero-Loss Distributed Topology</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
-            {[
-              { num: '01', title: 'Client & Edge Ingress', sub: '< 0.8s Global FCP', icon: Sparkles },
-              { num: '02', title: 'Event Bus & APIs', sub: '50K+ req/s Ingestion', icon: Server },
-              { num: '03', title: 'Cognitive AI Core', sub: '< 25ms Vector Recall', icon: Brain },
-              { num: '04', title: 'Multi-Cloud Fabric', sub: '120+ Anycast PoPs', icon: Cloud },
-            ].map((step, sIdx) => {
-              const StepIcon = step.icon
-              const isLast = sIdx === 3
-              return (
-                <div key={sIdx} className="relative flex items-center justify-between p-4 rounded-2xl bg-paper border border-ink-line group hover:border-[#0052cb]/40 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <div className="size-9 rounded-xl bg-white border border-ink-line text-[#0052cb] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-                      <StepIcon className="size-4" />
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-mono font-bold text-neutral-400">TIER {step.num}</div>
-                      <div className="text-xs font-bold text-ink leading-tight">{step.title}</div>
-                      <div className="text-[10px] text-[#0052cb] font-semibold mt-0.5">{step.sub}</div>
-                    </div>
-                  </div>
-
-                  {!isLast && (
-                    <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 size-6 rounded-full bg-white border border-ink-line text-neutral-400 flex items-center justify-center shadow-2xs">
-                      <ArrowRight className="size-3 text-[#0052cb]" />
-                    </div>
-                  )}
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
-        {/* Tier Filter Tabs */}
-        <div className="mb-10 flex flex-wrap items-center gap-2">
+        {/* Interactive Filter Pills */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-12">
           <button
-            onClick={() => setActiveTierId('all')}
-            className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer flex items-center gap-2 ${
-              activeTierId === 'all'
-                ? 'bg-[#0052cb] text-white shadow-md shadow-blue-600/30 font-bold'
-                : 'bg-white border border-ink-line text-neutral-600 hover:text-ink hover:border-neutral-400'
+            onClick={() => setActiveFilter('all')}
+            className={`shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+              activeFilter === 'all'
+                ? 'bg-[#0052cb] text-white shadow-sm'
+                : 'bg-white text-neutral-700 hover:text-black border border-ink-line hover:border-neutral-400'
             }`}
           >
-            <Layers className="size-3.5" />
-            <span>Full System Architecture (All 4 Tiers)</span>
+            <Sparkles className="size-3.5" />
+            <span>All Delivery Governance Pillars</span>
           </button>
 
-          {TECH_TIERS.map((tier) => {
-            const Icon = tier.icon
-            const isSelected = activeTierId === tier.id
+          {DELIVERY_PILLARS.map((pillar) => {
+            const isActive = activeFilter === pillar.id
             return (
               <button
-                key={tier.id}
-                onClick={() => setActiveTierId(tier.id)}
-                className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer flex items-center gap-2 ${
-                  isSelected
-                    ? 'bg-[#0052cb] text-white shadow-md shadow-blue-600/30 font-bold'
-                    : 'bg-white border border-ink-line text-neutral-600 hover:text-ink hover:border-neutral-400'
+                key={pillar.id}
+                onClick={() => setActiveFilter(pillar.id)}
+                className={`shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-[#0052cb] text-white shadow-sm'
+                    : 'bg-white text-neutral-700 hover:text-black border border-ink-line hover:border-neutral-400'
                 }`}
               >
-                <Icon className="size-3.5" />
-                <span>Tier {tier.number}: {tier.category}</span>
+                <span className="font-mono text-[10px] opacity-75">{pillar.number}.</span>
+                <span>{pillar.title}</span>
               </button>
             )
           })}
         </div>
 
-        {/* =========================================================================
-            4-TIER ARCHITECTURE SHOWCASE CARDS: SENIOR ENTERPRISE IT PRESENTATION
-           ========================================================================= */}
-        <div className={`grid gap-8 ${activeTierId === 'all' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
+        {/* Pillars Grid */}
+        <div className="space-y-12">
           <AnimatePresence mode="popLayout">
-            {displayedTiers.map((tier) => {
-              const Icon = tier.icon
+            {displayedPillars.map((pillar, idx) => {
+              const isEven = idx % 2 === 1
               return (
                 <motion.div
-                  key={tier.id}
+                  key={pillar.id}
                   layout
                   initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.5 }}
-                  className={`bg-white rounded-3xl border border-ink-line overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between ${tier.accentBorder} group`}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="bg-white rounded-3xl border border-ink-line shadow-xs overflow-hidden transition-all duration-300 hover:shadow-lg"
                 >
-                  <div>
-                    {/* Visual Image Header from Senior IT Catalog */}
-                    <div className="relative w-full h-48 overflow-hidden bg-slate-950">
-                      <img
-                        src={tier.image}
-                        alt={tier.title}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent pointer-events-none" />
-                      
-                      {/* Floating Tier Badges inside image */}
-                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-white text-xs font-mono font-bold tracking-wider uppercase">
-                          <span className="size-1.5 rounded-full bg-[#38bdf8] animate-pulse" />
-                          <span>Tier {tier.number} • {tier.category}</span>
-                        </div>
+                  <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 p-6 sm:p-9 lg:p-10 items-center`}>
 
-                        <div className="px-3 py-1 rounded-full bg-[#0052cb] text-white text-xs font-mono font-extrabold shadow-sm">
-                          {tier.sla}
-                        </div>
-                      </div>
+                    {/* Content Column */}
+                    <div className={`lg:col-span-7 flex flex-col justify-between ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                      <div>
+                        {/* Header Badges */}
+                        <div className="flex flex-wrap items-center gap-3 mb-4">
+                          <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${pillar.accentBg}`}>
+                            <span className="font-mono text-[11px]">{pillar.number}</span>
+                            <span>•</span>
+                            <span>{pillar.category}</span>
+                          </span>
 
-                      {/* Floating bottom SLA descriptor */}
-                      <div className="absolute bottom-3 right-4 text-[11px] font-mono text-slate-300 font-semibold drop-shadow">
-                        {tier.slaLabel}
-                      </div>
-                    </div>
-
-                    {/* Tier Body Content */}
-                    <div className="p-7 sm:p-8">
-                      <div className="flex items-center gap-3.5 mb-3">
-                        <div className={`size-11 rounded-2xl ${tier.accentBg} flex items-center justify-center font-bold shadow-2xs shrink-0 group-hover:scale-105 transition-transform`}>
-                          <Icon className="size-5" />
-                        </div>
-                        <div>
-                          <h3 className="font-bricolage text-2xl font-bold text-ink group-hover:text-[#0052cb] transition-colors leading-tight">
-                            {tier.title}
-                          </h3>
-                          <div className="text-xs text-neutral-500 font-medium mt-0.5 line-clamp-1">
-                            {tier.subtitle}
+                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold">
+                            <span className="font-mono font-bold text-ink">{pillar.sla}</span>
+                            <span className="text-[11px] text-neutral-500">{pillar.slaLabel}</span>
                           </div>
                         </div>
-                      </div>
 
-                      <p className="text-sm text-neutral-600 leading-relaxed font-normal mb-6">
-                        {tier.description}
-                      </p>
+                        {/* Title & Subtitle */}
+                        <h3 className="font-bricolage text-2xl sm:text-3xl font-medium tracking-tight text-ink">
+                          {pillar.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm font-semibold text-[#0052cb] mt-1.5 font-inter-tight">
+                          {pillar.subtitle}
+                        </p>
 
-                      {/* Technical Implementations Grid */}
-                      <div className="space-y-2.5">
-                        <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-400 mb-2.5 flex items-center justify-between">
-                          <span>Core Production Specifications</span>
-                          <span className="text-[#0052cb] text-[10px] font-semibold">Audited Stack</span>
-                        </div>
+                        <p className="mt-4 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                          {pillar.description}
+                        </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                          {tier.technologies.map((tech) => (
+                        {/* Enterprise Highlight Items */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-6">
+                          {pillar.highlights.map((item) => (
                             <div
-                              key={tech.name}
-                              className="p-3.5 rounded-2xl bg-paper border border-ink-line hover:bg-blue-50/50 hover:border-blue-200 transition-all flex flex-col justify-between"
+                              key={item.title}
+                              className="p-3.5 rounded-2xl bg-paper border border-ink-line hover:border-slate-300 transition-colors"
                             >
-                              <div className="flex items-center justify-between gap-2">
-                                <span className="text-xs font-bold text-ink flex items-center gap-1.5">
-                                  <span className="size-1.5 rounded-full bg-[#0052cb]" />
-                                  {tech.name}
-                                </span>
-                                <span className="text-[9px] font-mono uppercase px-2 py-0.5 rounded-full bg-white text-neutral-600 border border-ink-line font-bold shrink-0">
-                                  {tech.badge}
+                              <div className="flex items-center justify-between gap-2 mb-1.5">
+                                <h4 className="font-bricolage text-xs sm:text-sm font-bold text-ink truncate">
+                                  {item.title}
+                                </h4>
+                                <span className="shrink-0 text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-50 text-[#0052cb] border border-blue-200/60">
+                                  {item.badge}
                                 </span>
                               </div>
-                              <p className="text-[11.5px] text-neutral-500 mt-1.5 leading-snug font-normal">
-                                {tech.role}
+                              <p className="text-[11px] text-neutral-600 leading-normal font-normal">
+                                {item.detail}
                               </p>
                             </div>
                           ))}
                         </div>
                       </div>
-                    </div>
-                  </div>
 
-                  {/* Tier Metrics Footer */}
-                  <div className="p-7 sm:p-8 pt-0 mt-auto">
-                    <div className="pt-4 border-t border-ink-line flex items-center justify-between">
-                      <div className="flex items-center gap-6">
-                        {tier.metrics.map((m, mIdx) => (
-                          <div key={mIdx}>
-                            <div className="text-[10px] font-mono uppercase text-neutral-400 font-semibold">{m.label}</div>
-                            <div className="text-xs font-bold font-mono text-[#0052cb]">{m.value}</div>
+                      {/* Bottom Key Metric Indicators */}
+                      <div className="grid grid-cols-2 gap-3.5 mt-6 pt-6 border-t border-ink-line/80">
+                        {pillar.metrics.map((metric) => (
+                          <div key={metric.label}>
+                            <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider font-semibold">
+                              {metric.label}
+                            </div>
+                            <div className="font-bricolage text-sm sm:text-base font-bold text-ink mt-0.5">
+                              {metric.value}
+                            </div>
                           </div>
                         ))}
                       </div>
+                    </div>
 
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/80">
-                        <ShieldCheck className="size-3.5 text-emerald-600" />
-                        <span>Production Ready</span>
+                    {/* Visual Showcase Column */}
+                    <div className={`lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                      <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-ink-line shadow-md aspect-[4/3] group">
+                        <img
+                          src={pillar.image}
+                          alt={pillar.title}
+                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute bottom-4 left-4 right-4 text-white">
+                          <div className="text-[10px] font-mono uppercase tracking-wider text-blue-300 font-bold">
+                            Production Architecture
+                          </div>
+                          <div className="font-bricolage text-sm font-bold truncate">
+                            {pillar.title}
+                          </div>
+                        </div>
                       </div>
                     </div>
+
                   </div>
                 </motion.div>
               )
@@ -393,8 +376,68 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
           </AnimatePresence>
         </div>
 
-        {/* Global Enterprise Architecture Verification & Compliance Ribbon */}
-        <div className="mt-14 bg-white rounded-3xl p-7 sm:p-9 border border-ink-line shadow-sm">
+        {/* Enterprise Engagement & Operating Models */}
+        <div className="mt-20">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#0052cb] bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200/80 inline-block mb-3">
+              Operating Models
+            </span>
+            <h3 className="font-bricolage text-2xl sm:text-3xl font-medium tracking-tight text-ink">
+              Enterprise Engagement Models Built for Scale
+            </h3>
+            <p className="text-xs sm:text-sm text-neutral-600 mt-2">
+              Flexible partnership models tailored to match your organizational governance, velocity requirements, and budgetary frameworks.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {ENGAGEMENT_MODELS.map((model) => (
+              <div
+                key={model.title}
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-ink-line shadow-xs hover:border-[#0052cb] transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-blue-50 text-[#0052cb] border border-blue-200/80">
+                      {model.tag}
+                    </span>
+                    <Building2 className="size-4 text-neutral-400 group-hover:text-[#0052cb] transition-colors" />
+                  </div>
+
+                  <h4 className="font-bricolage text-lg font-bold text-ink">
+                    {model.title}
+                  </h4>
+
+                  <p className="text-xs text-neutral-600 mt-2 leading-relaxed">
+                    {model.description}
+                  </p>
+
+                  <div className="space-y-2 mt-5 pt-5 border-t border-ink-line/80">
+                    {model.features.map((feature) => (
+                      <div key={feature} className="flex items-start gap-2 text-xs text-neutral-700">
+                        <Check className="size-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-ink-line/80">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0052cb] hover:text-blue-800 transition-colors"
+                  >
+                    <span>Discuss Engagement Scope</span>
+                    <ChevronRight className="size-3.5" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Global Compliance & SLA Guarantee Ribbon */}
+        <div className="mt-14 bg-white rounded-3xl p-7 sm:p-9 border border-ink-line shadow-xs">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <div className="size-12 rounded-2xl bg-blue-50 text-[#0052cb] flex items-center justify-center shrink-0 border border-blue-200/80">
@@ -402,10 +445,10 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
               </div>
               <div>
                 <h4 className="font-bricolage text-base sm:text-lg font-bold text-ink">
-                  Strict Enterprise Governance, Security &amp; SLA Architecture
+                  Contractual Enterprise Governance, Security &amp; IP Protection
                 </h4>
                 <p className="text-xs sm:text-sm text-neutral-600 mt-0.5 font-normal">
-                  All systems built by CoVision follow zero-trust network topology, immutable audit logging, and automated vulnerability scanning.
+                  All enterprise solutions follow zero-trust topology, automated security audits, SOC 2 compliance, and 100% intellectual property transfer.
                 </p>
               </div>
             </div>
@@ -417,6 +460,7 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
                 'SOC 2 Type II Aligned',
                 'PCI-DSS Level 1 Ready',
                 'GDPR & HIPAA Compliant',
+                '100% Client IP Sovereignty',
               ].map((badge) => (
                 <span
                   key={badge}
