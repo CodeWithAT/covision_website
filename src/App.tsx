@@ -241,17 +241,6 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
-              <PageHeaderBanner
-                pageName="Services & Architecture"
-                title="Technology: Empowering a Better Tomorrow."
-                subtitle="Delivering intelligent solutions that adapt, innovate and drive real-world impact across modern enterprise ecosystems."
-                metrics={[
-                  { label: 'SLA Availability', value: '99.99%' },
-                  { label: 'Sprint Delivery Velocity', value: '2-4 Wks' },
-                  { label: 'Enterprise Practices', value: '6 Disciplines' },
-                ]}
-                onBackToHome={() => handleNavigatePage('home')}
-              />
               <ServicesSection
                 onRequestScope={handleOpenContact}
                 sectionNumber="01"
@@ -271,17 +260,6 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
-              <PageHeaderBanner
-                pageName="SaaS Platforms Suite"
-                title="Proprietary Enterprise Platforms & Subdomains"
-                subtitle="Battle-tested standalone digital platforms engineered for enterprise deployment, live telemetry, multi-tenant isolation, and rapid market scaling."
-                metrics={[
-                  { label: 'Deployment Model', value: 'Sovereign Cloud' },
-                  { label: 'Security Standard', value: 'SOC 2 Type II' },
-                  { label: 'Telemetry Latency', value: '< 50ms' },
-                ]}
-                onBackToHome={() => handleNavigatePage('home')}
-              />
               <SaaSProductsSection onOpenContact={handleOpenContact} sectionNumber="01" />
               <IndustryFootprintSection onOpenContact={handleOpenContact} sectionNumber="02" />
               <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
@@ -298,17 +276,6 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
-              <PageHeaderBanner
-                pageName="AI & Automation"
-                title="Generative and Agentic AI Architecture"
-                subtitle="Transform Intelligence into Business Impact. Accelerate enterprise value with generative creative production, autonomous AI agents, intelligent document processing, and AI-powered software engineering."
-                metrics={[
-                  { label: 'Agent Autonomy', value: 'Audited' },
-                  { label: 'Integration Scope', value: 'CRM / ERP / SQL' },
-                  { label: 'Engineering Quality', value: 'Human-in-the-Loop' },
-                ]}
-                onBackToHome={() => handleNavigatePage('home')}
-              />
               <AIAutomationSection onRequestScope={handleOpenContact} sectionNumber="01" />
               <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="02" />
               <ContactSection prefillService={prefillService} />
@@ -378,17 +345,6 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
-              <PageHeaderBanner
-                pageName="About CoVision Technologies"
-                title="Vision, Purpose & Enterprise Values"
-                subtitle="Discover the leadership philosophy, technical commitments, and client-centric values that guide our global engineering practice."
-                metrics={[
-                  { label: 'Engineering Hubs', value: 'Global' },
-                  { label: 'Sprint On-Time Rate', value: '100%' },
-                  { label: 'Technical Debt Policy', value: 'Zero-Debt' },
-                ]}
-                onBackToHome={() => handleNavigatePage('home')}
-              />
               <AboutUsSection onOpenContact={() => handleOpenContact()} sectionNumber="01" />
               <LivingTechnologySection sectionNumber="02" />
               <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />

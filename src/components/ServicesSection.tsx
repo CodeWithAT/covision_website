@@ -21,7 +21,6 @@ import {
   Zap,
   Database,
   Workflow,
-  ChevronRight,
   Server,
   Activity,
   Maximize2,
@@ -127,50 +126,88 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   return (
     <section id="services" className="relative w-full bg-paper text-ink font-inter-tight">
       {/* =========================================================================
-          1. TOP ATTACHED BANNER (From user instruction3)
-             Uses high-res technology_banner.png without duplicate HTML text overlay.
-             Cleanly displays the exact artwork and built-in typography!
+          1. TOP ATTACHED HERO BANNER (Cinematic Dark Theme matching #ai)
+             - Features instruction3 Technology Banner in sleek dark glass frame
+             - Displays exact instruction3 intro paragraph word-for-word
+             - Features direct actions to explore 6 practices or request architecture scope
           ========================================================================= */}
-      <div className="py-10 md:py-14 bg-white border-b border-ink-line">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Main Visual Banner Card */}
-          <div className="relative w-full rounded-3xl overflow-hidden border border-ink-line shadow-lg bg-neutral-900 group">
-            <img
-              src="/images/services/technology_banner.png"
-              alt="Technology: Empowering a Better Tomorrow"
-              className="w-full h-auto object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.01]"
-            />
-          </div>
+      <section className="relative overflow-hidden bg-[#07090E] text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-800">
+        {/* Background Ambient Glow & Video/Visual Container */}
+        <div className="absolute inset-0 bg-radial-gradient from-blue-900/25 via-slate-950/80 to-[#07090E] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(0,102,255,0.25),transparent_70%)] pointer-events-none" />
 
-          {/* Followed Immediately by the Exact Instruction Paragraph */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mt-8 bg-paper-deep rounded-2xl p-6 sm:p-8 md:p-10 border border-ink-line shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
-          >
-            <div className="max-w-4xl">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-2.5">
-                <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
-                <span>Enterprise Technology Vision & Adaptation</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12">
+            
+            {/* Left Column: Core Headline, Vision & Exact Instruction3 Paragraph */}
+            <div className="max-w-3xl space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-bold tracking-wider uppercase">
+                <Sparkles className="size-3.5 text-blue-400 animate-pulse" />
+                <span>Services & Cloud Fabric</span>
               </div>
-              <p className="text-base sm:text-lg text-slate-800 leading-relaxed font-normal">
+
+              <h1 className="font-bricolage text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
+                Empowering a{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
+                  Better Tomorrow.
+                </span>
+              </h1>
+
+              <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
                 An evolving suite of solutions tailored to our clients’ changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead.
               </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <button
+                  onClick={() => scrollToElement('capgemini-service-blocks', -90)}
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all cursor-pointer group"
+                >
+                  <span>Explore 6 Delivery Practices</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button
+                  onClick={() => onRequestScope('Enterprise Architecture & Cloud Fabric')}
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold transition-all cursor-pointer"
+                >
+                  <span>Request Scope</span>
+                </button>
+              </div>
             </div>
 
-            <button
-              onClick={() => scrollToElement('capgemini-service-blocks', -90)}
-              className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0052cb] text-white text-xs sm:text-sm font-semibold hover:bg-[#003da8] transition-all shadow-md shadow-blue-600/20 active:scale-95 cursor-pointer"
-            >
-              <span>Explore 6 Delivery Practices</span>
-              <ChevronRight className="size-4" />
-            </button>
-          </motion.div>
+            {/* Right Column: User's Banner Image in Sleek Glass Card */}
+            <div className="lg:max-w-lg w-full">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-black/80 group">
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                  <img
+                    src="/images/services/technology_banner.png"
+                    alt="Technology: Empowering a Better Tomorrow"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded-md bg-blue-600/90 text-white font-mono text-[10px] font-bold tracking-wider uppercase border border-blue-400/30 backdrop-blur-md">
+                      Enterprise Architecture
+                    </span>
+                  </div>
+
+                  <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-white">6 Core Delivery Practices</div>
+                      <div className="text-[11px] text-slate-400 font-mono">SLA Guaranteed • Capgemini Structure</div>
+                    </div>
+                    <span className="flex items-center gap-1 text-[11px] font-mono text-emerald-400 font-semibold">
+                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Active
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* =========================================================================
           2. CAPGEMINI-STYLE SERVICE BLOCKS (6 Blocks as specified in instruction3)

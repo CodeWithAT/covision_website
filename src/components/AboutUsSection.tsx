@@ -1,9 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Target, Compass, HeartHandshake, Award, Users, Trophy, Lightbulb, ShieldCheck, ArrowRight } from 'lucide-react'
+import { Target, Compass, HeartHandshake, Award, Users, Trophy, Lightbulb, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react'
 
 import { SectionEyebrow } from './SectionEyebrow'
 import { ABOUT_US_DETAILS } from '../data/mockData'
+import { scrollToElement } from '../lib/scrollUtils'
 
 interface AboutUsSectionProps {
   onOpenContact: () => void
@@ -24,7 +25,93 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
   }
 
   return (
-    <section id="about-us" className="py-24 md:py-36 bg-paper-deep relative overflow-hidden border-t border-ink-line text-ink">
+    <div id="about-us-practice" className="bg-paper text-ink font-inter-tight selection:bg-[#0052cb] selection:text-white">
+      {/* =========================================================================
+          HERO BANNER: Engineering Living Technology. Where AI Converges.
+          Cinematic Dark Theme matching #ai, #services, and #saas
+         ========================================================================= */}
+      <section className="relative overflow-hidden bg-[#07090E] text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-800">
+        <div className="absolute inset-0 bg-radial-gradient from-blue-900/25 via-slate-950/80 to-[#07090E] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(0,102,255,0.25),transparent_70%)] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12">
+            
+            {/* Left Column: Core Headline & Vision */}
+            <div className="max-w-3xl space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-bold tracking-wider uppercase">
+                <Sparkles className="size-3.5 text-blue-400 animate-pulse" />
+                <span>Corporate Identity & Values</span>
+              </div>
+
+              <h1 className="font-bricolage text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
+                Engineering Living Technology.{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
+                  Where AI Converges.
+                </span>
+              </h1>
+
+              <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
+                A premier enterprise digital engineering partner. We combine deep systems architecture, cognitive AI agents, and behavioral science design to build software ecosystems that adapt dynamically as enterprises scale.
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <button
+                  onClick={() => scrollToElement('about-us', -90)}
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all cursor-pointer group"
+                >
+                  <span>Explore Ethos & Values</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button
+                  onClick={onOpenContact}
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold transition-all cursor-pointer"
+                >
+                  <span>Consult Lead Architect</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Right Column: Video / Futuristic Global Earth Core Frame */}
+            <div className="lg:max-w-lg w-full">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-black/80 group">
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                  <video
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    src="/globe.mp4"
+                    poster="/globe_poster.webp"
+                    className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none" />
+
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded-md bg-blue-600/90 text-white font-mono text-[10px] font-bold tracking-wider uppercase border border-blue-400/30 backdrop-blur-md">
+                      Global Engineering
+                    </span>
+                  </div>
+
+                  <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-white">CoVision Technologies Group</div>
+                      <div className="text-[11px] text-slate-400 font-mono">100% Sprint On-Time • Zero Tech Debt</div>
+                    </div>
+                    <span className="flex items-center gap-1 text-[11px] font-mono text-emerald-400 font-semibold">
+                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Verified
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="about-us" className="py-24 md:py-36 bg-paper-deep relative overflow-hidden border-t border-ink-line text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Scroll Animation */}
         <motion.div
@@ -144,5 +231,6 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
         </div>
       </div>
     </section>
+  </div>
   )
 }
