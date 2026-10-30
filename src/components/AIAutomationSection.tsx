@@ -507,290 +507,398 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
           </div>
 
           {/* =========================================================================
-              DETAILED CAPABILITIES WITH IMAGES AND EXACT WRITINGS
+              DETAILED CAPABILITIES: PROFESSIONAL IT ARCHITECTURAL FORMAT
+              Zero empty space, authentic senior IT catalog imagery, exact text
               Lines 46-74 of instruction2.txt
              ========================================================================= */}
+
+          {/* 1. Core Operations & Solutions 3-Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {/* (a) AI Integration with Business Software */}
             {(selectedCategory === 'all' || selectedCategory === 'operations') && (
-              <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5 }}
+                className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-lg transition-all flex flex-col justify-between group"
+              >
                 <div>
-                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-52 overflow-hidden bg-neutral-900">
                     <img
-                      src="/images/ai_automation/06_ai_integration_business_software.jpg"
+                      src="/senior_image_catalog/19_API_Gateways_and_Integration/04_bi-directional_sap_and_salesforc.jpg"
                       alt="AI Integration with Business Software"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    
                   </div>
                   <div className="p-6">
-                    <h3 className="font-bricolage text-xl font-bold text-ink mb-2">
+                    <div className="text-[11px] font-mono font-bold uppercase text-[#0052cb] mb-1.5 tracking-wider">
+                      Operations • Capability (a)
+                    </div>
+                    <h3 className="font-bricolage text-xl font-bold text-ink mb-2 group-hover:text-[#0052cb] transition-colors">
                       AI Integration with Business Software
                     </h3>
-                    <p className="text-sm text-neutral-600 leading-relaxed">
+                    <p className="text-sm text-neutral-600 leading-relaxed font-normal">
                       Connect AI agents with CRM, ERP, HRMS, ticketing systems, databases, and other business applications so they can retrieve information and perform authorised actions.
                     </p>
                   </div>
                 </div>
                 <div className="p-6 pt-0">
-                  <div className="pt-3 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
+                  <div className="pt-3.5 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
                     <span>SAP • Salesforce • ERP • SQL</span>
                     <CheckCircle2 className="size-4" />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* (b) Intelligent Document Processing */}
             {(selectedCategory === 'all' || selectedCategory === 'operations') && (
-              <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: 0.08 }}
+                className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-lg transition-all flex flex-col justify-between group"
+              >
                 <div>
-                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-52 overflow-hidden bg-neutral-900">
                     <img
-                      src="/images/ai_automation/07_intelligent_document_processing_ocr.jpg"
+                      src="/senior_image_catalog/05_Enterprise_AI_and_Robotics/09_autonomous_document_intelligence.jpg"
                       alt="Intelligent Document Processing"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    
                   </div>
                   <div className="p-6">
-                    <h3 className="font-bricolage text-xl font-bold text-ink mb-2">
+                    <div className="text-[11px] font-mono font-bold uppercase text-[#0052cb] mb-1.5 tracking-wider">
+                      Operations • Capability (b)
+                    </div>
+                    <h3 className="font-bricolage text-xl font-bold text-ink mb-2 group-hover:text-[#0052cb] transition-colors">
                       Intelligent Document Processing
                     </h3>
-                    <p className="text-sm text-neutral-600 leading-relaxed">
+                    <p className="text-sm text-neutral-600 leading-relaxed font-normal">
                       Create agents that read forms, invoices, reports, and other documents, extract relevant information, validate records, and route items for further processing.
                     </p>
                   </div>
                 </div>
                 <div className="p-6 pt-0">
-                  <div className="pt-3 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
+                  <div className="pt-3.5 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
                     <span>Invoices • Forms • Reports</span>
                     <CheckCircle2 className="size-4" />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* (c) Agentic Workflow Automation */}
             {(selectedCategory === 'all' || selectedCategory === 'operations') && (
-              <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: 0.16 }}
+                className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-lg transition-all flex flex-col justify-between group"
+              >
                 <div>
-                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-52 overflow-hidden bg-neutral-900">
                     <img
-                      src="/images/ai_automation/08_agentic_workflow_automation_routing.jpg"
+                      src="/senior_image_catalog/05_Enterprise_AI_and_Robotics/05_autonomous_workflow_robotic_stat.jpg"
                       alt="Agentic Workflow Automation"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    
                   </div>
                   <div className="p-6">
-                    <h3 className="font-bricolage text-xl font-bold text-ink mb-2">
+                    <div className="text-[11px] font-mono font-bold uppercase text-[#0052cb] mb-1.5 tracking-wider">
+                      Operations • Capability (c)
+                    </div>
+                    <h3 className="font-bricolage text-xl font-bold text-ink mb-2 group-hover:text-[#0052cb] transition-colors">
                       Agentic Workflow Automation
                     </h3>
-                    <p className="text-sm text-neutral-600 leading-relaxed">
+                    <p className="text-sm text-neutral-600 leading-relaxed font-normal">
                       Connect multiple tasks into a coordinated process. For example, when a customer raises a complaint, AI can classify it, retrieve relevant records, assign it to the right team, and track the next steps.
                     </p>
                   </div>
                 </div>
                 <div className="p-6 pt-0">
-                  <div className="pt-3 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
+                  <div className="pt-3.5 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
                     <span>Classification • Routing • Auto-Action</span>
                     <CheckCircle2 className="size-4" />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
-            {/* Custom AI Agents */}
-            {(selectedCategory === 'all' || selectedCategory === 'operations' || selectedCategory === 'solutions') && (
-              <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+            {/* (d) Custom AI Agents */}
+            {(selectedCategory === 'all' || selectedCategory === 'solutions') && (
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5 }}
+                className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-lg transition-all flex flex-col justify-between group"
+              >
                 <div>
-                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-52 overflow-hidden bg-neutral-900">
                     <img
-                      src="/images/ai_automation/09_custom_ai_agents_digital_assistants.jpg"
+                      src="/senior_image_catalog/05_Enterprise_AI_and_Robotics/04_synthetic_intelligence_core_proc.jpg"
                       alt="Custom AI Agents"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    
                   </div>
                   <div className="p-6">
-                    <h3 className="font-bricolage text-xl font-bold text-ink mb-2">
+                    <div className="text-[11px] font-mono font-bold uppercase text-[#0052cb] mb-1.5 tracking-wider">
+                      Solutions • Capability (d)
+                    </div>
+                    <h3 className="font-bricolage text-xl font-bold text-ink mb-2 group-hover:text-[#0052cb] transition-colors">
                       Custom AI Agents
                     </h3>
-                    <p className="text-sm text-neutral-600 leading-relaxed">
+                    <p className="text-sm text-neutral-600 leading-relaxed font-normal">
                       Digital assistants designed to perform specific business tasks, such as answering enquiries, finding information, preparing documents, and updating records.
                     </p>
                   </div>
                 </div>
                 <div className="p-6 pt-0">
-                  <div className="pt-3 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
+                  <div className="pt-3.5 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
                     <span>Enquiries • Prep Documents • Update Records</span>
                     <CheckCircle2 className="size-4" />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* (e) Predictive Intelligence */}
             {(selectedCategory === 'all' || selectedCategory === 'solutions') && (
-              <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: 0.08 }}
+                className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-lg transition-all flex flex-col justify-between group"
+              >
                 <div>
-                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-52 overflow-hidden bg-neutral-900">
                     <img
-                      src="/images/ai_automation/10_predictive_intelligence_forecasting.jpg"
+                      src="/senior_image_catalog/07_Data_Analytics_and_BI/06_predictive_statistical_forecast_.jpg"
                       alt="Predictive Intelligence"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    
                   </div>
                   <div className="p-6">
-                    <h3 className="font-bricolage text-xl font-bold text-ink mb-1">
+                    <div className="text-[11px] font-mono font-bold uppercase text-[#0052cb] mb-1.5 tracking-wider">
+                      Solutions • Capability (e)
+                    </div>
+                    <h3 className="font-bricolage text-xl font-bold text-ink mb-1 group-hover:text-[#0052cb] transition-colors">
                       Predictive Intelligence
                     </h3>
                     <div className="text-xs font-mono font-bold text-[#0052cb] mb-2 uppercase">
                       From Insight to Foresight.
                     </div>
-                    <p className="text-sm text-neutral-600 leading-relaxed">
+                    <p className="text-sm text-neutral-600 leading-relaxed font-normal">
                       Anticipate customer behaviour, demand fluctuations, operational risks, and business trends using predictive models and data-driven forecasting.
                     </p>
                   </div>
                 </div>
                 <div className="p-6 pt-0">
-                  <div className="pt-3 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
+                  <div className="pt-3.5 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
                     <span>Demand • Risk • Trend Forecasting</span>
                     <CheckCircle2 className="size-4" />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* (f) Personalisation & Recommendation Engines */}
             {(selectedCategory === 'all' || selectedCategory === 'solutions') && (
-              <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: 0.16 }}
+                className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-lg transition-all flex flex-col justify-between group"
+              >
                 <div>
-                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
+                  <div className="relative w-full h-52 overflow-hidden bg-neutral-900">
                     <img
-                      src="/images/ai_automation/11_personalisation_recommendation_engines.jpg"
+                      src="/senior_image_catalog/06_eCommerce_and_Retail/10_commerce_conversion_funnel_telem.jpg"
                       alt="Personalisation & Recommendation Engines"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    
                   </div>
                   <div className="p-6">
-                    <h3 className="font-bricolage text-xl font-bold text-ink mb-1">
+                    <div className="text-[11px] font-mono font-bold uppercase text-[#0052cb] mb-1.5 tracking-wider">
+                      Solutions • Capability (f)
+                    </div>
+                    <h3 className="font-bricolage text-xl font-bold text-ink mb-1 group-hover:text-[#0052cb] transition-colors">
                       Personalisation & Recommendation Engines
                     </h3>
                     <div className="text-xs font-mono font-bold text-[#0052cb] mb-2 uppercase">
                       Make Every Experience More Relevant.
                     </div>
-                    <p className="text-sm text-neutral-600 leading-relaxed">
+                    <p className="text-sm text-neutral-600 leading-relaxed font-normal">
                       Deliver personalised products, content, and service recommendations based on user preferences, behaviour, and contextual data.
                     </p>
                   </div>
                 </div>
                 <div className="p-6 pt-0">
-                  <div className="pt-3 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
+                  <div className="pt-3.5 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
                     <span>Relevant Products • Dynamic Content</span>
                     <CheckCircle2 className="size-4" />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
-            {/* AI-Powered Marketing (Lead Generation, Promotion) */}
-            {(selectedCategory === 'all' || selectedCategory === 'marketing') && (
-              <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
-                <div>
-                  <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-neutral-900">
-                    <img
-                      src="/images/ai_automation/12_ai_powered_marketing_lead_generation.jpg"
-                      alt="AI-Powered Marketing"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                    
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-bricolage text-xl font-bold text-ink mb-1">
-                      AI Powered Marketing
-                    </h3>
-                    <div className="text-xs font-mono font-bold text-[#0052cb] mb-2 uppercase">
-                      Lead Generation & Promotion
+          </div>
+
+          {/* 2. Executive Flagship Cards: Marketing & (g) Software Engineering */}
+          {(selectedCategory === 'all' || selectedCategory === 'marketing' || selectedCategory === 'engineering') && (
+            <div className={`mt-8 grid gap-8 ${
+              selectedCategory === 'marketing' || selectedCategory === 'engineering'
+                ? 'grid-cols-1 max-w-4xl mx-auto'
+                : 'grid-cols-1 lg:grid-cols-2'
+            }`}>
+
+              {/* AI-Powered Marketing (Lead Generation, Promotion) */}
+              {(selectedCategory === 'all' || selectedCategory === 'marketing') && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.6 }}
+                  className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="relative w-full h-64 overflow-hidden bg-slate-950">
+                      <img
+                        src="/senior_image_catalog/07_Data_Analytics_and_BI/01_financial_bi_telemetry_hub.jpg"
+                        alt="AI-Powered Marketing & Telemetry"
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                      />
                     </div>
-                    <p className="text-sm text-neutral-600 leading-relaxed">
-                      AI powered marketing (lead generation, promotion) with algorithmic audience targeting, dynamic creative variation testing, automated outreach sequencing, and cross-channel conversion optimization.
-                    </p>
-                  </div>
-                </div>
-                <div className="p-6 pt-0">
-                  <div className="pt-3 border-t border-ink-line flex items-center justify-between text-xs text-[#0052cb] font-semibold">
-                    <span>Lead Scoring • Campaign Automation</span>
-                    <CheckCircle2 className="size-4" />
-                  </div>
-                </div>
-              </div>
-            )}
 
-            {/* (g) AI-Powered Software Engineering */}
-            {(selectedCategory === 'all' || selectedCategory === 'engineering') && (
-              <div className="rounded-2xl overflow-hidden bg-white border border-ink-line shadow-xs hover:shadow-md transition-all flex flex-col justify-between md:col-span-2 lg:col-span-2 border-l-4 border-l-[#0052cb]">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-                  <div className="md:col-span-5 relative h-64 sm:h-72 md:h-full min-h-[240px] overflow-hidden bg-neutral-900 rounded-xl m-4 md:m-0">
-                    <img
-                      src="/images/ai_automation/13_ai_powered_software_engineering.jpg"
-                      alt="AI-Powered Software Engineering"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                    
+                    <div className="p-7 sm:p-8">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider mb-3">
+                        <Sparkles className="size-3 text-[#0052cb]" />
+                        <span>Growth & Acquisition Engine</span>
+                      </div>
+
+                      <h3 className="font-bricolage text-2xl sm:text-3xl font-bold text-ink mb-1 group-hover:text-[#0052cb] transition-colors">
+                        AI Powered Marketing
+                      </h3>
+                      <div className="text-xs font-mono font-bold text-[#0052cb] mb-3 uppercase tracking-wider">
+                        Lead Generation &amp; Promotion
+                      </div>
+
+                      <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal mb-6">
+                        AI powered marketing (lead generation, promotion) with algorithmic audience targeting, dynamic creative variation testing, automated outreach sequencing, and cross-channel conversion optimization.
+                      </p>
+
+                      {/* Professional Enterprise Feature Grid */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        {[
+                          'Predictive Lead Scoring & Routing',
+                          'Algorithmic Audience Targeting',
+                          'Dynamic Creative Variations Testing',
+                          'Cross-Channel Conversion Optimization',
+                        ].map((feature, fIdx) => (
+                          <div key={fIdx} className="flex items-center gap-2 text-xs font-medium text-neutral-700">
+                            <CheckCircle2 className="size-4 text-[#0052cb] shrink-0" />
+                            <span>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="md:col-span-7 p-6 md:pl-2 flex flex-col justify-between">
-                    <div>
-                      <h3 className="font-bricolage text-2xl font-bold text-ink mb-1">
+
+                  <div className="p-7 sm:p-8 pt-0 mt-auto">
+                    <div className="pt-4 border-t border-ink-line flex items-center justify-between">
+                      <span className="text-xs font-mono text-neutral-500 font-semibold">
+                        Lead Scoring • Campaign Automation
+                      </span>
+                      <button
+                        onClick={() => onRequestScope('AI Powered Marketing')}
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0052cb] hover:underline cursor-pointer group-hover:translate-x-1 transition-transform"
+                      >
+                        <span>Explore Marketing Intelligence</span>
+                        <ArrowRight className="size-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* (g) AI-Powered Software Engineering */}
+              {(selectedCategory === 'all' || selectedCategory === 'engineering') && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group border-l-4 border-l-[#0052cb]"
+                >
+                  <div>
+                    <div className="relative w-full h-64 overflow-hidden bg-slate-950">
+                      <img
+                        src="/senior_image_catalog/02_Software_Engineering_and_Code/01_clean_dark_mode_workstation.jpg"
+                        alt="AI-Powered Software Engineering Workstation"
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                      />
+                    </div>
+
+                    <div className="p-7 sm:p-8">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider mb-3">
+                        <Cpu className="size-3 text-[#0052cb]" />
+                        <span>Core Engineering • Capability (g)</span>
+                      </div>
+
+                      <h3 className="font-bricolage text-2xl sm:text-3xl font-bold text-ink mb-1 group-hover:text-[#0052cb] transition-colors">
                         (g) AI-Powered Software Engineering
                       </h3>
                       <div className="text-xs font-mono font-bold text-[#0052cb] mb-3 uppercase tracking-wider">
                         Build Smarter. Develop Faster.
                       </div>
-                      <p className="text-sm sm:text-base text-neutral-700 leading-relaxed mb-4">
+
+                      <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal mb-6">
                         Use AI to support coding, documentation, testing, code analysis, and application modernisation while keeping engineering quality and human oversight central.
                       </p>
-                      
-                      <div className="grid grid-cols-2 gap-2 text-xs text-neutral-600 font-medium">
-                        <div className="flex items-center gap-1.5">
-                          <CheckCircle2 className="size-3.5 text-[#0052cb]" />
-                          <span>Automated Unit Testing</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <CheckCircle2 className="size-3.5 text-[#0052cb]" />
-                          <span>Legacy Modernisation</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <CheckCircle2 className="size-3.5 text-[#0052cb]" />
-                          <span>Code Analysis & Audits</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <CheckCircle2 className="size-3.5 text-[#0052cb]" />
-                          <span>Zero-Debt Architecture</span>
-                        </div>
+
+                      {/* Professional Enterprise Feature Grid */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        {[
+                          'Automated Unit Testing & Coverage',
+                          'Legacy System Modernisation',
+                          'Static Code Security & Audits',
+                          'Zero-Debt Architecture Standards',
+                        ].map((feature, fIdx) => (
+                          <div key={fIdx} className="flex items-center gap-2 text-xs font-medium text-neutral-700">
+                            <CheckCircle2 className="size-4 text-[#0052cb] shrink-0" />
+                            <span>{feature}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="pt-4 mt-4 border-t border-ink-line flex items-center justify-between">
-                      <span className="text-xs font-mono text-neutral-500">Human-In-The-Loop Quality Control</span>
+                  <div className="p-7 sm:p-8 pt-0 mt-auto">
+                    <div className="pt-4 border-t border-ink-line flex items-center justify-between">
+                      <span className="text-xs font-mono text-neutral-500 font-semibold">
+                        Human-In-The-Loop Quality Control
+                      </span>
                       <button
                         onClick={() => onRequestScope('AI-Powered Software Engineering')}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0052cb] hover:underline cursor-pointer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0052cb] hover:underline cursor-pointer group-hover:translate-x-1 transition-transform"
                       >
                         <span>Scope Engineering Engagement</span>
                         <ArrowRight className="size-3.5" />
                       </button>
                     </div>
                   </div>
-                </div>
-              </div>
-            )}
+                </motion.div>
+              )}
 
-          </div>
+            </div>
+          )}
 
         </div>
       </section>

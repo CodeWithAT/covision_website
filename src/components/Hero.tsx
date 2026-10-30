@@ -1,26 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import React, { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 
 interface HeroProps {
   onNavigatePage: (page: string, targetServiceId?: string) => void
   onOpenContact: (prefillService?: string) => void
 }
 
-const serviceSubItems = [
-  { id: 'software-engineering', title: '01. Software Engineering', desc: 'Custom Software, HRMS & ERP Solutions' },
-  { id: 'application-development', title: '02. Application Development', desc: 'Native, Cross-Platform, Hybrid & PWAs' },
-  { id: 'data-analytics', title: '03. Data Analytics', desc: 'Predictive Intelligence & 9 Performance Dimensions' },
-  { id: 'cloud-infrastructure', title: '04. Cloud and Infrastructure', desc: 'Hyperscalers, Migration & Media DAM Cloud' },
-  { id: 'ai-ml-integration', title: '05. AI/ML Integration', desc: 'Autonomous Agents, Computer Vision & RAG' },
-  { id: 'ux-ui-design', title: '06. UX/UI Design', desc: 'Cognitive Science & Covision Lattice / monolith' },
-]
-
 export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
 
   // Bulletproof Native Video Playback with Resilient Watchdog
   useEffect(() => {
@@ -89,12 +76,6 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
       video.removeEventListener('stalled', playSafe)
     }
   }, [])
-
-  const handleNavClick = (pageId: string, targetServiceId?: string) => {
-    onNavigatePage(pageId, targetServiceId)
-    setMenuOpen(false)
-    setServicesDropdownOpen(false)
-  }
 
   return (
     <section className="relative w-full h-[100dvh] min-h-[660px] overflow-hidden bg-[#06080F] text-white font-['Plus_Jakarta_Sans',sans-serif] select-none flex flex-col justify-between">
@@ -172,209 +153,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
         {/* Seamless Luxury Transition Bridge into White/Paper Theme */}
         <div className="pointer-events-none absolute bottom-0 inset-x-0 h-44 bg-gradient-to-t from-[#FAF9F5] via-[#FAF9F5]/75 via-25% to-transparent z-10" />
 
-        {/* Floating Dark Glass Hero Header Nav */}
-        <header className="relative z-30 h-16 sm:h-20 px-6 sm:px-10 lg:px-16 flex items-center justify-between border-b border-white/10 bg-[#06080F]/70 backdrop-blur-xl">
-          {/* Logo */}
-          <button
-            onClick={() => handleNavClick('home')}
-            className="flex items-center gap-2.5 group cursor-pointer bg-transparent border-0 p-0 text-left"
-          >
-            <span className="size-2.5 rounded-full bg-[#0052cb] shadow-lg shadow-blue-500/80 group-hover:scale-125 transition-transform" />
-            <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-white">
-              CoVision
-            </span>
-          </button>
-
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-8 text-[13.5px] font-medium text-neutral-300">
-            {/* Services with Dark-Glass Interactive Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesDropdownOpen(true)}
-              onMouseLeave={() => setServicesDropdownOpen(false)}
-            >
-              <button
-                onClick={() => handleNavClick('services')}
-                className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 whitespace-nowrap font-medium text-neutral-300 py-2"
-              >
-                <span>Services</span>
-                <ChevronDown
-                  className={`size-3.5 transition-transform duration-200 ${
-                    servicesDropdownOpen ? 'rotate-180 text-white' : 'text-neutral-400'
-                  }`}
-                />
-              </button>
-
-              <AnimatePresence>
-                {servicesDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full -left-6 w-84 bg-[#0a0e1a]/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/15 p-2.5 z-50 mt-1"
-                  >
-                    <div className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-neutral-400 font-semibold border-b border-white/10 mb-1 flex items-center justify-between">
-                      <span>Engineering Disciplines</span>
-                      <span className="text-[9px] text-[#38bdf8] font-bold">6 Practices</span>
-                    </div>
-                    {serviceSubItems.map((s) => (
-                      <button
-                        key={s.id}
-                        onClick={() => handleNavClick('services', s.id)}
-                        className="w-full text-left block p-2.5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer bg-transparent border-0 group/item"
-                      >
-                        <div className="text-xs font-bold text-white group-hover/item:text-[#38bdf8] flex items-center justify-between">
-                          <span>{s.title}</span>
-                          <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#38bdf8]" />
-                        </div>
-                        <div className="text-[11px] text-neutral-400 mt-0.5">{s.desc}</div>
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            <button
-              onClick={() => handleNavClick('saas')}
-              className="hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 whitespace-nowrap font-medium"
-            >
-              SaaS Platforms
-            </button>
-            <button
-              onClick={() => handleNavClick('ai')}
-              className="hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 whitespace-nowrap font-medium"
-            >
-              AI & Automation
-            </button>
-            <button
-              onClick={() => handleNavClick('about')}
-              className="hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 whitespace-nowrap font-medium"
-            >
-              About
-            </button>
-          </nav>
-
-          {/* Desktop Nav Actions */}
-          <div className="hidden lg:flex items-center gap-3">
-            <button
-              onClick={() => onOpenContact()}
-              className="hero-btn-pill h-9 px-4.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all shadow-xs cursor-pointer hover:border-white/40"
-            >
-              Inquiry
-            </button>
-
-            <button
-              onClick={() => onOpenContact()}
-              className="hero-btn-pill h-9 px-5 rounded-full bg-[#0052cb] hover:bg-[#003da8] text-white text-xs font-semibold transition-all shadow-md shadow-blue-600/40 flex items-center gap-2 cursor-pointer hover:scale-102"
-            >
-              <span>Get Started</span>
-              <svg className="size-3 shrink-0" viewBox="0 0 12 10" fill="none" aria-hidden="true">
-                <path
-                  d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6"
-                  stroke="currentColor"
-                  strokeWidth="1.35"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <button
-              onClick={() => onOpenContact()}
-              className="hero-btn-pill h-8 px-3.5 rounded-full bg-[#0052cb] text-white text-xs font-bold cursor-pointer shadow-xs"
-            >
-              Contact
-            </button>
-
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/20 cursor-pointer"
-              aria-label="Toggle Menu"
-            >
-              <div className="w-4 h-3 flex flex-col justify-between">
-                <span className="w-full h-0.5 bg-white rounded-full" />
-                <span className="w-full h-0.5 bg-white rounded-full" />
-                <span className="w-full h-0.5 bg-white rounded-full" />
-              </div>
-            </button>
-          </div>
-        </header>
-
-        {/* Mobile Frosted Dark Glass Drawer */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-              className="absolute top-20 right-4 left-4 sm:left-auto sm:w-80 bg-[#0c101d]/95 backdrop-blur-2xl border border-white/15 rounded-3xl p-5 shadow-2xl z-40 space-y-2 text-white"
-            >
-              {/* Expandable Mobile Services */}
-              <div className="space-y-1">
-                <button
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="w-full text-left py-2.5 px-3.5 rounded-xl text-sm font-semibold hover:bg-white/10 transition-colors cursor-pointer bg-transparent border-0 text-neutral-200 flex items-center justify-between"
-                >
-                  <span>Services &amp; Architecture</span>
-                  <ChevronDown
-                    className={`size-3.5 transition-transform duration-200 ${
-                      mobileServicesOpen ? 'rotate-180 text-[#38bdf8]' : 'text-neutral-400'
-                    }`}
-                  />
-                </button>
-                {mobileServicesOpen && (
-                  <div className="pl-4 pr-1 py-1 space-y-1 border-l-2 border-[#0052cb]/40 ml-3">
-                    {serviceSubItems.map((s) => (
-                      <button
-                        key={s.id}
-                        onClick={() => handleNavClick('services', s.id)}
-                        className="w-full text-left py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-300 hover:text-white hover:bg-white/10 transition-colors block"
-                      >
-                        {s.title}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {[
-                { label: 'SaaS Platforms Suite', id: 'saas' },
-                { label: 'AI & Automation', id: 'ai' },
-                { label: 'About CoVision', id: 'about' },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className="w-full text-left py-2.5 px-3.5 rounded-xl text-sm font-semibold hover:bg-white/10 transition-colors cursor-pointer bg-transparent border-0 text-neutral-200"
-                >
-                  {item.label}
-                </button>
-              ))}
-
-              <div className="pt-3 border-t border-white/10">
-                <button
-                  onClick={() => {
-                    setMenuOpen(false)
-                    onOpenContact()
-                  }}
-                  className="w-full py-3.5 rounded-xl bg-[#0052cb] text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 cursor-pointer shadow-md"
-                >
-                  <span>Consult Lead Architect</span>
-                  <ArrowRight className="size-3.5" />
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         {/* Center Stage: Masked Headline Rise + Focus Pull Subtitle + Single-Line CTAs */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 my-auto pointer-events-none pb-8 sm:pb-12">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 my-auto pointer-events-none pt-28 sm:pt-36 pb-8 sm:pb-12">
           {/* Eyebrow Floating Pill: Exact text from image */}
           <motion.div
             initial={{ opacity: 0, y: -15 }}

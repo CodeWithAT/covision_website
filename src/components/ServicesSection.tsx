@@ -124,9 +124,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       </section>
 
       {/* =========================================================================
-          2. QUICK JUMP PILL NAVIGATION BAR
+          2. QUICK JUMP PILL NAVIGATION BAR (Natural in-page scroll, not sticky)
           ========================================================================= */}
-      <div className="sticky top-20 z-30 bg-paper/95 backdrop-blur-md border-b border-ink-line py-3.5 shadow-xs">
+      <div className="relative z-10 bg-paper border-b border-ink-line py-3.5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
             {[

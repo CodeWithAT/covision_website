@@ -55,11 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 px-3 sm:px-6 pt-3 pointer-events-none font-inter-tight transition-all duration-400 ${
-        activePage === 'home' && !scrolled
-          ? 'opacity-0 -translate-y-6 pointer-events-none'
-          : 'opacity-100 translate-y-0'
-      }`}
+      className="fixed inset-x-0 top-0 z-50 px-3 sm:px-6 pt-3 pointer-events-none font-inter-tight transition-all duration-400 opacity-100 translate-y-0"
     >
       <div
         className={`pointer-events-auto mx-auto max-w-7xl rounded-2xl px-5 sm:px-6 transition-all duration-300 ${
