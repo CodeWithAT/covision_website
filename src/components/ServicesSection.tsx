@@ -11,7 +11,6 @@ import {
   Layers,
   Sparkles,
   CheckCircle2,
-  ShieldCheck,
   TrendingUp,
   Target,
   LineChart,
@@ -23,8 +22,6 @@ import {
   Database,
   Workflow,
   ChevronRight,
-  ArrowLeft,
-  Home,
   Server,
   Activity,
   Maximize2,
@@ -39,14 +36,12 @@ interface ServicesSectionProps {
   onRequestScope: (serviceTitle: string) => void
   sectionNumber?: string
   targetServiceId?: string
-  onBackToHome?: () => void
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   onRequestScope,
   sectionNumber = '01',
   targetServiceId,
-  onBackToHome,
 }) => {
   // Normalize target service id to match 01 to 06
   const getInitialService = (): ServiceItem => {
@@ -131,80 +126,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
   return (
     <section id="services" className="relative w-full bg-paper text-ink font-inter-tight">
-      {/* Top Breadcrumb & Return Bar */}
-      {onBackToHome && (
-        <div className="pt-24 pb-4 bg-paper-deep border-b border-ink-line">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            <button
-              onClick={onBackToHome}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-neutral-600 hover:text-[#0052cb] transition-colors cursor-pointer"
-            >
-              <ArrowLeft className="size-3.5" />
-              <span>Return to Overview</span>
-            </button>
-            <div className="flex items-center gap-2 text-xs font-mono text-neutral-500">
-              <button
-                onClick={onBackToHome}
-                className="hover:text-[#0052cb] inline-flex items-center gap-1 cursor-pointer"
-              >
-                <Home className="size-3" />
-                <span>Home</span>
-              </button>
-              <span>/</span>
-              <span className="text-[#0052cb] font-bold">Services & Architecture</span>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* =========================================================================
-          1. TOP ATTACHED BANNER (From user instructions & attached banner image)
+          1. TOP ATTACHED BANNER (From user instruction3)
+             Uses high-res technology_banner.png without duplicate HTML text overlay.
+             Cleanly displays the exact artwork and built-in typography!
           ========================================================================= */}
-      <div className={`relative w-full bg-white border-b border-ink-line ${onBackToHome ? 'pt-8 pb-12' : 'pt-28 pb-14'}`}>
+      <div className="py-10 md:py-14 bg-white border-b border-ink-line">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           {/* Main Visual Banner Card */}
-          <div className="relative w-full rounded-3xl overflow-hidden border border-ink-line shadow-xl bg-neutral-900 group">
-            <div className="relative w-full min-h-[340px] sm:min-h-[420px] md:min-h-[480px]">
-              <img
-                src="/images/services/technology_banner.jpg"
-                alt="Technology: Empowering a Better Tomorrow"
-                className="w-full h-full object-cover object-center absolute inset-0 transition-transform duration-1000 ease-out group-hover:scale-102"
-              />
-              {/* Refined gradient scrim for maximum text clarity while preserving the sunrise & circuitry visual */}
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent sm:from-white/92 sm:via-white/70 sm:to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent md:hidden" />
-
-              {/* Text Layer (Matching attached banner text exactly) */}
-              <div className="relative z-10 p-6 sm:p-10 md:p-14 lg:p-16 max-w-2xl flex flex-col justify-between h-full">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0052cb]/10 text-[#0052cb] border border-[#0052cb]/20 text-xs font-mono font-bold tracking-widest uppercase mb-4 sm:mb-6">
-                    <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
-                    <span>Technology</span>
-                  </div>
-
-                  <h1 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08]">
-                    Empowering a <span className="text-[#0052cb]">Better Tomorrow.</span>
-                  </h1>
-
-                  <div className="w-16 h-1 bg-gradient-to-r from-[#0052cb] to-blue-400 rounded-full my-4 sm:my-5" />
-
-                  <p className="text-base sm:text-xl font-medium text-slate-700 leading-relaxed">
-                    Delivering intelligent solutions that adapt, innovate and drive real-world impact.
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-4 flex items-center gap-4 text-xs font-semibold text-slate-600">
-                  <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 shadow-xs">
-                    <ShieldCheck className="size-3.5 text-[#0052cb]" />
-                    Enterprise SLA Certified
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 shadow-xs">
-                    <Sparkles className="size-3.5 text-[#0052cb]" />
-                    AI-Driven Delivery
-                  </span>
-                </div>
-              </div>
-            </div>
+          <div className="relative w-full rounded-3xl overflow-hidden border border-ink-line shadow-lg bg-neutral-900 group">
+            <img
+              src="/images/services/technology_banner.png"
+              alt="Technology: Empowering a Better Tomorrow"
+              className="w-full h-auto object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+            />
           </div>
 
           {/* Followed Immediately by the Exact Instruction Paragraph */}
@@ -213,12 +149,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-8 bg-gradient-to-r from-blue-50/70 via-white to-blue-50/40 rounded-2xl p-6 sm:p-8 border border-blue-200/80 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+            className="mt-8 bg-paper-deep rounded-2xl p-6 sm:p-8 md:p-10 border border-ink-line shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
           >
             <div className="max-w-4xl">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-2">
-                <Workflow className="size-4" />
-                <span>Strategic Vision & Adaptation</span>
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-2.5">
+                <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
+                <span>Enterprise Technology Vision & Adaptation</span>
               </div>
               <p className="text-base sm:text-lg text-slate-800 leading-relaxed font-normal">
                 An evolving suite of solutions tailored to our clients’ changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead.
@@ -227,7 +163,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
             <button
               onClick={() => scrollToElement('capgemini-service-blocks', -90)}
-              className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#0052cb] text-white text-xs sm:text-sm font-semibold hover:bg-[#003da8] transition-all shadow-md shadow-blue-600/20 active:scale-95 cursor-pointer"
+              className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0052cb] text-white text-xs sm:text-sm font-semibold hover:bg-[#003da8] transition-all shadow-md shadow-blue-600/20 active:scale-95 cursor-pointer"
             >
               <span>Explore 6 Delivery Practices</span>
               <ChevronRight className="size-4" />
@@ -681,7 +617,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     {/* The User-Provided 3D Mobile Phone Image */}
                     <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-800 shadow-xl bg-slate-950">
                       <img
-                        src="/images/services/mobile_app_3d_podium.jpg"
+                        src="/images/services/mobile_app_3d_podium.png"
                         alt="3D Mobile App Development on Neon Podium"
                         className="w-full h-72 sm:h-80 object-cover object-center"
                       />

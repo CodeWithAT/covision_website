@@ -123,7 +123,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     techStack: ['Swift', 'Kotlin', 'Flutter', 'React Native', 'Capacitor', 'Tailwind', 'Node.js'],
     iconName: 'Smartphone',
     badgeText: '02 • Mobile Practice',
-    image: '/images/services/mobile_app_3d_podium.jpg',
+    image: '/images/services/mobile_app_3d_podium.png',
     mobileSolutions: [
       {
         title: 'Native App Development',

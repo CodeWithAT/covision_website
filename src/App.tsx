@@ -241,11 +241,21 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
+              <PageHeaderBanner
+                pageName="Services & Architecture"
+                title="Technology: Empowering a Better Tomorrow."
+                subtitle="Delivering intelligent solutions that adapt, innovate and drive real-world impact across modern enterprise ecosystems."
+                metrics={[
+                  { label: 'SLA Availability', value: '99.99%' },
+                  { label: 'Sprint Delivery Velocity', value: '2-4 Wks' },
+                  { label: 'Enterprise Practices', value: '6 Disciplines' },
+                ]}
+                onBackToHome={() => handleNavigatePage('home')}
+              />
               <ServicesSection
                 onRequestScope={handleOpenContact}
                 sectionNumber="01"
                 targetServiceId={targetServiceId}
-                onBackToHome={() => handleNavigatePage('home')}
               />
               <TechStackMatrix sectionNumber="02" />
               <ContactSection prefillService={prefillService} />
