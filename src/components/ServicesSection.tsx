@@ -11,6 +11,7 @@ import {
   Sparkles,
   CheckCircle2,
   Maximize2,
+  ChevronRight,
 } from 'lucide-react'
 import { ServiceDetailModal } from './ServiceDetailModal'
 import { IT_SERVICES_DATA } from '../data/mockData'
@@ -21,6 +22,248 @@ interface ServicesSectionProps {
   onRequestScope: (serviceTitle: string) => void
   sectionNumber?: string
   targetServiceId?: string
+}
+
+// ─── CAPABILITY GRID CARDS (Capgemini-style 3-col summary overview) ───────────
+const SERVICE_GRID_CARDS = [
+  {
+    id: 'software-engineering',
+    number: '01',
+    icon: Cpu,
+    title: 'Software Engineering',
+    summary: 'Bespoke enterprise software: HRMS, ERP, payroll systems, and scalable proprietary platforms engineered for complex business demands.',
+    metrics: { label: 'Systems Delivered', value: '50+ Enterprise Systems' },
+  },
+  {
+    id: 'application-development',
+    number: '02',
+    icon: Smartphone,
+    title: 'Application Development & Management',
+    summary: 'Native, cross-platform, and progressive web applications — engineered for 60fps fluidity and 24/7 enterprise lifecycle management.',
+    metrics: { label: 'Platforms', value: 'iOS · Android · Web · PWA' },
+  },
+  {
+    id: 'data-analytics',
+    number: '03',
+    icon: BarChart3,
+    title: 'Data Analytics & Predictive Intelligence',
+    summary: 'Real-time BI dashboards, predictive ML models, and 14+ analytics platforms that transform raw data into measurable business outcomes.',
+    metrics: { label: 'Analytics Dimensions', value: '9 Critical KPIs' },
+  },
+  {
+    id: 'cloud-infrastructure',
+    number: '04',
+    icon: Cloud,
+    title: 'Cloud & Infrastructure',
+    summary: 'AWS, Azure, and GCP-certified cloud architecture, zero-downtime migration services, and AI-fused self-optimizing infrastructure.',
+    metrics: { label: 'Hyperscaler Partners', value: 'AWS · Azure · GCP' },
+  },
+  {
+    id: 'ai-ml-integration',
+    number: '05',
+    icon: Brain,
+    title: 'AI / ML Integration',
+    summary: 'Generative AI, autonomous agentic workflows, fine-tuned enterprise models, and cognitive connectors for SAP, Salesforce & ERP systems.',
+    metrics: { label: 'AI Capability', value: 'Agentic · GenAI · MLOps' },
+  },
+  {
+    id: 'ux-ui-design',
+    number: '06',
+    icon: Palette,
+    title: 'UX / UI Design',
+    summary: 'Cognitive science-backed design, the CoVision Lattice™ design system, and WCAG AAA interfaces that convert and retain enterprise users.',
+    metrics: { label: 'Design System', value: 'CoVision Lattice™' },
+  },
+]
+
+// ─── EXPANDED EDITORIAL SHOWCASE DATA ────────────────────────────────────────
+const SERVICE_SHOWCASES = [
+  {
+    id: 'software-engineering',
+    number: '01',
+    icon: Cpu,
+    badge: 'Core Engineering Practice',
+    title: 'Custom Software Engineering',
+    headline: 'Elevate your business with tailored software that works like your own operating system.',
+    body: 'Every business operates within its own unique landscape — shaped by its audience, processes, and objectives. We engineer bespoke software solutions that align seamlessly with your operational reality, from complex HRMS platforms to sovereign ERP ecosystems.',
+    image: '/senior_image_catalog/02_Software_Engineering_and_Code/02_principal_architect_scalability.jpg',
+    imageAlt: 'Principal Architect Software Engineering',
+    bullets: [
+      {
+        title: 'HRMS & Human Capital Platforms',
+        desc: 'Apto HRMS — automating talent lifecycle, role hierarchies, performance governance, and employee self-service workflows.',
+      },
+      {
+        title: 'Sovereign Payroll Engineering',
+        desc: 'Multi-country statutory tax compliance, banking API integration, and zero-defect automated wage disbursement systems.',
+      },
+      {
+        title: 'Unified ERP Architecture',
+        desc: 'Bring all operations under one umbrella: CRM, procurement, inventory management, and automated accounting in one coherent system.',
+      },
+    ],
+    scope: 'Software Engineering (HRMS, Payroll & ERP)',
+    dataIndex: 0,
+    imageLeft: true,
+  },
+  {
+    id: 'application-development',
+    number: '02',
+    icon: Smartphone,
+    badge: 'Application Practice',
+    title: 'Application Development & Management',
+    headline: 'Turbo-charge your mobile and web presence with CoVision engineering.',
+    body: 'Wide array of mobile app development solutions engineered for consumer-grade fluidity and mission-critical enterprise reliability — from native hardware-accelerated apps to progressive web experiences that reach users on every device.',
+    image: '/senior_image_catalog/04_Mobile_App_Engineering/01_dark_mode_mobile_app_ux.jpg',
+    imageAlt: 'Enterprise Mobile Application Engineering',
+    bullets: [
+      {
+        title: 'Native App Development',
+        desc: 'Dedicated Swift (iOS) and Kotlin (Android) engineering maximizing hardware acceleration, 60fps fluidity, and platform-native UX.',
+      },
+      {
+        title: 'Cross-Platform & Hybrid Architecture',
+        desc: 'Flutter and React Native sharing 95%+ unified codebase while delivering native-grade UI performance across both platforms.',
+      },
+      {
+        title: 'Progressive Web Apps (PWA)',
+        desc: 'Zero-install web apps with offline-first service worker caching, push notifications, and instant cross-device reach.',
+      },
+    ],
+    scope: 'Mobile App Development (Native, Cross-Platform & PWA)',
+    dataIndex: 1,
+    imageLeft: false,
+  },
+  {
+    id: 'data-analytics',
+    number: '03',
+    icon: BarChart3,
+    badge: 'Intelligence Practice',
+    title: 'Business Analytics & Predictive Intelligence',
+    headline: 'The Divine Weapon of E-Business. Powered by an Arsenal of Technological Expertise.',
+    body: 'Analytics is not merely a tool — it is a transformative strategic weapon that decodes real-time events, uncovers actionable insights, and equips businesses to anticipate and shape future outcomes. We harness 14+ enterprise-grade analytical platforms across 9 critical performance dimensions.',
+    image: '/senior_image_catalog/07_Data_Analytics_and_BI/01_financial_bi_telemetry_hub.jpg',
+    imageAlt: 'Enterprise Business Intelligence & Analytics Hub',
+    bullets: [
+      {
+        title: '9 Critical Performance Dimensions',
+        desc: 'User behaviour, traffic channels, e-commerce conversion funnels, dynamic pricing, heatmap recordings, and predictive AI analytics.',
+      },
+      {
+        title: 'Enterprise Analytics Arsenal (14+ Platforms)',
+        desc: 'Google Analytics, Microsoft Clarity, Mixpanel, Tableau, Adobe Analytics, Shopify Analytics, Albert AI, Pricefx, and Qlik Sense.',
+      },
+      {
+        title: 'Predictive ML & Recommendation Engines',
+        desc: 'Forecasting customer lifetime value, automated trend discovery, churn prevention, and hyper-personalized recommendation algorithms.',
+      },
+    ],
+    scope: 'Data Analytics & Predictive Intelligence',
+    dataIndex: 2,
+    imageLeft: true,
+  },
+  {
+    id: 'cloud-infrastructure',
+    number: '04',
+    icon: Cloud,
+    badge: 'Cloud Practice',
+    title: 'Cloud & Infrastructure',
+    headline: 'Strategize smart. Transform fast. The fusion of AI with cloud engineering.',
+    body: 'Cloud services are a powerful weapon in the digital business ecosystem. Our strategic partnerships with AWS, Microsoft Azure, and Google Cloud enable us to leverage cutting-edge cloud innovations, AI acceleration, and sovereign infrastructure to accelerate your digital transformation.',
+    image: '/senior_image_catalog/01_Cloud_and_Datacenter/10_distributed_cloud_engineering_la.jpg',
+    imageAlt: 'Distributed Cloud Engineering Lab',
+    bullets: [
+      {
+        title: 'Cloud Strategy, Architecture & Consulting',
+        desc: 'IT landscape assessment, tailored cloud adoption roadmaps, scalable cloud-native and microservices architectures, hybrid and multi-cloud environments.',
+      },
+      {
+        title: 'Zero-Downtime Migration Services',
+        desc: 'Application & data migration, lift-and-shift operations, cloud-to-cloud transitions, and legacy system modernization with zero business disruption.',
+      },
+      {
+        title: 'Media & Content Cloud Solutions',
+        desc: 'Cloud-Based DAM systems, AI Computer Vision metadata tagging, CDN asset distribution, and AI-based recommendation engines for content platforms.',
+      },
+    ],
+    scope: 'Cloud & Infrastructure (AWS, Azure & GCP)',
+    dataIndex: 3,
+    imageLeft: false,
+  },
+  {
+    id: 'ai-ml-integration',
+    number: '05',
+    icon: Brain,
+    badge: 'AI Practice',
+    title: 'AI / ML Integration & Autonomous Intelligence',
+    headline: 'Unite Generative AI creativity with autonomous Agentic AI execution.',
+    body: "Generative AI and agentic AI are the two foundational pillars of business-specific AI transformation. By learning and adapting to each organization's unique processes, workflows, and customer needs, we enable personalized, context-aware solutions that preserve the human touch.",
+    image: '/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg',
+    imageAlt: 'Enterprise AI Neural Architecture',
+    bullets: [
+      {
+        title: 'Fine-Tuned Enterprise AI Models',
+        desc: 'Sovereign model training on private organizational datasets with strict data boundaries, safety rails, vector embeddings, and governance controls.',
+      },
+      {
+        title: 'Autonomous Agentic Workflows',
+        desc: 'Multi-agent task orchestration, custom AI agents for business processes, intelligent document processing, and agentic workflow automation.',
+      },
+      {
+        title: 'Enterprise Software AI Connectors',
+        desc: 'Seamless AI integration with CRM, ERP, HRMS, ticketing, and database systems — performing authorized actions and retrieving contextual information.',
+      },
+    ],
+    scope: 'AI/ML Integration & Autonomous Agent Mesh',
+    dataIndex: 4,
+    imageLeft: true,
+  },
+  {
+    id: 'ux-ui-design',
+    number: '06',
+    icon: Palette,
+    badge: 'Design Practice',
+    title: 'UX / UI Design',
+    headline: 'UX/UI Design is a Dialogue, Not Decoration — Creating Seamless Connections Between Brands and Users.',
+    body: 'At CoVision, design is grounded in cognitive psychology and behavioural science. We design interfaces that think, react, and resonate with users — powered by the CoVision Lattice™ design system: an operational strategy delivering scalable, user-centric products.',
+    image: '/senior_image_catalog/08_UX_UI_Design_Systems/01_design_studio_ui_wireframing.jpg',
+    imageAlt: 'CoVision UX/UI Design Studio',
+    bullets: [
+      {
+        title: 'Cognitive Science–Backed Design Thinking',
+        desc: 'Grounded in cognitive psychology and behavioral science to minimize friction, sculpt frictionless user flows, and maximize engagement.',
+      },
+      {
+        title: 'CoVision Lattice / Monolith™ Design System',
+        desc: 'Not just a library — an operational design strategy delivering scalable, tokenized, and user-centric interfaces with unmatched consistency.',
+      },
+      {
+        title: 'WCAG AAA Accessibility & Performance',
+        desc: 'Full WCAG 2.1 AAA compliance, fluid micro-interactions, 60fps animation standards, and high-conversion transactional design flows.',
+      },
+    ],
+    scope: 'UX/UI Design & CoVision Lattice',
+    dataIndex: 5,
+    imageLeft: false,
+  },
+]
+
+const TAB_NAV = [
+  { id: 'software-engineering', num: '01', label: 'Software Engineering' },
+  { id: 'application-development', num: '02', label: 'Application Dev' },
+  { id: 'data-analytics', num: '03', label: 'Data Analytics' },
+  { id: 'cloud-infrastructure', num: '04', label: 'Cloud & Infrastructure' },
+  { id: 'ai-ml-integration', num: '05', label: 'AI/ML Integration' },
+  { id: 'ux-ui-design', num: '06', label: 'UX/UI Design' },
+]
+
+const cardFadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.07, ease: 'easeOut' as const },
+  }),
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
@@ -50,71 +293,98 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
   return (
     <section id="services" className="relative w-full bg-paper text-ink font-inter-tight">
-      {/* =========================================================================
-          1. TOP ATTACHED HERO BANNER (Cinematic Dark Theme matching #ai)
-             - Expanded 7-column visual container so the banner is big & clear
-             - Features technology_banner.png with cobalt blue metallic sphere
-             - Displays exact instruction3 intro paragraph word-for-word
-             - Smooth scroll-ready entrance animations
-          ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#07090E] text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-800">
-        <div className="absolute inset-0 bg-radial-gradient from-blue-900/25 via-slate-950/80 to-[#07090E] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(0,102,255,0.25),transparent_70%)] pointer-events-none" />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          1. DARK ENTERPRISE HERO BANNER
+          ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-[#07090E] text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-800/80">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,rgba(0,82,203,0.2),transparent_65%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Column: Core Headline, Vision & Exact Instruction3 Paragraph */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+            {/* Left: Copy */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-5 space-y-6"
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-bold tracking-wider uppercase">
-                <Sparkles className="size-3.5 text-blue-400 animate-pulse" />
-                <span>Services & Cloud Fabric</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-blue-400 font-mono text-xs font-bold tracking-wider uppercase">
+                <Sparkles className="size-3.5 animate-pulse" />
+                <span>Services &amp; Cloud Fabric</span>
               </div>
 
-              <h1 className="font-bricolage text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
-                Empowering a Better Tomorrow.
+              <h1 className="font-bricolage text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.06]">
+                Empowering a<br className="hidden sm:block" /> Better Tomorrow.
               </h1>
 
-              <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed">
-                An evolving suite of solutions tailored to our clients’ changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead.
+              <p className="text-base sm:text-lg text-slate-300/90 font-normal leading-relaxed">
+                An evolving suite of solutions tailored to our clients' changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead.
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center gap-4">
+              {/* 3-metric strip */}
+              <div className="grid grid-cols-3 gap-4 pt-3 border-t border-white/10">
+                {[
+                  { value: '6', label: 'Core Practices' },
+                  { value: '50+', label: 'Enterprise Systems' },
+                  { value: '3', label: 'Cloud Partners' },
+                ].map((m) => (
+                  <div key={m.label}>
+                    <div className="font-bricolage text-2xl sm:text-3xl font-bold text-white">{m.value}</div>
+                    <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mt-0.5">{m.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 pt-1">
                 <button
                   onClick={() => scrollToPractice('software-engineering')}
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all cursor-pointer group"
                 >
-                  <span>Explore 6 Delivery Practices</span>
+                  <span>Explore All 6 Practices</span>
                   <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
                   onClick={() => onRequestScope('Enterprise Architecture & Cloud Fabric')}
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-200 text-sm font-semibold transition-all cursor-pointer"
                 >
                   <span>Request Scope</span>
                 </button>
               </div>
             </motion.div>
 
-            {/* Right Column: Expanded Hero Banner Image (Bigger & Easily Visible) */}
+            {/* Right: Banner Image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-7 w-full"
             >
               <div className="relative rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-blue-950/40 group">
-                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-950">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950">
                   <img
                     src="/images/services/technology_banner_blue.png"
                     alt="Technology: Empowering a Better Tomorrow"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
                   />
+                </div>
+                <div className="absolute top-4 left-4">
+                  <span className="text-[10px] font-mono font-bold px-3 py-1.5 rounded-full bg-[#0052cb] text-white uppercase tracking-wider">
+                    Enterprise Architecture
+                  </span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <div className="font-bricolage text-sm sm:text-base font-bold text-white">6 Core Delivery Practices</div>
+                      <div className="text-[10px] text-slate-400 font-mono mt-0.5">SLA Guaranteed · Capgemini-Structure</div>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-emerald-400 text-[10px] font-mono font-bold">
+                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Active
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -123,20 +393,84 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         </div>
       </section>
 
-      {/* =========================================================================
-          2. QUICK JUMP PILL NAVIGATION BAR (Natural in-page scroll, not sticky)
-          ========================================================================= */}
-      <div className="relative z-10 bg-paper border-b border-ink-line py-3.5">
+      {/* ═══════════════════════════════════════════════════════════════
+          2. CAPABILITIES OVERVIEW GRID (3-column card matrix)
+          ═══════════════════════════════════════════════════════════════ */}
+      <div className="py-16 sm:py-20 bg-paper border-b border-ink-line">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
-            {[
-              { id: 'software-engineering', num: '01', label: 'Software Engineering' },
-              { id: 'application-development', num: '02', label: 'Application Dev' },
-              { id: 'data-analytics', num: '03', label: 'Data Analytics' },
-              { id: 'cloud-infrastructure', num: '04', label: 'Cloud & Infrastructure' },
-              { id: 'ai-ml-integration', num: '05', label: 'AI/ML Integration' },
-              { id: 'ux-ui-design', num: '06', label: 'UX/UI Design' },
-            ].map((tab) => {
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mb-12"
+          >
+            <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-3">
+              <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
+              <span>Section {sectionNumber} • From Core Engineering to Intelligent Solutions</span>
+            </div>
+            <h2 className="font-bricolage text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-ink leading-tight">
+              Six Integrated Practice Areas.
+            </h2>
+            <p className="mt-3 text-base text-neutral-600 leading-relaxed font-normal">
+              End-to-end enterprise digital transformation — from custom software and cloud infrastructure to AI automation and design systems.
+            </p>
+          </motion.div>
+
+          {/* 3-Column Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SERVICE_GRID_CARDS.map((card, idx) => {
+              const Icon = card.icon
+              return (
+                <motion.div
+                  key={card.id}
+                  custom={idx}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.1 }}
+                  variants={cardFadeUp}
+                  onClick={() => scrollToPractice(card.id)}
+                  className="group flex flex-col bg-white border border-ink-line rounded-3xl p-6 sm:p-7 hover:border-[#0052cb]/50 hover:shadow-lg hover:shadow-blue-50/80 transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="size-11 rounded-2xl bg-blue-50 border border-blue-200/80 flex items-center justify-center">
+                      <Icon className="size-5 text-[#0052cb]" />
+                    </div>
+                    <span className="font-mono text-[11px] text-neutral-400 font-bold">{card.number}</span>
+                  </div>
+
+                  <h3 className="font-bricolage text-base sm:text-lg font-bold text-ink mb-2 group-hover:text-[#0052cb] transition-colors leading-snug">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal flex-1">
+                    {card.summary}
+                  </p>
+
+                  <div className="mt-5 pt-4 border-t border-ink-line/70 flex items-center justify-between">
+                    <div>
+                      <div className="text-[10px] font-mono text-neutral-400 uppercase tracking-wide">{card.metrics.label}</div>
+                      <div className="text-xs font-bold text-ink mt-0.5">{card.metrics.value}</div>
+                    </div>
+                    <div className="size-8 rounded-full bg-paper border border-ink-line flex items-center justify-center group-hover:bg-[#0052cb] group-hover:border-[#0052cb] transition-all">
+                      <ChevronRight className="size-4 text-neutral-400 group-hover:text-white transition-colors" />
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          3. QUICK-JUMP TAB NAV
+          ═══════════════════════════════════════════════════════════════ */}
+      <div className="relative z-10 bg-white border-b border-ink-line py-3.5 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto no-scrollbar">
+            {TAB_NAV.map((tab) => {
               const isActive = activeNavId === tab.id
               return (
                 <button
@@ -145,10 +479,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   className={`shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                     isActive
                       ? 'bg-[#0052cb] text-white shadow-sm'
-                      : 'bg-white text-neutral-700 hover:text-black border border-ink-line hover:border-neutral-400'
+                      : 'bg-paper text-neutral-600 hover:text-ink border border-ink-line hover:border-neutral-400'
                   }`}
                 >
-                  <span className="font-mono text-[10px] opacity-75">{tab.num}.</span>
+                  <span className="font-mono text-[10px] opacity-70">{tab.num}.</span>
                   <span>{tab.label}</span>
                 </button>
               )
@@ -157,608 +491,138 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         </div>
       </div>
 
-      {/* =========================================================================
-          3. SECTION HEADER
-          ========================================================================= */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
-        className="pt-16 pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-3">
-            <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
-            <span>Section {sectionNumber} • 6 Delivery Practices</span>
-          </div>
-          <h2 className="font-bricolage text-3xl sm:text-5xl font-medium tracking-tight text-ink leading-tight">
-            Enterprise Engineering Services. Engineered for Impact.
-          </h2>
-          <p className="mt-3 text-base sm:text-lg text-neutral-600 leading-relaxed font-normal">
-            A comprehensive, high-velocity delivery framework modeled for modern enterprise scale.
-          </p>
+      {/* ═══════════════════════════════════════════════════════════════
+          4. EDITORIAL SERVICE DEEP-DIVES (6 alternating rows)
+          ═══════════════════════════════════════════════════════════════ */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="py-12 sm:py-16 space-y-20 sm:space-y-28">
+
+          {SERVICE_SHOWCASES.map((service, idx) => {
+            const Icon = service.icon
+            return (
+              <motion.section
+                key={service.id}
+                id={`practice-showcase-${service.id}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="scroll-mt-36"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+
+                  {/* IMAGE */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    className={service.imageLeft ? 'order-1' : 'order-1 lg:order-2'}
+                  >
+                    <div className="relative rounded-3xl overflow-hidden bg-slate-900 border border-ink-line shadow-xl group aspect-[4/3]">
+                      <img
+                        src={service.image}
+                        alt={service.imageAlt}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                        <div>
+                          <div className="text-[10px] font-mono text-white/60 uppercase tracking-wider">Practice {service.number}</div>
+                          <div className="font-bricolage text-sm font-bold text-white mt-0.5 leading-tight">{service.title}</div>
+                        </div>
+                        <div className="size-9 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 flex items-center justify-center">
+                          <Icon className="size-4 text-white" />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* CONTENT */}
+                  <motion.div
+                    initial={{ opacity: 0, x: service.imageLeft ? 22 : -22 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                    className={`flex flex-col space-y-5 ${service.imageLeft ? 'order-2' : 'order-2 lg:order-1'}`}
+                  >
+                    {/* Practice Badge */}
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider w-max">
+                      <Icon className="size-3.5" />
+                      <span>{service.number}. {service.badge}</span>
+                    </div>
+
+                    {/* Headline */}
+                    <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[31px] font-bold text-ink leading-snug">
+                      {service.headline}
+                    </h3>
+
+                    {/* Body */}
+                    <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+                      {service.body}
+                    </p>
+
+                    {/* Bullet Points */}
+                    <div className="space-y-4 pt-1">
+                      {service.bullets.map((bullet, bIdx) => (
+                        <motion.div
+                          key={bIdx}
+                          initial={{ opacity: 0, x: service.imageLeft ? 10 : -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.45, delay: 0.25 + bIdx * 0.1 }}
+                          className="flex items-start gap-3"
+                        >
+                          <div className="size-5 rounded-full bg-blue-50 border border-blue-200/80 flex items-center justify-center shrink-0 mt-0.5">
+                            <CheckCircle2 className="size-3 text-[#0052cb]" />
+                          </div>
+                          <div>
+                            <span className="font-bold text-sm text-ink">{bullet.title} </span>
+                            <span className="text-xs sm:text-sm text-neutral-600">{bullet.desc}</span>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* CTAs */}
+                    <div className="pt-2 flex flex-wrap items-center gap-3">
+                      <button
+                        onClick={() => onRequestScope(service.scope)}
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer group"
+                      >
+                        <span>Request Scope</span>
+                        <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                      <button
+                        onClick={() => setModalService(IT_SERVICES_DATA[service.dataIndex])}
+                        className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-sm font-semibold transition-colors cursor-pointer"
+                      >
+                        <Maximize2 className="size-3.5" />
+                        <span>Full Capability Specs</span>
+                      </button>
+                    </div>
+
+                    {/* Subtle progress indicator */}
+                    {idx < SERVICE_SHOWCASES.length - 1 && (
+                      <div className="hidden lg:flex items-center gap-3 pt-2 opacity-50">
+                        <span className="text-[10px] font-mono text-neutral-400">{service.number} / 06</span>
+                        <div className="flex-1 h-px bg-ink-line" />
+                        <span className="text-[10px] font-mono text-neutral-400">↓ next</span>
+                      </div>
+                    )}
+                  </motion.div>
+
+                </div>
+              </motion.section>
+            )
+          })}
+
         </div>
-      </motion.div>
-
-      {/* =========================================================================
-          4. THE 6 PRACTICES: EXPANSIVE BALANCED EDITORIAL SHOWCASE WITH SCROLL ANIMATIONS
-             - Big, expansive high-res images (h-[400px] sm:h-[460px] lg:h-[500px])
-             - Silky scroll reveals on entrance
-             - Crisp, punchy executive bullets
-          ========================================================================= */}
-      <div className="py-10 space-y-24 sm:space-y-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* -----------------------------------------------------------------------
-            PRACTICE 01: SOFTWARE ENGINEERING
-            Layout: Image Left (50%), Text & Bullets Right (50%)
-            ----------------------------------------------------------------------- */}
-        <motion.section
-          id="practice-showcase-software-engineering"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
-        >
-          {/* Big Visual Showcase */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full"
-          >
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
-              <img
-                src="/senior_image_catalog/02_Software_Engineering_and_Code/01_clean_dark_mode_workstation.jpg"
-                alt="Software Engineering Architecture & Systems"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
-              />
-            </div>
-          </motion.div>
-
-          {/* Structured Text & Bullets */}
-          <motion.div
-            initial={{ opacity: 0, x: 25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full space-y-5"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
-              <Cpu className="size-3.5 text-[#0052cb]" />
-              <span>01. Software Engineering</span>
-            </div>
-
-            <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[34px] font-bold text-ink leading-tight">
-              Elevate your business with custom software solutions.
-            </h3>
-
-            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
-              Every business operates within its own operating system, shaped by its unique audience, processes, and objectives. We engineer tailored software solutions that align seamlessly with your business needs and goals.
-            </p>
-
-            {/* Clear, Punchy Executive Bullets */}
-            <div className="space-y-3.5 pt-1">
-              {[
-                { title: 'HRMS of Apto:', desc: 'Tailored human resource management system automating talent lifecycle, role hierarchies, and employee governance.' },
-                { title: '2 Sovereign Payroll Systems:', desc: 'Apto Payroll & CoVision SecurePay handling multi-country statutory tax, banking APIs, and zero-defect wage disbursements.' },
-                { title: 'Centralized ERP Solutions:', desc: 'Bring all your business operations under one umbrella unifying CRM, procurement, inventory, and automated accounting.' },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
-                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => onRequestScope('Software Engineering (HRMS, Payroll & ERP)')}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
-              >
-                <span>Request Scope</span>
-                <ArrowRight className="size-4" />
-              </button>
-              <button
-                onClick={() => setModalService(IT_SERVICES_DATA[0])}
-                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
-              >
-                <Maximize2 className="size-3.5" />
-                <span>Full Technical Specs</span>
-              </button>
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* -----------------------------------------------------------------------
-            PRACTICE 02: APPLICATION DEVELOPMENT AND MANAGEMENT
-            Layout: Text Left (50%), Image Right (50%)
-            ----------------------------------------------------------------------- */}
-        <motion.section
-          id="practice-showcase-application-development"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
-        >
-          {/* Structured Text & Bullets */}
-          <motion.div
-            initial={{ opacity: 0, x: -25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full space-y-5 order-2 lg:order-1"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
-              <Smartphone className="size-3.5 text-[#0052cb]" />
-              <span>02. Application Development & Management</span>
-            </div>
-
-            <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[34px] font-bold text-ink leading-tight">
-              Turbo-charge your mobile app development with CoVision.
-            </h3>
-
-            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
-              Wide array of mobile app development solutions engineered for consumer-grade fluidity and mission-critical enterprise reliability across platforms.
-            </p>
-
-            {/* Clear, Punchy Executive Bullets */}
-            <div className="space-y-3.5 pt-1">
-              {[
-                { title: 'Native App Development:', desc: 'Dedicated Swift (iOS) and Kotlin (Android) engineering maximizing hardware acceleration and 60fps fluidity.' },
-                { title: 'Cross-Platform & Hybrid:', desc: 'Flutter and React Native architectures sharing 95%+ unified codebase efficiency with native-grade UI.' },
-                { title: 'Progressive Web Apps (PWA):', desc: 'Zero-install web apps with offline-first service worker caching and instant cross-device reach.' },
-                { title: 'Startup to Enterprise Scale:', desc: 'Proven engineering benchmarks for high-velocity MVP validation and resilient 24/7 lifecycle support.' },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
-                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => onRequestScope('Mobile App Development (Native, Cross-Platform & PWA)')}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
-              >
-                <span>Request Scope</span>
-                <ArrowRight className="size-4" />
-              </button>
-              <button
-                onClick={() => setModalService(IT_SERVICES_DATA[1])}
-                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
-              >
-                <Maximize2 className="size-3.5" />
-                <span>Full Technical Specs</span>
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Big Visual Showcase */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full order-1 lg:order-2"
-          >
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
-              <img
-                src="/images/services/mobile_app_3d_podium.png"
-                alt="Futuristic Mobile App Development Ecosystem"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
-              />
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* -----------------------------------------------------------------------
-            PRACTICE 03: DATA ANALYTICS & PREDICTIVE INTELLIGENCE
-            Layout: Image Left (50%), Text & Bullets Right (50%)
-            ----------------------------------------------------------------------- */}
-        <motion.section
-          id="practice-showcase-data-analytics"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
-        >
-          {/* Big Visual Showcase */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full"
-          >
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
-              <img
-                src="/senior_image_catalog/03_Custom_SaaS_and_Platforms/01_executive_saas_performance_dashb.jpg"
-                alt="Business Analytics & Predictive Intelligence Console"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
-              />
-            </div>
-          </motion.div>
-
-          {/* Structured Text & Bullets */}
-          <motion.div
-            initial={{ opacity: 0, x: 25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full space-y-5"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
-              <BarChart3 className="size-3.5 text-[#0052cb]" />
-              <span>03. Data Analytics</span>
-            </div>
-
-            <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[34px] font-bold text-ink leading-tight">
-              Business Analytics & Predictive Intelligence.
-            </h3>
-
-            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
-              The Divine Weapon of E-Business. Powered by an Arsenal of Technological Expertise. Analytics is a transformative force decoding real-time events and equipping businesses to shape future outcomes.
-            </p>
-
-            {/* Clear, Punchy Executive Bullets */}
-            <div className="space-y-3.5 pt-1">
-              {[
-                { title: '9 Critical Performance Dimensions:', desc: 'User behaviour, traffic channels, funnel conversions, dynamic pricing, heatmaps, and predictive AI analytics.' },
-                { title: 'Enterprise Analytics Arsenal:', desc: 'Google Analytics, Microsoft Clarity, Mixpanel, Tableau, Adobe Analytics, Shopify, Albert AI, and Qlik Sense.' },
-                { title: 'Predictive Machine Learning Models:', desc: 'Forecasting customer lifetime value, automated trend discovery, churn prevention, and revenue yield optimization.' },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
-                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => onRequestScope('Data Analytics & Predictive Intelligence')}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
-              >
-                <span>Request Scope</span>
-                <ArrowRight className="size-4" />
-              </button>
-              <button
-                onClick={() => setModalService(IT_SERVICES_DATA[2])}
-                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
-              >
-                <Maximize2 className="size-3.5" />
-                <span>Full Technical Specs</span>
-              </button>
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* -----------------------------------------------------------------------
-            PRACTICE 04: CLOUD AND INFRASTRUCTURE
-            Layout: Text Left (50%), Image Right (50%)
-            ----------------------------------------------------------------------- */}
-        <motion.section
-          id="practice-showcase-cloud-infrastructure"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
-        >
-          {/* Structured Text & Bullets */}
-          <motion.div
-            initial={{ opacity: 0, x: -25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full space-y-5 order-2 lg:order-1"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
-              <Cloud className="size-3.5 text-[#0052cb]" />
-              <span>04. Cloud & Infrastructure</span>
-            </div>
-
-            <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[34px] font-bold text-ink leading-tight">
-              Strategize smart. Transform fast.
-            </h3>
-
-            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
-              Cloud services are considered a powerful weapon in the arsenal of the digital business ecosystem. Fusion of AI with cloud engineering created intelligent, self-optimizing digital ecosystems.
-            </p>
-
-            {/* Clear, Punchy Executive Bullets */}
-            <div className="space-y-3.5 pt-1">
-              {[
-                { title: 'Hyperscaler Partnerships:', desc: 'Strategic alliances with AWS, Microsoft Azure, and Google Cloud for scalable, secure multi-cloud architectures.' },
-                { title: 'Zero-Downtime Migration Services:', desc: 'Production data migration, lift-and-shift operations, cloud-to-cloud transitions, and legacy modernization.' },
-                { title: 'Media & Content Cloud Solutions:', desc: 'Cloud-Based Digital Asset Management (DAM), AI Computer Vision metadata tagging, and recommendation engines.' },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
-                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => onRequestScope('Cloud & Infrastructure (AWS, Azure & GCP)')}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
-              >
-                <span>Request Scope</span>
-                <ArrowRight className="size-4" />
-              </button>
-              <button
-                onClick={() => setModalService(IT_SERVICES_DATA[3])}
-                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
-              >
-                <Maximize2 className="size-3.5" />
-                <span>Full Technical Specs</span>
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Big Visual Showcase */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full order-1 lg:order-2"
-          >
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
-              <img
-                src="/senior_image_catalog/01_Cloud_and_Datacenter/01_enterprise_datacenter_array.jpg"
-                alt="Enterprise Cloud Datacenter & Infrastructure"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
-              />
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* -----------------------------------------------------------------------
-            PRACTICE 05: AI / ML INTEGRATION
-            Layout: Image Left (50%), Text & Bullets Right (50%)
-            ----------------------------------------------------------------------- */}
-        <motion.section
-          id="practice-showcase-ai-ml-integration"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
-        >
-          {/* Big Visual Showcase */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full"
-          >
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
-              <img
-                src="/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg"
-                alt="Enterprise AI Silicon & Autonomous Agent Mesh"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
-              />
-            </div>
-          </motion.div>
-
-          {/* Structured Text & Bullets */}
-          <motion.div
-            initial={{ opacity: 0, x: 25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full space-y-5"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
-              <Brain className="size-3.5 text-[#0052cb]" />
-              <span>05. AI / ML Integration</span>
-            </div>
-
-            <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[34px] font-bold text-ink leading-tight">
-              Cognitive AI Orchestration & Autonomous Agent Mesh.
-            </h3>
-
-            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
-              Unite Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your workflows, automate mission-critical operations, and deliver measurable enterprise value.
-            </p>
-
-            {/* Clear, Punchy Executive Bullets */}
-            <div className="space-y-3.5 pt-1">
-              {[
-                { title: 'Fine-Tuned Enterprise Models:', desc: 'Sovereign model tuning on private datasets with strict data boundaries, safety rails, and vector embeddings.' },
-                { title: 'Autonomous Agentic Workflows:', desc: 'Multi-agent task orchestration, dynamic API calling, self-healing retries, and asynchronous decision matrices.' },
-                { title: 'Enterprise Software Connectors:', desc: 'Seamless integration weaving cognitive agents into existing SAP, Salesforce, ERP, and database pipelines.' },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
-                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => onRequestScope('AI/ML Integration & Autonomous Agent Mesh')}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
-              >
-                <span>Request Scope</span>
-                <ArrowRight className="size-4" />
-              </button>
-              <button
-                onClick={() => setModalService(IT_SERVICES_DATA[4])}
-                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
-              >
-                <Maximize2 className="size-3.5" />
-                <span>Full Technical Specs</span>
-              </button>
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* -----------------------------------------------------------------------
-            PRACTICE 06: UX / UI DESIGN
-            Layout: Text Left (50%), Image Right (50%)
-            ----------------------------------------------------------------------- */}
-        <motion.section
-          id="practice-showcase-ux-ui-design"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
-        >
-          {/* Structured Text & Bullets */}
-          <motion.div
-            initial={{ opacity: 0, x: -25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full space-y-5 order-2 lg:order-1"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider">
-              <Palette className="size-3.5 text-[#0052cb]" />
-              <span>06. UX / UI Design</span>
-            </div>
-
-            <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[34px] font-bold text-ink leading-tight">
-              UX/UI Design Is a Dialogue, Not Decoration.
-            </h3>
-
-            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
-              Creating seamless connections between brands and users. At CoVision, design is grounded in cognitive psychology and behavioural science to resonate deeply with users.
-            </p>
-
-            {/* Clear, Punchy Executive Bullets */}
-            <div className="space-y-3.5 pt-1">
-              {[
-                { title: 'Cognitive Science–Backed Design:', desc: 'Grounded in cognitive psychology and behavioral science to minimize friction and sculpt frictionless user flows.' },
-                { title: 'CoVision Lattice / Monolith System:', desc: 'An operational design system strategy delivering scalable, user-centric interfaces with tokenized design hygiene.' },
-                { title: 'Accessibility & Performance:', desc: 'Full WCAG 2.1 AAA accessibility compliance, fluid micro-interactions, and high-conversion transaction flows.' },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-1" />
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-ink">{item.title} </span>
-                    <span className="text-xs sm:text-sm text-neutral-600">{item.desc}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => onRequestScope('UX/UI Design & CoVision Lattice/monolith')}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer"
-              >
-                <span>Request Scope</span>
-                <ArrowRight className="size-4" />
-              </button>
-              <button
-                onClick={() => setModalService(IT_SERVICES_DATA[5])}
-                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-ink-line hover:border-[#0052cb] text-neutral-700 hover:text-black text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
-              >
-                <Maximize2 className="size-3.5" />
-                <span>Full Technical Specs</span>
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Big Visual Showcase */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full order-1 lg:order-2"
-          >
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 border border-ink-line shadow-xl group h-[400px] sm:h-[460px] lg:h-[500px]">
-              <img
-                src="/images/services/ux_ui_design.jpg"
-                alt="Cognitive Science UX/UI Design & CoVision Lattice"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
-              />
-            </div>
-          </motion.div>
-        </motion.section>
-
       </div>
 
-      {/* =========================================================================
-          5. TECHNICAL SPECIFICATIONS MODAL
-          ========================================================================= */}
+      {/* ═══════════════════════════════════════════════════════════════
+          5. SERVICE DETAIL MODAL
+          ═══════════════════════════════════════════════════════════════ */}
       {modalService && (
         <ServiceDetailModal
           service={modalService}
