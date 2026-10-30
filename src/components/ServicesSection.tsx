@@ -111,7 +111,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               <div className="relative rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-blue-950/40 group">
                 <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-950">
                   <img
-                    src="/images/services/technology_banner.png"
+                    src="/images/services/technology_banner_blue.png"
                     alt="Technology: Empowering a Better Tomorrow"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
                   />
