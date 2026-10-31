@@ -98,33 +98,6 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
           </p>
         </div>
 
-        {/* Macro Production Impact Metrics Bar */}
-        <div className="mb-14 grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-6 rounded-3xl bg-white border border-ink-line shadow-xs">
-            <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#0052cb]">$2.4B+</div>
-            <div className="text-xs font-semibold text-neutral-700 mt-1">Enterprise GMV Scaled</div>
-            <div className="text-[11px] text-neutral-400 mt-0.5">Across high-load commerce hubs</div>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white border border-ink-line shadow-xs">
-            <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#0052cb]">99.995%</div>
-            <div className="text-xs font-semibold text-neutral-700 mt-1">SLA Availability</div>
-            <div className="text-[11px] text-neutral-400 mt-0.5">Zero unplanned production outages</div>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white border border-ink-line shadow-xs">
-            <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#0052cb]">140+</div>
-            <div className="text-xs font-semibold text-neutral-700 mt-1">Production Releases</div>
-            <div className="text-[11px] text-neutral-400 mt-0.5">Automated GitOps deployments</div>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white border border-ink-line shadow-xs">
-            <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#0052cb]">&lt; 15ms</div>
-            <div className="text-xs font-semibold text-neutral-700 mt-1">Global Edge TTFB</div>
-            <div className="text-[11px] text-neutral-400 mt-0.5">Sub-second client execution</div>
-          </div>
-        </div>
-
         {/* Dual Infinite Continuous Brand Marquee Wall */}
         <div className="mb-16 rounded-3xl bg-white border border-ink-line p-6 sm:p-8 shadow-xs overflow-hidden">
           <div className="text-center mb-6">

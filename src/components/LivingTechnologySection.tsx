@@ -89,11 +89,11 @@ const DEFINING_PILLARS: DefiningPillar[] = [
   },
   {
     number: '05',
-    title: 'CoUI™ Design Standard',
+    title: 'CoVision Lattice™ Design Standard',
     subtitle: 'Human-Centered Digital Experiences',
     category: 'Design Systems',
     tagline: 'Where behavioral psychology meets fluid, responsive micro-interactions.',
-    summary: 'CoUI™ reduces cognitive friction and guides user action. Clean visual hierarchy, accessible contrast, and smooth feedback loops create products customers love.',
+    summary: 'CoVision Lattice™ reduces cognitive friction and guides user action. Clean visual hierarchy, accessible contrast, and smooth feedback loops create products customers love.',
     bullets: [
       'The Proven I3D Process: Ideate, Investigate, Iterate, and Deliver with pixel-perfect precision.',
       'Higher Engagement: Intuitive workflows designed to boost user retention and conversion rates.',

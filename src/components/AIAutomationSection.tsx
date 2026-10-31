@@ -273,7 +273,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
               </div>
               <div className="p-5 pt-0">
                 <div className="pt-3 border-t border-ink-line text-[11px] font-mono text-[#0052cb] font-semibold">
-                  CoUI™ Digital Experience Mesh
+                  CoVision Lattice™ Digital Experience Mesh
                 </div>
               </div>
             </motion.div>

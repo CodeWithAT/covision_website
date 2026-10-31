@@ -3,7 +3,7 @@ export interface ServiceItem {
   number?: string
   title: string
   tagline: string
-  category: 'Software Engineering' | 'App Development' | 'Data & AI' | 'Cloud & Edge' | 'UX/UI & CoUI' | 'E-Commerce Suite'
+  category: 'Software Engineering' | 'App Development' | 'Data & AI' | 'Cloud & Edge' | 'UX/UI & CoVision Lattice™' | 'UX/UI & CoUI' | 'E-Commerce Suite'
   description: string
   detailedScope: string[]
   sla: string

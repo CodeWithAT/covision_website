@@ -102,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
                 { label: 'Cloud & Infrastructure', page: 'services', targetId: 'cloud-infrastructure' },
                 { label: 'AI & Automation Practice', page: 'ai' },
                 { label: 'Data Analytics & BI', page: 'services', targetId: 'data-analytics' },
-                { label: 'UX/UI & CoUI Design', page: 'services', targetId: 'ux-ui-design' },
+                { label: 'UX/UI & CoVision Lattice™', page: 'services', targetId: 'ux-ui-design' },
                 { label: 'Global Edge Network', page: 'services', targetId: 'cloud-infrastructure' },
               ].map((link) => (
                 <a

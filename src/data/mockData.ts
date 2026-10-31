@@ -334,7 +334,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     number: '06',
     title: 'UX/UI',
     tagline: 'ux/ui Design Is a Dialogue, Not Decoration—Creating Seamless Connections Between Brands and Users',
-    category: 'UX/UI & CoUI',
+    category: 'UX/UI & CoVision Lattice™',
     description: 'At Covison, design is a dialogue, not decoration. Grounded in cognitive psychology and behavioural science, we design interfaces that think, react, and resonate with users.',
     detailedScope: [
       'Cognitive Science–Backed Design Thinking: Grounded in cognitive psychology and behavioural science to design interfaces that think, react, and resonate with users',
@@ -568,7 +568,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     verifiedEnterprise: true,
   },
   {
-    quote: 'The level of craftsmanship, CoUI design fidelity, and performance obsession is unmatched. Every single interaction on our enterprise dashboard is silky smooth, and the automated CI/CD pipeline cut our release cycle to 10 minutes.',
+    quote: 'The level of craftsmanship, CoVision Lattice™ design fidelity, and performance obsession is unmatched. Every single interaction on our enterprise dashboard is silky smooth, and the automated CI/CD pipeline cut our release cycle to 10 minutes.',
     author: 'Siddharth Mehta',
     role: 'Head of Infrastructure',
     company: 'LogiCore Global (Singapore)',

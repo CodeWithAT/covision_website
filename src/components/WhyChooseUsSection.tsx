@@ -38,7 +38,7 @@ const VALUE_PROPS: ValueProp[] = [
     icon: <Gauge className="size-5" />,
     title: 'Rapid Delivery Without Technical Debt',
     description:
-      'Modern TypeScript architecture, reusable CoUI™ design tokens, and automated CI/CD pipelines that transform multi-month release cycles into days.',
+      'Modern TypeScript architecture, reusable CoVision Lattice™ design tokens, and automated CI/CD pipelines that transform multi-month release cycles into days.',
   },
   {
     icon: <ShieldCheck className="size-5" />,

@@ -105,7 +105,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
   },
   {
     id: 'coui-studio',
-    name: 'CoUI Studio™',
+    name: 'CoVision Lattice Studio™',
     subdomain: 'ui.covision.tech',
     category: 'Design Systems & Component Library',
     headline: 'Human-Centered Design Tokens & Fluid 60fps Components',
@@ -125,7 +125,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     ],
     techStack: ['Framer Motion', 'Tailwind CSS', 'Figma Tokens', 'React'],
     liveDemoUrl: 'https://ui.covision.tech',
-    documentationUrl: 'https://docs.covision.tech/coui',
+    documentationUrl: 'https://docs.covision.tech/lattice',
     tag: 'Design System',
   },
   {

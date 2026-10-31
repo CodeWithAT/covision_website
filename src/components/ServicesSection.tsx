@@ -24,14 +24,15 @@ interface ServicesSectionProps {
   targetServiceId?: string
 }
 
-// ─── CAPABILITY GRID CARDS (Capgemini-style 3-col summary overview) ───────────
+// ─── CAPABILITY GRID CARDS (Capgemini-style 2-col image-first overview) ──────
 const SERVICE_GRID_CARDS = [
   {
     id: 'software-engineering',
     number: '01',
     icon: Cpu,
     title: 'Software Engineering',
-    summary: 'Bespoke enterprise software: HRMS, ERP, payroll systems, and scalable proprietary platforms engineered for complex business demands.',
+    summary: 'Bespoke enterprise software: HRMS, ERP, payroll systems, and scalable proprietary platforms.',
+    image: '/senior_image_catalog/02_Software_Engineering_and_Code/01_clean_dark_mode_workstation.jpg',
     metrics: { label: 'Systems Delivered', value: '50+ Enterprise Systems' },
   },
   {
@@ -39,7 +40,8 @@ const SERVICE_GRID_CARDS = [
     number: '02',
     icon: Smartphone,
     title: 'Application Development & Management',
-    summary: 'Native, cross-platform, and progressive web applications — engineered for 60fps fluidity and 24/7 enterprise lifecycle management.',
+    summary: 'Native, cross-platform, and progressive web applications engineered for 24/7 enterprise lifecycle.',
+    image: '/senior_image_catalog/04_Mobile_App_Engineering/01_dark_mode_mobile_app_ux.jpg',
     metrics: { label: 'Platforms', value: 'iOS · Android · Web · PWA' },
   },
   {
@@ -47,7 +49,8 @@ const SERVICE_GRID_CARDS = [
     number: '03',
     icon: BarChart3,
     title: 'Data Analytics & Predictive Intelligence',
-    summary: 'Real-time BI dashboards, predictive ML models, and 14+ analytics platforms that transform raw data into measurable business outcomes.',
+    summary: 'Real-time BI dashboards and 14+ analytics platforms that transform data into measurable outcomes.',
+    image: '/senior_image_catalog/07_Data_Analytics_and_BI/01_financial_bi_telemetry_hub.jpg',
     metrics: { label: 'Analytics Dimensions', value: '9 Critical KPIs' },
   },
   {
@@ -55,7 +58,8 @@ const SERVICE_GRID_CARDS = [
     number: '04',
     icon: Cloud,
     title: 'Cloud & Infrastructure',
-    summary: 'AWS, Azure, and GCP-certified cloud architecture, zero-downtime migration services, and AI-fused self-optimizing infrastructure.',
+    summary: 'AWS, Azure, and GCP-certified cloud architecture and zero-downtime migration services.',
+    image: '/senior_image_catalog/01_Cloud_and_Datacenter/03_multi-cloud_rack_clusters.jpg',
     metrics: { label: 'Hyperscaler Partners', value: 'AWS · Azure · GCP' },
   },
   {
@@ -63,7 +67,8 @@ const SERVICE_GRID_CARDS = [
     number: '05',
     icon: Brain,
     title: 'AI / ML Integration',
-    summary: 'Generative AI, autonomous agentic workflows, fine-tuned enterprise models, and cognitive connectors for SAP, Salesforce & ERP systems.',
+    summary: 'Generative AI, autonomous agentic workflows, and cognitive connectors for SAP, Salesforce & ERP.',
+    image: '/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg',
     metrics: { label: 'AI Capability', value: 'Agentic · GenAI · MLOps' },
   },
   {
@@ -71,7 +76,8 @@ const SERVICE_GRID_CARDS = [
     number: '06',
     icon: Palette,
     title: 'UX / UI Design',
-    summary: 'Cognitive science-backed design, the CoVision Lattice™ design system, and WCAG AAA interfaces that convert and retain enterprise users.',
+    summary: 'Cognitive science-backed design, CoVision Lattice™ design system, and WCAG AAA compliant interfaces.',
+    image: '/senior_image_catalog/08_UX_UI_Design_Systems/01_design_studio_ui_wireframing.jpg',
     metrics: { label: 'Design System', value: 'CoVision Lattice™' },
   },
 ]
@@ -369,23 +375,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
                   />
                 </div>
-                <div className="absolute top-4 left-4">
-                  <span className="text-[10px] font-mono font-bold px-3 py-1.5 rounded-full bg-[#0052cb] text-white uppercase tracking-wider">
-                    Enterprise Architecture
-                  </span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <div className="font-bricolage text-sm sm:text-base font-bold text-white">6 Core Delivery Practices</div>
-                      <div className="text-[10px] text-slate-400 font-mono mt-0.5">SLA Guaranteed · Capgemini-Structure</div>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-emerald-400 text-[10px] font-mono font-bold">
-                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Active
-                    </div>
-                  </div>
-                </div>
               </div>
             </motion.div>
 
@@ -394,7 +383,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          2. CAPABILITIES OVERVIEW GRID (3-column card matrix)
+          2. CAPABILITIES OVERVIEW GRID (2-col image-first 2×3 matrix)
           ═══════════════════════════════════════════════════════════════ */}
       <div className="py-16 sm:py-20 bg-paper border-b border-ink-line">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -418,8 +407,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             </p>
           </motion.div>
 
-          {/* 3-Column Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* 2-Column Image Cards (2×3 grid) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {SERVICE_GRID_CARDS.map((card, idx) => {
               const Icon = card.icon
               return (
@@ -431,30 +420,47 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   viewport={{ once: true, amount: 0.1 }}
                   variants={cardFadeUp}
                   onClick={() => scrollToPractice(card.id)}
-                  className="group flex flex-col bg-white border border-ink-line rounded-3xl p-6 sm:p-7 hover:border-[#0052cb]/50 hover:shadow-lg hover:shadow-blue-50/80 transition-all duration-300 cursor-pointer"
+                  className="group relative overflow-hidden rounded-3xl border border-ink-line cursor-pointer aspect-[16/9] bg-slate-900"
                 >
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="size-11 rounded-2xl bg-blue-50 border border-blue-200/80 flex items-center justify-center">
-                      <Icon className="size-5 text-[#0052cb]" />
+                  {/* Full background image */}
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+
+                  {/* Persistent dark gradient — always show top badge */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
+
+                  {/* Top-left: number + icon */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                    <div className="size-8 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                      <Icon className="size-4 text-white" />
                     </div>
-                    <span className="font-mono text-[11px] text-neutral-400 font-bold">{card.number}</span>
+                    <span className="text-[10px] font-mono font-bold text-white/60 uppercase tracking-wider">{card.number}</span>
                   </div>
 
-                  <h3 className="font-bricolage text-base sm:text-lg font-bold text-ink mb-2 group-hover:text-[#0052cb] transition-colors leading-snug">
-                    {card.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal flex-1">
-                    {card.summary}
-                  </p>
-
-                  <div className="mt-5 pt-4 border-t border-ink-line/70 flex items-center justify-between">
-                    <div>
-                      <div className="text-[10px] font-mono text-neutral-400 uppercase tracking-wide">{card.metrics.label}</div>
-                      <div className="text-xs font-bold text-ink mt-0.5">{card.metrics.value}</div>
-                    </div>
-                    <div className="size-8 rounded-full bg-paper border border-ink-line flex items-center justify-center group-hover:bg-[#0052cb] group-hover:border-[#0052cb] transition-all">
-                      <ChevronRight className="size-4 text-neutral-400 group-hover:text-white transition-colors" />
+                  {/* Bottom: scroll-reveal white text box */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-400 ease-out">
+                    {/* White frosted info panel */}
+                    <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/80 transition-all duration-400">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-bricolage text-sm sm:text-base font-bold text-ink leading-snug">
+                            {card.title}
+                          </h3>
+                          <p className="text-xs text-neutral-600 mt-1 leading-relaxed line-clamp-2">
+                            {card.summary}
+                          </p>
+                        </div>
+                        <div className="size-8 rounded-full bg-[#0052cb] flex items-center justify-center shrink-0">
+                          <ChevronRight className="size-4 text-white" />
+                        </div>
+                      </div>
+                      <div className="mt-3 pt-2.5 border-t border-ink-line/50 flex items-center gap-1.5">
+                        <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wide">{card.metrics.label}:</span>
+                        <span className="text-[10px] font-mono font-bold text-[#0052cb]">{card.metrics.value}</span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>

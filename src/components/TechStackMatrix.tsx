@@ -266,6 +266,8 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
         </div>
 
         {/* Pillars Grid */}
+
+        {/* Pillars Grid */}
         <div className="space-y-12">
           <AnimatePresence mode="popLayout">
             {displayedPillars.map((pillar, idx) => {
@@ -280,7 +282,7 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="bg-white rounded-3xl border border-ink-line shadow-xs overflow-hidden transition-all duration-300 hover:shadow-lg"
                 >
-                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-6 sm:p-9 lg:p-10 items-center`}>
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-6 sm:p-9 lg:p-10 items-stretch`}>
 
                     {/* Content Column */}
                     <div className={`flex flex-col justify-between ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
@@ -350,8 +352,8 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
                     </div>
 
                     {/* Visual Showcase Column */}
-                    <div className={`${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                      <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-ink-line shadow-md aspect-[4/3] group">
+                    <div className={`${isEven ? 'lg:order-1' : 'lg:order-2'} flex flex-col`}>
+                      <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-ink-line shadow-md h-full min-h-[340px] group">
                         <img
                           src={pillar.image}
                           alt={pillar.title}

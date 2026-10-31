@@ -13,9 +13,9 @@ export const MarqueeDivider: React.FC = () => {
     { title: '360° ECOMMERCE SUITE', tag: 'Omnichannel & Headless', accent: true },
     { title: 'AI & MULTIMEDIA CONVERGENCE', tag: 'Autonomous Intelligence', accent: false },
     { title: 'PROPRIETARY SAAS SUITE', tag: 'Enterprise Cloud', accent: true },
-    { title: 'GLOBAL EDGE VELOCITY', tag: 'Sub-15ms Delivery', accent: false },
-    { title: 'COUI™ DESIGN TOKENS', tag: 'Fluid 60fps UX', accent: true },
-    { title: 'ZERO-DOWNTIME MIGRATION', tag: '100% SEO Preservation', accent: false },
+    { title: 'COVISION LATTICE™', tag: 'Fluid 60fps UX', accent: false },
+    { title: 'ZERO-DOWNTIME MIGRATION', tag: '100% SEO Preservation', accent: true },
+    { title: 'CLOUD & INFRASTRUCTURE', tag: 'AWS · Azure · GCP', accent: false },
   ]
 
   const renderGroup = (keyPrefix: string) => (
