@@ -106,14 +106,17 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
               className="w-full h-full object-cover"
             />
           ) : (
-            <img
-              src={image}
-              alt={title}
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              className="w-full h-full object-cover"
-            />
+            <picture className="w-full h-full block">
+              <source srcSet={image} type="image/webp" />
+              <img
+                src={image.replace(/\.webp(\?.*)?$/i, '.jpg$1')}
+                alt={title}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                className="w-full h-full object-cover"
+              />
+            </picture>
           )}
         </motion.div>
 
@@ -324,7 +327,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/services/technology_banner_blue.png"
+                image="/images/banners/services_banner_4k.webp?v=1"
                 pageName="Services & Cloud Fabric"
                 title="Empowering a Better Tomorrow."
                 subtitle="An evolving suite of solutions tailored to our clients' changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead."
@@ -361,7 +364,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/senior_image_catalog/03_Custom_SaaS_and_Platforms/01_executive_saas_performance_dashb.jpg"
+                image="/images/banners/saas_banner_4k.webp?v=1"
                 pageName="SaaS Platforms Suite"
                 title="Proprietary Platforms. Built for Scale."
                 subtitle="Battle-tested standalone digital platforms engineered for sovereign enterprise deployment, live telemetry, multi-tenant isolation, and rapid market scaling with sub-50ms response times."
@@ -395,7 +398,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/ai_banner_hero_4k.webp?v=4"
+                image="/images/banners/ai_banner_4k.webp?v=1"
                 pageName="AI & Automation Practice"
                 title="Transform Intelligence into Business Impact."
                 subtitle="Unite Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value."
@@ -428,7 +431,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/senior_image_catalog/02_Software_Engineering_and_Code/03_vertical_code_architecture.jpg"
+                image="/images/banners/living_tech_banner_4k.webp?v=1"
                 pageName="Living Technology Philosophy"
                 title="Living Technology: Architecture & Delivery Framework"
                 subtitle="Covision: Technology That Connects Business and Creativity. Engineering proprietary software products, SaaS platforms, and cloud infrastructure built for evolving business demands."
@@ -451,7 +454,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/senior_image_catalog/14_Executive_Consulting_and_Boardroom/02_executive_boardroom_capital_stra.jpg"
+                image="/images/banners/case_studies_banner_4k.webp?v=1"
                 pageName="Client Ecosystem & Case Studies"
                 title="Verified Enterprise Case Studies & Deployments"
                 subtitle="Explore verified production outcomes delivered for Fortune 500 retail giants, global media houses, and high-concurrency FinTech rails."
@@ -474,7 +477,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/senior_image_catalog/20_Global_IT_Workplace_Culture/01_modern_collaborative_tech_campu.jpg"
+                image="/images/banners/about_banner_4k.webp?v=1"
                 pageName="About CoVision"
                 title="Engineering Excellence. Global Impact."
                 subtitle="Architects of modern digital ecosystems, uniting deep technical engineering with living technology philosophy to drive sustainable enterprise transformation."
@@ -499,7 +502,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/senior_image_catalog/09_Agile_Synergy_and_Pods/01_cross-functional_pod_synergy_des.jpg"
+                image="/images/banners/contact_banner_4k.webp?v=1"
                 pageName="Enterprise Scoping"
                 title="Consult with Lead Enterprise Architects"
                 subtitle="Direct line to senior engineers and technical partners. Receive tailored architectural proposals, milestone schedules, and SLA commitments."
