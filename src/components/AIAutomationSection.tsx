@@ -101,10 +101,10 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             </p>
           </div>
 
-          {/* 3 Curated Images Showcase as specifically instructed */}
+          {/* Curated Generative Visual Production Showcase */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            {/* Image 1: The very first image of cognitive media services */}
+            {/* Creative Media Production Card */}
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -233,7 +233,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
             </p>
           </div>
 
-          {/* Agentic Images Showcase as instructed */}
+          {/* Autonomous Agentic Mesh Showcase */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <motion.div
               initial={{ opacity: 0, y: 25 }}

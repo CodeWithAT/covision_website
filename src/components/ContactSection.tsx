@@ -505,7 +505,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   </div>
                 </div>
 
-                {/* Scope Estimate Attached Badge (When user navigated from ProjectEstimator or PracticePortfolios) */}
+                {/* Scope Estimate Attached Badge (When user navigated with pre-filled scope) */}
                 {formData.estimatedBudget && (
                   <div className="p-3.5 rounded-xl bg-blue-50/90 border border-blue-200 flex items-center justify-between text-xs">
                     <span className="font-semibold text-slate-700 flex items-center gap-1.5">

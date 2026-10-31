@@ -1,5 +1,6 @@
-// AUTO-GENERATED: 100% Unique Local Enterprise IT Catalog
-// ZERO duplicates, ZERO external CDN timeouts, ZERO broken images.
+/**
+ * CoVision Enterprise Image Assets Catalog
+ */
 
 export interface CatalogImageItem {
   id: string

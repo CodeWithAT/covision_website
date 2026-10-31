@@ -17,3 +17,4 @@ for i, b in enumerate(banners):
     img_val = img_m.group(1) if img_m else "N/A"
     title_val = title_m.group(1) if title_m else "N/A"
     print(f"Banner {i+1}: Page='{title_val}' | Image='{img_val}'")
+

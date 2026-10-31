@@ -23,7 +23,7 @@ interface ServicesSectionProps {
   targetServiceId?: string
 }
 
-// ─── CAPABILITY GRID CARDS (Capgemini-style 2-col image-first overview) ──────
+// Practice Capability Matrix Overview
 const SERVICE_GRID_CARDS = [
   {
     id: 'software-engineering',
@@ -81,7 +81,7 @@ const SERVICE_GRID_CARDS = [
   },
 ]
 
-// ─── EXPANDED EDITORIAL SHOWCASE DATA ────────────────────────────────────────
+// Enterprise Practice Editorial Specifications
 const SERVICE_SHOWCASES = [
   {
     id: 'software-engineering',

@@ -39,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Focused enterprise navigation featuring AI & Automation replacing eCommerce Suite as instructed
+  // Primary enterprise navigation taxonomy
   const navItems = [
     { id: 'services', label: 'Services', hasDropdown: true },
     { id: 'saas', label: 'SaaS Platforms' },

@@ -94,7 +94,10 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
       <div className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-slate-950 flex flex-col justify-between">
         
         {/* Full-bleed background visual (video or high-res image) - pure view on landing */}
-        <motion.div style={{ scale: imageScale }} className="absolute inset-0 w-full h-full origin-center">
+        <motion.div
+          style={{ scale: imageScale }}
+          className="absolute inset-0 w-full h-full origin-center transform-gpu will-change-transform"
+        >
           {video ? (
             <video
               src={video}
@@ -160,7 +163,7 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
         {/* Scroll-pinned white text box — slides up from bottom */}
         <motion.div
           style={{ y: cardY, opacity: cardOpacity }}
-          className="relative z-30 w-full pb-8 pt-4 px-4 sm:px-6 lg:px-8 pointer-events-auto mt-auto"
+          className="relative z-30 w-full pb-8 pt-4 px-4 sm:px-6 lg:px-8 pointer-events-auto mt-auto transform-gpu will-change-transform"
         >
           <div className="max-w-7xl mx-auto">
             <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-9 shadow-2xl border border-white/80">
