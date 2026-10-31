@@ -765,7 +765,7 @@ export const AIAutomationSection: React.FC<AIAutomationSectionProps> = ({
                   <div>
                     <div className="relative w-full h-64 overflow-hidden bg-slate-950">
                       <img
-                        src="/senior_image_catalog/02_Software_Engineering_and_Code/01_clean_dark_mode_workstation.jpg"
+                        src="/images/disciplines/software_engineering.jpg"
                         alt="AI-Powered Software Engineering Workstation"
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
                       />

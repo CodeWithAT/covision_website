@@ -31,7 +31,7 @@ const SERVICE_GRID_CARDS = [
     icon: Cpu,
     title: 'Software Engineering',
     summary: 'Bespoke enterprise software: HRMS, ERP, payroll systems, and scalable proprietary platforms.',
-    image: '/senior_image_catalog/02_Software_Engineering_and_Code/01_clean_dark_mode_workstation.jpg',
+    image: '/images/disciplines/software_engineering.jpg',
     metrics: { label: 'Systems Delivered', value: '50+ Enterprise Systems' },
   },
   {
@@ -76,7 +76,7 @@ const SERVICE_GRID_CARDS = [
     icon: Palette,
     title: 'UX / UI Design',
     summary: 'Cognitive science-backed design, CoVision Lattice™ design system, and WCAG AAA compliant interfaces.',
-    image: '/senior_image_catalog/08_UX_UI_Design_Systems/01_design_studio_ui_wireframing.jpg',
+    image: '/images/services/ux_ui_design_modern.jpg',
     metrics: { label: 'Design System', value: 'CoVision Lattice™' },
   },
 ]
@@ -231,7 +231,7 @@ const SERVICE_SHOWCASES = [
     title: 'UX / UI Design',
     headline: 'UX/UI Design is a Dialogue, Not Decoration — Creating Seamless Connections Between Brands and Users.',
     body: 'At CoVision, design is grounded in cognitive psychology and behavioural science. We design interfaces that think, react, and resonate with users — powered by the CoVision Lattice™ design system: an operational strategy delivering scalable, user-centric products.',
-    image: '/senior_image_catalog/08_UX_UI_Design_Systems/01_design_studio_ui_wireframing.jpg',
+    image: '/images/services/ux_ui_design_modern.jpg',
     imageAlt: 'CoVision UX/UI Design Studio',
     bullets: [
       {
