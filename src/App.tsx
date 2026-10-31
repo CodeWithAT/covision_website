@@ -78,18 +78,18 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
   })
 
   // Scroll 0 -> 0.55: card smoothly slides up from 105% (off-screen bottom) to 0% (in view)
-  const cardY = useTransform(scrollYProgress, [0.05, 0.55], ['105%', '0%'])
-  const cardOpacity = useTransform(scrollYProgress, [0.05, 0.45], [0, 1])
+  const cardY = useTransform(scrollYProgress, [0.02, 0.38], ['105%', '0%'])
+  const cardOpacity = useTransform(scrollYProgress, [0.02, 0.28], [0, 1])
 
   // Subtle image zoom & atmospheric dark overlay as card glides up
-  const imageScale = useTransform(scrollYProgress, [0, 0.6], [1, 1.05])
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.6], [0.25, 0.55])
+  const imageScale = useTransform(scrollYProgress, [0, 0.42], [1, 1.04])
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.42], [0.25, 0.55])
 
   // Landing prompt fades out as soon as user starts scrolling
-  const hintOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0])
+  const hintOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0])
 
   return (
-    <div ref={containerRef} className="relative w-full h-[180vh]">
+    <div ref={containerRef} className="relative w-full h-[135vh]">
       {/* Sticky full-screen viewport */}
       <div className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-slate-950 flex flex-col justify-between">
         

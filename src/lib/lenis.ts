@@ -7,13 +7,13 @@ export const useLenis = () => {
     if (prefersReducedMotion) return
 
     const lenis = new Lenis({
-      duration: 1.25,
+      duration: 0.85,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.95,
-      touchMultiplier: 1.6,
+      wheelMultiplier: 1.25,
+      touchMultiplier: 2.0,
       infinite: false,
     })
 

@@ -12,7 +12,7 @@ export const scrollToElement = (elementId: string, offset = -90) => {
     if (el) {
       const lenis = (window as any).lenis
       if (lenis && typeof lenis.scrollTo === 'function') {
-        lenis.scrollTo(el, { offset, duration: 1.1, immediate: false })
+        lenis.scrollTo(el, { offset, duration: 0.75, immediate: false })
       } else {
         const top = el.getBoundingClientRect().top + window.scrollY + offset
         window.scrollTo({ top, behavior: 'smooth' })
