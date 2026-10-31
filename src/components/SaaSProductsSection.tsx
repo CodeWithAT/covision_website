@@ -109,7 +109,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Human-Centered Design Tokens & Fluid 60fps Components',
     description:
       'A production-grade design system and component foundry built on cognitive psychology and accessibility standards. Guarantees visual polish and lightning-fast developer handoff.',
-    image: '/senior_image_catalog/08_UX_UI_Design_Systems/02_coui_token_foundry_and_style_gu.jpg',
+    image: '/images/services/ux_ui_design_modern.jpg',
     metrics: [
       { label: 'UI Frame Rate', value: '60 FPS' },
       { label: 'Handoff Velocity', value: '3x Faster' },
@@ -134,7 +134,7 @@ const SAAS_PRODUCTS: SaaSProduct[] = [
     headline: 'Real-Time Executive Dashboards & Conversion Attribution',
     description:
       'Enterprise data analytics platform capable of processing 50,000+ real-time customer events per second. Correlates customer behavior directly with warehouse inventory and revenue performance.',
-    image: '/senior_image_catalog/07_Data_Analytics_and_BI/01_financial_bi_telemetry_hub.jpg',
+    image: '/images/saas/pulse_metrics.jpg',
     metrics: [
       { label: 'Events Ingested / Sec', value: '50,000+' },
       { label: 'Query Latency', value: '< 80ms' },
@@ -251,20 +251,6 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
                 <p className="mt-2.5 text-xs text-neutral-600 leading-relaxed line-clamp-3">
                   {product.description}
                 </p>
-
-                {/* 3 Symmetrical Metric Chips */}
-                <div className="mt-5 grid grid-cols-3 gap-2">
-                  {product.metrics.map((m, mIdx) => (
-                    <div key={mIdx} className="rounded-xl bg-paper p-2.5 text-center border border-ink-line">
-                      <div className="font-bricolage text-sm font-bold text-[#0052cb]">
-                        {m.value}
-                      </div>
-                      <div className="text-[10px] text-neutral-500 font-medium truncate mt-0.5">
-                        {m.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               {/* Action Strip */}
@@ -333,15 +319,6 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
                       {product.description}
                     </p>
                   </div>
-                </div>
-
-                <div className="mt-5 grid grid-cols-3 gap-2">
-                  {product.metrics.map((m, mIdx) => (
-                    <div key={mIdx} className="rounded-xl bg-paper p-2.5 text-center border border-ink-line">
-                      <div className="font-bricolage text-sm font-bold text-[#0052cb]">{m.value}</div>
-                      <div className="text-[10px] text-neutral-500 truncate mt-0.5">{m.label}</div>
-                    </div>
-                  ))}
                 </div>
               </div>
 

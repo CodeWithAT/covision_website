@@ -83,7 +83,7 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
 
   // Subtle image zoom & atmospheric dark overlay as card glides up
   const imageScale = useTransform(scrollYProgress, [0, 0.42], [1, 1.04])
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.42], [0.25, 0.55])
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.42], [0, 0.5])
 
   // Landing prompt fades out as soon as user starts scrolling
   const hintOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0])
@@ -109,6 +109,8 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
             <img
               src={image}
               alt={title}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           )}
@@ -392,7 +394,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/ai_banner_hero_final.jpg"
+                image="/images/ai_banner_hero_hd.jpg"
                 pageName="AI & Automation Practice"
                 title="Transform Intelligence into Business Impact."
                 subtitle="Unite Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value."
