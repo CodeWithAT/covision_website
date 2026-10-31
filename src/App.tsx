@@ -111,6 +111,7 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
               alt={title}
               loading="eager"
               decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover"
             />
           )}
@@ -394,7 +395,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/ai_banner_hero_hd.jpg"
+                image="/images/ai_banner_hero_4k.webp?v=4"
                 pageName="AI & Automation Practice"
                 title="Transform Intelligence into Business Impact."
                 subtitle="Unite Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value."
