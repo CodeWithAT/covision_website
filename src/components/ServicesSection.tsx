@@ -8,7 +8,6 @@ import {
   BarChart3,
   Palette,
   ArrowRight,
-  Sparkles,
   CheckCircle2,
   Maximize2,
   ChevronRight,
@@ -301,91 +300,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     <section id="services" className="relative w-full bg-paper text-ink font-inter-tight">
 
       {/* ═══════════════════════════════════════════════════════════════
-          1. DARK ENTERPRISE HERO BANNER
-          ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-[#07090E] text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-800/80">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,rgba(0,82,203,0.2),transparent_65%)] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-
-            {/* Left: Copy */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5 space-y-6"
-            >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-blue-400 font-mono text-xs font-bold tracking-wider uppercase">
-                <Sparkles className="size-3.5 animate-pulse" />
-                <span>Services &amp; Cloud Fabric</span>
-              </div>
-
-              <h1 className="font-bricolage text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.06]">
-                Empowering a<br className="hidden sm:block" /> Better Tomorrow.
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-300/90 font-normal leading-relaxed">
-                An evolving suite of solutions tailored to our clients' changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead.
-              </p>
-
-              {/* 3-metric strip */}
-              <div className="grid grid-cols-3 gap-4 pt-3 border-t border-white/10">
-                {[
-                  { value: '6', label: 'Core Practices' },
-                  { value: '50+', label: 'Enterprise Systems' },
-                  { value: '3', label: 'Cloud Partners' },
-                ].map((m) => (
-                  <div key={m.label}>
-                    <div className="font-bricolage text-2xl sm:text-3xl font-bold text-white">{m.value}</div>
-                    <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mt-0.5">{m.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3 pt-1">
-                <button
-                  onClick={() => scrollToPractice('software-engineering')}
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all cursor-pointer group"
-                >
-                  <span>Explore All 6 Practices</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button
-                  onClick={() => onRequestScope('Enterprise Architecture & Cloud Fabric')}
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-200 text-sm font-semibold transition-all cursor-pointer"
-                >
-                  <span>Request Scope</span>
-                </button>
-              </div>
-            </motion.div>
-
-            {/* Right: Banner Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7 w-full"
-            >
-              <div className="relative rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-blue-950/40 group">
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950">
-                  <img
-                    src="/images/services/technology_banner_blue.png"
-                    alt="Technology: Empowering a Better Tomorrow"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════
           2. CAPABILITIES OVERVIEW GRID (2-col image-first 2×3 matrix)
           ═══════════════════════════════════════════════════════════════ */}
-      <div className="py-16 sm:py-20 bg-paper border-b border-ink-line">
+      <div id="capabilities-grid" className="py-16 sm:py-20 bg-paper border-b border-ink-line">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <motion.div

@@ -188,7 +188,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1], delay: 0.28 }}
-                className="block will-change-transform text-white"
+                className="block will-change-transform text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-blue-200"
               >
                 Modern Enterprises
               </motion.span>

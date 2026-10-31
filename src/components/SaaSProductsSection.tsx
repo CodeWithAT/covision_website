@@ -6,10 +6,8 @@ import {
   Copy,
   ArrowRight,
   X,
-  Sparkles,
 } from 'lucide-react'
 import { SectionEyebrow } from './SectionEyebrow'
-import { scrollToElement } from '../lib/scrollUtils'
 
 export interface SaaSProduct {
   id: string
@@ -177,76 +175,6 @@ export const SaaSProductsSection: React.FC<SaaSProductsSectionProps> = ({
 
   return (
     <div id="saas-platforms-practice" className="bg-paper text-ink font-inter-tight selection:bg-[#0052cb] selection:text-white">
-      {/* =========================================================================
-          HERO BANNER: Proprietary Platforms. Built for Scale.
-          Cinematic Dark Theme matching #ai and #services
-         ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#07090E] text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-800">
-        <div className="absolute inset-0 bg-radial-gradient from-blue-900/25 via-slate-950/80 to-[#07090E] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(0,102,255,0.25),transparent_70%)] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Column: Core Headline & Vision */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5 space-y-6"
-            >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-bold tracking-wider uppercase">
-                <Sparkles className="size-3.5 text-blue-400 animate-pulse" />
-                <span>SaaS Platforms Suite</span>
-              </div>
-
-              <h1 className="font-bricolage text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
-                Proprietary Platforms. Built for Scale.
-              </h1>
-
-              <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed">
-                Battle-tested standalone digital platforms engineered for sovereign enterprise deployment, live telemetry, multi-tenant isolation, and rapid market scaling with sub-50ms response times.
-              </p>
-
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => scrollToElement('products', -90)}
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all cursor-pointer group"
-                >
-                  <span>Explore 5 Live Platforms</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button
-                  onClick={() => onOpenContact('SaaS Platform Enterprise Licensing')}
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold transition-all cursor-pointer"
-                >
-                  <span>Request Platform Demo</span>
-                </button>
-              </div>
-            </motion.div>
-
-            {/* Right Column: Expanded Live Executive SaaS Performance Visual (Big & Clear) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7 w-full"
-            >
-              <div className="relative rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-blue-950/40 group">
-                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-950">
-                  <img
-                    src="/senior_image_catalog/03_Custom_SaaS_and_Platforms/01_executive_saas_performance_dashb.jpg"
-                    alt="CoVision Sovereign SaaS Performance Platform"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
       <section id="products" className="relative w-full py-24 md:py-36 bg-paper-deep text-ink border-t border-ink-line font-inter-tight">
       <div className="relative mx-auto max-w-7xl px-4 md:px-6">
         {/* Section Header */}

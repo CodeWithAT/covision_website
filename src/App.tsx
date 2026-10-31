@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, useScroll, AnimatePresence } from 'framer-motion'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { queryClient } from './lib/queryClient'
 import { useLenis } from './lib/lenis'
 import { Navbar } from './components/Navbar'
@@ -48,11 +48,18 @@ interface PageMetric {
   value: string
 }
 
+interface PageAction {
+  label: string
+  onClick: () => void
+  primary?: boolean
+}
+
 interface PageHeaderBannerProps {
   pageName: string
   title: string
   subtitle: string
   metrics?: PageMetric[]
+  actions?: PageAction[]
   image: string
   onBackToHome: () => void
 }
@@ -62,10 +69,11 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
   title,
   subtitle,
   metrics,
+  actions,
   image,
   onBackToHome,
 }) => (
-  <div className="relative w-full h-[60vh] min-h-[440px] overflow-hidden bg-slate-900 group">
+  <div className="relative w-full h-[65vh] min-h-[460px] overflow-hidden bg-slate-900 group">
     {/* Full-bleed background image */}
     <img
       src={image}
@@ -73,20 +81,20 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
     />
     {/* Atmospheric overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/40 pointer-events-none" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/40 pointer-events-none" />
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,82,203,0.18),transparent_60%)] pointer-events-none" />
 
-    {/* Nav breadcrumb — top left */}
+    {/* Nav breadcrumb — top */}
     <div className="absolute top-24 left-0 right-0 px-4 sm:px-6 lg:px-8 z-20">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <button
           onClick={onBackToHome}
-          className="inline-flex items-center gap-2 text-xs font-bold text-white/70 hover:text-white transition-colors cursor-pointer"
+          className="inline-flex items-center gap-2 text-xs font-bold text-white/85 hover:text-white transition-colors cursor-pointer bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 shadow-sm"
         >
           <ArrowLeft className="size-3.5" />
           <span>Return to Ecosystem Overview</span>
         </button>
-        <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-white bg-[#0052cb]/80 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-blue-400/30 flex items-center gap-1.5">
+        <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-white bg-[#0052cb]/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-blue-400/40 flex items-center gap-1.5 shadow-sm">
           <span className="size-1.5 rounded-full bg-blue-300 animate-pulse" />
           {pageName}
         </span>
@@ -95,19 +103,42 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
 
     {/* Scroll-reveal white text box — bottom 30% */}
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
       className="absolute bottom-0 left-0 right-0 z-20"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-6">
-        <div className="bg-white/92 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/80">
-          <h1 className="font-bricolage text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-[1.08]">
-            {title}
-          </h1>
-          <p className="mt-3 text-sm sm:text-base text-neutral-600 max-w-3xl leading-relaxed font-normal">
-            {subtitle}
-          </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-4">
+        <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/80">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div className="max-w-3xl">
+              <h1 className="font-bricolage text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-[1.08]">
+                {title}
+              </h1>
+              <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+                {subtitle}
+              </p>
+            </div>
+
+            {actions && actions.length > 0 && (
+              <div className="flex flex-wrap items-center gap-3 shrink-0">
+                {actions.map((act) => (
+                  <button
+                    key={act.label}
+                    onClick={act.onClick}
+                    className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                      act.primary
+                        ? 'bg-[#0052cb] hover:bg-[#0041a3] text-white shadow-md shadow-blue-600/25'
+                        : 'bg-paper hover:bg-neutral-100 text-neutral-800 border border-ink-line'
+                    }`}
+                  >
+                    <span>{act.label}</span>
+                    <ArrowRight className="size-3.5" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Metric Badges */}
           {metrics && metrics.length > 0 && (
@@ -250,6 +281,29 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
+              <PageHeaderBanner
+                image="/images/services/technology_banner_blue.png"
+                pageName="Services & Cloud Fabric"
+                title="Empowering a Better Tomorrow."
+                subtitle="An evolving suite of solutions tailored to our clients' changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead."
+                metrics={[
+                  { label: 'Core Practices', value: '6' },
+                  { label: 'Enterprise Systems', value: '50+' },
+                  { label: 'Cloud Partners', value: '3 Hyperscalers' },
+                ]}
+                actions={[
+                  {
+                    label: 'Explore All 6 Practices',
+                    onClick: () => scrollToElement('capabilities-grid', -90),
+                    primary: true,
+                  },
+                  {
+                    label: 'Request Scope',
+                    onClick: () => handleOpenContact('Enterprise Architecture & Cloud Fabric'),
+                  },
+                ]}
+                onBackToHome={() => handleNavigatePage('home')}
+              />
               <ServicesSection
                 onRequestScope={handleOpenContact}
                 sectionNumber="01"
@@ -269,6 +323,29 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
+              <PageHeaderBanner
+                image="/senior_image_catalog/03_Custom_SaaS_and_Platforms/01_executive_saas_performance_dashb.jpg"
+                pageName="SaaS Platforms Suite"
+                title="Proprietary Platforms. Built for Scale."
+                subtitle="Battle-tested standalone digital platforms engineered for sovereign enterprise deployment, live telemetry, multi-tenant isolation, and rapid market scaling with sub-50ms response times."
+                metrics={[
+                  { label: 'Platform Availability', value: '99.995%' },
+                  { label: 'Live Telemetry', value: '< 50ms' },
+                  { label: 'Data Sovereignty', value: '100% Client Owned' },
+                ]}
+                actions={[
+                  {
+                    label: 'Explore 5 Live Platforms',
+                    onClick: () => scrollToElement('products', -90),
+                    primary: true,
+                  },
+                  {
+                    label: 'Request Platform Demo',
+                    onClick: () => handleOpenContact('SaaS Platform Enterprise Licensing'),
+                  },
+                ]}
+                onBackToHome={() => handleNavigatePage('home')}
+              />
               <SaaSProductsSection onOpenContact={handleOpenContact} sectionNumber="01" />
               <IndustryFootprintSection onOpenContact={handleOpenContact} sectionNumber="02" />
               <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />
@@ -285,6 +362,29 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
+              <PageHeaderBanner
+                image="/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg"
+                pageName="AI & Automation Practice"
+                title="The Next Frontier: Generative & Agentic AI"
+                subtitle="Autonomous multi-agent workflows, custom LLM integrations, and intelligent decision systems engineered to adapt to your enterprise processes with human-in-the-loop governance."
+                metrics={[
+                  { label: 'Sprint Acceleration', value: '2.4x Faster' },
+                  { label: 'Human Oversight', value: '100% In-The-Loop' },
+                  { label: 'Data Leakage', value: 'Zero (Air-Gapped)' },
+                ]}
+                actions={[
+                  {
+                    label: 'Explore Generative AI',
+                    onClick: () => scrollToElement('generative-ai', -90),
+                    primary: true,
+                  },
+                  {
+                    label: 'Request AI Scope',
+                    onClick: () => handleOpenContact('AI Transformation Scope'),
+                  },
+                ]}
+                onBackToHome={() => handleNavigatePage('home')}
+              />
               <AIAutomationSection onRequestScope={handleOpenContact} sectionNumber="01" />
               <CaseStudiesSection onOpenContact={() => handleOpenContact()} sectionNumber="02" />
               <ContactSection prefillService={prefillService} />
@@ -356,6 +456,18 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
+              <PageHeaderBanner
+                image="/senior_image_catalog/20_Global_IT_Workplace_Culture/01_modern_collaborative_tech_campu.jpg"
+                pageName="About CoVision"
+                title="Engineering Excellence. Global Impact."
+                subtitle="Architects of modern digital ecosystems, uniting deep technical engineering with living technology philosophy to drive sustainable enterprise transformation."
+                metrics={[
+                  { label: 'Engineering Retention', value: '98%' },
+                  { label: 'Global Footprint', value: 'Tier-1 Alliances' },
+                  { label: 'Zero-Debt Benchmark', value: 'Strict' },
+                ]}
+                onBackToHome={() => handleNavigatePage('home')}
+              />
               <AboutUsSection onOpenContact={() => handleOpenContact()} sectionNumber="01" />
               <LivingTechnologySection sectionNumber="02" />
               <WhyChooseUsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />

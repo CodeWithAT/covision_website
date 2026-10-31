@@ -147,16 +147,33 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 items-start">
           <div className="lg:col-span-7">
             <h2 className="font-bricolage text-[2.4rem] sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-slate-900">
-              Covision: Technology That Connects Business and Creativity
+              Technology that{' '}
+              <span className="relative inline-block text-[#0052cb]">
+                behaves,
+                <svg className="absolute -bottom-1.5 left-0 w-full" height="7" viewBox="0 0 100 7" preserveAspectRatio="none" fill="none">
+                  <path d="M0 3.5 Q 12.5 0.5, 25 3.5 T 50 3.5 T 75 3.5 T 100 3.5" stroke="#0052cb" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </span>{' '}
+              <span className="relative inline-block text-[#0052cb]">
+                adapts,
+                <svg className="absolute -bottom-1.5 left-0 w-full" height="7" viewBox="0 0 100 7" preserveAspectRatio="none" fill="none">
+                  <path d="M0 3.5 Q 12.5 0.5, 25 3.5 T 50 3.5 T 75 3.5 T 100 3.5" stroke="#0052cb" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </span>{' '}
+              and evolves like a living organism.
             </h2>
+            <div className="mt-4 flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-[#0052cb]">
+              <span className="size-1.5 rounded-full bg-[#0052cb]" />
+              <span>Covision: Technology That Connects Business and Creativity</span>
+            </div>
           </div>
 
           <div className="lg:col-span-5 space-y-5 lg:pt-2">
-            <p className="text-base sm:text-lg leading-relaxed text-slate-700 font-normal">
-              COVISION engineers proprietary software products, SaaS platforms, enterprise applications, and cloud infrastructure built for evolving business demands.
+            <p className="text-base sm:text-lg leading-relaxed text-slate-800 font-normal">
+              At <strong className="font-bold text-slate-900">CoVision Technologies</strong>, we reject static software. Modern markets shift overnight; systems that cannot continuously adapt become brittle liabilities.
             </p>
             <p className="border-t border-slate-200/80 pt-4 text-sm sm:text-[15px] leading-relaxed text-slate-600">
-              Our capabilities span AI agents, intelligent workflow automation, digital commerce, and multimedia solutions, integrating software engineering, system architecture, and emerging technologies to deliver secure, interoperable, and scalable digital solutions.
+              By harmonizing deterministic software engineering with cognitive artificial intelligence and emotive multimedia, we build digital infrastructure that thrives under volatile traffic, self-heals in real time, and scales without friction.
             </p>
 
             {/* Core Philosophy Value Ribbon */}
