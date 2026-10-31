@@ -91,7 +91,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
 
   return (
     <section id="why-choose-us" className="relative w-full overflow-hidden bg-paper text-ink">
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-4 md:px-6 py-24 md:py-36 md:grid-cols-12">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-4 md:px-6 pt-8 md:pt-12 pb-20 md:pb-28 md:grid-cols-12">
         {/* Ambient Radial Gradient matching CogniMedia */}
         <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[55%] bg-gradient-to-r from-paper via-paper/90 to-transparent md:block z-10" />
 

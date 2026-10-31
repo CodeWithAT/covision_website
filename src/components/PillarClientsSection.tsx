@@ -197,7 +197,7 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
   })
 
   return (
-    <section id="pillar-clients" className="py-24 md:py-36 bg-paper relative overflow-hidden border-t border-ink-line font-inter-tight text-ink">
+    <section id="pillar-clients" className="pt-16 md:pt-24 pb-8 md:pb-12 bg-paper relative overflow-hidden border-t border-ink-line font-inter-tight text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -213,37 +213,12 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
         </div>
 
         {/* ─── CYBERNETIC LUXURY BRAND COMMAND MATRIX (FUSION MARQUEE) ─── */}
-        <div className="mb-16 rounded-3xl overflow-hidden bg-gradient-to-b from-[#090d16] via-[#0b1220] to-[#040608] border border-blue-500/25 p-6 sm:p-9 shadow-2xl relative">
+        <div className="mb-14 rounded-3xl overflow-hidden bg-gradient-to-b from-[#090d16] via-[#0b1220] to-[#040608] border border-blue-500/25 py-7 px-3 sm:px-6 shadow-2xl relative">
           
           {/* Ambient Cosmic Glow Backlights */}
           <div className="absolute -top-24 -left-24 size-80 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -right-24 size-80 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:20px_20px] opacity-40 pointer-events-none" />
-
-          {/* Top Command Status Bar */}
-          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-6 border-b border-white/10">
-            <div className="flex items-center gap-2.5">
-              <span className="relative flex size-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full size-2.5 bg-emerald-500" />
-              </span>
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-white">
-                Live Global Engagements Active
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md">
-              <Sparkles className="size-3 text-cyan-400" />
-              <span className="text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-cyan-300">
-                Verified Enterprise Brand Network
-              </span>
-            </div>
-
-            <div className="hidden sm:flex items-center gap-2 text-[11px] font-mono font-medium text-neutral-400">
-              <ShieldCheck className="size-3.5 text-blue-400" />
-              <span>SOC-2 Type II · PCI-DSS Level 1</span>
-            </div>
-          </div>
 
           {/* Marquee Track 1 (Left Scrolling) */}
           <div className="flex overflow-hidden relative [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
@@ -319,25 +294,6 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
             </motion.div>
           </div>
 
-          {/* Bottom Telemetry Strip */}
-          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 mt-6 border-t border-white/10 text-center">
-            <div className="space-y-0.5">
-              <div className="text-lg sm:text-xl font-bricolage font-bold text-white tracking-tight">140+</div>
-              <div className="text-[10px] font-mono uppercase text-neutral-400 tracking-wider">Retail Stores Scaled</div>
-            </div>
-            <div className="space-y-0.5">
-              <div className="text-lg sm:text-xl font-bricolage font-bold text-cyan-400 tracking-tight">99.995%</div>
-              <div className="text-[10px] font-mono uppercase text-neutral-400 tracking-wider">Edge SLA Uptime</div>
-            </div>
-            <div className="space-y-0.5">
-              <div className="text-lg sm:text-xl font-bricolage font-bold text-emerald-400 tracking-tight">&lt; 14ms</div>
-              <div className="text-[10px] font-mono uppercase text-neutral-400 tracking-wider">Global State Sync</div>
-            </div>
-            <div className="space-y-0.5">
-              <div className="text-lg sm:text-xl font-bricolage font-bold text-blue-400 tracking-tight">$2.4B+</div>
-              <div className="text-[10px] font-mono uppercase text-neutral-400 tracking-wider">Enterprise GMV Routed</div>
-            </div>
-          </div>
         </div>
 
         {/* ─── FEATURED STRATEGIC ENTERPRISE CASE SPOTLIGHTS ─── */}
@@ -460,7 +416,7 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
         </div>
 
         {/* Global Partnership CTA */}
-        <div className="mt-14 p-8 rounded-3xl bg-neutral-900 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="mt-10 p-7 sm:p-8 rounded-3xl bg-neutral-900 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center md:text-left">
             <h4 className="font-bricolage text-xl sm:text-2xl font-bold">
               Ready to construct high-velocity digital infrastructure?
