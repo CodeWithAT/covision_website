@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion, useScroll, AnimatePresence } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { queryClient } from './lib/queryClient'
@@ -43,10 +43,7 @@ const parseRoute = (hash: string): { page: string; targetService?: string } => {
   return { page: 'home' }
 }
 
-interface PageMetric {
-  label: string
-  value: string
-}
+
 
 interface PageAction {
   label: string
@@ -58,7 +55,6 @@ interface PageHeaderBannerProps {
   pageName: string
   title: string
   subtitle: string
-  metrics?: PageMetric[]
   actions?: PageAction[]
   image: string
   onBackToHome: () => void
@@ -68,94 +64,123 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
   pageName,
   title,
   subtitle,
-  metrics,
   actions,
   image,
   onBackToHome,
-}) => (
-  <div className="relative w-full h-[65vh] min-h-[460px] overflow-hidden bg-slate-900 group">
-    {/* Full-bleed background image */}
-    <img
-      src={image}
-      alt={title}
-      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
-    />
-    {/* Atmospheric overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/40 pointer-events-none" />
-    <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,82,203,0.18),transparent_60%)] pointer-events-none" />
+}) => {
+  const containerRef = React.useRef<HTMLDivElement>(null)
 
-    {/* Nav breadcrumb — top */}
-    <div className="absolute top-24 left-0 right-0 px-4 sm:px-6 lg:px-8 z-20">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <button
-          onClick={onBackToHome}
-          className="inline-flex items-center gap-2 text-xs font-bold text-white/85 hover:text-white transition-colors cursor-pointer bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 shadow-sm"
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  })
+
+  // Scroll 0 -> 0.55: card smoothly slides up from 105% (off-screen bottom) to 0% (in view)
+  const cardY = useTransform(scrollYProgress, [0.05, 0.55], ['105%', '0%'])
+  const cardOpacity = useTransform(scrollYProgress, [0.05, 0.45], [0, 1])
+
+  // Subtle image zoom & atmospheric dark overlay as card glides up
+  const imageScale = useTransform(scrollYProgress, [0, 0.6], [1, 1.05])
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.6], [0.25, 0.55])
+
+  // Landing prompt fades out as soon as user starts scrolling
+  const hintOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0])
+
+  return (
+    <div ref={containerRef} className="relative w-full h-[180vh]">
+      {/* Sticky full-screen viewport */}
+      <div className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-slate-950 flex flex-col justify-between">
+        
+        {/* Full-bleed background image - pure view on landing */}
+        <motion.div style={{ scale: imageScale }} className="absolute inset-0 w-full h-full origin-center">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+
+        {/* Dynamic atmospheric overlay */}
+        <motion.div
+          style={{ opacity: overlayOpacity }}
+          className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/30 pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_50%_at_50%_0%,rgba(0,82,203,0.18),transparent_65%)] pointer-events-none" />
+
+        {/* Top breadcrumb navigation */}
+        <div className="relative top-24 left-0 right-0 px-4 sm:px-6 lg:px-8 z-30 pointer-events-auto">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <button
+              onClick={onBackToHome}
+              className="inline-flex items-center gap-2 text-xs font-bold text-white/90 hover:text-white transition-colors cursor-pointer bg-black/45 hover:bg-black/65 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-md"
+            >
+              <ArrowLeft className="size-3.5" />
+              <span>Return to Ecosystem Overview</span>
+            </button>
+            <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-white bg-[#0052cb]/90 backdrop-blur-md px-4 py-1.5 rounded-full border border-blue-400/40 flex items-center gap-1.5 shadow-md">
+              <span className="size-1.5 rounded-full bg-blue-300 animate-pulse" />
+              {pageName}
+            </span>
+          </div>
+        </div>
+
+        {/* Landing scroll prompt: informs user to scroll to view details */}
+        <motion.div
+          style={{ opacity: hintOpacity }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5 pointer-events-none"
         >
-          <ArrowLeft className="size-3.5" />
-          <span>Return to Ecosystem Overview</span>
-        </button>
-        <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-white bg-[#0052cb]/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-blue-400/40 flex items-center gap-1.5 shadow-sm">
-          <span className="size-1.5 rounded-full bg-blue-300 animate-pulse" />
-          {pageName}
-        </span>
+          <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-white/90 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 shadow-lg">
+            Scroll to View Details ↓
+          </span>
+          <div className="w-5 h-8 rounded-full border-2 border-white/50 flex items-start justify-center p-1">
+            <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
+          </div>
+        </motion.div>
+
+        {/* Scroll-pinned white text box — slides up from bottom */}
+        <motion.div
+          style={{ y: cardY, opacity: cardOpacity }}
+          className="relative z-30 w-full pb-8 pt-4 px-4 sm:px-6 lg:px-8 pointer-events-auto mt-auto"
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-9 shadow-2xl border border-white/80">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div className="max-w-3xl">
+                  <h1 className="font-bricolage text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-[1.08]">
+                    {title}
+                  </h1>
+                  <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+                    {subtitle}
+                  </p>
+                </div>
+
+                {actions && actions.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-3 shrink-0">
+                    {actions.map((act) => (
+                      <button
+                        key={act.label}
+                        onClick={act.onClick}
+                        className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-sm ${
+                          act.primary
+                            ? 'bg-[#0052cb] hover:bg-[#0041a3] text-white shadow-blue-600/30'
+                            : 'bg-paper hover:bg-neutral-100 text-neutral-800 border border-ink-line'
+                        }`}
+                      >
+                        <span>{act.label}</span>
+                        <ArrowRight className="size-3.5" />
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </div>
-
-    {/* Scroll-reveal white text box — bottom 30% */}
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-      className="absolute bottom-0 left-0 right-0 z-20"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-4">
-        <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/80">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <div className="max-w-3xl">
-              <h1 className="font-bricolage text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-[1.08]">
-                {title}
-              </h1>
-              <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
-                {subtitle}
-              </p>
-            </div>
-
-            {actions && actions.length > 0 && (
-              <div className="flex flex-wrap items-center gap-3 shrink-0">
-                {actions.map((act) => (
-                  <button
-                    key={act.label}
-                    onClick={act.onClick}
-                    className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                      act.primary
-                        ? 'bg-[#0052cb] hover:bg-[#0041a3] text-white shadow-md shadow-blue-600/25'
-                        : 'bg-paper hover:bg-neutral-100 text-neutral-800 border border-ink-line'
-                    }`}
-                  >
-                    <span>{act.label}</span>
-                    <ArrowRight className="size-3.5" />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Metric Badges */}
-          {metrics && metrics.length > 0 && (
-            <div className="flex flex-wrap gap-3 mt-5 pt-5 border-t border-ink-line/60">
-              {metrics.map((m) => (
-                <div key={m.label} className="px-4 py-2 rounded-xl bg-paper border border-ink-line shadow-xs">
-                  <div className="font-bricolage text-lg sm:text-xl font-bold text-[#0052cb] tracking-tight">{m.value}</div>
-                  <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider mt-0.5 font-semibold">{m.label}</div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    </motion.div>
-  </div>
-)
+  )
+}
 
 export const AppContent: React.FC = () => {
   // Initialize buttery-smooth Lenis scrolling
@@ -286,11 +311,6 @@ export const AppContent: React.FC = () => {
                 pageName="Services & Cloud Fabric"
                 title="Empowering a Better Tomorrow."
                 subtitle="An evolving suite of solutions tailored to our clients' changing needs and the dynamic demands of modern enterprises. By harnessing emerging technologies, advancing development practices, and integrating cutting-edge AI capabilities, we deliver innovative solutions that keep businesses ahead."
-                metrics={[
-                  { label: 'Core Practices', value: '6' },
-                  { label: 'Enterprise Systems', value: '50+' },
-                  { label: 'Cloud Partners', value: '3 Hyperscalers' },
-                ]}
                 actions={[
                   {
                     label: 'Explore All 6 Practices',
@@ -328,11 +348,6 @@ export const AppContent: React.FC = () => {
                 pageName="SaaS Platforms Suite"
                 title="Proprietary Platforms. Built for Scale."
                 subtitle="Battle-tested standalone digital platforms engineered for sovereign enterprise deployment, live telemetry, multi-tenant isolation, and rapid market scaling with sub-50ms response times."
-                metrics={[
-                  { label: 'Platform Availability', value: '99.995%' },
-                  { label: 'Live Telemetry', value: '< 50ms' },
-                  { label: 'Data Sovereignty', value: '100% Client Owned' },
-                ]}
                 actions={[
                   {
                     label: 'Explore 5 Live Platforms',
@@ -367,11 +382,6 @@ export const AppContent: React.FC = () => {
                 pageName="AI & Automation Practice"
                 title="The Next Frontier: Generative & Agentic AI"
                 subtitle="Autonomous multi-agent workflows, custom LLM integrations, and intelligent decision systems engineered to adapt to your enterprise processes with human-in-the-loop governance."
-                metrics={[
-                  { label: 'Sprint Acceleration', value: '2.4x Faster' },
-                  { label: 'Human Oversight', value: '100% In-The-Loop' },
-                  { label: 'Data Leakage', value: 'Zero (Air-Gapped)' },
-                ]}
                 actions={[
                   {
                     label: 'Explore Generative AI',
@@ -405,11 +415,6 @@ export const AppContent: React.FC = () => {
                 pageName="Living Technology Philosophy"
                 title="Living Technology: Architecture & Delivery Framework"
                 subtitle="Covision: Technology That Connects Business and Creativity. Engineering proprietary software products, SaaS platforms, and cloud infrastructure built for evolving business demands."
-                metrics={[
-                  { label: 'Self-Healing Loops', value: 'Autonomous' },
-                  { label: 'Architecture Model', value: 'Organismic' },
-                  { label: 'Code Quality Benchmark', value: 'Zero-Debt' },
-                ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
               <LivingTechnologySection sectionNumber="01" />
@@ -433,11 +438,6 @@ export const AppContent: React.FC = () => {
                 pageName="Client Ecosystem & Case Studies"
                 title="Verified Enterprise Case Studies & Deployments"
                 subtitle="Explore verified production outcomes delivered for Fortune 500 retail giants, global media houses, and high-concurrency FinTech rails."
-                metrics={[
-                  { label: 'Verified Case Studies', value: '25+' },
-                  { label: 'Average Client Retention', value: '98%' },
-                  { label: 'Production Incidents', value: '0 Critical' },
-                ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
               <PillarClientsSection onOpenContact={() => handleOpenContact()} sectionNumber="01" />
@@ -461,11 +461,6 @@ export const AppContent: React.FC = () => {
                 pageName="About CoVision"
                 title="Engineering Excellence. Global Impact."
                 subtitle="Architects of modern digital ecosystems, uniting deep technical engineering with living technology philosophy to drive sustainable enterprise transformation."
-                metrics={[
-                  { label: 'Engineering Retention', value: '98%' },
-                  { label: 'Global Footprint', value: 'Tier-1 Alliances' },
-                  { label: 'Zero-Debt Benchmark', value: 'Strict' },
-                ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
               <AboutUsSection onOpenContact={() => handleOpenContact()} sectionNumber="01" />
@@ -491,11 +486,6 @@ export const AppContent: React.FC = () => {
                 pageName="Enterprise Scoping"
                 title="Consult with Lead Enterprise Architects"
                 subtitle="Direct line to senior engineers and technical partners. Receive tailored architectural proposals, milestone schedules, and SLA commitments."
-                metrics={[
-                  { label: 'Response SLA', value: '< 2 Hours' },
-                  { label: 'Mutual NDA', value: 'Standard' },
-                  { label: 'Direct Access', value: 'Lead Architects' },
-                ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
               <GetInTouchBanner onEmailSubmit={(email) => handleOpenContact(`Direct Inquiry from ${email}`)} />
