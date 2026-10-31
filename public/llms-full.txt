@@ -126,3 +126,4 @@ A: CoVision deploys dedicated cross-functional engineering pods consisting of a 
 
 **Q: How can enterprise clients initiate a scoping session?**  
 A: Clients can request a scoping session directly through the website at https://covisionwebsite.vercel.app/#contact or by emailing enterprise partnerships directly.
+
