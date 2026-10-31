@@ -276,15 +276,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   sectionNumber = '01',
   targetServiceId,
 }) => {
+  const getNormalizedServiceId = (id?: string) => {
+    if (!id) return 'software-engineering'
+    if (id === 'ux-ui') return 'ux-ui-design'
+    if (id === 'app-development') return 'application-development'
+    return id
+  }
+
   const [modalService, setModalService] = useState<ServiceItem | null>(null)
-  const [activeNavId, setActiveNavId] = useState<string>('software-engineering')
+  const [activeNavId, setActiveNavId] = useState<string>(() => getNormalizedServiceId(targetServiceId))
 
   useEffect(() => {
     if (targetServiceId) {
-      let normalized = targetServiceId === 'ux-ui' ? 'ux-ui-design' : targetServiceId
-      if (normalized === 'app-development') normalized = 'application-development'
-      setActiveNavId(normalized)
+      const normalized = getNormalizedServiceId(targetServiceId)
       const timer = setTimeout(() => {
+        setActiveNavId(normalized)
         scrollToElement(`practice-showcase-${normalized}`, -100)
       }, 150)
       return () => clearTimeout(timer)

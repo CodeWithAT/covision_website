@@ -17,7 +17,7 @@ export const dispatchContactInquiry = async (
   formData: ContactFormData,
   customApiKey?: string
 ): Promise<ResendResponse> => {
-  const apiKey = customApiKey || (import.meta as any).env?.VITE_RESEND_API_KEY
+  const apiKey = customApiKey || import.meta.env.VITE_RESEND_API_KEY
 
   // Generate modern HTML email template with CoVision brand standards
   const emailHtml = `
@@ -134,7 +134,7 @@ export const dispatchContactInquiry = async (
       } else {
         throw new Error(data.message || 'Resend API returned an error')
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.warn('Resend live dispatch failed, falling back to simulated enterprise delivery:', err)
     }
   }

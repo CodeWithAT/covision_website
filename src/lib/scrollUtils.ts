@@ -1,3 +1,5 @@
+import { getLenisInstance } from './lenis'
+
 /**
  * Reliable smooth scrolling utilities that integrate with Lenis
  * and handle async DOM mounting / route transitions gracefully.
@@ -10,7 +12,7 @@ export const scrollToElement = (elementId: string, offset = -90) => {
   const checkAndScroll = () => {
     const el = document.getElementById(elementId)
     if (el) {
-      const lenis = (window as any).lenis
+      const lenis = getLenisInstance()
       if (lenis && typeof lenis.scrollTo === 'function') {
         lenis.scrollTo(el, { offset, duration: 0.75, immediate: false })
       } else {
@@ -30,7 +32,7 @@ export const scrollToElement = (elementId: string, offset = -90) => {
 }
 
 export const scrollToTopSmooth = (immediate = false) => {
-  const lenis = (window as any).lenis
+  const lenis = getLenisInstance()
   if (lenis && typeof lenis.scrollTo === 'function') {
     lenis.scrollTo(0, { immediate, duration: immediate ? 0 : 0.8 })
   } else {

@@ -1,6 +1,10 @@
 import Lenis from 'lenis'
 import { useEffect } from 'react'
 
+let globalLenisInstance: Lenis | null = null
+
+export const getLenisInstance = (): Lenis | null => globalLenisInstance
+
 export const useLenis = () => {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -17,8 +21,7 @@ export const useLenis = () => {
       infinite: false,
     })
 
-    // Expose lenis globally for smooth navigation
-    ;(window as any).lenis = lenis
+    globalLenisInstance = lenis
 
     let animationFrameId: number
 
@@ -32,7 +35,7 @@ export const useLenis = () => {
     return () => {
       cancelAnimationFrame(animationFrameId)
       lenis.destroy()
-      delete (window as any).lenis
+      globalLenisInstance = null
     }
   }, [])
 }

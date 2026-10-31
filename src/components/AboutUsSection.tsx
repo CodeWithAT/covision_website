@@ -14,7 +14,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
   onOpenContact,
   sectionNumber = '01',
 }) => {
-  const valueIcons: Record<string, any> = {
+  const valueIcons: Record<string, React.ComponentType<{ className?: string }>> = {
     'Customer Commitment': HeartHandshake,
     'Quality Excellence': Award,
     'Collaborative Teamwork': Users,

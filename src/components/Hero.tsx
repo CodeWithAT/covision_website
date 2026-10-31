@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { getLenisInstance } from '../lib/lenis'
 
 interface HeroProps {
   onNavigatePage: (page: string, targetServiceId?: string) => void
@@ -255,8 +256,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigatePage, onOpenContact }) => 
           transition={{ duration: 1, delay: 1.1 }}
           className="relative z-20 pb-5 sm:pb-6 flex flex-col items-center gap-1.5 cursor-pointer opacity-80 hover:opacity-100 transition-opacity"
           onClick={() => {
-            if ((window as any).lenis) {
-              ;(window as any).lenis.scrollTo(window.innerHeight * 0.85)
+            const lenis = getLenisInstance()
+            if (lenis) {
+              lenis.scrollTo(window.innerHeight * 0.85)
             } else {
               window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' })
             }
