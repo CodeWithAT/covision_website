@@ -1,10 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Target, Compass, HeartHandshake, Award, Users, Trophy, Lightbulb, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react'
+import { Target, Compass, HeartHandshake, Award, Users, Trophy, Lightbulb, ShieldCheck, ArrowRight } from 'lucide-react'
 
 import { SectionEyebrow } from './SectionEyebrow'
 import { ABOUT_US_DETAILS } from '../data/mockData'
-import { scrollToElement } from '../lib/scrollUtils'
 
 interface AboutUsSectionProps {
   onOpenContact: () => void
@@ -26,79 +25,6 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
 
   return (
     <div id="about-us-practice" className="bg-paper text-ink font-inter-tight selection:bg-[#0052cb] selection:text-white">
-      {/* =========================================================================
-          HERO BANNER: Engineering Living Technology. Where AI Converges.
-          Cinematic Dark Theme matching #ai, #services, and #saas
-         ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#07090E] text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-800">
-        <div className="absolute inset-0 bg-radial-gradient from-blue-900/25 via-slate-950/80 to-[#07090E] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(0,102,255,0.25),transparent_70%)] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Column: Core Headline & Vision */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5 space-y-6"
-            >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-bold tracking-wider uppercase">
-                <Sparkles className="size-3.5 text-blue-400 animate-pulse" />
-                <span>Corporate Identity & Values</span>
-              </div>
-
-              <h1 className="font-bricolage text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
-                Engineering Living Technology. Where AI Converges.
-              </h1>
-
-              <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed">
-                A premier enterprise digital engineering partner. We combine deep systems architecture, cognitive AI agents, and behavioral science design to build software ecosystems that adapt dynamically as enterprises scale.
-              </p>
-
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => scrollToElement('about-us', -90)}
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0052cb] hover:bg-[#0041a3] text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all cursor-pointer group"
-                >
-                  <span>Explore Ethos & Values</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button
-                  onClick={onOpenContact}
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold transition-all cursor-pointer"
-                >
-                  <span>Consult Lead Architect</span>
-                </button>
-              </div>
-            </motion.div>
-
-            {/* Right Column: Expanded Global Video Showcase (Big & Clear) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7 w-full"
-            >
-              <div className="relative rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-blue-950/40 group">
-                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-950">
-                  <video
-                    src="/globe.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
       <section id="about-us" className="py-24 md:py-36 bg-paper-deep relative overflow-hidden border-t border-ink-line text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Scroll Animation */}

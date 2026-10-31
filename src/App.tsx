@@ -482,8 +482,19 @@ export const AppContent: React.FC = () => {
               <PageHeaderBanner
                 image="/images/banners/about_banner_4k.webp?v=1"
                 pageName="About CoVision"
-                title="Engineering Excellence. Global Impact."
-                subtitle="Architects of modern digital ecosystems, uniting deep technical engineering with living technology philosophy to drive sustainable enterprise transformation."
+                title="Engineering Living Technology. Where AI Converges."
+                subtitle="A premier enterprise digital engineering partner. We combine deep systems architecture, cognitive AI agents, and behavioral science design to build software ecosystems that adapt dynamically as enterprises scale."
+                actions={[
+                  {
+                    label: 'Explore Ethos & Values',
+                    onClick: () => scrollToElement('about-us', -90),
+                    primary: true,
+                  },
+                  {
+                    label: 'Consult Lead Architect',
+                    onClick: () => handleOpenContact('Executive Architecture Consultation'),
+                  },
+                ]}
                 onBackToHome={() => handleNavigatePage('home')}
               />
               <AboutUsSection onOpenContact={() => handleOpenContact()} sectionNumber="01" />
