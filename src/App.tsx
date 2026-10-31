@@ -57,6 +57,7 @@ interface PageHeaderBannerProps {
   subtitle: string
   actions?: PageAction[]
   image: string
+  video?: string
   onBackToHome: () => void
 }
 
@@ -66,6 +67,7 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
   subtitle,
   actions,
   image,
+  video,
   onBackToHome,
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null)
@@ -91,13 +93,25 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
       {/* Sticky full-screen viewport */}
       <div className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-slate-950 flex flex-col justify-between">
         
-        {/* Full-bleed background image - pure view on landing */}
+        {/* Full-bleed background visual (video or high-res image) - pure view on landing */}
         <motion.div style={{ scale: imageScale }} className="absolute inset-0 w-full h-full origin-center">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover"
-          />
+          {video ? (
+            <video
+              src={video}
+              poster={image}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          )}
         </motion.div>
 
         {/* Dynamic atmospheric overlay */}
@@ -378,19 +392,19 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg"
+                image="/images/ai_banner_hero.jpg"
                 pageName="AI & Automation Practice"
-                title="The Next Frontier: Generative & Agentic AI"
-                subtitle="Autonomous multi-agent workflows, custom LLM integrations, and intelligent decision systems engineered to adapt to your enterprise processes with human-in-the-loop governance."
+                title="Transform Intelligence into Business Impact."
+                subtitle="Unite Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value."
                 actions={[
                   {
-                    label: 'Explore Generative AI',
+                    label: 'Explore Capabilities',
                     onClick: () => scrollToElement('generative-ai', -90),
                     primary: true,
                   },
                   {
-                    label: 'Request AI Scope',
-                    onClick: () => handleOpenContact('AI Transformation Scope'),
+                    label: 'Request AI Scoping Session',
+                    onClick: () => handleOpenContact('AI & Automation Strategy Scoping'),
                   },
                 ]}
                 onBackToHome={() => handleNavigatePage('home')}
