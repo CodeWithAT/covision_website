@@ -376,7 +376,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/saas_banner_4k.webp?v=2"
+                image="/images/banners/saas_banner_4k.webp?v=4"
                 imagePosition="object-center"
                 glowColor="rgba(0,82,203,0.18)"
                 pageName="SaaS Platforms Suite"
@@ -412,8 +412,8 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/ai_banner_4k.webp?v=3"
-                imagePosition="object-bottom"
+                image="/images/banners/ai_banner_4k.webp?v=4"
+                imagePosition="object-center"
                 glowColor="rgba(245,158,11,0.18)"
                 pageName="AI & Automation Practice"
                 title="Transform Intelligence into Business Impact."
