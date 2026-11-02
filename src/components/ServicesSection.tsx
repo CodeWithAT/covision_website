@@ -343,7 +343,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   viewport={{ once: true, amount: 0.1 }}
                   variants={cardFadeUp}
                   onClick={() => scrollToPractice(card.id)}
-                  className="group relative overflow-hidden rounded-3xl border border-ink-line cursor-pointer aspect-[16/9] bg-slate-900"
+                  className="group relative overflow-hidden rounded-3xl border border-ink-line cursor-pointer aspect-[16/10] sm:aspect-[16/9] bg-slate-900 shadow-sm hover:shadow-2xl hover:border-[#0052cb]/50 transition-all duration-500"
                 >
                   {/* Full background image */}
                   <img
@@ -352,39 +352,29 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 
-                  {/* Persistent dark gradient — always show top badge */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
+                  {/* Sleek persistent dark gradient: ensures high contrast for typography while keeping image fully visible */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/20 pointer-events-none transition-opacity duration-500 group-hover:from-black/95" />
 
                   {/* Top-left: number + icon */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2">
-                    <div className="size-8 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                  <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+                    <div className="size-8 rounded-xl bg-black/45 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-md">
                       <Icon className="size-4 text-white" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-white/60 uppercase tracking-wider">{card.number}</span>
+                    <span className="text-[10px] font-mono font-bold text-white/80 uppercase tracking-widest bg-black/45 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/15">
+                      Practice {card.number}
+                    </span>
                   </div>
 
-                  {/* Bottom: scroll-reveal white text box */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-400 ease-out">
-                    {/* White frosted info panel */}
-                    <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/80 transition-all duration-400">
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-bricolage text-sm sm:text-base font-bold text-ink leading-snug">
-                            {card.title}
-                          </h3>
-                          <p className="text-xs text-neutral-600 mt-1 leading-relaxed line-clamp-2">
-                            {card.summary}
-                          </p>
-                        </div>
-                        <div className="size-8 rounded-full bg-[#0052cb] flex items-center justify-center shrink-0">
-                          <ChevronRight className="size-4 text-white" />
-                        </div>
-                      </div>
-                      <div className="mt-3 pt-2.5 border-t border-ink-line/50 flex items-center gap-1.5">
-                        <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wide">{card.metrics.label}:</span>
-                        <span className="text-[10px] font-mono font-bold text-[#0052cb]">{card.metrics.value}</span>
-                      </div>
-                    </div>
+                  {/* Top-right: explore indicator */}
+                  <div className="absolute top-4 right-4 z-10 size-8 rounded-full bg-black/45 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 group-hover:bg-[#0052cb] group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-md">
+                    <ChevronRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </div>
+
+                  {/* Bottom: Clean dark title overlay without bulky white box */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
+                    <h3 className="font-bricolage text-base sm:text-xl font-bold text-white leading-snug group-hover:text-blue-300 transition-colors drop-shadow-sm">
+                      {card.title}
+                    </h3>
                   </div>
                 </motion.div>
               )
@@ -454,15 +444,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                         alt={service.imageAlt}
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                        <div>
-                          <div className="text-[10px] font-mono text-white/60 uppercase tracking-wider">Practice {service.number}</div>
-                          <div className="font-bricolage text-sm font-bold text-white mt-0.5 leading-tight">{service.title}</div>
-                        </div>
-                        <div className="size-9 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 flex items-center justify-center">
+                      {/* Subtle ambient vignette keeping image 100% clear */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/25 pointer-events-none" />
+                      
+                      {/* Top-left: Practice indicator pill */}
+                      <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                        <div className="size-8 rounded-xl bg-black/45 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-md">
                           <Icon className="size-4 text-white" />
                         </div>
+                        <span className="text-[10px] font-mono font-bold text-white/90 uppercase tracking-widest bg-black/45 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/15">
+                          Practice {service.number}
+                        </span>
                       </div>
                     </div>
                   </motion.div>
@@ -475,14 +467,19 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                     className={`flex flex-col space-y-5 ${service.imageLeft ? 'order-2' : 'order-2 lg:order-1'}`}
                   >
-                    {/* Practice Badge */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider w-max">
-                      <Icon className="size-3.5" />
-                      <span>{service.number}. {service.badge}</span>
+                    {/* Practice Badge & Connected Service Discipline Title (Moved up from bottom of image) */}
+                    <div className="space-y-1.5">
+                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider w-max shadow-sm">
+                        <Icon className="size-3.5 text-[#0052cb]" />
+                        <span>Practice {service.number} • {service.badge}</span>
+                      </div>
+                      <h4 className="text-xl sm:text-2xl font-bricolage font-bold text-ink tracking-tight pt-1">
+                        {service.title}
+                      </h4>
                     </div>
 
                     {/* Headline */}
-                    <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[31px] font-bold text-ink leading-snug">
+                    <h3 className="font-bricolage text-xl sm:text-2xl lg:text-[27px] font-semibold text-neutral-800 leading-snug">
                       {service.headline}
                     </h3>
 
