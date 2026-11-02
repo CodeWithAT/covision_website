@@ -57,6 +57,8 @@ interface PageHeaderBannerProps {
   subtitle: string
   actions?: PageAction[]
   image: string
+  imagePosition?: string
+  glowColor?: string
   video?: string
   onBackToHome: () => void
 }
@@ -67,6 +69,8 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
   subtitle,
   actions,
   image,
+  imagePosition = 'object-center',
+  glowColor = 'rgba(0,82,203,0.18)',
   video,
   onBackToHome,
 }) => {
@@ -117,7 +121,7 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                className="w-full h-full object-cover"
+                className={`w-full h-full object-cover ${imagePosition}`}
               />
             </picture>
           )}
@@ -128,7 +132,12 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
           style={{ opacity: overlayOpacity }}
           className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/30 pointer-events-none"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_50%_at_50%_0%,rgba(0,82,203,0.18),transparent_65%)] pointer-events-none" />
+        <div
+          style={{
+            background: `radial-gradient(ellipse 75% 50% at 50% 0%, ${glowColor}, transparent 65%)`,
+          }}
+          className="absolute inset-0 pointer-events-none"
+        />
 
         {/* Top breadcrumb navigation */}
         <div className="relative top-24 left-0 right-0 px-4 sm:px-6 lg:px-8 z-30 pointer-events-auto">
@@ -367,7 +376,9 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/saas_banner_4k.webp?v=1"
+                image="/images/banners/saas_banner_4k.webp?v=2"
+                imagePosition="object-center"
+                glowColor="rgba(0,82,203,0.18)"
                 pageName="SaaS Platforms Suite"
                 title="Proprietary Platforms. Built for Scale."
                 subtitle="Battle-tested standalone digital platforms engineered for sovereign enterprise deployment, live telemetry, multi-tenant isolation, and rapid market scaling with sub-50ms response times."
@@ -401,7 +412,9 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/ai_banner_4k.webp?v=1"
+                image="/images/banners/ai_banner_4k.webp?v=3"
+                imagePosition="object-bottom"
+                glowColor="rgba(245,158,11,0.18)"
                 pageName="AI & Automation Practice"
                 title="Transform Intelligence into Business Impact."
                 subtitle="Unite Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value."

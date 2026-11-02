@@ -49,7 +49,7 @@ const SERVICE_GRID_CARDS = [
     icon: BarChart3,
     title: 'Data Analytics & Predictive Intelligence',
     summary: 'Real-time BI dashboards and 14+ analytics platforms that transform data into measurable outcomes.',
-    image: '/senior_image_catalog/07_Data_Analytics_and_BI/01_financial_bi_telemetry_hub.jpg',
+    image: '/images/services/data_analytics_hud.webp',
     metrics: { label: 'Analytics Dimensions', value: '9 Critical KPIs' },
   },
   {
@@ -147,7 +147,7 @@ const SERVICE_SHOWCASES = [
     title: 'Business Analytics & Predictive Intelligence',
     headline: 'The Divine Weapon of E-Business. Powered by an Arsenal of Technological Expertise.',
     body: 'Analytics is not merely a tool — it is a transformative strategic weapon that decodes real-time events, uncovers actionable insights, and equips businesses to anticipate and shape future outcomes. We harness 14+ enterprise-grade analytical platforms across 9 critical performance dimensions.',
-    image: '/senior_image_catalog/07_Data_Analytics_and_BI/01_financial_bi_telemetry_hub.jpg',
+    image: '/images/services/data_analytics_hud.webp',
     imageAlt: 'Enterprise Business Intelligence & Analytics Hub',
     bullets: [
       {
