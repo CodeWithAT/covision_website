@@ -91,7 +91,7 @@ const SERVICE_SHOWCASES = [
     title: 'Custom Software Engineering',
     headline: 'Elevate your business with tailored software that works like your own operating system.',
     body: 'Every business operates within its own unique landscape — shaped by its audience, processes, and objectives. We engineer bespoke software solutions that align seamlessly with your operational reality, from complex HRMS platforms to sovereign ERP ecosystems.',
-    image: '/senior_image_catalog/02_Software_Engineering_and_Code/02_principal_architect_scalability.jpg',
+    image: '/senior_image_catalog/02_Software_Engineering_and_Code/02_principal_architect_workspace.jpg',
     imageAlt: 'Principal Architect Software Engineering',
     bullets: [
       {
@@ -467,19 +467,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                     className={`flex flex-col space-y-5 ${service.imageLeft ? 'order-2' : 'order-2 lg:order-1'}`}
                   >
-                    {/* Practice Badge & Connected Service Discipline Title (Moved up from bottom of image) */}
-                    <div className="space-y-1.5">
-                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 text-[#0052cb] text-xs font-mono font-bold uppercase tracking-wider w-max shadow-sm">
-                        <Icon className="size-3.5 text-[#0052cb]" />
-                        <span>Practice {service.number} • {service.badge}</span>
-                      </div>
-                      <h4 className="text-xl sm:text-2xl font-bricolage font-bold text-ink tracking-tight pt-1">
-                        {service.title}
-                      </h4>
+                    {/* Practice Title as Clean Monospace Kicker */}
+                    <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb]">
+                      <Icon className="size-3.5 text-[#0052cb]" />
+                      <span>{service.number}. {service.title}</span>
                     </div>
 
                     {/* Headline */}
-                    <h3 className="font-bricolage text-xl sm:text-2xl lg:text-[27px] font-semibold text-neutral-800 leading-snug">
+                    <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink leading-snug">
                       {service.headline}
                     </h3>
 
