@@ -467,16 +467,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                     className={`flex flex-col space-y-5 ${service.imageLeft ? 'order-2' : 'order-2 lg:order-1'}`}
                   >
-                    {/* Practice Title as Clean Monospace Kicker */}
-                    <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb]">
-                      <Icon className="size-3.5 text-[#0052cb]" />
-                      <span>{service.number}. {service.title}</span>
-                    </div>
+                    {/* Practice Title & Headline Connected Header Block */}
+                    <div className="space-y-2.5">
+                      <div className="flex items-center gap-2.5 text-sm sm:text-base lg:text-[17px] font-mono font-bold uppercase tracking-wide text-[#0052cb]">
+                        <Icon className="size-4 sm:size-[18px] text-[#0052cb] shrink-0" />
+                        <span>{service.number}. {service.title}</span>
+                      </div>
 
-                    {/* Headline */}
-                    <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink leading-snug">
-                      {service.headline}
-                    </h3>
+                      {/* Headline */}
+                      <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink leading-snug">
+                        {service.headline}
+                      </h3>
+                    </div>
 
                     {/* Body */}
                     <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
