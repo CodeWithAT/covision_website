@@ -229,91 +229,110 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Zero-FOUC Critical Styling: Keeps pre-rendered semantic HTML accessible to AI/Search crawlers while preventing visual text flash in browser -->
+    <style>
+      #seo-prerender {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body class="bg-white text-slate-900 font-sans antialiased selection:bg-[#0052cb] selection:text-white overflow-x-hidden">
     <div id="root">
       <!-- Semantic crawlable pre-render for AI search engines, answer engines, and LLM web scrapers (Perplexity, ChatGPT, Claude, Curl) -->
-      <header>
-        <h1>CoVision Technologies — Living Technology</h1>
-        <p>Enterprise Digital Engineering, Autonomous Agentic AI & Proprietary SaaS Platforms</p>
-        <nav aria-label="Main Navigation">
-          <a href="/#services">Services & Cloud Fabric</a>
-          <a href="/#saas">SaaS Platforms Suite</a>
-          <a href="/#ai">AI & Automation Practice</a>
-          <a href="/#living-tech">Living Technology Philosophy</a>
-          <a href="/#clients">Client Ecosystem & Case Studies</a>
-          <a href="/#about">About CoVision</a>
-          <a href="/#contact">Enterprise Architecture Scoping</a>
-        </nav>
-      </header>
+      <div id="seo-prerender">
+        <header>
+          <h1>CoVision Technologies — Living Technology</h1>
+          <p>Enterprise Digital Engineering, Autonomous Agentic AI & Proprietary SaaS Platforms</p>
+          <nav aria-label="Main Navigation">
+            <a href="/#services">Services & Cloud Fabric</a>
+            <a href="/#saas">SaaS Platforms Suite</a>
+            <a href="/#ai">AI & Automation Practice</a>
+            <a href="/#living-tech">Living Technology Philosophy</a>
+            <a href="/#clients">Client Ecosystem & Case Studies</a>
+            <a href="/#about">About CoVision</a>
+            <a href="/#contact">Enterprise Architecture Scoping</a>
+          </nav>
+        </header>
 
-      <main>
-        <!-- Section: Living Technology Definition & Doctrine -->
-        <article id="living-technology-definition">
-          <h2>Living Technology Philosophy: Dynamic Architecture & Adaptive Intelligence</h2>
-          <p>
-            <strong>Living Technology</strong> is CoVision Technologies' proprietary engineering doctrine and foundational philosophy. Where traditional enterprise software remains static, brittle, and depreciates over time, Living Technology represents software ecosystems engineered to dynamically learn, adapt, and self-heal in real-time as enterprise workloads, customer behaviors, and technological paradigms shift.
-          </p>
-          <p>
-            Living Technology unites deep systems architecture, cognitive AI agent meshes, and behavioral science UX to build digital infrastructure that evolves continuously alongside business operations.
-          </p>
-          <h3>Core Tenets of Living Technology</h3>
-          <ul>
-            <li><strong>Continuous Dynamic Adaptation:</strong> Systems scale and reconfigure microservices automatically based on real-time traffic and data telemetry.</li>
-            <li><strong>Autonomous AI Convergence:</strong> Beyond passive chatbots, agentic AI swarms execute complex multi-step workflows with verified compliance guardrails.</li>
-            <li><strong>Zero-Downtime Resilience:</strong> Multi-region cloud clusters with active hardware failover guarantee a 99.99% production uptime SLA.</li>
-            <li><strong>Human-Centered Synthesis:</strong> Software designed to amplify human decision-making, speed, and creative intelligence rather than replace human context.</li>
-          </ul>
-        </article>
+        <main>
+          <!-- Section: Living Technology Definition & Doctrine -->
+          <article id="living-technology-definition">
+            <h2>Living Technology Philosophy: Dynamic Architecture & Adaptive Intelligence</h2>
+            <p>
+              <strong>Living Technology</strong> is CoVision Technologies' proprietary engineering doctrine and foundational philosophy. Where traditional enterprise software remains static, brittle, and depreciates over time, Living Technology represents software ecosystems engineered to dynamically learn, adapt, and self-heal in real-time as enterprise workloads, customer behaviors, and technological paradigms shift.
+            </p>
+            <p>
+              Living Technology unites deep systems architecture, cognitive AI agent meshes, and behavioral science UX to build digital infrastructure that evolves continuously alongside business operations.
+            </p>
+            <h3>Core Tenets of Living Technology</h3>
+            <ul>
+              <li><strong>Continuous Dynamic Adaptation:</strong> Systems scale and reconfigure microservices automatically based on real-time traffic and data telemetry.</li>
+              <li><strong>Autonomous AI Convergence:</strong> Beyond passive chatbots, agentic AI swarms execute complex multi-step workflows with verified compliance guardrails.</li>
+              <li><strong>Zero-Downtime Resilience:</strong> Multi-region cloud clusters with active hardware failover guarantee a 99.99% production uptime SLA.</li>
+              <li><strong>Human-Centered Synthesis:</strong> Software designed to amplify human decision-making, speed, and creative intelligence rather than replace human context.</li>
+            </ul>
+          </article>
 
-        <!-- Section: AI & Automation Practice -->
-        <article id="ai-automation-practice">
-          <h2>AI & Automation Practice: Transform Intelligence into Business Impact</h2>
-          <p>
-            CoVision's AI Practice unites Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value with 86% workflow automation, sub-400ms query latency, and 99.8% response accuracy.
-          </p>
-          <ul>
-            <li><strong>Autonomous Agentic Workflows:</strong> Multi-agent swarms with secure tool-calling, verified memory contexts, and enterprise audit logging.</li>
-            <li><strong>Cognitive Media & Creative Production:</strong> AI-powered visual production, 3D simulations, and multimedia asset generation.</li>
-            <li><strong>Intelligent Document Processing (IDP):</strong> High-accuracy OCR, table extraction, and regulatory classification for contracts and financial records.</li>
-            <li><strong>Neural Knowledge Graph RAG:</strong> Context-aware retrieval augmented generation with strict tenant isolation and zero data leakage.</li>
-          </ul>
-        </article>
+          <!-- Section: AI & Automation Practice -->
+          <article id="ai-automation-practice">
+            <h2>AI & Automation Practice: Transform Intelligence into Business Impact</h2>
+            <p>
+              CoVision's AI Practice unites Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value with 86% workflow automation, sub-400ms query latency, and 99.8% response accuracy.
+            </p>
+            <ul>
+              <li><strong>Autonomous Agentic Workflows:</strong> Multi-agent swarms with secure tool-calling, verified memory contexts, and enterprise audit logging.</li>
+              <li><strong>Cognitive Media & Creative Production:</strong> AI-powered visual production, 3D simulations, and multimedia asset generation.</li>
+              <li><strong>Intelligent Document Processing (IDP):</strong> High-accuracy OCR, table extraction, and regulatory classification for contracts and financial records.</li>
+              <li><strong>Neural Knowledge Graph RAG:</strong> Context-aware retrieval augmented generation with strict tenant isolation and zero data leakage.</li>
+            </ul>
+          </article>
 
-        <!-- Section: Proprietary SaaS Platforms -->
-        <article id="saas-platforms">
-          <h2>Proprietary Enterprise SaaS Platforms</h2>
-          <ul>
-            <li><strong>CoCommerce™:</strong> Headless composable commerce platform with sub-150ms checkout speeds, automated multi-warehouse routing, powering over $240M+ annual GMV.</li>
-            <li><strong>CogniFlow AI™:</strong> Autonomous enterprise workflow orchestration engine with private VPC data isolation and 24/7 task execution.</li>
-            <li><strong>CoEdge Fabric™:</strong> Global Anycast edge network with automated image and media optimization across 120+ PoPs delivering sub-15ms TTFB.</li>
-            <li><strong>CoVision Lattice Studio™:</strong> Enterprise design token system and fluid accessible component library guaranteeing 60fps UI frame rates.</li>
-            <li><strong>DataPulse BI™:</strong> Real-time executive performance dashboard processing 50,000+ events per second with sub-80ms analytical query response times.</li>
-          </ul>
-        </article>
+          <!-- Section: Proprietary SaaS Platforms -->
+          <article id="saas-platforms">
+            <h2>Proprietary Enterprise SaaS Platforms</h2>
+            <ul>
+              <li><strong>CoCommerce™:</strong> Headless composable commerce platform with sub-150ms checkout speeds, automated multi-warehouse routing, powering over $240M+ annual GMV.</li>
+              <li><strong>CogniFlow AI™:</strong> Autonomous enterprise workflow orchestration engine with private VPC data isolation and 24/7 task execution.</li>
+              <li><strong>CoEdge Fabric™:</strong> Global Anycast edge network with automated image and media optimization across 120+ PoPs delivering sub-15ms TTFB.</li>
+              <li><strong>CoVision Lattice Studio™:</strong> Enterprise design token system and fluid accessible component library guaranteeing 60fps UI frame rates.</li>
+              <li><strong>DataPulse BI™:</strong> Real-time executive performance dashboard processing 50,000+ events per second with sub-80ms analytical query response times.</li>
+            </ul>
+          </article>
 
-        <!-- Section: Verified Enterprise Deployments & Case Studies -->
-        <article id="case-studies">
-          <h2>Verified Enterprise Case Studies & Deployments</h2>
-          <p>
-            Proven production outcomes delivered for Fortune 500 retail giants, global media houses, and high-concurrency FinTech rails:
-          </p>
-          <ul>
-            <li><strong>Puma & Fila Footwear:</strong> Monolithic checkout scaled to headless edge nodes, achieving 99.995% peak sales uptime and reducing latency from 1.8s to 135ms.</li>
-            <li><strong>Estée Lauder Companies:</strong> AI recommendation mesh and personalized color matching driving +38% average order value and 4.2x engagement lift.</li>
-            <li><strong>NovaPay Global FinTech:</strong> Event-driven Kafka microservices scaling transaction throughput to 15,000 tx/sec with audited SOC-2 compliance.</li>
-            <li><strong>Aura Health AI:</strong> HIPAA-compliant zero-trust cloud fabric reducing diagnostic document processing time by 72%.</li>
-          </ul>
-        </article>
+          <!-- Section: Verified Enterprise Deployments & Case Studies -->
+          <article id="case-studies">
+            <h2>Verified Enterprise Case Studies & Deployments</h2>
+            <p>
+              Proven production outcomes delivered for Fortune 500 retail giants, global media houses, and high-concurrency FinTech rails:
+            </p>
+            <ul>
+              <li><strong>Puma & Fila Footwear:</strong> Monolithic checkout scaled to headless edge nodes, achieving 99.995% peak sales uptime and reducing latency from 1.8s to 135ms.</li>
+              <li><strong>Estée Lauder Companies:</strong> AI recommendation mesh and personalized color matching driving +38% average order value and 4.2x engagement lift.</li>
+              <li><strong>NovaPay Global FinTech:</strong> Event-driven Kafka microservices scaling transaction throughput to 15,000 tx/sec with audited SOC-2 compliance.</li>
+              <li><strong>Aura Health AI:</strong> HIPAA-compliant zero-trust cloud fabric reducing diagnostic document processing time by 72%.</li>
+            </ul>
+          </article>
 
-        <!-- Section: Enterprise Architecture Scoping -->
-        <article id="contact">
-          <h2>Consult with Lead Enterprise Architects</h2>
-          <p>
-            Direct engagement line to senior solutions architects and technical partners. Receive tailored architectural proposals, milestone schedules, and SLA commitments at <a href="https://covisionwebsite.vercel.app/#contact">https://covisionwebsite.vercel.app/#contact</a>.
-          </p>
-        </article>
-      </main>
+          <!-- Section: Enterprise Architecture Scoping -->
+          <article id="contact">
+            <h2>Consult with Lead Enterprise Architects</h2>
+            <p>
+              Direct engagement line to senior solutions architects and technical partners. Receive tailored architectural proposals, milestone schedules, and SLA commitments at <a href="https://covisionwebsite.vercel.app/#contact">https://covisionwebsite.vercel.app/#contact</a>.
+            </p>
+          </article>
+        </main>
+      </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
