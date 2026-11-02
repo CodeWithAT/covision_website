@@ -224,10 +224,13 @@ export const GlobeWireframe: React.FC<GlobeWireframeProps> = ({
   useEffect(() => {
     const loadWorldData = async () => {
       try {
-        const response = await fetch(
-          'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json',
-        )
-        if (!response.ok) throw new Error('CDN fetch error')
+        let response = await fetch('/countries-110m.json')
+        if (!response.ok) {
+          response = await fetch(
+            'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json',
+          )
+        }
+        if (!response.ok) throw new Error('Atlas fetch error')
         const world = (await response.json()) as WorldAtlasTopology
         const countries = feature(world, world.objects.countries)
           .features as GeoFeature[]
