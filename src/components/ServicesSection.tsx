@@ -468,16 +468,19 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     className={`flex flex-col space-y-5 ${service.imageLeft ? 'order-2' : 'order-2 lg:order-1'}`}
                   >
                     {/* Practice Title & Headline Connected Header Block */}
-                    <div className="space-y-2.5">
-                      <div className="flex items-center gap-2.5 text-sm sm:text-base lg:text-[17px] font-mono font-bold uppercase tracking-wide text-[#0052cb]">
-                        <Icon className="size-4 sm:size-[18px] text-[#0052cb] shrink-0" />
-                        <span>{service.number}. {service.title}</span>
+                    <div className="space-y-3">
+                      {/* Primary Practice Title (Blue, Enlarged to Headline Scale + 0.5) */}
+                      <div className="flex items-center gap-3">
+                        <Icon className="size-6 sm:size-7 lg:size-8 text-[#0052cb] shrink-0" />
+                        <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[36px] font-bold text-[#0052cb] tracking-tight leading-tight">
+                          {service.number}. {service.title}
+                        </h3>
                       </div>
 
-                      {/* Headline */}
-                      <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink leading-snug">
+                      {/* Editorial Headline (Black, Sub-headline Scale) */}
+                      <h4 className="font-bricolage text-base sm:text-lg lg:text-[20px] font-semibold text-neutral-800 leading-snug">
                         {service.headline}
-                      </h3>
+                      </h4>
                     </div>
 
                     {/* Body */}
