@@ -333,7 +333,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         <div className="relative w-full overflow-hidden mask-fade-x py-2">
           <div
             className="animate-marquee flex items-center gap-5 sm:gap-6 will-change-transform"
-            style={{ '--marquee-duration': '40s' } as React.CSSProperties}
+            style={{ '--marquee-duration': '44s' } as React.CSSProperties}
           >
             {[...SERVICE_GRID_CARDS, ...SERVICE_GRID_CARDS].map((card, idx) => {
               const Icon = card.icon
@@ -341,7 +341,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <div
                   key={`${card.id}-${idx}`}
                   onClick={() => scrollToPractice(card.id)}
-                  className="group relative overflow-hidden rounded-3xl border border-ink-line cursor-pointer w-[280px] sm:w-[350px] lg:w-[390px] aspect-[16/10] shrink-0 bg-slate-900 shadow-sm hover:shadow-2xl hover:border-[#0052cb]/60 transition-all duration-500 hover:-translate-y-1"
+                  className="group relative overflow-hidden rounded-3xl border border-ink-line cursor-pointer w-[280px] sm:w-[340px] lg:w-[380px] aspect-square shrink-0 bg-slate-900 shadow-sm hover:shadow-2xl hover:border-[#0052cb]/60 transition-all duration-500 hover:-translate-y-1"
                 >
                   {/* Full background image */}
                   <img
@@ -351,10 +351,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   />
 
                   {/* Sleek persistent dark gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 pointer-events-none transition-opacity duration-500 group-hover:from-black/95" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/15 pointer-events-none transition-opacity duration-500 group-hover:from-black/95" />
 
                   {/* Top-left: number + icon */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+                  <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
                     <div className="size-8 rounded-xl bg-black/45 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-md">
                       <Icon className="size-4 text-white" />
                     </div>
@@ -364,13 +364,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   </div>
 
                   {/* Top-right: explore indicator */}
-                  <div className="absolute top-4 right-4 z-10 size-8 rounded-full bg-black/45 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 group-hover:bg-[#0052cb] group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-md">
+                  <div className="absolute top-5 right-5 z-10 size-8 rounded-full bg-black/45 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 group-hover:bg-[#0052cb] group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-md">
                     <ChevronRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </div>
 
                   {/* Bottom: Clean dark title overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
-                    <h3 className="font-bricolage text-base sm:text-lg lg:text-xl font-bold text-white leading-snug group-hover:text-blue-300 transition-colors drop-shadow-sm">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-7 z-10">
+                    <h3 className="font-bricolage text-lg sm:text-xl lg:text-[22px] font-bold text-white leading-snug group-hover:text-blue-300 transition-colors drop-shadow-sm">
                       {card.title}
                     </h3>
                   </div>
