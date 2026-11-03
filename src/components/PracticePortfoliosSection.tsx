@@ -79,7 +79,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Cloud & Infrastructure',
     desc: 'Cloud architecture, infrastructure engineering, DevOps, monitoring, and optimization for reliable operations.',
     badge: 'Multi-Cloud Fabric',
-    image: '/senior_image_catalog/01_Cloud_and_Datacenter/01_enterprise_datacenter_array.jpg',
+    image: '/images/services/cloud_infrastructure_isometric.webp',
     icon: Cloud,
     highlights: [
       'Kubernetes orchestration & GitOps CI/CD',

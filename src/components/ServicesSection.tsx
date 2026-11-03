@@ -58,7 +58,7 @@ const SERVICE_GRID_CARDS = [
     icon: Cloud,
     title: 'Cloud & Infrastructure',
     summary: 'AWS, Azure, and GCP-certified cloud architecture and zero-downtime migration services.',
-    image: '/senior_image_catalog/01_Cloud_and_Datacenter/03_multi-cloud_rack_clusters.jpg',
+    image: '/images/services/cloud_infrastructure_isometric.webp',
     metrics: { label: 'Hyperscaler Partners', value: 'AWS · Azure · GCP' },
   },
   {
@@ -175,8 +175,8 @@ const SERVICE_SHOWCASES = [
     title: 'Cloud & Infrastructure',
     headline: 'Strategize smart. Transform fast. The fusion of AI with cloud engineering.',
     body: 'Cloud services are a powerful weapon in the digital business ecosystem. Our strategic partnerships with AWS, Microsoft Azure, and Google Cloud enable us to leverage cutting-edge cloud innovations, AI acceleration, and sovereign infrastructure to accelerate your digital transformation.',
-    image: '/senior_image_catalog/01_Cloud_and_Datacenter/10_distributed_cloud_engineering_la.jpg',
-    imageAlt: 'Distributed Cloud Engineering Lab',
+    image: '/images/services/cloud_infrastructure_isometric.webp',
+    imageAlt: 'Enterprise Cloud Architecture and Server Infrastructure',
     bullets: [
       {
         title: 'Cloud Strategy, Architecture & Consulting',
