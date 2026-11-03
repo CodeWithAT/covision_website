@@ -96,7 +96,7 @@ const AI_FEATURED_SOLUTION: CoreSolution = {
   title: 'AI as a Service',
   desc: 'AI agents, intelligent automation, and AI-powered integrations that streamline workflows and extend business capabilities.',
   badge: 'Autonomous Intelligence',
-  image: '/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg',
+  image: '/images/services/ai_robot_puzzle.webp',
   icon: Brain,
   highlights: [
     'Autonomous multi-agent workflows & decision automation',

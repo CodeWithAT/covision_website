@@ -67,7 +67,7 @@ const SERVICE_GRID_CARDS = [
     icon: Brain,
     title: 'AI / ML Integration',
     summary: 'Generative AI, autonomous agentic workflows, and cognitive connectors for SAP, Salesforce & ERP.',
-    image: '/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg',
+    image: '/images/services/ai_robot_puzzle.webp',
     metrics: { label: 'AI Capability', value: 'Agentic · GenAI · MLOps' },
   },
   {
@@ -203,8 +203,8 @@ const SERVICE_SHOWCASES = [
     title: 'AI / ML Integration & Autonomous Intelligence',
     headline: 'Unite Generative AI creativity with autonomous Agentic AI execution.',
     body: "Generative AI and agentic AI are the two foundational pillars of business-specific AI transformation. By learning and adapting to each organization's unique processes, workflows, and customer needs, we enable personalized, context-aware solutions that preserve the human touch.",
-    image: '/senior_image_catalog/05_Enterprise_AI_and_Robotics/03_neural_network_silicon_microarch.jpg',
-    imageAlt: 'Enterprise AI Neural Architecture',
+    image: '/images/services/ai_robot_puzzle.webp',
+    imageAlt: 'Human and Robot Hands Completing Puzzle in Autonomous AI Integration',
     bullets: [
       {
         title: 'Fine-Tuned Enterprise AI Models',
