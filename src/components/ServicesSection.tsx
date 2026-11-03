@@ -40,7 +40,7 @@ const SERVICE_GRID_CARDS = [
     icon: Smartphone,
     title: 'Application Development & Management',
     summary: 'Native, cross-platform, and progressive web applications engineered for 24/7 enterprise lifecycle.',
-    image: '/senior_image_catalog/04_Mobile_App_Engineering/01_dark_mode_mobile_app_ux.jpg',
+    image: '/images/services/mobile_app_development.webp',
     metrics: { label: 'Platforms', value: 'iOS · Android · Web · PWA' },
   },
   {
@@ -119,7 +119,7 @@ const SERVICE_SHOWCASES = [
     title: 'Application Development & Management',
     headline: 'Turbo-charge your mobile and web presence with CoVision engineering.',
     body: 'Wide array of mobile app development solutions engineered for consumer-grade fluidity and mission-critical enterprise reliability — from native hardware-accelerated apps to progressive web experiences that reach users on every device.',
-    image: '/senior_image_catalog/04_Mobile_App_Engineering/01_dark_mode_mobile_app_ux.jpg',
+    image: '/images/services/mobile_app_development.webp',
     imageAlt: 'Enterprise Mobile Application Engineering',
     bullets: [
       {

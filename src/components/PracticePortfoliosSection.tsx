@@ -64,7 +64,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Application Development & Management',
     desc: 'Application development, modernization, integration, maintenance, and lifecycle management.',
     badge: 'App Lifecycle',
-    image: '/senior_image_catalog/04_Mobile_App_Engineering/01_dark_mode_mobile_app_ux.jpg',
+    image: '/images/services/mobile_app_development.webp',
     icon: Smartphone,
     highlights: [
       'Cross-platform iOS, Android & web',
