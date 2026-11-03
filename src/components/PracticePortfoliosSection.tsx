@@ -50,7 +50,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Custom SaaS Development',
     desc: 'Purpose-built SaaS platforms, designed for secure, scalable business operations.',
     badge: 'Proprietary IP',
-    image: '/senior_image_catalog/03_Custom_SaaS_and_Platforms/01_executive_saas_performance_dashb.jpg',
+    image: '/images/disciplines/saas_development.webp',
     icon: Layers,
     highlights: [
       'Multi-tenant cloud architecture',
