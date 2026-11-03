@@ -9,7 +9,7 @@ import {
   Zap,
   Sparkles,
 } from 'lucide-react'
-import { SectionEyebrow } from './SectionEyebrow'
+// import { SectionEyebrow } from './SectionEyebrow'
 
 interface DefiningPillar {
   number: string
@@ -106,7 +106,7 @@ interface LivingTechnologySectionProps {
 }
 
 export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = ({
-  sectionNumber = '01',
+  sectionNumber: _sectionNumber = '01',
 }) => {
   const [selectedPillar, setSelectedPillar] = useState<DefiningPillar | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement | null>(null)
@@ -138,39 +138,29 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
         transition={{ duration: 0.6 }}
         className="relative mx-auto max-w-7xl px-4 md:px-6"
       >
-        <SectionEyebrow number={sectionNumber} label="Living Technology Philosophy" tone="dark" className="mb-6" />
+        {/* <SectionEyebrow number={_sectionNumber} label="Living Technology Philosophy" tone="dark" className="mb-6" /> */}
 
         {/* Editorial Two-Column Headline Structure */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 items-start">
           <div className="lg:col-span-7">
             <h2 className="font-bricolage text-[2.4rem] sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-slate-900">
               Technology that{' '}
-              <span className="relative inline-block text-[#0052cb]">
-                behaves,
-                <svg className="absolute -bottom-1.5 left-0 w-full" height="7" viewBox="0 0 100 7" preserveAspectRatio="none" fill="none">
-                  <path d="M0 3.5 Q 12.5 0.5, 25 3.5 T 50 3.5 T 75 3.5 T 100 3.5" stroke="#0052cb" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
-              </span>{' '}
-              <span className="relative inline-block text-[#0052cb]">
-                adapts,
-                <svg className="absolute -bottom-1.5 left-0 w-full" height="7" viewBox="0 0 100 7" preserveAspectRatio="none" fill="none">
-                  <path d="M0 3.5 Q 12.5 0.5, 25 3.5 T 50 3.5 T 75 3.5 T 100 3.5" stroke="#0052cb" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
-              </span>{' '}
+              <span className="text-[#0052cb]">behaves,</span>{' '}
+              <span className="text-[#0052cb]">adapts,</span>{' '}
               and evolves like a living organism.
             </h2>
-            <div className="mt-4 flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-[#0052cb]">
+            {/* <div className="mt-4 flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-[#0052cb]">
               <span className="size-1.5 rounded-full bg-[#0052cb]" />
               <span>Covision: Technology That Connects Business and Creativity</span>
-            </div>
+            </div> */}
           </div>
 
           <div className="lg:col-span-5 space-y-5 lg:pt-2">
             <p className="text-base sm:text-lg leading-relaxed text-slate-800 font-normal">
-              At <strong className="font-bold text-slate-900">CoVision Technologies</strong>, we reject static software. Modern markets shift overnight; systems that cannot continuously adapt become brittle liabilities.
+              <strong className="font-bold text-slate-900">CoVision</strong> delivers integrated software engineering, AI-powered solutions, and creative production that address evolving business needs.
             </p>
             <p className="border-t border-slate-200/80 pt-4 text-sm sm:text-[15px] leading-relaxed text-slate-600">
-              By harmonizing deterministic software engineering with cognitive artificial intelligence and emotive multimedia, we build digital infrastructure that thrives under volatile traffic, self-heals in real time, and scales without friction.
+              We build connected digital ecosystems where software, data, and artificial intelligence function as an intelligent, continuously evolving system—processing information, responding to changing conditions, optimising operations, and expanding capabilities as business demands grow.
             </p>
 
             {/* Core Philosophy Value Ribbon */}
@@ -295,35 +285,6 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
           ))}
 
           <div className="hidden lg:block w-[max(0px,calc((100vw-80rem)/2-1.5rem))] shrink-0" />
-        </div>
-      </div>
-
-      {/* SDLC Execution Framework: Seamlessly Integrated as Engineering Foundation */}
-      <div className="mx-auto max-w-7xl px-4 md:px-6 mt-16 md:mt-24">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-sm">
-          <div className="max-w-3xl mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0052cb]">
-              Built on Engineering Excellence:
-            </span>
-            <h3 className="font-bricolage text-2xl sm:text-4xl font-medium text-slate-900 mt-2">
-              The Synergy: Agile × Scrum × DevOps × AI
-            </h3>
-            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-              Combine architecture-led software engineering, agile execution, DevOps automation, and AI-assisted development to build secure, reliable, and scalable technology—with engineering quality at every stage.
-            </p>
-          </div>
-
-          {/* Architecture Diagram: AI Across the Engineering Lifecycle */}
-          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/90 bg-linear-to-b from-[#e8f1fd] via-white to-[#edf4fe] p-2 sm:p-4 md:p-6 shadow-xs hover:shadow-md transition-shadow duration-300">
-            <div className="overflow-x-auto overflow-y-hidden">
-              <img
-                src="/images/living/ai_engineering_lifecycle.webp"
-                alt="AI Across the Engineering Lifecycle: Discover & Plan, Agile Delivery, Scrum Execution, DevOps CI/CD, Monitor & Improve, and Continuous Feedback"
-                className="w-full min-w-[760px] lg:min-w-0 h-auto rounded-xl sm:rounded-2xl transition-transform duration-500 hover:scale-[1.005]"
-                loading="lazy"
-              />
-            </div>
-          </div>
         </div>
       </div>
 

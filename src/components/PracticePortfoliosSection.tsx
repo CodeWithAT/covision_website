@@ -115,7 +115,7 @@ const AI_FEATURED_SOLUTION: CoreSolution = {
 
 export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps> = ({
   onNavigatePage,
-  sectionNumber = '02',
+  sectionNumber: _sectionNumber = '02',
 }) => {
   return (
     <section id="core-engineering" className="py-24 md:py-32 bg-paper relative border-t border-ink-line text-ink font-inter-tight">
@@ -123,10 +123,10 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
         
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-[#0052cb] font-bold mb-3">
+          {/* <div className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-[#0052cb] font-bold mb-3">
             <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
-            <span>Section {sectionNumber} • Enterprise Offerings</span>
-          </div>
+            <span>Section {_sectionNumber} • Enterprise Offerings</span>
+          </div> */}
 
           <h2 className="font-bricolage text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ink leading-[1.06]">
             From Core Engineering to <span className="text-[#0052cb]">Intelligent Solutions.</span>

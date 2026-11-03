@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React from 'react'
+import { motion } from 'framer-motion'
 import {
   ArrowRight,
-  CheckCircle2,
+  // CheckCircle2,
   Sparkles,
   ShieldCheck,
   Zap,
@@ -133,6 +133,7 @@ const BRAND_PARTNERS_ROW2: BrandPartner[] = [
   },
 ]
 
+/*
 interface StrategicPartnership {
   client: string
   logoText: string
@@ -180,22 +181,12 @@ const STRATEGIC_SPOTLIGHTS: StrategicPartnership[] = [
     impact: '18 European Distribution Hubs',
   },
 ]
+*/
 
 export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
   onOpenContact,
   sectionNumber = '03',
 }) => {
-  const [activeIndustry, setActiveIndustry] = useState<string>('All')
-
-  const industries = ['All', 'Retail & Fashion', 'FinTech & IoT', 'Luxury & Media', 'Health & EdTech']
-
-  const filteredSpotlights = STRATEGIC_SPOTLIGHTS.filter((item) => {
-    if (activeIndustry === 'All') return true
-    if (activeIndustry === 'Retail & Fashion') return item.industry.includes('Retail') || item.industry.includes('Fashion')
-    if (activeIndustry === 'FinTech & IoT') return item.industry.includes('FinTech')
-    return true
-  })
-
   return (
     <section id="pillar-clients" className="pt-16 md:pt-24 pb-8 md:pb-12 bg-paper relative overflow-hidden border-t border-ink-line font-inter-tight text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -224,7 +215,7 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
           <div className="flex overflow-hidden relative [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <motion.div
               animate={{ x: ['0%', '-50%'] }}
-              transition={{ duration: 28, ease: 'linear', repeat: Infinity }}
+              transition={{ duration: 55, ease: 'linear', repeat: Infinity }}
               className="flex items-center gap-4 shrink-0 py-1"
             >
               {[...BRAND_PARTNERS_ROW1, ...BRAND_PARTNERS_ROW1, ...BRAND_PARTNERS_ROW1].map((brand, idx) => {
@@ -261,7 +252,7 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
           <div className="flex overflow-hidden relative mt-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <motion.div
               animate={{ x: ['-50%', '0%'] }}
-              transition={{ duration: 32, ease: 'linear', repeat: Infinity }}
+              transition={{ duration: 65, ease: 'linear', repeat: Infinity }}
               className="flex items-center gap-4 shrink-0 py-1"
             >
               {[...BRAND_PARTNERS_ROW2, ...BRAND_PARTNERS_ROW2, ...BRAND_PARTNERS_ROW2].map((brand, idx) => {
@@ -296,7 +287,8 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
 
         </div>
 
-        {/* ─── FEATURED STRATEGIC ENTERPRISE CASE SPOTLIGHTS ─── */}
+        {/* ─── FEATURED STRATEGIC ENTERPRISE CASE SPOTLIGHTS (Hidden per request) ─── */}
+        {/*
         <div className="space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
@@ -308,14 +300,13 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
               </p>
             </div>
 
-            {/* Filter Pills */}
             <div className="flex flex-wrap items-center gap-2">
-              {industries.map((ind) => (
+              {_industries.map((ind) => (
                 <button
                   key={ind}
-                  onClick={() => setActiveIndustry(ind)}
+                  onClick={() => _setActiveIndustry(ind)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                    activeIndustry === ind
+                    _activeIndustry === ind
                       ? 'bg-[#0052cb] text-white shadow-2xs font-bold'
                       : 'bg-white border border-ink-line text-neutral-600 hover:text-ink'
                   }`}
@@ -327,93 +318,81 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <AnimatePresence mode="popLayout">
-              {filteredSpotlights.map((spotlight) => (
-                <motion.div
-                  key={spotlight.client}
-                  layout
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.35 }}
-                  className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div>
-                    {/* Visual Project Banner */}
-                    <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-950 border-b border-ink-line">
-                      <img
-                        src={spotlight.image}
-                        alt={spotlight.headline}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                      
-                      {/* Top Badges */}
-                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                        <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#0052cb] text-xs font-mono font-bold tracking-wider shadow-sm">
-                          {spotlight.logoText}
-                        </span>
-                        <span className="text-[11px] font-semibold text-white/90 bg-black/50 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20">
-                          {spotlight.industry}
-                        </span>
-                      </div>
-
-                      {/* Bottom Banner Impact Tag */}
-                      <div className="absolute bottom-3 left-4 right-4 text-xs font-bold text-white flex items-center gap-1.5">
-                        <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>{spotlight.impact}</span>
-                      </div>
+            {_filteredSpotlights.map((spotlight) => (
+              <div
+                key={spotlight.client}
+                className="rounded-3xl overflow-hidden bg-white border border-ink-line shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-950 border-b border-ink-line">
+                    <img
+                      src={spotlight.image}
+                      alt={spotlight.headline}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                    
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                      <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#0052cb] text-xs font-mono font-bold tracking-wider shadow-sm">
+                        {spotlight.logoText}
+                      </span>
+                      <span className="text-[11px] font-semibold text-white/90 bg-black/50 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20">
+                        {spotlight.industry}
+                      </span>
                     </div>
 
-                    <div className="p-6 sm:p-7">
-                      <h4 className="font-bricolage text-lg sm:text-xl font-bold text-ink group-hover:text-[#0052cb] transition-colors leading-snug mb-3">
-                        {spotlight.headline}
-                      </h4>
-
-                      <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-6">
-                        {spotlight.summary}
-                      </p>
-
-                      {/* Architecture Pills */}
-                      <div className="space-y-1.5 mb-6">
-                        <div className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold">
-                          System Architecture
-                        </div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {spotlight.architecture.map((arch) => (
-                            <span
-                              key={arch}
-                              className="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-700 border border-neutral-200/60"
-                            >
-                              {arch}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                    <div className="absolute bottom-3 left-4 right-4 text-xs font-bold text-white flex items-center gap-1.5">
+                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>{spotlight.impact}</span>
                     </div>
                   </div>
 
-                  {/* Card Bottom Strip */}
-                  <div className="p-6 sm:p-7 pt-0 flex items-center justify-between border-t border-neutral-100 mt-2">
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
-                      <CheckCircle2 className="size-3.5" />
-                      <span>{spotlight.verifiedTag}</span>
-                    </span>
+                  <div className="p-6 sm:p-7">
+                    <h4 className="font-bricolage text-lg sm:text-xl font-bold text-ink group-hover:text-[#0052cb] transition-colors leading-snug mb-3">
+                      {spotlight.headline}
+                    </h4>
 
-                    <button
-                      onClick={onOpenContact}
-                      className="text-xs font-bold text-[#0052cb] hover:underline inline-flex items-center gap-1 cursor-pointer"
-                    >
-                      <span>Build Similar</span>
-                      <ArrowRight className="size-3" />
-                    </button>
+                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-6">
+                      {spotlight.summary}
+                    </p>
+
+                    <div className="space-y-1.5 mb-6">
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold">
+                        System Architecture
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {spotlight.architecture.map((arch) => (
+                          <span
+                            key={arch}
+                            className="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-700 border border-neutral-200/60"
+                          >
+                            {arch}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                </div>
+
+                <div className="p-6 sm:p-7 pt-0 flex items-center justify-between border-t border-neutral-100 mt-2">
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
+                    <span>{spotlight.verifiedTag}</span>
+                  </span>
+
+                  <button
+                    onClick={onOpenContact}
+                    className="text-xs font-bold text-[#0052cb] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                  >
+                    <span>Build Similar</span>
+                    <ArrowRight className="size-3" />
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+        */}
 
         {/* Global Partnership CTA */}
         <div className="mt-10 p-7 sm:p-8 rounded-3xl bg-neutral-900 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">

@@ -6,8 +6,9 @@ import { queryClient } from './lib/queryClient'
 import { useLenis } from './lib/lenis'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
-import { MarqueeDivider } from './components/MarqueeDivider'
+// import { MarqueeDivider } from './components/MarqueeDivider'
 import { PracticePortfoliosSection } from './components/PracticePortfoliosSection'
+import { EngineeringSynergySection } from './components/EngineeringSynergySection'
 import { LivingTechnologySection } from './components/LivingTechnologySection'
 import { ServicesSection } from './components/ServicesSection'
 import { SaaSProductsSection } from './components/SaaSProductsSection'
@@ -364,14 +365,17 @@ export const AppContent: React.FC = () => {
                 onOpenContact={() => handleOpenContact()}
               />
 
-              {/* CogniMedia Signature Marquee Divider */}
-              <MarqueeDivider />
+              {/* CogniMedia Signature Marquee Divider (Hidden per request) */}
+              {/* <MarqueeDivider /> */}
 
               {/* Living Technology Overview & Adaptation Framework */}
               <LivingTechnologySection sectionNumber="01" />
 
               {/* Core Engineering to Intelligent Solutions (01 to 05 Offerings) */}
               <PracticePortfoliosSection onNavigatePage={handleNavigatePage} sectionNumber="02" />
+
+              {/* The Synergy: Agile × Scrum × DevOps × AI */}
+              <EngineeringSynergySection />
 
               {/* Dual Infinite Client Marquee & Featured Projects */}
               <PillarClientsSection onOpenContact={() => handleOpenContact()} sectionNumber="03" />

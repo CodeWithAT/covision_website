@@ -14,7 +14,7 @@ export const MarqueeDivider: React.FC = () => {
     { title: 'AI & MULTIMEDIA CONVERGENCE', tag: 'Autonomous Intelligence', accent: false },
     { title: 'PROPRIETARY SAAS SUITE', tag: 'Enterprise Cloud', accent: true },
     { title: 'COVISION LATTICE™', tag: 'Fluid 60fps UX', accent: false },
-    { title: 'ZERO-DOWNTIME MIGRATION', tag: '100% SEO Preservation', accent: true },
+    // { title: 'ZERO-DOWNTIME MIGRATION', tag: '100% SEO Preservation', accent: true },
     { title: 'CLOUD & INFRASTRUCTURE', tag: 'AWS · Azure · GCP', accent: false },
   ]
 
