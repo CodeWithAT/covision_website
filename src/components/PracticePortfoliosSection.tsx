@@ -35,7 +35,7 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     title: 'Software Engineering',
     desc: 'Custom software engineered for complex requirements, performance, security, and scalability.',
     badge: 'Core Architecture',
-    image: '/images/disciplines/software_engineering.jpg',
+    image: '/images/disciplines/software_engineering.webp',
     icon: Code2,
     highlights: [
       'Distributed backends & microservices',

@@ -31,7 +31,7 @@ const SERVICE_GRID_CARDS = [
     icon: Cpu,
     title: 'Software Engineering',
     summary: 'Bespoke enterprise software: HRMS, ERP, payroll systems, and scalable proprietary platforms.',
-    image: '/images/disciplines/software_engineering.jpg',
+    image: '/images/disciplines/software_engineering.webp',
     metrics: { label: 'Systems Delivered', value: '50+ Enterprise Systems' },
   },
   {
@@ -91,7 +91,7 @@ const SERVICE_SHOWCASES = [
     title: 'Custom Software Engineering',
     headline: 'Elevate your business with tailored software that works like your own operating system.',
     body: 'Every business operates within its own unique landscape — shaped by its audience, processes, and objectives. We engineer bespoke software solutions that align seamlessly with your operational reality, from complex HRMS platforms to sovereign ERP ecosystems.',
-    image: '/senior_image_catalog/02_Software_Engineering_and_Code/02_principal_architect_workspace.jpg',
+    image: '/images/disciplines/software_engineering.webp',
     imageAlt: 'Principal Architect Software Engineering',
     bullets: [
       {
