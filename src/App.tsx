@@ -473,9 +473,9 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/ai_banner_yellow_2k.webp?v=1"
+                image="/images/banners/ai_banner_bespoke_4k_retina.webp?v=1"
                 imagePosition="object-center"
-                glowColor="rgba(245,158,11,0.22)"
+                glowColor="rgba(56,189,248,0.22)"
                 pageName="AI & Automation Practice"
                 title="Transform Intelligence into Business Impact."
                 subtitle="Unite Generative AI creativity with autonomous Agentic AI execution. Engineered to learn your organization's unique workflows, automate mission-critical operations, and deliver measurable enterprise value."
