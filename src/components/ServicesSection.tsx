@@ -262,15 +262,6 @@ const TAB_NAV = [
   { id: 'ux-ui-design', num: '06', label: 'UX/UI Design' },
 ]
 
-const cardFadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.07, ease: 'easeOut' as const },
-  }),
-}
-
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   onRequestScope,
   sectionNumber = '01',
@@ -306,44 +297,51 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     <section id="services" className="relative w-full bg-paper text-ink font-inter-tight">
 
       {/* ═══════════════════════════════════════════════════════════════
-          2. CAPABILITIES OVERVIEW GRID (2-col image-first 2×3 matrix)
+          2. CAPABILITIES OVERVIEW SLIDER (Continuous Smooth Marquee)
           ═══════════════════════════════════════════════════════════════ */}
-      <div id="capabilities-grid" className="py-16 sm:py-20 bg-paper border-b border-ink-line">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="capabilities-grid" className="py-14 sm:py-16 bg-paper border-b border-ink-line overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-3xl"
+            >
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-3">
+                <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
+                <span>Section {sectionNumber} • Continuous Practice Showcase</span>
+              </div>
+              <h2 className="font-bricolage text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-ink leading-tight">
+                Six Integrated Practice Areas.
+              </h2>
+              <p className="mt-3 text-base text-neutral-600 leading-relaxed font-normal">
+                End-to-end enterprise digital transformation — from custom software and cloud infrastructure to AI automation and design systems.
+              </p>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mb-12"
-          >
-            <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0052cb] mb-3">
-              <span className="size-2 rounded-full bg-[#0052cb] animate-pulse" />
-              <span>Section {sectionNumber} • From Core Engineering to Intelligent Solutions</span>
+            {/* Interaction Indicator Pill */}
+            <div className="shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-ink-line text-neutral-600 text-xs font-mono shadow-xs">
+              <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Hover to Pause • Click to Jump</span>
             </div>
-            <h2 className="font-bricolage text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-ink leading-tight">
-              Six Integrated Practice Areas.
-            </h2>
-            <p className="mt-3 text-base text-neutral-600 leading-relaxed font-normal">
-              End-to-end enterprise digital transformation — from custom software and cloud infrastructure to AI automation and design systems.
-            </p>
-          </motion.div>
+          </div>
+        </div>
 
-          {/* 2-Column Image Cards (2×3 grid) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {SERVICE_GRID_CARDS.map((card, idx) => {
+        {/* Continuous Smooth Horizontal Marquee Slider */}
+        <div className="relative w-full overflow-hidden mask-fade-x py-2">
+          <div
+            className="animate-marquee flex items-center gap-5 sm:gap-6 will-change-transform"
+            style={{ '--marquee-duration': '40s' } as React.CSSProperties}
+          >
+            {[...SERVICE_GRID_CARDS, ...SERVICE_GRID_CARDS].map((card, idx) => {
               const Icon = card.icon
               return (
-                <motion.div
-                  key={card.id}
-                  custom={idx}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.1 }}
-                  variants={cardFadeUp}
+                <div
+                  key={`${card.id}-${idx}`}
                   onClick={() => scrollToPractice(card.id)}
-                  className="group relative overflow-hidden rounded-3xl border border-ink-line cursor-pointer aspect-[16/10] sm:aspect-[16/9] bg-slate-900 shadow-sm hover:shadow-2xl hover:border-[#0052cb]/50 transition-all duration-500"
+                  className="group relative overflow-hidden rounded-3xl border border-ink-line cursor-pointer w-[280px] sm:w-[350px] lg:w-[390px] aspect-[16/10] shrink-0 bg-slate-900 shadow-sm hover:shadow-2xl hover:border-[#0052cb]/60 transition-all duration-500 hover:-translate-y-1"
                 >
                   {/* Full background image */}
                   <img
@@ -352,15 +350,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 
-                  {/* Sleek persistent dark gradient: ensures high contrast for typography while keeping image fully visible */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/20 pointer-events-none transition-opacity duration-500 group-hover:from-black/95" />
+                  {/* Sleek persistent dark gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 pointer-events-none transition-opacity duration-500 group-hover:from-black/95" />
 
                   {/* Top-left: number + icon */}
                   <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
                     <div className="size-8 rounded-xl bg-black/45 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-md">
                       <Icon className="size-4 text-white" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-white/80 uppercase tracking-widest bg-black/45 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/15">
+                    <span className="text-[10px] font-mono font-bold text-white/90 uppercase tracking-widest bg-black/45 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/15">
                       Practice {card.number}
                     </span>
                   </div>
@@ -370,13 +368,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     <ChevronRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </div>
 
-                  {/* Bottom: Clean dark title overlay without bulky white box */}
+                  {/* Bottom: Clean dark title overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
-                    <h3 className="font-bricolage text-base sm:text-xl font-bold text-white leading-snug group-hover:text-blue-300 transition-colors drop-shadow-sm">
+                    <h3 className="font-bricolage text-base sm:text-lg lg:text-xl font-bold text-white leading-snug group-hover:text-blue-300 transition-colors drop-shadow-sm">
                       {card.title}
                     </h3>
                   </div>
-                </motion.div>
+                </div>
               )
             })}
           </div>
@@ -469,16 +467,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   >
                     {/* Practice Title & Headline Connected Header Block */}
                     <div className="space-y-3">
-                      {/* Primary Practice Title (Blue, Enlarged to Headline Scale + 0.5) */}
+                      {/* Primary Practice Title (Blue) */}
                       <div className="flex items-center gap-3">
                         <Icon className="size-6 sm:size-7 lg:size-8 text-[#0052cb] shrink-0" />
-                        <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[36px] font-bold text-[#0052cb] tracking-tight leading-tight">
+                        <h3 className="font-bricolage text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#0052cb] tracking-tight leading-tight">
                           {service.number}. {service.title}
                         </h3>
                       </div>
 
-                      {/* Editorial Headline (Black, Sub-headline Scale) */}
-                      <h4 className="font-bricolage text-base sm:text-lg lg:text-[20px] font-semibold text-neutral-800 leading-snug">
+                      {/* Editorial Headline (Black, Equal Size to Blue Title) */}
+                      <h4 className="font-bricolage text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink leading-snug">
                         {service.headline}
                       </h4>
                     </div>
