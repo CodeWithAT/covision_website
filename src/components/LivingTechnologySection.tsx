@@ -1,16 +1,14 @@
-import React, { useState, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React from 'react'
+import { motion } from 'framer-motion'
 import {
   Brain,
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  ShieldCheck,
   Zap,
   Sparkles,
 } from 'lucide-react'
 // import { SectionEyebrow } from './SectionEyebrow'
 
+// Preserved for unhiding when needed
+/*
 interface DefiningPillar {
   number: string
   title: string
@@ -100,6 +98,7 @@ const DEFINING_PILLARS: DefiningPillar[] = [
     image: '/senior_image_catalog/08_UX_UI_Design_Systems/02_coui_token_foundry_and_style_gu.jpg',
   },
 ]
+*/
 
 interface LivingTechnologySectionProps {
   sectionNumber?: string
@@ -108,23 +107,6 @@ interface LivingTechnologySectionProps {
 export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = ({
   sectionNumber: _sectionNumber = '01',
 }) => {
-  const [selectedPillar, setSelectedPillar] = useState<DefiningPillar | null>(null)
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
-
-  const handleScroll = () => {
-    if (!scrollContainerRef.current) return
-    const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current
-    const maxScroll = scrollWidth - clientWidth
-    if (maxScroll > 0) {
-      setScrollProgress(scrollLeft / maxScroll)
-    }
-  }
-
-  const scrollLeftBy = (amount: number) => {
-    if (!scrollContainerRef.current) return
-    scrollContainerRef.current.scrollBy({ left: amount, behavior: 'smooth' })
-  }
 
   return (
     <section id="living-tech" className="relative w-full bg-[#fcfcfd] text-slate-900 py-24 md:py-36 overflow-hidden border-t border-slate-100 font-inter-tight">
@@ -182,9 +164,9 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
         </div>
       </motion.div>
 
-      {/* Main Pillars: CogniMedia Signature Horizontal Swipe Card Carousel */}
+      {/* Main Pillars: Horizontal Swipe Card Carousel (Hidden per request) */}
+      {/*
       <div className="relative w-full mt-16 md:mt-24">
-        {/* Controls Bar */}
         <div className="mx-auto flex w-full max-w-7xl items-end justify-between gap-6 px-4 md:px-6 mb-8">
           <div>
             <h3 className="font-bricolage text-2xl md:text-4xl font-medium tracking-tight text-slate-900">
@@ -224,7 +206,6 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
           </div>
         </div>
 
-        {/* Horizontal Carousel Track */}
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
@@ -242,7 +223,6 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
               className="group relative flex w-[320px] sm:w-[380px] md:w-[440px] shrink-0 snap-start flex-col justify-between overflow-hidden rounded-3xl bg-white shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-[#0052cb]/40 transition-all duration-500 cursor-pointer"
             >
               <div>
-                {/* Visual Image Banner with Scrim & Badges */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-900">
                   <img
                     src={pillar.image}
@@ -288,7 +268,6 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
         </div>
       </div>
 
-      {/* Modal: Detailed Spec Inspector for Selected Pillar */}
       <AnimatePresence>
         {selectedPillar && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
@@ -321,7 +300,6 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
                 {selectedPillar.subtitle}
               </p>
 
-              {/* High-Resolution Pillar Image Banner */}
               <div className="mt-5 relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-sm bg-neutral-900 border border-slate-200">
                 <img
                   src={selectedPillar.image}
@@ -358,6 +336,7 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
           </div>
         )}
       </AnimatePresence>
+      */}
     </section>
   )
 }

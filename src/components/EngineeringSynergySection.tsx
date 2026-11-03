@@ -33,3 +33,4 @@ export const EngineeringSynergySection: React.FC = () => {
     </section>
   )
 }
+
