@@ -2,12 +2,9 @@ import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Brain,
-  Layers,
-  Activity,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
-  Workflow,
   ShieldCheck,
   Zap,
   Sparkles,
@@ -316,39 +313,16 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: 'Agile Velocity',
-                icon: Activity,
-                desc: 'Bi-weekly sprint cadences with iterative feature increments, instant client demo staging, and adaptive scope prioritization.',
-              },
-              {
-                title: 'Scrum Discipline',
-                icon: Workflow,
-                desc: 'Dedicated Scrum Masters, daily standups, sprint retrospectives, and clear burndown transparency via Jira & Linear.',
-              },
-              {
-                title: 'DevOps & GitOps',
-                icon: Layers,
-                desc: 'Fully automated CI/CD pipelines, Docker containerization, Kubernetes orchestration, and zero-downtime blue/green rollouts.',
-              },
-              {
-                title: 'AI Augmentation',
-                icon: Brain,
-                desc: 'Automated test suite generation, static security scanning, synthetic data generation, and predictive deployment health monitoring.',
-              },
-            ].map((item) => (
-              <div key={item.title} className="p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:border-blue-300 hover:bg-white transition-all shadow-2xs">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#0052cb] flex items-center justify-center mb-4">
-                  <item.icon className="w-5 h-5" />
-                </div>
-                <h4 className="font-bold text-slate-900 text-base">{item.title}</h4>
-                <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+          {/* Architecture Diagram: AI Across the Engineering Lifecycle */}
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/90 bg-linear-to-b from-[#e8f1fd] via-white to-[#edf4fe] p-2 sm:p-4 md:p-6 shadow-xs hover:shadow-md transition-shadow duration-300">
+            <div className="overflow-x-auto overflow-y-hidden">
+              <img
+                src="/images/living/ai_engineering_lifecycle.webp"
+                alt="AI Across the Engineering Lifecycle: Discover & Plan, Agile Delivery, Scrum Execution, DevOps CI/CD, Monitor & Improve, and Continuous Feedback"
+                className="w-full min-w-[760px] lg:min-w-0 h-auto rounded-xl sm:rounded-2xl transition-transform duration-500 hover:scale-[1.005]"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>

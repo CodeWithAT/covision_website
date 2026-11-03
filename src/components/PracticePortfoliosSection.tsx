@@ -27,6 +27,9 @@ interface CoreSolution {
   pageRoute: string
   targetServiceId?: string
   ctaText: string
+  imageFit?: 'cover' | 'contain'
+  bgClassName?: string
+  imageClassName?: string
 }
 
 const CORE_SOLUTIONS: CoreSolution[] = [
@@ -51,6 +54,9 @@ const CORE_SOLUTIONS: CoreSolution[] = [
     desc: 'Purpose-built SaaS platforms, designed for secure, scalable business operations.',
     badge: 'Proprietary IP',
     image: '/images/disciplines/saas_development.webp',
+    imageFit: 'contain',
+    bgClassName: 'bg-[#eaeffb]',
+    imageClassName: 'p-1.5 sm:p-2.5',
     icon: Layers,
     highlights: [
       'Multi-tenant cloud architecture',
@@ -146,14 +152,18 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
               >
                 <div>
                   {/* Big High-Resolution Image */}
-                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
+                  <div className={`relative w-full aspect-[16/9] overflow-hidden ${solution.bgClassName || 'bg-slate-950'}`}>
                     <img
                       src={solution.image}
                       alt={solution.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                      className={`w-full h-full transition-transform duration-700 ease-out ${
+                        solution.imageFit === 'contain'
+                          ? `object-contain ${solution.imageClassName || 'p-2 sm:p-3'} group-hover:scale-[1.02]`
+                          : 'object-cover group-hover:scale-104'
+                      }`}
                     />
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10 pointer-events-none">
                       <span className="text-[11px] font-mono font-bold px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm text-[#0052cb] border border-white/80 shadow-xs">
                         {solution.badge}
                       </span>
@@ -220,7 +230,7 @@ export const PracticePortfoliosSection: React.FC<PracticePortfoliosSectionProps>
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
               {/* Big Featured Image */}
-              <div className="lg:col-span-6 relative aspect-[16/10] lg:aspect-auto lg:h-full w-full overflow-hidden bg-slate-950">
+              <div className="lg:col-span-6 relative aspect-[16/9] lg:aspect-auto lg:h-full w-full overflow-hidden bg-slate-950">
                 <img
                   src={AI_FEATURED_SOLUTION.image}
                   alt={AI_FEATURED_SOLUTION.title}
