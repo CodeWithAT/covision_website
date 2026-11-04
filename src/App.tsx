@@ -88,9 +88,9 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
   const cardY = useTransform(scrollYProgress, [0.02, 0.38], ['105%', '0%'])
   const cardOpacity = useTransform(scrollYProgress, [0.02, 0.28], [0, 1])
 
-  // Left-aligned text reveal for hero-overlay-left variant
-  const textY = useTransform(scrollYProgress, [0.02, 0.35], ['50px', '0px'])
-  const textOpacity = useTransform(scrollYProgress, [0.02, 0.25], [0, 1])
+  // Left-aligned text reveal for hero-overlay-left variant (Visible immediately on landing)
+  const textY = useTransform(scrollYProgress, [0, 0.4], ['0px', '-35px'])
+  const textOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0.85])
 
   // Subtle image zoom & atmospheric dark overlay as card glides up
   const imageScale = useTransform(scrollYProgress, [0, 0.42], [1, 1.04])
@@ -477,7 +477,7 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/ai_banner_master_4k.webp?v=3"
+                image="/images/banners/ai_banner_master_4k.webp?v=5"
                 imagePosition="object-[65%_center] sm:object-center"
                 glowColor="rgba(56,189,248,0.22)"
                 pageName="AI & Automation Practice"

@@ -32,11 +32,11 @@ export const EngineeringSynergySection: React.FC = () => {
 
           {/* Architecture Diagram: AI Across the Engineering Lifecycle (Option 2 Dark Glassmorphic Schematic) */}
           <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800/90 bg-[#070b14] p-1.5 sm:p-3 md:p-4 shadow-xl hover:shadow-2xl transition-all duration-300">
-            <div className="overflow-x-auto overflow-y-hidden">
+            <div className="w-full overflow-hidden">
               <img
-                src="/images/living/ai_engineering_lifecycle.webp?v=2"
+                src="/images/living/ai_engineering_lifecycle.webp?v=3"
                 alt="AI Across the Software Engineering Lifecycle: Discover & Plan, Agile Delivery, Scrum Execution, DevOps CI/CD Infinity Loop, and Monitor & Observability"
-                className="w-full min-w-[760px] lg:min-w-0 h-auto rounded-xl sm:rounded-2xl transition-transform duration-500 hover:scale-[1.003]"
+                className="w-full h-auto rounded-xl sm:rounded-2xl transition-transform duration-500 hover:scale-[1.003]"
                 loading="lazy"
               />
             </div>
