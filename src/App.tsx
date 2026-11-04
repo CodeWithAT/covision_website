@@ -477,8 +477,8 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/ai_banner_bespoke_4k_retina.webp?v=1"
-                imagePosition="object-center"
+                image="/images/banners/ai_banner_master_4k.webp?v=3"
+                imagePosition="object-[65%_center] sm:object-center"
                 glowColor="rgba(56,189,248,0.22)"
                 pageName="AI & Automation Practice"
                 title="Transform Intelligence into Business Impact."
