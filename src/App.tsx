@@ -88,9 +88,9 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
   const cardY = useTransform(scrollYProgress, [0.02, 0.38], ['105%', '0%'])
   const cardOpacity = useTransform(scrollYProgress, [0.02, 0.28], [0, 1])
 
-  // Left-aligned text reveal for hero-overlay-left variant (Visible immediately on landing)
-  const textY = useTransform(scrollYProgress, [0, 0.4], ['0px', '-35px'])
-  const textOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0.85])
+  // Left-aligned text reveal for hero-overlay-left variant (Smooth scroll reveal)
+  const textY = useTransform(scrollYProgress, [0.02, 0.35], ['50px', '0px'])
+  const textOpacity = useTransform(scrollYProgress, [0.02, 0.25], [0, 1])
 
   // Subtle image zoom & atmospheric dark overlay as card glides up
   const imageScale = useTransform(scrollYProgress, [0, 0.42], [1, 1.04])
