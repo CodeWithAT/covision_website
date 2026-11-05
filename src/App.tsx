@@ -441,9 +441,9 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/saas_banner_4k.webp?v=4"
+                image="/images/banners/saas_banner_4k.webp?v=5"
                 imagePosition="object-center"
-                glowColor="rgba(0,82,203,0.18)"
+                glowColor="rgba(168,85,247,0.20)"
                 pageName="SaaS Platforms Suite"
                 title="Proprietary Platforms. Built for Scale."
                 subtitle="Battle-tested standalone digital platforms engineered for sovereign enterprise deployment, live telemetry, multi-tenant isolation, and rapid market scaling with sub-50ms response times."
