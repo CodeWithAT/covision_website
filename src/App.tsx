@@ -59,8 +59,6 @@ interface PageHeaderBannerProps {
   actions?: PageAction[]
   image: string
   imagePosition?: string
-  imageFit?: 'cover' | 'contain'
-  hideScrollPrompt?: boolean
   glowColor?: string
   video?: string
   layoutVariant?: 'classic-card' | 'hero-overlay-left'
@@ -74,8 +72,6 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
   actions,
   image,
   imagePosition = 'object-center',
-  imageFit = 'cover',
-  hideScrollPrompt = false,
   glowColor = 'rgba(0,82,203,0.18)',
   video,
   layoutVariant = 'classic-card',
@@ -109,9 +105,22 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
       <div className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-[#04081c] flex flex-col justify-between">
         
         {/* Full-bleed background visual (video or high-res image) */}
-        {imageFit === 'contain' ? (
-          <div className="absolute inset-0 w-full h-full flex items-center justify-center pt-24 sm:pt-28 pb-8 sm:pb-12 px-3 sm:px-6 pointer-events-none">
-            <picture className="w-full h-full max-w-7xl flex items-center justify-center">
+        <motion.div
+          style={{ scale: imageScale }}
+          className="absolute inset-0 w-full h-full origin-center transform-gpu will-change-transform"
+        >
+          {video ? (
+            <video
+              src={video}
+              poster={image}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <picture className="w-full h-full block">
               <source srcSet={image} type="image/webp" />
               <img
                 src={image.replace(/\.webp(\?.*)?$/i, '.jpg$1')}
@@ -119,40 +128,11 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                className="max-w-full max-h-full w-auto h-auto object-contain object-center drop-shadow-2xl"
+                className={`w-full h-full object-cover ${imagePosition}`}
               />
             </picture>
-          </div>
-        ) : (
-          <motion.div
-            style={{ scale: imageScale }}
-            className="absolute inset-0 w-full h-full origin-center transform-gpu will-change-transform"
-          >
-            {video ? (
-              <video
-                src={video}
-                poster={image}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <picture className="w-full h-full block">
-                <source srcSet={image} type="image/webp" />
-                <img
-                  src={image.replace(/\.webp(\?.*)?$/i, '.jpg$1')}
-                  alt={title}
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                  className={`w-full h-full object-cover ${imagePosition}`}
-                />
-              </picture>
-            )}
-          </motion.div>
-        )}
+          )}
+        </motion.div>
 
         {/* Dynamic atmospheric overlay */}
         <motion.div
@@ -188,19 +168,17 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
         </div>
 
         {/* Landing scroll prompt: informs user to scroll to view details */}
-        {!hideScrollPrompt && (
-          <motion.div
-            style={{ opacity: hintOpacity }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5 pointer-events-none"
-          >
-            <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-white/90 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 shadow-lg">
-              Scroll to View Details ↓
-            </span>
-            <div className="w-5 h-8 rounded-full border-2 border-white/50 flex items-start justify-center p-1">
-              <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
-            </div>
-          </motion.div>
-        )}
+        <motion.div
+          style={{ opacity: hintOpacity }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5 pointer-events-none"
+        >
+          <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-white/90 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 shadow-lg">
+            Scroll to View Details ↓
+          </span>
+          <div className="w-5 h-8 rounded-full border-2 border-white/50 flex items-start justify-center p-1">
+            <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
+          </div>
+        </motion.div>
 
         {/* Main Content: Either Left-Aligned Hero Overlay (No white box) OR Classic Scroll-Pinned Card */}
         {layoutVariant === 'hero-overlay-left' ? (
@@ -463,10 +441,8 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/saas_banner_4k.webp?v=7"
+                image="/images/banners/saas_banner_4k.webp?v=9"
                 imagePosition="object-center"
-                imageFit="contain"
-                hideScrollPrompt={true}
                 glowColor="rgba(168,85,247,0.20)"
                 pageName="SaaS Platforms Suite"
                 title="Proprietary Platforms. Built for Scale."
