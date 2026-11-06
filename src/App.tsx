@@ -59,6 +59,7 @@ interface PageHeaderBannerProps {
   actions?: PageAction[]
   image: string
   imagePosition?: string
+  hideScrollPrompt?: boolean
   glowColor?: string
   video?: string
   layoutVariant?: 'classic-card' | 'hero-overlay-left'
@@ -72,6 +73,7 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
   actions,
   image,
   imagePosition = 'object-center',
+  hideScrollPrompt = false,
   glowColor = 'rgba(0,82,203,0.18)',
   video,
   layoutVariant = 'classic-card',
@@ -168,17 +170,19 @@ const PageHeaderBanner: React.FC<PageHeaderBannerProps> = ({
         </div>
 
         {/* Landing scroll prompt: informs user to scroll to view details */}
-        <motion.div
-          style={{ opacity: hintOpacity }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5 pointer-events-none"
-        >
-          <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-white/90 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 shadow-lg">
-            Scroll to View Details ↓
-          </span>
-          <div className="w-5 h-8 rounded-full border-2 border-white/50 flex items-start justify-center p-1">
-            <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
-          </div>
-        </motion.div>
+        {!hideScrollPrompt && (
+          <motion.div
+            style={{ opacity: hintOpacity }}
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5 pointer-events-none"
+          >
+            <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-white/90 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 shadow-lg">
+              Scroll to View Details ↓
+            </span>
+            <div className="w-5 h-8 rounded-full border-2 border-white/50 flex items-start justify-center p-1">
+              <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
+            </div>
+          </motion.div>
+        )}
 
         {/* Main Content: Either Left-Aligned Hero Overlay (No white box) OR Classic Scroll-Pinned Card */}
         {layoutVariant === 'hero-overlay-left' ? (
@@ -441,8 +445,9 @@ export const AppContent: React.FC = () => {
               className="flex flex-col"
             >
               <PageHeaderBanner
-                image="/images/banners/saas_banner_4k.webp?v=9"
+                image="/images/banners/saas_banner_4k.webp?v=10"
                 imagePosition="object-center"
+                hideScrollPrompt={true}
                 glowColor="rgba(168,85,247,0.20)"
                 pageName="SaaS Platforms Suite"
                 title="Proprietary Platforms. Built for Scale."
