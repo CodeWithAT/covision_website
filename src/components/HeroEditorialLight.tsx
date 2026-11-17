@@ -1,12 +1,62 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Check, Zap, ShieldCheck, Activity } from 'lucide-react'
 import { getLenisInstance } from '../lib/lenis'
 
 interface HeroEditorialLightProps {
   onNavigatePage: (page: string, targetServiceId?: string) => void
   onOpenContact: (prefillService?: string) => void
 }
+
+// Ultra-smooth requestAnimationFrame numerical counter
+const AnimatedCounter: React.FC<{
+  target: number
+  decimals?: number
+  suffix?: string
+  prefix?: string
+  duration?: number
+}> = ({ target, decimals = 0, suffix = '', prefix = '', duration = 1600 }) => {
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    let startTimestamp: number | null = null
+    let frameId: number
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1)
+      // Ease-out cubic curve for natural decelerating enterprise telemetry
+      const easeProgress = 1 - Math.pow(1 - progress, 3)
+      setValue(easeProgress * target)
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(step)
+      } else {
+        setValue(target)
+      }
+    }
+
+    frameId = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(frameId)
+  }, [target, duration])
+
+  return (
+    <span>
+      {prefix}
+      {decimals > 0 ? value.toFixed(decimals) : Math.round(value)}
+      {suffix}
+    </span>
+  )
+}
+
+const FEATURED_CLIENTS = [
+  { name: 'PUMA', category: 'Retail & Sportswear' },
+  { name: 'NOVAPAY', category: 'FinTech Rails' },
+  { name: 'FILA', category: 'Global Apparel' },
+  { name: 'SILVER MAHARAJA', category: 'eCommerce' },
+  { name: 'BLOOMBERG', category: 'Enterprise Data' },
+  { name: 'NOVARTIS', category: 'Healthcare' },
+]
 
 export const HeroEditorialLight: React.FC<HeroEditorialLightProps> = ({
   onNavigatePage,
@@ -151,74 +201,139 @@ export const HeroEditorialLight: React.FC<HeroEditorialLightProps> = ({
         </motion.div>
       </div>
 
-      {/* Enterprise Metrics & Proof Strip Dock - Anchored neatly at the bottom inside the viewport */}
+      {/* Enterprise Metrics & Proof Strip Dock - Dynamic Live Animations */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
         className="relative z-10 w-full mt-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 shrink-0"
       >
-        <div className="bg-white/85 backdrop-blur-xl border border-slate-200/90 rounded-2xl p-4 sm:p-5 lg:p-6 shadow-[0_12px_40px_-10px_rgba(15,23,42,0.06)]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/70">
-            {/* Metric 1 */}
-            <div className="flex flex-col sm:px-5 first:pl-0">
-              <span className="font-bricolage text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-slate-900 mb-0.5">
-                99.99%
-              </span>
-              <span className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 font-medium">
-                Uptime Reliability
-              </span>
-              <span className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 font-mono">
-                High-Availability Clusters
-              </span>
-            </div>
+        <div className="relative overflow-hidden bg-white/85 backdrop-blur-xl border border-slate-200/90 rounded-2xl p-3.5 sm:p-4.5 lg:p-5 shadow-[0_12px_40px_-10px_rgba(15,23,42,0.06)] group">
+          
+          {/* Subtle Ambient Light Shimmer Gliding on the Dock Surface */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-full bg-gradient-to-r from-transparent via-blue-500/5 to-transparent -rotate-12 translate-x-[-100%] animate-[shimmer_7s_infinite_cubic-bezier(0.16,1,0.3,1)]"
+          />
 
-            {/* Metric 2 */}
-            <div className="flex flex-col sm:px-5 pt-3 sm:pt-0">
-              <span className="font-bricolage text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-slate-900 mb-0.5">
-                10x
-              </span>
-              <span className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 font-medium">
-                Developer Velocity
-              </span>
-              <span className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 font-mono">
-                AI-Assisted CI/CD Pipelines
-              </span>
-            </div>
-
-            {/* Metric 3 */}
-            <div className="flex flex-col sm:px-5 pt-3 sm:pt-0">
-              <span className="font-bricolage text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-slate-900 mb-0.5">
-                100%
-              </span>
-              <span className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 font-medium">
-                Zero-Debt Delivery
-              </span>
-              <span className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 font-mono">
-                SOC-2 &amp; ISO 27001 Standards
-              </span>
-            </div>
-
-            {/* Metric 4: Trust Validation Marks */}
-            <div className="flex flex-col sm:px-5 pt-3 sm:pt-0 justify-between">
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-slate-500 font-medium mb-1.5 sm:mb-2">
-                Featured Partners &amp; Clients
-              </span>
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4 opacity-80 hover:opacity-100 transition duration-300">
-                <span className="font-bold text-xs tracking-wider text-slate-800">
-                  PUMA
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/70 relative z-1">
+            
+            {/* Metric 1: 99.99% Uptime with Live Telemetry Pulse & Counting */}
+            <motion.div
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col sm:px-4 first:pl-0 group/card cursor-default"
+            >
+              <div className="flex items-center justify-between gap-2 mb-1">
+                <span className="font-bricolage text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-slate-900 group-hover/card:text-[#0052cb] transition-colors">
+                  <AnimatedCounter target={99.99} decimals={2} suffix="%" duration={1600} />
                 </span>
-                <span className="font-bold text-xs tracking-wider text-slate-800">
-                  NOVAPAY
-                </span>
-                <span className="font-bold text-xs tracking-wider text-slate-800">
-                  FILA
-                </span>
-                <span className="font-bold text-xs tracking-wider text-slate-800">
-                  SILVER MAHARAJA
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-50 text-[9px] font-mono font-semibold text-emerald-600 border border-emerald-200/70 shrink-0">
+                  <span className="size-1 rounded-full bg-emerald-500 animate-ping" />
+                  LIVE SLA
                 </span>
               </div>
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-600 font-medium">
+                Uptime Reliability
+              </span>
+              <span className="text-[9.5px] sm:text-[10.5px] text-slate-400 mt-0.5 font-mono flex items-center gap-1">
+                <Activity className="size-2.5 text-emerald-500" />
+                High-Availability Clusters
+              </span>
+            </motion.div>
+
+            {/* Metric 2: 10x Developer Velocity with Rocket Pulse & Counting */}
+            <motion.div
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col sm:px-4 pt-2.5 sm:pt-0 group/card cursor-default"
+            >
+              <div className="flex items-center justify-between gap-2 mb-1">
+                <span className="font-bricolage text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-slate-900 group-hover/card:text-[#0052cb] transition-colors">
+                  <AnimatedCounter target={10} decimals={0} suffix="x" duration={1400} />
+                </span>
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-blue-50 text-[9px] font-mono font-semibold text-[#0052cb] border border-blue-200/70 shrink-0">
+                  <Zap className="size-2.5 text-[#0052cb] animate-pulse" />
+                  VELOCITY
+                </span>
+              </div>
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-600 font-medium">
+                Developer Velocity
+              </span>
+              <span className="text-[9.5px] sm:text-[10.5px] text-slate-400 mt-0.5 font-mono">
+                AI-Assisted CI/CD Pipelines
+              </span>
+            </motion.div>
+
+            {/* Metric 3: 100% Zero-Debt Delivery with Shield Verified & Counting */}
+            <motion.div
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col sm:px-4 pt-2.5 sm:pt-0 group/card cursor-default"
+            >
+              <div className="flex items-center justify-between gap-2 mb-1">
+                <span className="font-bricolage text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-slate-900 group-hover/card:text-[#0052cb] transition-colors">
+                  <AnimatedCounter target={100} decimals={0} suffix="%" duration={1500} />
+                </span>
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-indigo-50 text-[9px] font-mono font-semibold text-indigo-600 border border-indigo-200/70 shrink-0">
+                  <ShieldCheck className="size-2.5 text-indigo-600" />
+                  VERIFIED
+                </span>
+              </div>
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-600 font-medium">
+                Zero-Debt Delivery
+              </span>
+              <span className="text-[9.5px] sm:text-[10.5px] text-slate-400 mt-0.5 font-mono">
+                SOC-2 &amp; ISO 27001 Standards
+              </span>
+            </motion.div>
+
+            {/* Metric 4: Rotating Animated Marquee of Featured Clients */}
+            <div className="flex flex-col sm:px-4 pt-2.5 sm:pt-0 justify-between overflow-hidden">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-slate-500 font-medium">
+                  Featured Partners &amp; Clients
+                </span>
+                <span className="text-[9px] font-mono text-slate-400 uppercase tracking-wider">
+                  Rotating •
+                </span>
+              </div>
+
+              {/* Seamless Infinite Gliding Marquee */}
+              <div className="relative overflow-hidden mask-fade-x w-full py-0.5">
+                <div
+                  className="flex w-max shrink-0 animate-marquee gap-2 sm:gap-2.5 hover:[animation-play-state:paused]"
+                  style={{ '--marquee-duration': '18s' } as React.CSSProperties}
+                >
+                  {/* First repetition */}
+                  {FEATURED_CLIENTS.map((client, i) => (
+                    <div
+                      key={`c1-${i}`}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100/90 hover:bg-blue-50 border border-slate-200/90 hover:border-[#0052cb]/40 transition-all duration-200 cursor-pointer shadow-2xs group/chip"
+                    >
+                      <span className="size-1.5 rounded-full bg-[#0052cb] group-hover/chip:scale-125 transition-transform" />
+                      <span className="font-bold text-[11px] tracking-wider text-slate-800 group-hover/chip:text-[#0052cb] transition-colors">
+                        {client.name}
+                      </span>
+                    </div>
+                  ))}
+
+                  {/* Second repetition for seamless loop */}
+                  {FEATURED_CLIENTS.map((client, i) => (
+                    <div
+                      key={`c2-${i}`}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100/90 hover:bg-blue-50 border border-slate-200/90 hover:border-[#0052cb]/40 transition-all duration-200 cursor-pointer shadow-2xs group/chip"
+                    >
+                      <span className="size-1.5 rounded-full bg-[#0052cb] group-hover/chip:scale-125 transition-transform" />
+                      <span className="font-bold text-[11px] tracking-wider text-slate-800 group-hover/chip:text-[#0052cb] transition-colors">
+                        {client.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
 
