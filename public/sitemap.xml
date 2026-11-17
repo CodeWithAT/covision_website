@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://covisionwebsite.vercel.app/</loc>
+    <loc>https://covisioninfotech.com/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://covisionwebsite.vercel.app/#ai</loc>
+    <loc>https://covisioninfotech.com/#ai</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://covisionwebsite.vercel.app/#services</loc>
+    <loc>https://covisioninfotech.com/#services</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://covisionwebsite.vercel.app/#saas</loc>
+    <loc>https://covisioninfotech.com/#saas</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://covisionwebsite.vercel.app/#living-tech</loc>
+    <loc>https://covisioninfotech.com/#living-tech</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://covisionwebsite.vercel.app/#clients</loc>
+    <loc>https://covisioninfotech.com/#clients</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://covisionwebsite.vercel.app/#about</loc>
+    <loc>https://covisioninfotech.com/#about</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://covisionwebsite.vercel.app/#contact</loc>
+    <loc>https://covisioninfotech.com/#contact</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://covisionwebsite.vercel.app/llms.txt</loc>
+    <loc>https://covisioninfotech.com/llms.txt</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>

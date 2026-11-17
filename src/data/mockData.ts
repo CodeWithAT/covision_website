@@ -2,7 +2,7 @@ import type { ServiceItem, EcommerceOffering, ClientPartner, CaseStudyItem, Test
 
 
 export const COVISION_PHILOSOPHY = {
-  name: 'CoVision Technologies',
+  name: 'CoVision Infotech',
   tagline: 'Living Technology: Where Engineering, AI & Design Converge',
   subheadline: 'A premier digital engineering and enterprise cloud partner. We build scalable software ecosystems that adapt to market shifts, automate operations, and drive lasting business growth.',
   paradigms: [
@@ -103,7 +103,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     id: 'app-development',
     number: '02',
     title: 'Application Development and Management',
-    tagline: 'Turbo-charge your mobile app development with Covision',
+    tagline: 'Turbo-charge your mobile app development with CoVision Infotech',
     category: 'App Development',
     description: 'Wide array of mobile app development solutions engineered for startups to enterprise-level IT architectures, delivering fluid 60fps performance and mission-critical reliability.',
     detailedScope: [
@@ -176,7 +176,7 @@ export const IT_SERVICES_DATA: ServiceItem[] = [
     badgeText: '03 • Analytics Practice',
     image: '/images/services/data_analytics.jpg',
     analyticsArsenal: {
-      leadText: 'At Covision, we harness an extensive arsenal of analytical tools and intelligent platforms, including Google Analytics, Microsoft Clarity, Crazy Egg, Mixpanel, HubSpot Analytics, Adobe Analytics, Shopify Analytics, Albert AI, Pricefx, Dynamic Yield, Persado, BuzzSumo, Stitch Fix algorithms, Google Trends, Qlik Sense, and Tableau. These technologies help businesses analyse critical performance indicators across key dimensions:',
+      leadText: 'At CoVision Infotech, we harness an extensive arsenal of analytical tools and intelligent platforms, including Google Analytics, Microsoft Clarity, Crazy Egg, Mixpanel, HubSpot Analytics, Adobe Analytics, Shopify Analytics, Albert AI, Pricefx, Dynamic Yield, Persado, BuzzSumo, Stitch Fix algorithms, Google Trends, Qlik Sense, and Tableau. These technologies help businesses analyse critical performance indicators across key dimensions:',
       tools: [
         'Google Analytics',
         'Microsoft Clarity',
@@ -550,7 +550,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
 
 export const TESTIMONIALS: TestimonialItem[] = [
   {
-    quote: 'CoVision engineered our entire payments architecture and mobile retail suite from scratch. Their mastery of Living Technology, TypeScript, and TanStack allowed us to pass strict audits and scale revenue by 38% in record time.',
+    quote: 'CoVision Infotech engineered our entire payments architecture and mobile retail suite from scratch. Their mastery of Living Technology, TypeScript, and TanStack allowed us to pass strict audits and scale revenue by 38% in record time.',
     author: 'Marcus Vance',
     role: 'Chief Technology Officer',
     company: 'FinGlobal Technologies (London)',
@@ -559,7 +559,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     verifiedEnterprise: true,
   },
   {
-    quote: 'When we integrated the custom 360° eCommerce Suite and global edge acceleration built by CoVision, our global API latency dropped from 280ms to 18ms. Their engineers do not just write code—they think like business owners.',
+    quote: 'When we integrated the custom 360° eCommerce Suite and global edge acceleration built by CoVision Infotech, our global API latency dropped from 280ms to 18ms. Their engineers do not just write code—they think like business owners.',
     author: 'Dr. Elena Rostova',
     role: 'VP of Engineering',
     company: 'Synapse AI Systems (San Francisco)',
@@ -580,14 +580,14 @@ export const TESTIMONIALS: TestimonialItem[] = [
 
 export const FAQ_DATA: FaqItem[] = [
   {
-    question: 'How does CoVision structure intellectual property (IP) and client confidentiality?',
+    question: 'How does CoVision Infotech structure intellectual property (IP) and client confidentiality?',
     category: 'Security & NDA',
     answer: 'We provide 100% intellectual property transfer to your company upon milestone completion. Before any code is viewed or scoping begins, we execute a legally binding Mutual Non-Disclosure Agreement (MNDA). All repositories, AWS/GCP accounts, and secrets remain under your direct corporate ownership.',
   },
   {
-    question: 'What is the "Living Technology" philosophy at CoVision?',
+    question: 'What is the "Living Technology" philosophy at CoVision Infotech?',
     category: 'Architecture',
-    answer: 'Covision: Technology That Connects Business and Creativity. We engineer proprietary software products, SaaS platforms, enterprise applications, and cloud infrastructure built for evolving business demands through the synergy of agile execution, DevOps automation, and autonomous AI integrations.',
+    answer: 'CoVision Infotech: Technology That Connects Business and Creativity. We engineer proprietary software products, SaaS platforms, enterprise applications, and cloud infrastructure built for evolving business demands through the synergy of agile execution, DevOps automation, and autonomous AI integrations.',
   },
   {
     question: 'What is included in the 360° eCommerce Suite?',

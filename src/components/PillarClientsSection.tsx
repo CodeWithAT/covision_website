@@ -401,7 +401,7 @@ export const PillarClientsSection: React.FC<PillarClientsSectionProps> = ({
               Ready to construct high-velocity digital infrastructure?
             </h4>
             <p className="text-xs sm:text-sm text-neutral-400">
-              Join Puma, Mango, and NovaPay in scaling mission-critical applications with CoVision.
+              Join Puma, Mango, and NovaPay in scaling mission-critical applications with CoVision Infotech.
             </p>
           </div>
 

@@ -38,7 +38,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({
           <SectionEyebrow number={sectionNumber} label="Corporate Identity & Mission" tone="dark" className="mb-6" />
 
           <h2 className="font-bricolage text-4xl sm:text-6xl font-medium text-ink tracking-tight leading-[1.02]">
-            About CoVision Technologies.
+            About CoVision Infotech.
           </h2>
           <p className="mt-4 font-inter-tight text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
             Full-cycle software engineering, high-scale global cloud infrastructure, and enterprise digital platforms delivering Living Technology worldwide.

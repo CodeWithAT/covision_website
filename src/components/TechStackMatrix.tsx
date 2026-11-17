@@ -44,7 +44,7 @@ const DELIVERY_PILLARS: DeliveryPillar[] = [
     sla: 'Multi-Cloud',
     slaLabel: 'Active-Active Redundancy',
     description:
-      'As detailed in our core strategy, our direct partnerships with leading hyperscalers enable CoVision to leverage cutting-edge cloud innovations, pre-release AI accelerators, and sovereign enterprise infrastructure to accelerate your digital transformation.',
+      'As detailed in our core strategy, our direct partnerships with leading hyperscalers enable CoVision Infotech to leverage cutting-edge cloud innovations, pre-release AI accelerators, and sovereign enterprise infrastructure to accelerate your digital transformation.',
     image: '/senior_image_catalog/01_Cloud_and_Datacenter/01_enterprise_datacenter_array.jpg',
     accentColor: '#0052cb',
     accentBorder: 'hover:border-blue-500/50',
@@ -228,7 +228,7 @@ export const TechStackMatrix: React.FC<TechStackMatrixProps> = ({ sectionNumber 
           </h2>
 
           <p className="mt-5 text-base sm:text-lg text-neutral-600 leading-relaxed font-normal">
-            How CoVision delivers at enterprise scale: Multi-cloud hyperscaler partnerships, autonomous cross-functional engineering pods, and guaranteed mission-critical SLAs.
+            How CoVision Infotech delivers at enterprise scale: Multi-cloud hyperscaler partnerships, autonomous cross-functional engineering pods, and guaranteed mission-critical SLAs.
           </p>
         </div>
 

@@ -1,4 +1,4 @@
-# CoVision Technologies Robots Directive
+# CoVision Infotech Robots Directive
 # Optimized for Web Indexing, Generative Search Engines (GEO), and LLMs
 
 User-agent: *
@@ -32,5 +32,5 @@ User-agent: CCBot
 Allow: /
 
 # Sitemap & LLM Knowledge Endpoints
-Sitemap: https://covisionwebsite.vercel.app/sitemap.xml
-# LLM Context: https://covisionwebsite.vercel.app/llms.txt
+Sitemap: https://covisioninfotech.com/sitemap.xml
+# LLM Context: https://covisioninfotech.com/llms.txt

@@ -176,7 +176,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                   <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-200/70">
                     <div className="text-[11px] font-bold uppercase tracking-wider text-[#0052cb] mb-1 flex items-center gap-1.5">
                       <span className="size-1.5 rounded-full bg-[#0052cb]" />
-                      <span>The CoVision Architecture Solution</span>
+                      <span>The CoVision Infotech Architecture Solution</span>
                     </div>
                     <div className="text-xs sm:text-sm text-neutral-800 font-medium leading-relaxed">
                       {activeStudy.solution}
@@ -255,7 +255,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                 {/* Topology Diagram Blueprint */}
                 <div className="mt-6 p-6 rounded-2xl bg-neutral-950 text-white font-mono text-xs space-y-4">
                   <div className="flex items-center justify-between text-neutral-400 border-b border-neutral-800 pb-2">
-                    <span>COVISION CLOUD INGRESS TOPOLOGY</span>
+                    <span>COVISION INFOTECH CLOUD INGRESS TOPOLOGY</span>
                     <span className="text-emerald-400">STATUS: VERIFIED LIVE</span>
                   </div>
 

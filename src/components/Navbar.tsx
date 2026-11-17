@@ -66,14 +66,14 @@ export const Navbar: React.FC<NavbarProps> = ({
       >
         <div className="flex items-center justify-between">
           
-          {/* Clean Enterprise Brand Identity: Pure CoVision without IT badge */}
+          {/* Clean Enterprise Brand Identity: CoVision Infotech */}
           <button
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-2.5 group cursor-pointer text-left bg-transparent border-0 p-0"
           >
             <span className="size-3 rounded-full bg-[#0052cb] shadow-sm shadow-blue-500/40 group-hover:scale-125 transition-transform" />
             <span className="font-bricolage text-2xl font-bold tracking-tight text-ink">
-              CoVision
+              CoVision <span className="text-[#0052cb]">Infotech</span>
             </span>
           </button>
 

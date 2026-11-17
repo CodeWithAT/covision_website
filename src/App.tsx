@@ -529,7 +529,7 @@ export const AppContent: React.FC = () => {
                 image="/images/banners/living_tech_banner_4k.webp?v=1"
                 pageName="Living Technology Philosophy"
                 title="Living Technology: Architecture & Delivery Framework"
-                subtitle="Covision: Technology That Connects Business and Creativity. Engineering proprietary software products, SaaS platforms, and cloud infrastructure built for evolving business demands."
+                subtitle="CoVision Infotech: Technology That Connects Business and Creativity. Engineering proprietary software products, SaaS platforms, and cloud infrastructure built for evolving business demands."
                 onBackToHome={() => handleNavigatePage('home')}
               />
               <LivingTechnologySection sectionNumber="01" />
@@ -573,7 +573,7 @@ export const AppContent: React.FC = () => {
             >
               <PageHeaderBanner
                 image="/images/banners/about_banner_4k.webp?v=1"
-                pageName="About CoVision"
+                pageName="About CoVision Infotech"
                 title="Engineering Living Technology. Where AI Converges."
                 subtitle="A premier enterprise digital engineering partner. We combine deep systems architecture, cognitive AI agents, and behavioral science design to build software ecosystems that adapt dynamically as enterprises scale."
                 actions={[

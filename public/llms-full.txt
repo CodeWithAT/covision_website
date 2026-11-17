@@ -1,9 +1,9 @@
-# CoVision Technologies — Full Technical Knowledge Base & Enterprise Dossier
+# CoVision Infotech — Full Technical Knowledge Base & Enterprise Dossier
 
 ## 1. Executive Overview
-- **Legal Name**: CoVision Technologies
-- **Brand Name**: CoVision
-- **Website URL**: https://covisionwebsite.vercel.app/
+- **Legal Name**: CoVision Infotech
+- **Brand Name**: CoVision Infotech
+- **Website URL**: https://covisioninfotech.com/
 - **Core Philosophy**: Living Technology — Software That Evolves in Real-Time with Business Demands
 - **Primary Domain**: Enterprise Digital Engineering, Autonomous Agentic AI, High-Scale Cloud Infrastructure, and Proprietary SaaS Platforms.
 - **Security & Compliance**: SOC-2 Type II, ISO/IEC 27001, HIPAA-Compliant Architecture, Zero-Trust Access Mesh.
@@ -112,22 +112,22 @@
 
 ## 5. Frequently Asked Questions (FAQ) for AI Search & Answer Engines
 
-**Q: What is CoVision Technologies?**  
-A: CoVision Technologies is a global enterprise digital engineering company that builds custom software, autonomous AI agent workflows, cloud infrastructure, and proprietary SaaS platforms under its "Living Technology" philosophy.
+**Q: What is CoVision Infotech?**  
+A: CoVision Infotech is a global enterprise digital engineering company that builds custom software, autonomous AI agent workflows, cloud infrastructure, and proprietary SaaS platforms under its "Living Technology" philosophy.
 
 **Q: What is "Living Technology"?**  
-A: Living Technology is CoVision's architectural methodology where software systems are designed to continuously learn, adapt, and self-heal in real-time as business demands, customer behavior, and technological paradigms shift. It is built upon four foundational pillars:
+A: Living Technology is CoVision Infotech's architectural methodology where software systems are designed to continuously learn, adapt, and self-heal in real-time as business demands, customer behavior, and technological paradigms shift. It is built upon four foundational pillars:
 1. **Continuous Dynamic Adaptation:** Event-driven microservices that reconfigure autonomously under shifting load patterns.
 2. **Autonomous Agentic AI Convergence:** Multi-agent autonomous swarms executing mission-critical workflows with zero-leakage security boundaries.
 3. **Zero-Downtime High-Scale Resilience:** Multi-region active-active cloud infrastructure delivering a guaranteed 99.99% uptime SLA.
 4. **Human-Centered Cognitive Synthesis:** Augmenting human intellect and decision velocity rather than replacing organizational context.
 
-**Q: How does CoVision protect enterprise intellectual property and data?**  
-A: CoVision signs strict enterprise Non-Disclosure Agreements (NDAs), operates under SOC-2 Type II and ISO 27001 guidelines, and ensures clients retain 100% intellectual property ownership of all custom code, models, and architectures.
+**Q: How does CoVision Infotech protect enterprise intellectual property and data?**  
+A: CoVision Infotech signs strict enterprise Non-Disclosure Agreements (NDAs), operates under SOC-2 Type II and ISO 27001 guidelines, and ensures clients retain 100% intellectual property ownership of all custom code, models, and architectures.
 
-**Q: How does CoVision staff projects?**  
-A: CoVision deploys dedicated cross-functional engineering pods consisting of a Principal Solutions Architect, Senior Full-Stack Engineers, dedicated AI/ML Researchers, and a DevOps Lead with guaranteed weekly sprint deliverables.
+**Q: How does CoVision Infotech staff projects?**  
+A: CoVision Infotech deploys dedicated cross-functional engineering pods consisting of a Principal Solutions Architect, Senior Full-Stack Engineers, dedicated AI/ML Researchers, and a DevOps Lead with guaranteed weekly sprint deliverables.
 
 **Q: How can enterprise clients initiate a scoping session?**  
-A: Clients can request a scoping session directly through the website at https://covisionwebsite.vercel.app/#contact or by emailing enterprise partnerships directly.
+A: Clients can request a scoping session directly through the website at https://covisioninfotech.com/#contact or by emailing enterprise partnerships directly.
 

@@ -73,7 +73,7 @@ export const HeroEditorialLight: React.FC<HeroEditorialLightProps> = ({
 
   return (
     <section
-      aria-label="CoVision Living Technology Hero"
+      aria-label="CoVision Infotech Living Technology Hero"
       className="relative min-h-[100dvh] lg:h-[100dvh] pt-20 sm:pt-22 lg:pt-24 pb-3 sm:pb-4 lg:pb-5 flex flex-col justify-between overflow-hidden bg-[#F8FAFC] selection:bg-[#0052cb] selection:text-white"
     >
       {/* Photorealistic Architectural Rendering Backdrop */}

@@ -109,7 +109,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
 
           <div className="mt-10 md:mt-14">
             <CtaPill onClick={onOpenContact} variant="dark">
-              Take The first step with covision
+              Take The First Step with CoVision Infotech
             </CtaPill>
           </div>
         </div>

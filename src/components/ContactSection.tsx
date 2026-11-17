@@ -63,9 +63,9 @@ const FormDots: React.FC<{ className?: string; orientation?: 'horizontal' | 'ver
 const GLOBAL_CHANNELS = [
   {
     icon: Mail,
-    label: 'contact@covision.tech',
+    label: 'contact@covisioninfotech.com',
     sub: 'Executive & Client Desk',
-    href: 'mailto:contact@covision.tech',
+    href: 'mailto:contact@covisioninfotech.com',
     tag: 'Response < 2h',
   },
   {
@@ -174,7 +174,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             transition={{ duration: 0.8, delay: 0.1, ease: smoothEase }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight font-bricolage leading-[1.12]"
           >
-            Take the First Step with CoVision
+            Take the First Step with CoVision Infotech
           </motion.h2>
 
           <motion.p
@@ -303,7 +303,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="CoVision Technologies on LinkedIn"
+                    aria-label="CoVision Infotech on LinkedIn"
                     className="hover:text-white transition-colors font-medium flex items-center gap-1.5"
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -316,7 +316,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="CoVision Technologies on Instagram"
+                    aria-label="CoVision Infotech on Instagram"
                     className="hover:text-white transition-colors font-medium flex items-center gap-1.5"
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -562,7 +562,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
                       <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Routing to CoVision Leads via Resend...
+                      Routing to CoVision Infotech Leads via Resend...
                     </span>
                   ) : (
                     <>

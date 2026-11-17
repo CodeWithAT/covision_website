@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
               Two Specialized Domains. One Standard of Engineering Excellence.
             </h3>
             <p className="font-inter-tight text-sm text-neutral-600 max-w-2xl">
-              From enterprise software engineering and high-velocity eCommerce at <strong className="text-ink">CoVision</strong>, to generative AI visuals, 3D, and VFX at our sister studio <strong className="text-ink">Cognitive Media</strong>.
+              From enterprise software engineering and high-velocity eCommerce at <strong className="text-ink">CoVision Infotech</strong>, to generative AI visuals, 3D, and VFX at our sister studio <strong className="text-ink">Cognitive Media</strong>.
             </p>
           </div>
 
@@ -73,7 +73,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
             <div className="mb-6 flex items-center gap-2.5">
               <div className="size-5 rounded-full bg-[#0052cb]" />
               <h2 className="font-bricolage text-2xl font-bold tracking-tight text-ink">
-                CoVision Technologies
+                CoVision Infotech
               </h2>
             </div>
             <p className="mb-10 max-w-sm font-inter-tight text-lg leading-relaxed text-neutral-600">
@@ -81,11 +81,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
             </p>
             <div className="mb-10 space-y-4 font-inter-tight">
               <a
-                href="mailto:contact@covision.tech"
+                href="mailto:contact@covisioninfotech.com"
                 className="flex w-fit items-center gap-4 text-neutral-600 transition-colors hover:text-ink"
               >
                 <Mail className="size-4 text-[#0052cb]" />
-                <span className="text-sm">contact@covision.tech</span>
+                <span className="text-sm">contact@covisioninfotech.com</span>
               </a>
             </div>
           </div>
@@ -183,11 +183,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
           }}
           className="text-center select-none"
         >
-          <p className="whitespace-nowrap bg-gradient-to-b from-ink/35 via-ink/15 to-transparent bg-clip-text font-bricolage text-[16vw] lg:text-[13.5rem] font-black leading-[0.78] tracking-[-0.04em] text-transparent">
-            CoVision
+          <p className="whitespace-nowrap bg-gradient-to-b from-ink/35 via-ink/15 to-transparent bg-clip-text font-bricolage text-[13vw] lg:text-[11.5rem] font-black leading-[0.78] tracking-[-0.04em] text-transparent">
+            CoVision Infotech
           </p>
           <div className="text-xs md:text-sm font-mono tracking-[0.35em] uppercase text-neutral-400 -mt-2 mb-4">
-            Living Technology • CogniVision Ecosystem
+            Living Technology • Enterprise Digital Engineering
           </div>
         </motion.div>
       </div>
@@ -197,7 +197,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-6">
           <div className="flex flex-col items-center justify-between gap-4 font-inter-tight md:flex-row">
             <p className="text-sm text-neutral-500">
-              © {CURRENT_YEAR} COVISION TECHNOLOGIES PRIVATE LIMITED. All rights reserved.
+              © {CURRENT_YEAR} COVISION INFOTECH PRIVATE LIMITED. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm">
               <button
@@ -350,7 +350,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
                       <CheckCircle2 className="size-4 text-[#0052cb] shrink-0 mt-0.5" />
                       <div>
                         <strong className="text-slate-900 block font-semibold">60-Day Complimentary Hypercare Warranty</strong>
-                        <span className="text-xs text-slate-600">Following production launch, CoVision provides 60 continuous days of warranty support covering bug remediation, regression resolution, and performance telemetry tuning at zero added charge.</span>
+                        <span className="text-xs text-slate-600">Following production launch, CoVision Infotech provides 60 continuous days of warranty support covering bug remediation, regression resolution, and performance telemetry tuning at zero added charge.</span>
                       </div>
                     </div>
 

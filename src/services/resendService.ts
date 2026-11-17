@@ -43,7 +43,7 @@ export const dispatchContactInquiry = async (
         <div class="container">
           <div class="header">
             <div class="badge">Living Technology • Inbound Scope Request</div>
-            <h1 style="margin: 0; font-size: 24px; font-weight: 700;">CoVision Technologies</h1>
+            <h1 style="margin: 0; font-size: 24px; font-weight: 700;">CoVision Infotech</h1>
             <p style="margin: 8px 0 0; opacity: 0.9; font-size: 14px;">Direct Consultation Lead via Resend Gateway</p>
           </div>
           <div class="content">
@@ -95,7 +95,7 @@ export const dispatchContactInquiry = async (
             </div>
           </div>
           <div class="footer">
-            Dispatched securely via CoVision Resend Gateway • Response guaranteed within 4 hours (SLA tier 1).
+            Dispatched securely via CoVision Infotech Resend Gateway • Response guaranteed within 4 hours (SLA tier 1).
           </div>
         </div>
       </body>
@@ -112,9 +112,9 @@ export const dispatchContactInquiry = async (
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'CoVision Inquiries <onboarding@resend.dev>',
-          to: ['solutions@covision.tech', formData.email],
-          subject: `[CoVision Inquiry] ${formData.inquiryType} - ${formData.company}`,
+          from: 'CoVision Infotech Inquiries <onboarding@resend.dev>',
+          to: ['solutions@covisioninfotech.com', formData.email],
+          subject: `[CoVision Infotech Inquiry] ${formData.inquiryType} - ${formData.company}`,
           html: emailHtml,
         }),
 
@@ -125,7 +125,7 @@ export const dispatchContactInquiry = async (
         return {
           success: true,
           id: data.id,
-          message: 'Inquiry dispatched to CoVision Engineering via Resend API.',
+          message: 'Inquiry dispatched to CoVision Infotech Engineering via Resend API.',
           deliveredTo: formData.email,
           sentAt: new Date().toISOString(),
           previewHtml: emailHtml,

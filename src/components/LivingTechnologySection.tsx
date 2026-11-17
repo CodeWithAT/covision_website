@@ -39,7 +39,7 @@ const DEFINING_PILLARS: DefiningPillar[] = [
   },
   {
     number: '02',
-    title: 'The CoVision Trifecta',
+    title: 'The CoVision Infotech Trifecta',
     subtitle: 'Engineering • Artificial Intelligence • Immersive Design',
     category: 'Unified Capabilities',
     tagline: 'When code, intelligence, and visual storytelling operate as one unified force.',
@@ -139,7 +139,7 @@ export const LivingTechnologySection: React.FC<LivingTechnologySectionProps> = (
 
           <div className="lg:col-span-5 space-y-5 lg:pt-2">
             <p className="text-base sm:text-lg leading-relaxed text-slate-800 font-normal">
-              <strong className="font-bold text-slate-900">CoVision</strong> delivers integrated software engineering, AI-powered solutions, and creative production that address evolving business needs.
+              <strong className="font-bold text-slate-900">CoVision Infotech</strong> delivers integrated software engineering, AI-powered solutions, and creative production that address evolving business needs.
             </p>
             <p className="border-t border-slate-200/80 pt-4 text-sm sm:text-[15px] leading-relaxed text-slate-600">
               We build connected digital ecosystems where software, data, and artificial intelligence function as an intelligent, continuously evolving system—processing information, responding to changing conditions, optimising operations, and expanding capabilities as business demands grow.

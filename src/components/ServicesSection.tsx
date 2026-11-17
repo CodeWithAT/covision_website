@@ -117,7 +117,7 @@ const SERVICE_SHOWCASES = [
     icon: Smartphone,
     badge: 'Application Practice',
     title: 'Application Development & Management',
-    headline: 'Turbo-charge your mobile and web presence with CoVision engineering.',
+    headline: 'Turbo-charge your mobile and web presence with CoVision Infotech engineering.',
     body: 'Wide array of mobile app development solutions engineered for consumer-grade fluidity and mission-critical enterprise reliability — from native hardware-accelerated apps to progressive web experiences that reach users on every device.',
     image: '/images/services/mobile_app_development.webp',
     imageAlt: 'Enterprise Mobile Application Engineering',
@@ -230,7 +230,7 @@ const SERVICE_SHOWCASES = [
     badge: 'Design Practice',
     title: 'UX / UI Design',
     headline: 'UX/UI Design is a Dialogue, Not Decoration — Creating Seamless Connections Between Brands and Users.',
-    body: 'At CoVision, design is grounded in cognitive psychology and behavioural science. We design interfaces that think, react, and resonate with users — powered by the CoVision Lattice™ design system: an operational strategy delivering scalable, user-centric products.',
+    body: 'At CoVision Infotech, design is grounded in cognitive psychology and behavioural science. We design interfaces that think, react, and resonate with users — powered by the CoVision Lattice™ design system: an operational strategy delivering scalable, user-centric products.',
     image: '/images/services/ux_ui_design_modern.jpg',
     imageAlt: 'CoVision UX/UI Design Studio',
     bullets: [

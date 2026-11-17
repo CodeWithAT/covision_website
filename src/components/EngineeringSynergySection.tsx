@@ -21,7 +21,7 @@ export const EngineeringSynergySection: React.FC = () => {
             </p> */}
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              <strong className="font-semibold text-slate-900">AI is no longer a support system</strong>—it’s the central nervous system of modern software development. At CoVision, we don’t just adopt Agile, Scrum, and DevOps—our competitive advantage comes from integration of these three powerhouses with AI to build smarter, faster, and future-ready digital ecosystems.
+              <strong className="font-semibold text-slate-900">AI is no longer a support system</strong>—it’s the central nervous system of modern software development. At CoVision Infotech, we don’t just adopt Agile, Scrum, and DevOps—our competitive advantage comes from integration of these three powerhouses with AI to build smarter, faster, and future-ready digital ecosystems.
             </p>
 
             {/* Preserved / commented out per request */}
