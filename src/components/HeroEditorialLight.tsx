@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, FileText, Check, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import { getLenisInstance } from '../lib/lenis'
 
 interface HeroEditorialLightProps {
@@ -15,15 +15,15 @@ export const HeroEditorialLight: React.FC<HeroEditorialLightProps> = ({
   const handleScrollDown = () => {
     const lenis = getLenisInstance()
     if (lenis) {
-      lenis.scrollTo(window.innerHeight * 0.9)
+      lenis.scrollTo(window.innerHeight * 0.88)
     } else {
-      window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' })
+      window.scrollBy({ top: window.innerHeight * 0.88, behavior: 'smooth' })
     }
   }
 
   return (
     <section
-      aria-label="Enterprise Architectural Technology Hero"
+      aria-label="CoVision Living Technology Hero"
       className="relative min-h-[94vh] pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 flex flex-col justify-between overflow-hidden bg-[#F8FAFC] selection:bg-[#0052cb] selection:text-white"
     >
       {/* Photorealistic Architectural Rendering Backdrop */}
@@ -47,7 +47,7 @@ export const HeroEditorialLight: React.FC<HeroEditorialLightProps> = ({
 
         {/* Smooth Light Architectural Vignette & Text Readability Gradients */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#F8FAFC] via-[#F8FAFC]/75 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5]/90 via-[#FAF9F5]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5]/95 via-[#FAF9F5]/50 to-transparent" />
 
         {/* Ambient Cobalt Caustic Illumination */}
         <div className="absolute inset-0 ambient-glow-cobalt pointer-events-none" />
@@ -56,7 +56,7 @@ export const HeroEditorialLight: React.FC<HeroEditorialLightProps> = ({
       {/* Main Center Content Container */}
       <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col items-center text-center mt-2 sm:mt-6 lg:mt-8">
         
-        {/* Trust & Certification Eyebrow Badge */}
+        {/* Eyebrow Floating Pill: Exact content from original Hero */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,72 +64,70 @@ export const HeroEditorialLight: React.FC<HeroEditorialLightProps> = ({
           className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-pill-light border border-slate-200/90 text-xs text-slate-700 mb-6 sm:mb-8 shadow-xs cursor-default hover:border-slate-300 transition-colors"
         >
           <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-60" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-60" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0052cb]" />
           </span>
-          <span className="font-semibold tracking-wide text-slate-900 inline-flex items-center gap-1">
-            <ShieldCheck className="size-3.5 text-[#0052cb]" />
-            SOC-2 Type II &amp; ISO 27001 Certified
+          <span className="font-semibold tracking-wide text-slate-900">
+            Living Technology
           </span>
-          <span className="text-slate-300 hidden xs:inline">•</span>
-          <span className="text-slate-600 hidden xs:inline">
-            Powering Global Autonomous Workloads
+          <span className="text-slate-300">•</span>
+          <span className="text-slate-600">
+            Technology, AI &amp; Multimedia Convergence
           </span>
         </motion.div>
 
-        {/* Monumental Headline */}
+        {/* Monumental Headline: Exact headline from instruction.txt & original Hero */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           className="font-bricolage text-3.5xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-[#090D16] max-w-5xl leading-[1.08] mb-5 sm:mb-7 drop-shadow-xs"
         >
-          The architectural foundation for{' '}
-          <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#090D16] via-[#1E293B] to-[#334155]">
-            autonomous enterprise intelligence
+          Living Technology for{' '}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0052cb] via-[#1d4ed8] to-[#0284c7]">
+            Modern Enterprises
           </span>
-          .
         </motion.h1>
 
-        {/* High-Precision Value Proposition Sub-headline */}
+        {/* Subtitle: Exact text from instruction.txt & original Hero */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           className="text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-relaxed max-w-3xl mb-8 sm:mb-10 tracking-tight"
         >
-          Engineered for mission-critical infrastructure. Combining deterministic low-latency kernel runtimes, zero-compromise hardware-enclaved security, and self-orchestrating compute fabrics for global scale.
+          We engineer resilient software, intelligent digital ecosystems, and cloud-native infrastructure that unite technology, commerce, and creativity to drive business agility, innovation, and sustainable growth.
         </motion.p>
 
-        {/* Conversion Action Buttons */}
+        {/* Action Buttons: Exact CTAs from original Hero ("Get Started" & "Explore Services") */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
           className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 w-full sm:w-auto mb-8 sm:mb-10"
         >
-          {/* Primary Action Button */}
+          {/* Primary Action Button: Get Started */}
           <button
             type="button"
             onClick={() => onOpenContact()}
             className="btn-shimmer-cobalt w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 sm:py-4 rounded-xl bg-[#0052cb] hover:bg-[#003da8] text-white text-sm sm:text-[15px] font-semibold tracking-wide border border-blue-500/30 transition duration-200 cursor-pointer shadow-lg shadow-blue-600/30 hover:scale-[1.02]"
           >
-            <span>Deploy Enterprise Cluster</span>
+            <span>Get Started</span>
             <ArrowRight className="w-4 h-4 text-white/90" />
           </button>
 
-          {/* Secondary Action Button */}
+          {/* Secondary Action Button: Explore Services */}
           <button
             type="button"
             onClick={() => onNavigatePage('services')}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-xl bg-white/85 hover:bg-white text-slate-800 hover:text-slate-950 text-sm sm:text-[15px] font-medium tracking-wide border border-slate-200/90 transition duration-200 shadow-xs backdrop-blur-md cursor-pointer hover:border-slate-300 hover:scale-[1.01]"
           >
-            <FileText className="w-4 h-4 text-slate-500" />
-            <span>Architecture Monograph (PDF)</span>
+            <span>Explore Services</span>
+            <ArrowRight className="w-4 h-4 text-slate-500" />
           </button>
         </motion.div>
 
-        {/* Conversion Assurances Row */}
+        {/* Assurances Row */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -138,17 +136,17 @@ export const HeroEditorialLight: React.FC<HeroEditorialLightProps> = ({
         >
           <span className="inline-flex items-center gap-1.5">
             <Check className="w-4 h-4 text-[#0052cb] stroke-[2.5]" />
-            Dedicated Solutions Architect
+            Enterprise Software &amp; SaaS Platforms
           </span>
           <span className="text-slate-300 hidden sm:inline">•</span>
           <span className="inline-flex items-center gap-1.5">
             <Check className="w-4 h-4 text-[#0052cb] stroke-[2.5]" />
-            Direct Bare-Metal &amp; VPC Enclaves
+            Autonomous AI &amp; Cloud Infrastructure
           </span>
           <span className="text-slate-300 hidden sm:inline">•</span>
           <span className="inline-flex items-center gap-1.5">
             <Check className="w-4 h-4 text-[#0052cb] stroke-[2.5]" />
-            99.999% Deterministic SLA
+            Agile × Scrum × DevOps × AI Delivery
           </span>
         </motion.div>
       </div>
@@ -165,59 +163,59 @@ export const HeroEditorialLight: React.FC<HeroEditorialLightProps> = ({
             {/* Metric 1 */}
             <div className="flex flex-col sm:px-6 first:pl-0">
               <span className="font-bricolage text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900 mb-1">
-                99.999%
+                99.99%
               </span>
               <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">
-                Uptime Determinism
+                Uptime Reliability
               </span>
               <span className="text-[11px] text-slate-400 mt-1 font-mono">
-                Dual-Zone Redundancy
+                High-Availability Clusters
               </span>
             </div>
 
             {/* Metric 2 */}
             <div className="flex flex-col sm:px-6 pt-6 sm:pt-0">
               <span className="font-bricolage text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900 mb-1">
-                &lt; 1.20ms
+                10x
               </span>
               <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">
-                P99 Global Latency
+                Developer Velocity
               </span>
               <span className="text-[11px] text-slate-400 mt-1 font-mono">
-                Benchmarked at 10M QPS
+                AI-Assisted CI/CD Pipelines
               </span>
             </div>
 
             {/* Metric 3 */}
             <div className="flex flex-col sm:px-6 pt-6 sm:pt-0">
               <span className="font-bricolage text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900 mb-1">
-                $420B+
+                100%
               </span>
               <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">
-                Secured Annually
+                Zero-Debt Delivery
               </span>
               <span className="text-[11px] text-slate-400 mt-1 font-mono">
-                Zero-Knowledge Verification
+                SOC-2 &amp; ISO 27001 Standards
               </span>
             </div>
 
             {/* Metric 4: Trust Validation Marks */}
             <div className="flex flex-col sm:px-6 pt-6 sm:pt-0 justify-between">
               <span className="text-[11px] uppercase tracking-widest text-slate-500 font-medium mb-3">
-                Enterprise Validation
+                Featured Partners &amp; Clients
               </span>
-              <div className="flex flex-wrap items-center gap-4 sm:gap-5 opacity-75 hover:opacity-100 transition duration-300">
-                <span className="font-bold text-xs tracking-wider text-slate-800">
-                  NOVARTIS
-                </span>
-                <span className="font-bold text-xs tracking-wider text-slate-800">
-                  VANGUARD
-                </span>
-                <span className="font-bold text-xs tracking-wider text-slate-800">
-                  BLOOMBERG
-                </span>
+              <div className="flex flex-wrap items-center gap-4 sm:gap-5 opacity-80 hover:opacity-100 transition duration-300">
                 <span className="font-bold text-xs tracking-wider text-slate-800">
                   PUMA
+                </span>
+                <span className="font-bold text-xs tracking-wider text-slate-800">
+                  NOVAPAY
+                </span>
+                <span className="font-bold text-xs tracking-wider text-slate-800">
+                  FILA
+                </span>
+                <span className="font-bold text-xs tracking-wider text-slate-800">
+                  SILVER MAHARAJA
                 </span>
               </div>
             </div>
