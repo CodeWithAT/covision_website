@@ -173,20 +173,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
         </div>
       </div>
 
-      {/* Giant CoVision Signature Watermark with Smooth Scroll-Linked Reveal */}
-      <div aria-hidden="true" className="mx-auto max-w-7xl overflow-hidden px-4 md:px-6 pt-4 pb-2">
+      {/* Giant CoVision Infotech Signature Watermark with Smooth Scroll-Linked Reveal */}
+      <div aria-hidden="true" className="mx-auto max-w-7xl overflow-hidden px-4 sm:px-6 md:px-8 pt-4 pb-2">
         <motion.div
           style={{
             scale: watermarkScale,
             opacity: watermarkOpacity,
             y: watermarkY,
           }}
-          className="text-center select-none"
+          className="flex flex-col items-center justify-center text-center select-none"
         >
-          <p className="whitespace-nowrap bg-gradient-to-b from-ink/35 via-ink/15 to-transparent bg-clip-text font-bricolage text-[13vw] lg:text-[11.5rem] font-black leading-[0.78] tracking-[-0.04em] text-transparent">
+          <p className="whitespace-nowrap bg-gradient-to-b from-ink/35 via-ink/15 to-transparent bg-clip-text font-bricolage text-[clamp(2.25rem,7.5vw,7.25rem)] font-black leading-[0.88] tracking-[-0.03em] text-transparent">
             CoVision Infotech
           </p>
-          <div className="text-xs md:text-sm font-mono tracking-[0.35em] uppercase text-neutral-400 -mt-2 mb-4">
+          <div className="text-[clamp(0.65rem,1.15vw,0.85rem)] font-mono tracking-[0.16em] sm:tracking-[0.24em] uppercase text-neutral-400 mt-1 sm:mt-2 mb-4">
             Living Technology • Enterprise Digital Engineering
           </div>
         </motion.div>
