@@ -5,7 +5,8 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { queryClient } from './lib/queryClient'
 import { useLenis } from './lib/lenis'
 import { Navbar } from './components/Navbar'
-import { Hero } from './components/Hero'
+// import { Hero } from './components/Hero' // BACKUP: Original obsidian globe hero preserved intact
+import { HeroEditorialLight } from './components/HeroEditorialLight'
 // import { MarqueeDivider } from './components/MarqueeDivider'
 import { PracticePortfoliosSection } from './components/PracticePortfoliosSection'
 import { EngineeringSynergySection } from './components/EngineeringSynergySection'
@@ -363,11 +364,18 @@ export const AppContent: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col"
             >
-              {/* Executive Hero with Active Rotating Globe */}
+              {/* Primary: Editorial Light Architectural Hero (from Stitch design) */}
+              <HeroEditorialLight
+                onNavigatePage={handleNavigatePage}
+                onOpenContact={() => handleOpenContact()}
+              />
+
+              {/* BACKUP PRESERVED: Executive Obsidian Hero with Active Rotating Globe
               <Hero
                 onNavigatePage={handleNavigatePage}
                 onOpenContact={() => handleOpenContact()}
               />
+              */}
 
               {/* CogniMedia Signature Marquee Divider (Hidden per request) */}
               {/* <MarqueeDivider /> */}
